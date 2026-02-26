@@ -9,11 +9,6 @@ npm install
 npm run dev
 ```
 
-브라우저에서 http://localhost:5173 접속
-
-## 로그인
-
-- **테스트 비밀번호**: `readquest123`
 
 ## 화면 흐름
 
