@@ -25,28 +25,17 @@
 }
 
 .carousel {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 20px 16px 32px;
-  margin: 0 -16px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carousel::-webkit-scrollbar {
-  height: 8px;
-}
-
-.carousel::-webkit-scrollbar-thumb {
-  background: #bdbdbd;
-  border-radius: 4px;
+  padding: 20px 0 32px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .bookCard {
-  flex: 0 0 auto;
-  width: clamp(160px, 38vw, 220px);
-  scroll-snap-align: center;
+  width: 100%;
+  min-width: 0;
   padding: 0;
   background: transparent;
   border: none;
@@ -89,31 +78,26 @@
   margin-top: var(--space-lg);
 }
 
-@media (min-width: 768px) {
+/* 2열 */
+@media (min-width: 480px) {
   .carousel {
-    padding: 24px 24px 40px;
-    margin: 0;
-  }
-  .bookCard {
-    width: clamp(180px, 22vw, 220px);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 24px 0 40px;
   }
 }
 
-/* 가로가 넓을 때 4열 그리드 */
+/* 3열 */
+@media (min-width: 768px) {
+  .carousel {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 24px 0 48px;
+  }
+}
+
+/* 4열 */
 @media (min-width: 1024px) {
   .carousel {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    overflow: visible;
-    scroll-snap-type: none;
-    padding: 24px 32px 48px;
-    margin: 0 auto;
-    max-width: 1200px;
-  }
-
-  .bookCard {
-    width: 100%;
-    scroll-snap-align: unset;
+    padding: 24px 0 48px;
   }
 }
