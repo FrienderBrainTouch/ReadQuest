@@ -561,12 +561,10 @@ function OrderingPlay({
             </ol>
           </div>
           <p className={styles.answerLabel}>설명</p>
-          <p className={styles.explanation}>
+          <p className={`${styles.explanation} ${styles.explanationOrdering}`}>
             {content.explanationCorrect != null && content.explanationWrong != null
               ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
-              : isCorrect
-                ? `설명: ${content.explanation}`
-                : `설명: 정답 순서대로라서 이야기 흐름이 맞아요. ${stripExplanationPrefix(content.explanation)}`}
+              : `설명: ${stripExplanationPrefix(content.explanation)}`}
           </p>
           <div className={styles.resultButtons}>
             {canRequestMore && (

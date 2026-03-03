@@ -277,6 +277,12 @@
   white-space: pre-line;
 }
 
+/* 순서 맞추기 설명: 글자 수가 많아 읽기 편하도록 작은 글자 */
+.explanationOrdering {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
 .answerLabel {
   font-size: var(--text-lg);
   font-weight: 700;
