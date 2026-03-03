@@ -1,5 +1,8 @@
 import type { Content, ContentType } from './books';
 
+/** id/order 없이 콘텐츠만 넣을 때 타입 단언용 (유니온 리터럴 초과속성 검사 회피) */
+type ContentWithoutIdOrder = Omit<Content, 'id' | 'order'>;
+
 /** 미리 생성된 문제가 있는 책 ID */
 export const PRE_GENERATED_BOOK_IDS = ['book-mary', 'book-mongmong'] as const;
 
@@ -16,8 +19,12 @@ function shuffle<T>(arr: T[]): T[] {
   return out;
 }
 
-function withIdsAndOrder(contents: Omit<Content, 'id' | 'order'>[], baseId: string): Content[] {
-  return contents.map((c, i) => ({
+function withIdsAndOrder(
+  contents: Array<ContentWithoutIdOrder | (Record<string, unknown> & { type: ContentType })>,
+  baseId: string
+): Content[] {
+  const list = contents as ContentWithoutIdOrder[];
+  return list.map((c, i) => ({
     ...c,
     id: `${baseId}-${i}`,
     order: i + 1,
