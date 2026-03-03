@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getBookById } from '../data/books';
 import type {
@@ -9,6 +9,7 @@ import type {
   OrderingContent,
   FillBlankContent,
 } from '../data/books';
+import { getPreGeneratedContents } from '../data/preGeneratedQuestions';
 import { generateNextContent } from '../services/ai';
 import styles from './ContentPlay.module.css';
 
@@ -25,6 +26,22 @@ function shuffle<T>(arr: T[]): T[] {
   return out;
 }
 
+/** 설명 앞 또는 "정답은 O예요." 다음의 "맞아요. ", "아니에요. " 제거 */
+function stripExplanationPrefix(text: string): string {
+  return text
+    .replace(/^(맞아요\.\s*|아니에요\.\s*)/, '')
+    .replace(/(\.\s*)(맞아요\.\s*|아니에요\.\s*)/, '$1');
+}
+
+/** "정답인 이유:" / "틀린 이유:" → "설명:"으로 바꾸고, 맞아요/아니에요 제거 */
+function normalizeExplanation(text: string): string {
+  let s = text;
+  if (s.startsWith('정답인 이유:')) s = '설명: ' + s.slice('정답인 이유:'.length).trimStart();
+  else if (s.startsWith('틀린 이유:')) s = '설명: ' + s.slice('틀린 이유:'.length).trimStart();
+  const afterLabel = s.startsWith('설명: ') ? s.slice('설명: '.length) : s;
+  return s.startsWith('설명: ') ? '설명: ' + stripExplanationPrefix(afterLabel) : stripExplanationPrefix(s);
+}
+
 export default function ContentPlay() {
   const { bookId, contentType } = useParams<{ bookId: string; contentType: ContentType }>();
   const navigate = useNavigate();
@@ -37,6 +54,7 @@ export default function ContentPlay() {
   const [loadingNext, setLoadingNext] = useState(false);
   const [noFirstQuestion, setNoFirstQuestion] = useState(false);
   const [noMore, setNoMore] = useState(false);
+  const isPreGeneratedMode = useRef(false);
 
   const handleBack = useCallback(() => {
     navigate(`/books/${bookId}`);
@@ -46,6 +64,15 @@ export default function ContentPlay() {
     if (!book || !contentType) return;
     if (questions.length > 0) return;
 
+    const preGenerated = getPreGeneratedContents(book.id, contentType);
+    if (preGenerated && preGenerated.length > 0) {
+      isPreGeneratedMode.current = true;
+      setQuestions(preGenerated);
+      setLoadingFirst(false);
+      return;
+    }
+
+    isPreGeneratedMode.current = false;
     let cancelled = false;
     setLoadingFirst(true);
     setNoFirstQuestion(false);
@@ -79,6 +106,11 @@ export default function ContentPlay() {
     if (currentIndex + 1 < total) {
       setCurrentIndex((i) => i + 1);
       setShowResult(false);
+      return;
+    }
+
+    if (isPreGeneratedMode.current) {
+      setNoMore(true);
       return;
     }
 
@@ -317,7 +349,14 @@ function OxQuizPlay({
           <div className={styles.resultBadge} data-correct={isCorrect}>
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
-          <p className={styles.explanation}>{content.explanation}</p>
+          <p className={styles.answerLabel}>정답: {content.correctAnswer}</p>
+          <p className={styles.explanation}>
+            {content.explanationCorrect != null && content.explanationWrong != null
+              ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
+              : isCorrect
+                ? `설명: ${content.explanation}`
+                : `설명: 정답은 ${content.correctAnswer}예요. ${stripExplanationPrefix(content.explanation)}`}
+          </p>
           <div className={styles.resultButtons}>
             {canRequestMore && (
               <button
@@ -383,7 +422,14 @@ function MultipleChoicePlay({
           <div className={styles.resultBadge} data-correct={isCorrect}>
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
-          <p className={styles.explanation}>{content.explanation}</p>
+          <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
+          <p className={styles.explanation}>
+            {content.explanationCorrect != null && content.explanationWrong != null
+              ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
+              : isCorrect
+                ? `설명: ${content.explanation}`
+                : `설명: 정답은 "${content.options[content.correctIndex]}"예요. ${stripExplanationPrefix(content.explanation)}`}
+          </p>
           <div className={styles.resultButtons}>
             {canRequestMore && (
               <button
@@ -504,7 +550,24 @@ function OrderingPlay({
           <div className={styles.resultBadge} data-correct={isCorrect}>
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
-          <p className={styles.explanation}>{content.explanation}</p>
+          <div className={styles.orderingAnswerBlock}>
+            <p className={styles.answerLabel}>정답 순서</p>
+            <ol className={styles.orderingAnswerList}>
+              {content.items.map((item, i) => (
+                <li key={i} className={styles.orderingAnswerItem}>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <p className={styles.answerLabel}>설명</p>
+          <p className={styles.explanation}>
+            {content.explanationCorrect != null && content.explanationWrong != null
+              ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
+              : isCorrect
+                ? `설명: ${content.explanation}`
+                : `설명: 정답 순서대로라서 이야기 흐름이 맞아요. ${stripExplanationPrefix(content.explanation)}`}
+          </p>
           <div className={styles.resultButtons}>
             {canRequestMore && (
               <button
@@ -570,7 +633,14 @@ function FillBlankPlay({
           <div className={styles.resultBadge} data-correct={isCorrect}>
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
-          <p className={styles.explanation}>{content.explanation}</p>
+          <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
+          <p className={styles.explanation}>
+            {content.explanationCorrect != null && content.explanationWrong != null
+              ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
+              : isCorrect
+                ? `설명: ${content.explanation}`
+                : `설명: 정답은 "${content.options[content.correctIndex]}"예요. ${stripExplanationPrefix(content.explanation)}`}
+          </p>
           <div className={styles.resultButtons}>
             {canRequestMore && (
               <button

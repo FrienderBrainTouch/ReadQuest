@@ -7,6 +7,10 @@ export interface OxQuizContent {
   question: string;
   correctAnswer: 'O' | 'X';
   explanation: string;
+  /** 정답일 때 보여줄 설명(정답인 이유). 없으면 explanation 사용 */
+  explanationCorrect?: string;
+  /** 오답일 때 보여줄 설명(틀린 이유). 없으면 explanation 사용 */
+  explanationWrong?: string;
   order: number;
 }
 
@@ -17,6 +21,8 @@ export interface MultipleChoiceContent {
   options: string[];
   correctIndex: number;
   explanation: string;
+  explanationCorrect?: string;
+  explanationWrong?: string;
   order: number;
 }
 
@@ -26,6 +32,8 @@ export interface OrderingContent {
   question: string;
   items: string[];
   explanation: string;
+  explanationCorrect?: string;
+  explanationWrong?: string;
   order: number;
 }
 
@@ -36,6 +44,8 @@ export interface FillBlankContent {
   options: string[];
   correctIndex: number;
   explanation: string;
+  explanationCorrect?: string;
+  explanationWrong?: string;
   order: number;
 }
 
@@ -53,9 +63,10 @@ export interface Book {
   contentForPrompt: string;
 }
 
-export const MOCK_PASSWORD = 'readquest123';
+export const MOCK_PASSWORD = '1234';
 
 export const BOOKS: Book[] = [
+  /* --- 이전 도서 (일단 주석) ---
   {
     id: 'book-1',
     title: '토끼와 거북이',
@@ -109,6 +120,19 @@ export const BOOKS: Book[] = [
     title: '호랑이와 곶감',
     coverColor: '#FF9F43',
     contentForPrompt: `한국 전래동화 「호랑이와 곶감」(범보다 무서운 곶감). 배고픈 호랑이가 산에서 마을로 내려와, 우는 아이를 달래는 어머니 말을 엿듣는다. 어머니가 "호랑이가 왔다"고 해도 아이가 울자 호랑이는 자신을 무서워하지 않는 줄 안다. "곶감 있으니까 울지 말아라"라고 하자 아이 울음이 뚝 그친다. 호랑이는 곶감이 자기보다 더 무서운 존재라고 착각해 겁을 먹는다. 그때 소도둑이 호랑이를 소로 착각해 등에 올라탄다. 호랑이는 곶감이라고 생각하고 죽을 힘으로 도망친다. 소도둑은 달빛에 호랑이임을 알고 나뭇가지에서 뛰어내리고, 호랑이와 소도둑 모두 다시는 마을에 오지 않게 된다. 교훈: 오해와 재치, 강자의 어리석음과 약자의 지혜.`,
+  },
+  --- */
+  {
+    id: 'book-mary',
+    title: '메리식당',
+    coverColor: '#E8A87C',
+    contentForPrompt: `아무도 고슴도치 씨를 좋아하지 않았습니다. 고슴도치 씨는 속으로 겁이 나고 마음이 오해받고 있다고 느꼈습니다. 흰 눈이 사락사락 내렸고, 고슴도치 씨는 좁은 길을 나와 넓은 길로 갔습니다. 나뭇가지에 걸린 빨간 풍선을 보았고, 풍선에는 "메리 크리스마스"라고 쓰여 있었습니다. 풍선이 골목 끝 오랫동안 문이 닫혀 있던 이름 없는 식당 앞에서 멈췄습니다. 수염이 눈처럼 하얀 할아버지가 맞아주었고, 식당 한가운데에는 커다랗고 둥근 식탁이 있었습니다. 길냥이 씨, 기러기 씨, 거북이 씨도 와 있었고 모두 빨간 풍선을 의자에 매달았습니다. 고슴도치 씨는 오므라이스를 골랐고, 할아버지는 "마음을 안아 주는 오므라이스입니다."라고 말했습니다. 눈사람 그릇이었고, 한 입씩 먹을 때마다 크리스마스 기억이 떠올랐습니다. 식당 안은 웃음으로 가득했고, 케이크에 "마음이 사르르 녹아요"라고 적혀 있었습니다. 모두 "메리 크리스마스"라고 말했습니다. 고슴도치 씨는 버스 정류장 옆 빨간 냄비에 동전을 넣었고, 밤이 되자 그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸습니다.`,
+  },
+  {
+    id: 'book-mongmong',
+    title: '몽몽 숲의 박쥐 두마리',
+    coverColor: '#85CDCA',
+    contentForPrompt: `몽몽 숲에 달콤 박쥐와 뾰족 박쥐가 이사를 왔어요. 달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았지요. 달콤 박쥐는 "나무님! 꽃향기가 참 좋아요."라고 인사하자 과일나무가 가지를 살랑살랑 흔들었어요. 뾰족 박쥐는 "이 못생긴 나무야!"라고 투덜대자 가시나무가 가시로 콕콕 찔렀어요. 달콤 박쥐는 "괜찮니?"라고 물었고, 뾰족 박쥐는 "상관 마!"라고 했어요. 몽몽 숲에 나비들이 날아들었을 때 달콤 박쥐는 "어서 오세요!"라고 맞이했지만 뾰족 박쥐는 "저리 가!"라고 했어요. 동물들이 찾아왔을 때도 달콤 박쥐는 반갑게 반겼고 뾰족 박쥐는 "흥!"이라고 했어요. 보름달이 뜨자 달콤 박쥐는 "고마워요"라고 했고 뾰족 박쥐는 "눈부셔!"라고 했어요. 과일나무에 탐스런 열매가 열리자 달콤 박쥐는 동물들을 초대해 나눠 먹었어요. 가시나무에는 딱딱한 열매가 열렸고 뾰족 박쥐는 "퉤퉤!"라고 하며 가지를 꺾었더니 열매가 떨어져 "살려!"라고 외쳤어요. 달콤 박쥐가 "울지 마, 친구야. 나랑 가서 열매 먹자."라고 해서 둘은 과일나무로 갔고, 뾰족 박쥐는 "고마워!"라고 했어요. 두 박쥐는 사이좋게 매달렸어요.`,
   },
 ];
 
