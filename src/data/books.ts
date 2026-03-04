@@ -1,5 +1,14 @@
-/** AI가 생성하는 콘텐츠 타입 */
-export type ContentType = 'ox_quiz' | 'multiple_choice' | 'ordering' | 'fill_blank';
+/** AI가 생성하는 콘텐츠 타입 + 도서별 확장 활동 타입 */
+export type ContentType =
+  | 'ox_quiz'
+  | 'multiple_choice'
+  | 'ordering'
+  | 'fill_blank'
+  | 'emotion_stair'
+  | 'elimination_reasons'
+  | 'categorize'
+  | 'match_pairs'
+  | 'choice_with_result';
 
 export interface OxQuizContent {
   id: string;
@@ -49,11 +58,80 @@ export interface FillBlankContent {
   order: number;
 }
 
+/** 감정 흐름 계단: 5단계 감정에 사건 카드 배치 (메리식당) */
+export interface EmotionStairContent {
+  id: string;
+  type: 'emotion_stair';
+  question: string;
+  steps: string[];
+  items: string[];
+  /** 각 단계(인덱스)에 들어갈 정답 카드의 item 인덱스. stepIndex -> itemIndex (한 단계에 하나씩). length = steps.length */
+  correctPlacement?: number[];
+  /** 단계별 설명. correctPlacement[stepIndex]인 카드가 그 단계에 왜 어울리는지. length = steps.length */
+  stepExplanations?: string[];
+  explanation?: string;
+  order: number;
+}
+
+/** 따뜻해진 이유 찾기: 겉이유 제거 후 진짜 이유만 남기기 (메리식당) */
+export interface EliminationReasonsContent {
+  id: string;
+  type: 'elimination_reasons';
+  question: string;
+  reasons: string[];
+  realReasonIndices: number[];
+  explanation?: string;
+  order: number;
+}
+
+/** 이야기 구조 나누기: 시작·중간·끝으로 카드 분류 (메리식당) */
+export interface CategorizeContent {
+  id: string;
+  type: 'categorize';
+  question: string;
+  categories: string[];
+  items: string[];
+  correctPlacement: number[];
+  explanation?: string;
+  order: number;
+}
+
+/** 말-결과 연결: 왼쪽 말 카드와 오른쪽 결과 카드 매칭 (몽몽 숲) */
+export interface MatchPairsContent {
+  id: string;
+  type: 'match_pairs';
+  question: string;
+  leftItems: string[];
+  rightItems: string[];
+  correctPairs: [number, number][];
+  explanation?: string;
+  /** 결과 화면에서 표시할 자세한 설명 (짝별 인과 설명 등) */
+  detailedExplanation?: string;
+  order: number;
+}
+
+/** 같은 상황 다른 말: 선택에 따라 결과 문장 제시 (몽몽 숲) */
+export interface ChoiceWithResultContent {
+  id: string;
+  type: 'choice_with_result';
+  situation: string;
+  options: string[];
+  resultTexts: string[];
+  correctIndex: number;
+  explanation?: string;
+  order: number;
+}
+
 export type Content =
   | OxQuizContent
   | MultipleChoiceContent
   | OrderingContent
-  | FillBlankContent;
+  | FillBlankContent
+  | EmotionStairContent
+  | EliminationReasonsContent
+  | CategorizeContent
+  | MatchPairsContent
+  | ChoiceWithResultContent;
 
 export interface Book {
   id: string;

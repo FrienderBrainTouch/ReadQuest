@@ -25,6 +25,11 @@ export async function generateNextContent(params: {
     multiple_choice: '{"type":"multiple_choice","question":"질문","options":["보기1","보기2","보기3","보기4"],"correctIndex":0~3,"explanation":"설명"}',
     ordering: '{"type":"ordering","question":"순서를 맞춰 보세요","items":["첫번째","두번째",...],"explanation":"설명"}',
     fill_blank: '{"type":"fill_blank","sentence":"문장(빈칸 ___)","options":["보기1",...],"correctIndex":0~3,"explanation":"설명"}',
+    emotion_stair: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    elimination_reasons: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    categorize: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    match_pairs: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    choice_with_result: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
   };
 
   const systemPrompt = `당신은 초등학교 1~3학년 독서 교육용 학습 문제를 만드는 선생님입니다.

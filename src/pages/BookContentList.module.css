@@ -66,6 +66,8 @@
   font-size: var(--text-lg);
   text-align: center;
   color: var(--color-text);
+  cursor: pointer;
+  border: none;
 }
 
 .card:hover {
@@ -94,6 +96,17 @@
 
 .cardIcon[data-type="fill_blank"] {
   background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+}
+
+.cardIcon[data-type="emotion_stair"],
+.cardIcon[data-type="elimination_reasons"],
+.cardIcon[data-type="categorize"] {
+  background: linear-gradient(135deg, #e8a87c 0%, #c38d9e 100%);
+}
+
+.cardIcon[data-type="match_pairs"],
+.cardIcon[data-type="choice_with_result"] {
+  background: linear-gradient(135deg, #85cdca 0%, #41b3a3 100%);
 }
 
 .cardLabel {
