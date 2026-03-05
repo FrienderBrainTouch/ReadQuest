@@ -36,7 +36,8 @@ function shuffle<T>(arr: T[]): T[] {
 /** 설명 앞의 "정답은 … 예요/이에요." 또는 "맞아요. ", "아니에요. " 제거 (UI에서 정답 문구를 따로 넣으므로 중복 방지) */
 function stripExplanationPrefix(text: string): string {
   return text
-    .replace(/^정답은\s*["""][^"""]*["""]\s*(이에요|예요)\.\s*/u, '')
+    // 따옴표 종류에 상관없이 "정답은 … 예요." / "정답은 … 이에요." 한 덩어리 제거 (중복 방지)
+    .replace(/^정답은\s*.+?(이에요|예요)\.\s*/u, '')
     .replace(/^(맞아요\.\s*|아니에요\.\s*)/, '')
     .replace(/(\.\s*)(맞아요\.\s*|아니에요\.\s*)/, '$1');
 }

@@ -780,7 +780,7 @@ const mongmongOrdering: Content[] = withIdsAndOrder(
 
 const mongmongFillBlank: Content[] = withIdsAndOrder(
   [
-    { type: 'fill_blank', sentence: '몽몽 숲에 ___ 박쥐와 뾰족 박쥐가 이사 왔어요.', options: ['달콤', '뾰족', '과일'], correctIndex: 0, explanation: '정답은 “달콤”이에요. “몽몽 숲에 달콤 박쥐와 뾰족 박쥐가 이사를 왔어”라고 나와 있어요. 달콤 박쥐는 다정한 말을, 뾰족 박쥐는 뾰족한 말을 해서 이름이 그렇게 붙었어요. 둘 다 몽몽 숲에 와서 각각 과일나무와 가시나무에 자리를 잡았어요.' },
+    { type: 'fill_blank', sentence: '몽몽 숲에 ( ) 박쥐와 뾰족 박쥐가 이사 왔어요.', options: ['달콤', '뾰족', '과일'], correctIndex: 0, explanation: '정답은 “달콤”이에요. “몽몽 숲에 달콤 박쥐와 뾰족 박쥐가 이사를 왔어”라고 나와 있어요. 달콤 박쥐는 다정한 말을, 뾰족 박쥐는 뾰족한 말을 해서 이름이 그렇게 붙었어요. 둘 다 몽몽 숲에 와서 각각 과일나무와 가시나무에 자리를 잡았어요.' },
     { type: 'fill_blank', sentence: '달콤 박쥐는 ( )나무에 자리를 잡았어요.', options: ['과일', '가시', '꽃'], correctIndex: 0, explanation: '정답은 “과일”이에요. “달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았지”라고 나와 있어요. 달콤 박쥐가 “꽃향기가 참 좋아요”라고 인사하자 과일나무가 가지를 살랑살랑 흔들어 줬어요.' },
     { type: 'fill_blank', sentence: '뾰족 박쥐는 ( )나무에 자리를 잡았어요.', options: ['가시', '과일', '꽃'], correctIndex: 0, explanation: '정답은 “가시”예요. 뾰족 박쥐는 가시나무에 자리를 잡았어요. “이 못생긴 나무야!”라고 투덜대자 가시나무가 가시로 콕콕 찔렀고, 나중에는 딱딱한 열매가 열려서 “퉤퉤!” 하다가 열매에 맞아 “살려!”라고 외쳤어요.' },
     { type: 'fill_blank', sentence: '"나무님! ( )가 참 좋아요."', options: ['꽃향기', '열매', '그늘'], correctIndex: 0, explanation: '정답은 “꽃향기”예요. 달콤 박쥐가 “나무님! 꽃향기가 참 좋아요.”라고 활짝 웃으며 인사했어요. 그 말에 과일나무가 가지를 살랑살랑 흔들어 줬어요. 따뜻한 말에는 나무도 기쁘게 반응하는 거예요.' },
