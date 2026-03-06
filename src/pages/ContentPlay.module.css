@@ -19,6 +19,9 @@
   .wrapper {
     max-width: 800px;
   }
+  .wrapperWide {
+    max-width: 960px;
+  }
 }
 
 .header {
@@ -301,6 +304,90 @@
   margin: var(--space-xs) 0;
 }
 
+/* 같은 상황 다른 말: 결과 화면 선택/정답 표시 */
+.choiceResultSummary {
+  text-align: left;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+.choiceResultSummary .answerLabel {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+.choiceResultSummary .answerLabel:first-child {
+  margin-top: 0;
+}
+.choiceOptionSelected {
+  margin: 0 0 var(--space-md) 0;
+  padding: var(--space-sm) var(--space-md);
+  background: #fef9e7;
+  border-left: 4px solid #f4d03f;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+.choiceOptionCorrect {
+  margin: 0 0 var(--space-sm) 0;
+  padding: var(--space-sm) var(--space-md);
+  background: #eafaf1;
+  border-left: 4px solid #27ae60;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+.choiceOptionWrongHint {
+  margin: var(--space-sm) 0 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+}
+
+/* 같은 상황 다른 말: 정답/선택 이야기 좌우 2열 */
+.choiceStoriesRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  width: 100%;
+  margin: var(--space-md) 0;
+  text-align: left;
+}
+.choiceStoriesRowSingle {
+  grid-template-columns: 1fr;
+}
+@media (max-width: 640px) {
+  .choiceStoriesRow {
+    grid-template-columns: 1fr;
+  }
+}
+.choiceStoryColumn {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+.choiceStoryTitle {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--color-text-soft);
+}
+.choiceStoryColumn:first-child .choiceStoryTitle {
+  color: #1e8449;
+}
+.choiceStoryColumn:last-child .choiceStoryTitle {
+  color: #922b21;
+}
+.choiceStoryColumn .resultTextBlock {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.choiceStoryColumn .resultTextLine {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .situationBlock,
 .resultTextBlock {
   text-align: center;
@@ -390,6 +477,19 @@
   border-radius: var(--radius-md);
 }
 
+/* 함께하면 어떻게 될까? 카드 목록: 배경 제거, 카드 세로 중앙 정렬 */
+.extensionActivityCardList {
+  background: none;
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+.extensionActivityCardList .optionList {
+  justify-content: center;
+}
+
 .extensionLabel {
   font-size: var(--text-sm);
   font-weight: 600;
@@ -462,6 +562,24 @@
   font-size: var(--text-sm);
   color: var(--color-text-soft);
   margin: var(--space-xs) 0 0;
+}
+
+/* 경청 3단계: 멈춘다/기울인다/기다린다 간단 설명 (항상 표시) */
+.listeningThreeStepLegend {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  text-align: left;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+.listeningThreeStepLegendItem {
+  margin: var(--space-xs) 0;
+}
+.listeningThreeStepLegendItem strong {
+  color: var(--color-primary);
 }
 
 /* 감정 계단: 단계 영역 + 카드 풀 */

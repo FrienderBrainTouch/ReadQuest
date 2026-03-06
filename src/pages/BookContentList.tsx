@@ -15,7 +15,7 @@ const CONTENT_ITEMS: { type: ContentType; label: string; subLabel: string }[] = 
   { type: 'match_pairs', label: '말-결과 연결', subLabel: '말과 결과를 이어요' },
   { type: 'choice_with_result', label: '같은 상황 다른 말', subLabel: '말에 따른 결과를 비교해요' },
   { type: 'crisis_resolution', label: '위기 상황 해결하기', subLabel: '이럴 때 친구는 무엇을 해야 할까요?' },
-  { type: 'together_outcome', label: '함께하면 어떻게 될까?', subLabel: '혼자라면? 함께라면? 드래그로 나눠요' },
+  { type: 'together_outcome', label: '함께하면 어떻게 될까?', subLabel: '함께라면의 결과를 골라요' },
   { type: 'listening_three_step', label: '경청 3단계 실천 판단하기', subLabel: '멈춘다 / 기울인다 / 기다린다 중 고르기' },
 ];
 
