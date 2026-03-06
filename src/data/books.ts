@@ -8,7 +8,10 @@ export type ContentType =
   | 'elimination_reasons'
   | 'categorize'
   | 'match_pairs'
-  | 'choice_with_result';
+  | 'choice_with_result'
+  | 'crisis_resolution'
+  | 'together_outcome'
+  | 'listening_three_step';
 
 export interface OxQuizContent {
   id: string;
@@ -122,6 +125,44 @@ export interface ChoiceWithResultContent {
   order: number;
 }
 
+/** 위기 상황 해결하기: 친구의 역할을 상황 속에서 판단 (막대기랑 돌멩이랑) */
+export interface CrisisResolutionContent {
+  id: string;
+  type: 'crisis_resolution';
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+  explanationCorrect?: string;
+  explanationWrong?: string;
+  order: number;
+}
+
+/** 함께하면 어떻게 될까?: 혼자 vs 함께 결과 드래그 분류 (막대기랑 돌멩이랑) */
+export interface TogetherOutcomeContent {
+  id: string;
+  type: 'together_outcome';
+  question: string;
+  categories: string[];
+  items: string[];
+  correctPlacement: number[];
+  explanation?: string;
+  order: number;
+}
+
+/** 경청 3단계 실천 판단하기: 멈춘다/기울인다/기다린다 중 고르기 (커다란 귀) */
+export interface ListeningThreeStepContent {
+  id: string;
+  type: 'listening_three_step';
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+  explanationCorrect?: string;
+  explanationWrong?: string;
+  order: number;
+}
+
 export type Content =
   | OxQuizContent
   | MultipleChoiceContent
@@ -131,7 +172,10 @@ export type Content =
   | EliminationReasonsContent
   | CategorizeContent
   | MatchPairsContent
-  | ChoiceWithResultContent;
+  | ChoiceWithResultContent
+  | CrisisResolutionContent
+  | TogetherOutcomeContent
+  | ListeningThreeStepContent;
 
 export interface Book {
   id: string;
@@ -215,6 +259,20 @@ export const BOOKS: Book[] = [
     coverColor: '#85CDCA',
     coverImage: '/covers/mongmong-cover.png',
     contentForPrompt: `몽몽 숲에 달콤 박쥐와 뾰족 박쥐가 이사를 왔어요. 달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았지요. 달콤 박쥐는 "나무님! 꽃향기가 참 좋아요."라고 인사하자 과일나무가 가지를 살랑살랑 흔들었어요. 뾰족 박쥐는 "이 못생긴 나무야!"라고 투덜대자 가시나무가 가시로 콕콕 찔렀어요. 달콤 박쥐는 "괜찮니?"라고 물었고, 뾰족 박쥐는 "상관 마!"라고 했어요. 몽몽 숲에 나비들이 날아들었을 때 달콤 박쥐는 "어서 오세요!"라고 맞이했지만 뾰족 박쥐는 "저리 가!"라고 했어요. 동물들이 찾아왔을 때도 달콤 박쥐는 반갑게 반겼고 뾰족 박쥐는 "흥!"이라고 했어요. 보름달이 뜨자 달콤 박쥐는 "고마워요"라고 했고 뾰족 박쥐는 "눈부셔!"라고 했어요. 과일나무에 탐스런 열매가 열리자 달콤 박쥐는 동물들을 초대해 나눠 먹었어요. 가시나무에는 딱딱한 열매가 열렸고 뾰족 박쥐는 "퉤퉤!"라고 하며 가지를 꺾었더니 열매가 떨어져 "살려!"라고 외쳤어요. 달콤 박쥐가 "울지 마, 친구야. 나랑 가서 열매 먹자."라고 해서 둘은 과일나무로 갔고, 뾰족 박쥐는 "고마워!"라고 했어요. 두 박쥐는 사이좋게 매달렸어요.`,
+  },
+  {
+    id: 'book-stick-pebble',
+    title: '막대기랑 돌멩이랑',
+    coverColor: '#C4A77D',
+    coverImage: '/covers/stick-pebble-cover.png',
+    contentForPrompt: `막대기와 돌멩이 이야기. 막대기는 1을, 돌멩이는 0을 닮았어요. 처음엔 둘 다 외롭고 쓸쓸했어요. 막대기가 놀러 오고 돌멩이도 놀러 왔는데, 솔방울이 다가와 돌멩이를 놀렸어요. 막대기가 "저리 가!"라고 소리치자 효과가 있었고, 돌멩이가 "와! 네가 날 막아 줬어!"라고 속삭였어요. "그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지." 막대기랑 돌멩이는 함께 돌아다니고 탐험하고 바닷가에서 쉬었어요. 갑자기 천둥과 비바람에 허리케인이 몰아치고 막대기가 바람에 날아갔어요. 돌멩이가 "꽉 잡아!"라고 외쳤지만 돌멩이는 다시 혼자가 되었어요. 돌멩이는 낮에도 밤에도 "막대기야?" 하고 찾아다녔지만 막대기는 보이지 않았어요. 커다란 웅덩이에 막대기가 꽂혀 있는 걸 발견했어요. 돌멩이가 "도와줘!" 하는 소리를 듣고 재빨리 굴러가서 "자, 간다아아!" 하고 첨벙 들어가 막대기를 구했어요. "정말 잘 굴렀어, 돌멩아!" "그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지." 막대기랑 돌멩이는 다시 함께 있고 10을 닮았어요. 완벽한 짝꿍이에요. 마지막에 솔방울이 "놀려서 미안해.."라고 사과했어요.`,
+  },
+  {
+    id: 'book-big-ear',
+    title: '나의 경청 이야기: 친구를 만드는 커다란 귀',
+    coverColor: '#F5D0C5',
+    coverImage: '/covers/big-ear-cover.png',
+    contentForPrompt: `나의 경청 이야기: 친구를 만드는 커다란 귀. 나는 듣기 싫은 소리가 들리면 귀를 접는 아이였다. 엄마 아빠 말은 귓등으로, 선생님 말은 쇠귀에 경 읽기, 친구 말은 한 귀로 듣고 한 귀로 흘렸다. 마녀가 옆집으로 이사 왔고 간판에는 "뭐든지 들어 드립니다. 누구나 들어 드립니다. 언제나 들어 드립니다"라고 적혀 있었다. 성난 아주머니가 마녀 집에 들어갔다가 순한 양처럼 나오는 걸 보고 나는 마녀를 관찰했다. 마녀가 하는 말은 "그랬군요." "너무 웃겨요." "그래서요?" "정말요?" 같은 짧은 말뿐이었다. 나는 마녀에게 차를 마시며 "난 친구가 하나도 없어요"라고 말했고, 마녀는 "진짜? 친구가 많게 생겼는데?"라고 물었다. 마녀는 "우정은 듣는 데서 시작한다", "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다", "입은 하나고 귀는 두 개인거야 잘 들으라고", "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻"이라고 가르쳐 줬다. 잘 들으려면 멈춘다(하던 일을 멈추고 참견·비난·충고하고 싶은 마음을 멈춤), 기울인다(몸과 마음을 상대에게 기울이고 눈을 바라보고 고개를 끄덕임), 기다린다(끼어들지 않고 말을 다 할 때까지 기다림). 경청은 마법이라고 했고, 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 다르게 보인다고 했다. 나는 결국 친구가 생겼다.`,
   },
 ];
 

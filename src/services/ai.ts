@@ -30,6 +30,9 @@ export async function generateNextContent(params: {
     categorize: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     match_pairs: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     choice_with_result: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    crisis_resolution: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    together_outcome: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    listening_three_step: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
   };
 
   const systemPrompt = `당신은 초등학교 1~3학년 독서 교육용 학습 문제를 만드는 선생님입니다.

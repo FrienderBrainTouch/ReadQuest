@@ -42,14 +42,14 @@
 
 .bookSection {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1280px;
   position: relative;
 }
 
 .bookGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(20px, 4vw, 28px);
+  gap: clamp(24px, 5vw, 36px);
   padding: 0;
 }
 
@@ -59,6 +59,7 @@
   align-items: center;
   width: 100%;
   min-width: 0;
+  min-height: 280px;
   padding: 0;
   background: transparent;
   border: none;
@@ -78,13 +79,13 @@
 
 .bookCover {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 12px;
+  aspect-ratio: 4 / 4.2;
+  min-height: 200px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 12px;
-  min-height: 0;
+  padding: 18px 16px;
   overflow: hidden;
   box-shadow:
     0 4px 14px rgba(44, 95, 79, 0.12),
@@ -110,7 +111,7 @@
 }
 
 .bookCoverTitle {
-  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
   color: #2d3436;
   text-align: center;
   line-height: 1.4;
@@ -120,8 +121,8 @@
 
 .bookTitle {
   display: block;
-  margin-top: 12px;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  margin-top: 16px;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
   color: #2c5f4f;
   line-height: 1.35;
   word-break: keep-all;
@@ -130,13 +131,14 @@
 
 @media (min-width: 600px) {
   .bookGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(24px, 4vw, 32px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(28px, 5vw, 40px);
   }
 }
 
 @media (min-width: 900px) {
   .bookGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(32px, 5vw, 44px);
   }
 }

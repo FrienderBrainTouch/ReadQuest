@@ -109,6 +109,18 @@
   background: linear-gradient(135deg, #85cdca 0%, #41b3a3 100%);
 }
 
+.cardIcon[data-type="crisis_resolution"] {
+  background: linear-gradient(135deg, #e67e22 0%, #c0392b 100%);
+}
+
+.cardIcon[data-type="together_outcome"] {
+  background: linear-gradient(135deg, #27ae60 0%, #2980b9 100%);
+}
+
+.cardIcon[data-type="listening_three_step"] {
+  background: linear-gradient(135deg, #F5D0C5 0%, #e8b4b8 100%);
+}
+
 .cardLabel {
   font-weight: bold;
 }

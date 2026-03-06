@@ -13,6 +13,9 @@ import type {
   CategorizeContent,
   MatchPairsContent,
   ChoiceWithResultContent,
+  CrisisResolutionContent,
+  TogetherOutcomeContent,
+  ListeningThreeStepContent,
 } from '../data/books';
 import { getPreGeneratedContents } from '../data/preGeneratedQuestions';
 import { generateNextContent } from '../services/ai';
@@ -347,6 +350,45 @@ export default function ContentPlay() {
           <ChoiceWithResultPlay
             key={current.id}
             content={current as ChoiceWithResultContent}
+            showResult={showResult}
+            setShowResult={setShowResult}
+            onBack={handleBack}
+            onNext={handleNext}
+            canRequestMore={canRequestMore}
+            loadingNext={loadingNext}
+            index={currentIndex}
+          />
+        )}
+        {current.type === 'crisis_resolution' && (
+          <CrisisResolutionPlay
+            key={current.id}
+            content={current as CrisisResolutionContent}
+            showResult={showResult}
+            setShowResult={setShowResult}
+            onBack={handleBack}
+            onNext={handleNext}
+            canRequestMore={canRequestMore}
+            loadingNext={loadingNext}
+            index={currentIndex}
+          />
+        )}
+        {current.type === 'together_outcome' && (
+          <TogetherOutcomePlay
+            key={current.id}
+            content={current as TogetherOutcomeContent}
+            showResult={showResult}
+            setShowResult={setShowResult}
+            onBack={handleBack}
+            onNext={handleNext}
+            canRequestMore={canRequestMore}
+            loadingNext={loadingNext}
+            index={currentIndex}
+          />
+        )}
+        {current.type === 'listening_three_step' && (
+          <ListeningThreeStepPlay
+            key={current.id}
+            content={current as ListeningThreeStepContent}
             showResult={showResult}
             setShowResult={setShowResult}
             onBack={handleBack}
@@ -1339,6 +1381,7 @@ function MatchPairsPlay({
                         ? styles.pairMatched
                         : ''
                   }
+                  data-selected={selectedLeft === origL ? 'true' : undefined}
                   onClick={() => handleLeftClick(origL)}
                   onKeyDown={(e) => e.key === 'Enter' && handleLeftClick(origL)}
                 >
@@ -1352,6 +1395,7 @@ function MatchPairsPlay({
                       e.stopPropagation();
                       handleLeftClick(origL);
                     }}
+                    aria-hidden
                   />
                 </li>
               ))}
@@ -1370,6 +1414,7 @@ function MatchPairsPlay({
                       ? styles.pairRightHighlight
                       : ''
                   }
+                  data-selected={selectedRight === origR ? 'true' : undefined}
                   onClick={() => handleRightClick(origR)}
                   onKeyDown={(e) => e.key === 'Enter' && handleRightClick(origR)}
                 >
@@ -1382,6 +1427,7 @@ function MatchPairsPlay({
                       e.stopPropagation();
                       handleRightClick(origR);
                     }}
+                    aria-hidden
                   />
                   <span className={styles.pairText}>{content.rightItems[origR]}</span>
                 </li>
@@ -1479,6 +1525,301 @@ function ChoiceWithResultPlay({
             {canRequestMore && (
               <button type="button" className={styles.checkButton} onClick={onNext} disabled={loadingNext}>
                 {loadingNext ? '다음 불러오는 중...' : '다음'}
+              </button>
+            )}
+            <button type="button" className={styles.backToContentBtn} onClick={onBack}>
+              활동 끝내기
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+function CrisisResolutionPlay({
+  content,
+  showResult,
+  setShowResult,
+  onBack,
+  onNext,
+  canRequestMore,
+  loadingNext,
+  index,
+}: PlayCommonProps & { content: CrisisResolutionContent }) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [optionOrder] = useState<number[]>(() => shuffle(content.options.map((_, i) => i)));
+  const isCorrect = selectedIndex === content.correctIndex;
+
+  function handleSelect(idx: number) {
+    if (showResult) return;
+    setSelectedIndex(idx);
+    setShowResult(true);
+  }
+
+  return (
+    <>
+      <div className={styles.questionArea}>
+        <p className={styles.question}>
+          {index + 1}번 · {content.question}
+        </p>
+      </div>
+      {!showResult ? (
+        <div className={styles.optionList}>
+          {optionOrder.map((origIdx) => (
+            <button
+              key={origIdx}
+              type="button"
+              className={styles.optionButton}
+              onClick={() => handleSelect(origIdx)}
+            >
+              {content.options[origIdx]}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.resultArea}>
+          <div className={styles.resultBadge} data-correct={isCorrect}>
+            {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
+          </div>
+          <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
+          <p className={styles.explanation}>
+            {content.explanationCorrect != null && content.explanationWrong != null
+              ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
+              : isCorrect
+                ? `설명: ${content.explanation}`
+                : `설명: 정답은 "${content.options[content.correctIndex]}"예요. ${stripExplanationPrefix(content.explanation)}`}
+          </p>
+          <div className={styles.resultButtons}>
+            {canRequestMore && (
+              <button
+                type="button"
+                className={styles.checkButton}
+                onClick={onNext}
+                disabled={loadingNext}
+              >
+                {loadingNext ? '다음 문제 불러오는 중...' : '다음 문제'}
+              </button>
+            )}
+            <button type="button" className={styles.backToContentBtn} onClick={onBack}>
+              활동 끝내기
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+function TogetherOutcomePlay({
+  content,
+  showResult,
+  setShowResult,
+  onBack,
+  onNext,
+  canRequestMore,
+  loadingNext,
+  index,
+}: PlayCommonProps & { content: TogetherOutcomeContent }) {
+  const [itemToCategory, setItemToCategory] = useState<Record<number, number>>({});
+  const [draggedItem, setDraggedItem] = useState<number | null>(null);
+  const [itemOrder] = useState<number[]>(() => shuffle(content.items.map((_, i) => i)));
+  const n = content.categories.length;
+
+  const assignItem = (itemIndex: number, catIndex: number) => {
+    setItemToCategory((prev) => ({ ...prev, [itemIndex]: catIndex }));
+  };
+
+  const handleDragStart = (e: React.DragEvent, itemIndex: number) => {
+    setDraggedItem(itemIndex);
+    e.dataTransfer.setData('text/plain', String(itemIndex));
+    e.dataTransfer.effectAllowed = 'move';
+  };
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+  const handleDrop = (e: React.DragEvent, catIndex: number) => {
+    e.preventDefault();
+    const idx = e.dataTransfer.getData('text/plain');
+    if (idx !== '') assignItem(Number(idx), catIndex);
+    setDraggedItem(null);
+  };
+  const handleDragEnd = () => setDraggedItem(null);
+
+  const correct =
+    content.items.length && content.correctPlacement.length === content.items.length
+      ? content.items.filter((_, i) => itemToCategory[i] === content.correctPlacement[i]).length
+      : 0;
+  const total = content.items.length;
+  const isCorrect = total > 0 && correct === total;
+
+  if (showResult) {
+    return (
+      <>
+        <div className={styles.questionArea}>
+          <p className={styles.question}>{index + 1}번 · {content.question}</p>
+        </div>
+        <div className={styles.resultArea}>
+          <div className={styles.resultBadge} data-correct={isCorrect}>
+            {isCorrect ? '정답이에요!' : `${correct}개 맞았어요`}
+          </div>
+          {content.explanation && (
+            <p className={styles.explanation}>{content.explanation}</p>
+          )}
+          <div className={styles.resultButtons}>
+            {canRequestMore && (
+              <button type="button" className={styles.checkButton} onClick={onNext} disabled={loadingNext}>
+                {loadingNext ? '다음 불러오는 중...' : '다음 문제'}
+              </button>
+            )}
+            <button type="button" className={styles.backToContentBtn} onClick={onBack}>
+              활동 끝내기
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  const byCategory = Array.from({ length: n }, (_, catIdx) =>
+    content.items
+      .map((text, itemIdx) => ({ text, itemIdx }))
+      .filter(({ itemIdx }) => itemToCategory[itemIdx] === catIdx)
+  );
+  const unassigned = content.items
+    .map((text, itemIdx) => ({ text, itemIdx }))
+    .filter(({ itemIdx }) => itemToCategory[itemIdx] == null);
+  const unassignedSorted = [...unassigned].sort(
+    (a, b) => itemOrder.indexOf(a.itemIdx) - itemOrder.indexOf(b.itemIdx)
+  );
+
+  return (
+    <>
+      <div className={styles.questionArea}>
+        <p className={styles.question}>{index + 1}번 · {content.question}</p>
+        <p className={styles.extensionHint}>카드를 혼자라면 / 함께라면 칸에 드래그해서 넣어 보세요.</p>
+      </div>
+      <div className={styles.extensionActivity}>
+        <div className={styles.categorizeZones}>
+          {content.categories.map((cat, catIdx) => (
+            <div
+              key={catIdx}
+              className={styles.categorizeZone}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, catIdx)}
+            >
+              <p className={styles.extensionLabel}>{cat}</p>
+              <div className={styles.categorizeCards}>
+                {byCategory[catIdx]?.map(({ text, itemIdx }) => (
+                  <span
+                    key={itemIdx}
+                    className={styles.categorizeCard}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, itemIdx)}
+                    onDragEnd={handleDragEnd}
+                  >
+                    {text}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        {unassigned.length > 0 && (
+          <>
+            <p className={styles.extensionLabel}>분류할 카드</p>
+            <div className={styles.cardPool}>
+              {unassignedSorted.map(({ text, itemIdx }) => (
+                <span
+                  key={itemIdx}
+                  className={`${styles.categorizeCard} ${draggedItem === itemIdx ? styles.dragging : ''}`}
+                  draggable
+                  onDragStart={(e) => handleDragStart(e, itemIdx)}
+                  onDragEnd={handleDragEnd}
+                >
+                  {text}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
+        <button type="button" className={styles.checkButton} onClick={() => setShowResult(true)}>
+          확인하기
+        </button>
+      </div>
+      <div className={styles.resultButtons}>
+        <button type="button" className={styles.backToContentBtn} onClick={onBack}>
+          활동 끝내기
+        </button>
+      </div>
+    </>
+  );
+}
+
+function ListeningThreeStepPlay({
+  content,
+  showResult,
+  setShowResult,
+  onBack,
+  onNext,
+  canRequestMore,
+  loadingNext,
+  index,
+}: PlayCommonProps & { content: ListeningThreeStepContent }) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [optionOrder] = useState<number[]>(() => shuffle(content.options.map((_, i) => i)));
+  const isCorrect = selectedIndex === content.correctIndex;
+
+  function handleSelect(idx: number) {
+    if (showResult) return;
+    setSelectedIndex(idx);
+    setShowResult(true);
+  }
+
+  return (
+    <>
+      <div className={styles.questionArea}>
+        <p className={styles.question}>
+          {index + 1}번 · {content.question}
+        </p>
+        <p className={styles.extensionHint}>멈춘다 / 기울인다 / 기다린다 중에서 골라 보세요.</p>
+      </div>
+      {!showResult ? (
+        <div className={styles.optionList}>
+          {optionOrder.map((origIdx) => (
+            <button
+              key={origIdx}
+              type="button"
+              className={styles.optionButton}
+              onClick={() => handleSelect(origIdx)}
+            >
+              {content.options[origIdx]}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.resultArea}>
+          <div className={styles.resultBadge} data-correct={isCorrect}>
+            {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
+          </div>
+          <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
+          <p className={styles.explanation}>
+            {content.explanationCorrect != null && content.explanationWrong != null
+              ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
+              : isCorrect
+                ? `설명: ${content.explanation}`
+                : `설명: 정답은 "${content.options[content.correctIndex]}"예요. ${stripExplanationPrefix(content.explanation)}`}
+          </p>
+          <div className={styles.resultButtons}>
+            {canRequestMore && (
+              <button
+                type="button"
+                className={styles.checkButton}
+                onClick={onNext}
+                disabled={loadingNext}
+              >
+                {loadingNext ? '다음 문제 불러오는 중...' : '다음 문제'}
               </button>
             )}
             <button type="button" className={styles.backToContentBtn} onClick={onBack}>

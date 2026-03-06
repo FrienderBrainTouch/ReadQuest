@@ -4,7 +4,7 @@ import type { Content, ContentType } from './books';
 type ContentWithoutIdOrder = Omit<Content, 'id' | 'order'>;
 
 /** 미리 생성된 문제가 있는 책 ID */
-export const PRE_GENERATED_BOOK_IDS = ['book-mary', 'book-mongmong'] as const;
+export const PRE_GENERATED_BOOK_IDS = ['book-mary', 'book-mongmong', 'book-stick-pebble', 'book-big-ear'] as const;
 
 export function isPreGeneratedBook(bookId: string): boolean {
   return (PRE_GENERATED_BOOK_IDS as readonly string[]).includes(bookId);
@@ -802,6 +802,328 @@ const mongmongFillBlank: Content[] = withIdsAndOrder(
 // 몽몽 빈칸 ①번은 "달콤/뾰족" 두 칸인데 우리 형식은 한 빈칸. 첫 번째 빈칸만 사용하고 옵션을 ['달콤', '뾰족', '과일']로 해서 달콤이 정답.
 // 나머지 몽몽 빈칸은 한 단어씩이라 그대로 사용.
 
+// ---------- 막대기랑 돌멩이랑 (book-stick-pebble) ----------
+const stickPebbleOx: Content[] = withIdsAndOrder(
+  [
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 처음부터 함께 살았나요?', correctAnswer: 'X', explanation: '아니에요. 이야기에서는 막대기는 외로웠고 돌멩이는 쓸쓸했어요. 나중에 “막대기가 놀러 왔어요. 돌멩이도 놀러 왔지요.”라고 나와 있어요. 처음엔 각자 혼자였다가 만나서 친구가 된 거예요.' },
+    { type: 'ox_quiz', question: '막대기는 1을 닮았나요?', correctAnswer: 'O', explanation: '맞아요. “막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 나중에 둘이 함께일 때는 10을 닮았다고 했어요. 혼자일 때와 함께일 때가 다르다는 비유예요.' },
+    { type: 'ox_quiz', question: '돌멩이는 0을 닮았나요?', correctAnswer: 'O', explanation: '맞아요. “돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 둘이 만나서 함께일 때는 10을 닮았다고 해요. 0과 1이 만나 10이 되는 이야기예요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 혼자 있는 것이 더 재미있었나요?', correctAnswer: 'X', explanation: '아니에요. “혼자는 재미없어요.”라고 나와 있어요. 그래서 막대기가 놀러 오고 돌멩이도 놀러 와서 만났고, 함께 돌아다니고 탐험하고 바닷가에서 쉬며 우정이 자랐어요.' },
+    { type: 'ox_quiz', question: '솔방울은 돌멩이를 놀렸나요?', correctAnswer: 'O', explanation: '맞아요. “그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 효과가 있었고, 돌멩이가 “와! 네가 날 막아 줬어!”라고 말했어요.' },
+    { type: 'ox_quiz', question: '막대기는 돌멩이를 지켜주지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 솔방울이 돌멩이를 놀릴 때 막대기가 “저리 가!”라고 소리쳐서 막아 줬어요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 속삭였고, “그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 함께 탐험을 했나요?', correctAnswer: 'O', explanation: '맞아요. “막대기랑 돌멩이는 함께 돌아다니고 함께 탐험하고 바닷가에서 함께 쉬었어요.”라고 나와 있어요. 우정이 점점 자라서 둘이 함께하는 일이 많아졌어요.' },
+    { type: 'ox_quiz', question: '허리케인이 와서 막대기가 날아갔나요?', correctAnswer: 'O', explanation: '맞아요. “갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요. 막대기가 바람에 날아가요.”라고 나와 있어요. 돌멩이가 “꽉 잡아!”라고 외쳤지만 막대기는 날아가 버리고 돌멩이는 다시 혼자가 되었어요.' },
+    { type: 'ox_quiz', question: '돌멩이는 막대기를 찾으러 가지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 돌멩이는 막대기를 찾으러 다녔어요. “낮에는 찾아다니고 ‘막대기야?’ ‘막대기야!’ ‘막대기야~!’ 밤에도 찾아다녔지만 막대기는 보이지 않았어요.”라고 나와 있어요. 끝까지 찾아다니다가 웅덩이에서 막대기를 발견했어요.' },
+    { type: 'ox_quiz', question: '막대기는 웅덩이에 꽂혀 있었나요?', correctAnswer: 'O', explanation: '맞아요. “이게 뭘까요? 커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 재빨리 굴러가서 막대기를 구했어요.' },
+    { type: 'ox_quiz', question: '돌멩이는 막대기를 구하기 위해 굴러갔나요?', correctAnswer: 'O', explanation: '맞아요. “돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 돌멩이가 할 수 있는 방법으로 굴러가서 웅덩이에 들어가 막대기를 구했어요.' },
+    { type: 'ox_quiz', question: '돌멩이는 막대기를 구하지 못했나요?', correctAnswer: 'X', explanation: '아니에요. 돌멩이가 굴러가서 웅덩이에 들어가 막대기를 구했어요. 막대기가 “정말 잘 굴렀어, 돌멩아!”라고 말했고, “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 둘은 다시 함께 있게 되었어요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 다시 함께 있게 되었나요?', correctAnswer: 'O', explanation: '맞아요. 돌멩이가 막대기를 구한 뒤 “막대기랑 돌멩이는 다시 함께 있어요.”라고 나와 있어요. “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 이야기가 끝나요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 10을 닮았다고 했나요?', correctAnswer: 'O', explanation: '맞아요. 처음엔 돌멩이는 0, 막대기는 1을 닮았는데, 다시 만난 뒤에는 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요.”라고 나와 있어요. 둘이 함께일 때 더 큰 것이 된다는 뜻이에요.' },
+    { type: 'ox_quiz', question: '솔방울은 끝까지 사과하지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 마지막에 “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 미안하다고 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
+  ],
+  'stickpebble-ox'
+);
+
+const stickPebbleMultiple: Content[] = withIdsAndOrder(
+  [
+    { type: 'multiple_choice', question: '막대기는 무엇을 닮았나요?', options: ['0', '1', '2', '10'], correctIndex: 1, explanation: '정답은 “1”이에요. “막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 나중에 둘이 함께일 때는 10을 닮았다고 했어요. 0과 1이 만나 10이 되는 비유예요.' },
+    { type: 'multiple_choice', question: '돌멩이는 무엇을 닮았나요?', options: ['0', '1', '2', '9'], correctIndex: 0, explanation: '정답은 “0”이에요. “돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 둘이 만나서 함께일 때는 10을 닮았다고 해요. 혼자일 때와 친구와 함께일 때가 다르다는 이야기예요.' },
+    { type: 'multiple_choice', question: '막대기와 돌멩이는 처음에 어떤 마음이었나요?', options: ['신났다', '외로웠다', '화가 났다', '무서웠다'], correctIndex: 1, explanation: '정답은 “외로웠다”예요. “막대기는 외로웠어요. 돌멩이는 쓸쓸했어요.”라고 나와 있어요. 그래서 막대기가 놀러 오고 돌멩이도 놀러 와서 만났고, “혼자는 재미없어요.”라고 했어요.' },
+    { type: 'multiple_choice', question: '솔방울은 무엇을 했나요?', options: ['칭찬했다', '놀렸다', '도와줬다', '숨었다'], correctIndex: 1, explanation: '정답은 “놀렸다”예요. “그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 솔방울이 물러났고, 마지막에 솔방울이 “놀려서 미안해..”라고 사과했어요.' },
+    { type: 'multiple_choice', question: '막대기는 돌멩이를 어떻게 했나요?', options: ['놀렸다', '막아주었다', '떠났다', '무시했다'], correctIndex: 1, explanation: '정답은 “막아주었다”예요. 솔방울이 돌멩이를 놀릴 때 막대기가 “저리 가!”라고 소리쳐서 막아 줬어요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 하고, “그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
+    { type: 'multiple_choice', question: '막대기와 돌멩이는 함께 무엇을 했나요?', options: ['싸웠다', '숨었다', '탐험했다', '잠만 잤다'], correctIndex: 2, explanation: '정답은 “탐험했다”예요. “막대기랑 돌멩이는 함께 돌아다니고 함께 탐험하고 바닷가에서 함께 쉬었어요.”라고 나와 있어요. 우정이 자라서 둘이 함께하는 일이 많아졌어요.' },
+    { type: 'multiple_choice', question: '갑자기 무엇이 불어왔나요?', options: ['눈보라', '허리케인', '태풍', '바람개비'], correctIndex: 1, explanation: '정답은 “허리케인”이에요. “갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요.”라고 나와 있어요. 막대기가 바람에 날아가고, 돌멩이는 다시 혼자가 되었어요.' },
+    { type: 'multiple_choice', question: '허리케인이 불자 막대기는 어떻게 되었나요?', options: ['돌멩이 위에 앉았다', '바람에 날아갔다', '집으로 갔다', '땅속에 숨었다'], correctIndex: 1, explanation: '정답은 “바람에 날아갔다”예요. “막대기가 바람에 날아가요. (거지 솔방울도 날아가요!)”라고 나와 있어요. 돌멩이가 “꽉 잡아!”라고 외쳤지만 막대기는 날아가 버렸고, 돌멩이는 낮에도 밤에도 막대기를 찾아다녔어요.' },
+    { type: 'multiple_choice', question: '돌멩이는 무엇을 했나요?', options: ['집에 갔다', '울기만 했다', '막대기를 찾았다', '솔방울과 놀았다'], correctIndex: 2, explanation: '정답은 “막대기를 찾았다”예요. “돌멩이는 다시 혼자가 되었어요. 낮에는 찾아다니고 ‘막대기야?’ ‘막대기야!’ ‘막대기야~!’ 밤에도 찾아다녔지만 막대기는 보이지 않았어요.”라고 나와 있어요. 끝까지 찾아다니다가 웅덩이에서 막대기를 발견했어요.' },
+    { type: 'multiple_choice', question: '막대기는 어디에 있었나요?', options: ['나무 위', '웅덩이', '바다', '집'], correctIndex: 1, explanation: '정답은 “웅덩이”예요. “이게 뭘까요? 커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 굴러가서 막대기를 구했어요.' },
+    { type: 'multiple_choice', question: '돌멩이는 어떻게 막대기를 구했나요?', options: ['점프했다', '굴러갔다', '날아갔다', '걸어갔다'], correctIndex: 1, explanation: '정답은 “굴러갔다”예요. “돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 돌멩이가 할 수 있는 방법으로 굴러가서 웅덩이에 들어가 막대기를 구했고, 막대기가 “그게 바로 돌멩이가 하는 일이야.”라고 했어요.' },
+    { type: 'multiple_choice', question: '막대기와 돌멩이는 다시 어떻게 되었나요?', options: ['헤어졌다', '싸웠다', '함께 있었다', '도망갔다'], correctIndex: 2, explanation: '정답은 “함께 있었다”예요. 돌멩이가 막대기를 구한 뒤 “막대기랑 돌멩이는 다시 함께 있어요. 막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 나와 있어요.' },
+    { type: 'multiple_choice', question: '막대기와 돌멩이는 무엇을 닮았다고 했나요?', options: ['5', '7', '10', '100'], correctIndex: 2, explanation: '정답은 “10”이에요. 처음엔 돌멩이는 0, 막대기는 1을 닮았는데, 다시 만난 뒤에는 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요.”라고 나와 있어요. 둘이 함께일 때 더 큰 것이 된다는 뜻이에요.' },
+    { type: 'multiple_choice', question: '친구는 어떤 존재라고 말했나요?', options: ['놀리는 존재', '지켜주는 존재', '떠나는 존재', '무서운 존재'], correctIndex: 1, explanation: '정답은 “지켜주는 존재”예요. 막대기가 돌멩이를 막아 준 뒤 “그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했고, 돌멩이가 막대기를 구한 뒤에도 “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 친구는 서로를 지켜 주는 존재라는 뜻이에요.' },
+    { type: 'multiple_choice', question: '솔방울은 마지막에 무엇을 했나요?', options: ['또 놀렸다', '사과했다', '도망갔다', '울었다'], correctIndex: 1, explanation: '정답은 “사과했다”예요. 마지막에 “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 미안하다고 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
+  ],
+  'stickpebble-mc'
+);
+
+const stickPebbleOrdering: Content[] = withIdsAndOrder(
+  [
+    { type: 'ordering', question: '아래 사건을 이야기 순서대로 배열하세요.', items: ['막대기와 돌멩이가 외로워했다.', '솔방울이 돌멩이를 놀렸다.', '막대기가 "저리 가!"라고 외쳤다.', '막대기와 돌멩이의 우정이 자랐다.'], explanation: '처음엔 둘이 외로웠고, 솔방울이 돌멩이를 놀렸어요. 막대기가 소리쳐서 막아 주고, 그 뒤로 우정이 자랐어요.', explanationCorrect: '막대기와 돌멩이는 처음에 각자 외로웠어요.\n솔방울이 다가와 돌멩이를 놀렸고, 막대기가 "저리 가!"라고 소리쳐서 막아 줬어요.\n그 후 막대기랑 돌멩이의 우정이 점점 자라서 함께 돌아다니고 탐험하게 됐어요.', explanationWrong: '솔방울이 놀린 다음에 막대기가 "저리 가!"라고 해요.\n우정이 자라는 건 막대기가 막아 준 뒤에 일어나요.' },
+    { type: 'ordering', question: '아래 사건을 이야기 순서대로 배열하세요.', items: ['허리케인이 몰아쳤다.', '막대기가 바람에 날아갔다.', '돌멩이가 "꽉 잡아!"라고 외쳤다.', '돌멩이는 다시 혼자가 되었다.'], explanation: '허리케인이 와서 막대기가 날아갔어요. 돌멩이가 잡으려 했지만 막대기는 날아가 버리고 돌멩이는 혼자가 되었어요.', explanationCorrect: '갑자기 허리케인이 몰아쳤어요.\n막대기가 바람에 날아가고, 돌멩이가 "꽉 잡아!"라고 외쳤지만 막대기는 날아가 버렸어요.\n돌멩이는 다시 혼자가 되어 낮에도 밤에도 막대기를 찾아다녔어요.', explanationWrong: '막대기가 날아간 다음에 돌멩이가 "꽉 잡아!"라고 외쳐요.\n혼자가 되는 건 막대기가 날아간 뒤에 일어나요.' },
+    { type: 'ordering', question: '아래 사건을 이야기 순서대로 배열하세요.', items: ['돌멩이가 막대기를 찾았다.', '막대기가 웅덩이에 꽂혀 있었다.', '돌멩이가 굴러가 구했다.', '다시 함께 있게 되었다.'], explanation: '돌멩이가 찾아다니다 웅덩이에서 막대기를 발견했어요. 굴러가서 구하고, 둘은 다시 함께 있게 되었어요.', explanationCorrect: '돌멩이가 낮에도 밤에도 찾아다니다가 커다란 웅덩이에서 막대기를 발견했어요.\n막대기가 웅덩이에 꽂혀 있어서 "도와줘!"라고 했고, 돌멩이가 재빨리 굴러가서 구했어요.\n그 후 막대기랑 돌멩이는 다시 함께 있고 10을 닮은 완벽한 짝꿍이 되었어요.', explanationWrong: '막대기를 먼저 찾은 다음에 웅덩이에 꽂혀 있는 걸 알아요.\n구한 다음에 다시 함께 있게 돼요.' },
+  ],
+  'stickpebble-ord'
+);
+
+const stickPebbleFillBlank: Content[] = withIdsAndOrder(
+  [
+    { type: 'fill_blank', sentence: '막대기는 (   )을 닮았어요.', options: ['0', '1', '10'], correctIndex: 1, explanation: '정답은 “1”이에요. “막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 둘이 함께일 때는 10을 닮았다고 해요. 0과 1이 만나 10이 되는 비유예요.' },
+    { type: 'fill_blank', sentence: '돌멩이는 (   )을 닮았어요.', options: ['0', '1', '5'], correctIndex: 0, explanation: '정답은 “0”이에요. “돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 나중에 둘이 다시 함께일 때는 10을 닮았다고 했어요.' },
+    { type: 'fill_blank', sentence: '솔방울은 돌멩이를 (   ).', options: ['도와주었다', '놀렸다', '숨겼다'], correctIndex: 1, explanation: '정답은 “놀렸다”예요. “그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 효과가 있었고, 마지막에 솔방울이 “놀려서 미안해..”라고 사과했어요.' },
+    { type: 'fill_blank', sentence: '막대기는 "(   ) 가!"라고 말했어요.', options: ['저리', '여기', '빨리'], correctIndex: 0, explanation: '정답은 “저리”예요. 솔방울이 돌멩이를 놀릴 때 “저리 가!” 막대기가 소리쳤어요. 오! 효과가 있네요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 속삭였어요.' },
+    { type: 'fill_blank', sentence: '갑자기 (   )이 몰아쳤어요.', options: ['눈보라', '허리케인', '해일'], correctIndex: 1, explanation: '정답은 “허리케인”이에요. “갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요.”라고 나와 있어요. 막대기가 바람에 날아가고 돌멩이는 다시 혼자가 되었어요.' },
+    { type: 'fill_blank', sentence: '막대기는 (   )에 꽂혀 있었어요.', options: ['나무', '웅덩이', '바다'], correctIndex: 1, explanation: '정답은 “웅덩이”예요. “커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 재빨리 굴러가서 막대기를 구했어요.' },
+    { type: 'fill_blank', sentence: '돌멩이는 (   )가 막대기를 구했어요.', options: ['날아가', '굴러가', '걸어가'], correctIndex: 1, explanation: '정답은 “굴러가”예요. “돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 막대기가 “정말 잘 굴렀어, 돌멩아!” “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
+    { type: 'fill_blank', sentence: '막대기와 돌멩이는 (   )을 닮았어요.', options: ['2', '10', '100'], correctIndex: 1, explanation: '정답은 “10”이에요. 다시 만난 뒤 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 나와 있어요. 0과 1이 함께일 때 10이 된다는 비유예요.' },
+    { type: 'fill_blank', sentence: '친구는 서로를 (   ) 존재예요.', options: ['놀리는', '지켜주는', '떠나는'], correctIndex: 1, explanation: '정답은 “지켜주는”이에요. 막대기가 돌멩이를 막아 준 뒤, 돌멩이가 막대기를 구한 뒤 모두 “그게 바로 ○○가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 친구는 서로를 지켜 주는 존재라는 뜻이에요.' },
+    { type: 'fill_blank', sentence: '마지막에 솔방울은 "(   )"라고 말했어요.', options: ['고마워', '미안해', '안녕'], correctIndex: 1, explanation: '정답은 “미안해”예요. “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
+  ],
+  'stickpebble-fb'
+);
+
+// 위기 상황 해결하기 (친구의 역할 판단)
+const stickPebbleCrisisResolution: Content[] = withIdsAndOrder(
+  [
+    { type: 'crisis_resolution', question: '친구가 놀림을 당하고 있다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['같이 웃는다', '모른 척한다', '막아준다'], correctIndex: 2, explanation: '친구가 놀림을 당할 때는 막아주는 것이 친구의 역할이에요. 막대기가 솔방울이 돌멩이를 놀릴 때 "저리 가!"라고 소리쳐서 막아 준 것처럼, 친구를 지켜 주는 것이 맞아요.', explanationCorrect: '친구가 놀림을 당할 때 막아주는 것이 친구가 할 일이에요. 막대기가 돌멩이를 놀리는 솔방울에게 "저리 가!"라고 해서 막아 준 것처럼요.', explanationWrong: '같이 웃거나 모른 척하면 친구가 더 속상해져요. 친구는 서로를 지켜 주는 존재예요. "그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지."' },
+    { type: 'crisis_resolution', question: '친구가 넘어졌다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['도와준다', '지나간다', '웃는다'], correctIndex: 0, explanation: '친구가 넘어졌을 때는 도와주는 것이 맞아요. 돌멩이가 막대기를 구하려고 재빨리 굴러간 것처럼, 친구가 힘들 때 도와주는 것이 친구의 역할이에요.', explanationCorrect: '넘어진 친구에게 손을 내밀고 도와주는 것이 친구가 할 일이에요. 함께라면 어려운 일도 서로 도우며 해낼 수 있어요.', explanationWrong: '지나가거나 웃으면 친구가 다치고 마음도 아파요. 친구는 서로를 지켜 주고 도와 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 바람에 날아가려 한다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['잡아준다', '웃는다', '도망간다'], correctIndex: 0, explanation: '친구가 위험할 때 잡아주는 것이 맞아요. 이야기에서 돌멩이가 "꽉 잡아!"라고 외쳤던 것처럼, 친구가 날아가려 할 때 잡아 주는 것이 친구가 할 일이에요.', explanationCorrect: '바람에 날아가려 하는 친구를 잡아 주는 것이 친구의 역할이에요. "꽉 잡아!"라고 외치며 친구를 지키려는 마음이 중요해요.', explanationWrong: '웃거나 도망가면 친구가 위험해져요. 친구는 위기일 때 서로를 잡아 주고 지켜 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 무서워한다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['겁준다', '함께 있어준다', '떠난다'], correctIndex: 1, explanation: '친구가 무서워할 때는 함께 있어 주는 것이 맞아요. 함께 있으면 덜 무섭고, 친구가 나를 믿고 의지할 수 있게 돼요.', explanationCorrect: '무서워하는 친구 곁에 함께 있어 주는 것이 친구가 할 일이에요. 함께라면 무서운 일도 덜 무서워져요.', explanationWrong: '겁을 주거나 떠나면 친구가 더 무서워해요. 친구는 서로를 지켜 주고 함께 있어 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 혼자 울고 있다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['다가간다', '놀린다', '피한다'], correctIndex: 0, explanation: '친구가 울고 있을 때 다가가서 위로해 주는 것이 맞아요. "울지 마, 친구야"처럼 말해 주면 친구가 덜 외로워하고 마음이 풀려요.', explanationCorrect: '울고 있는 친구에게 다가가서 "괜찮아?"라고 물어 보거나 옆에 있어 주는 것이 친구가 할 일이에요.', explanationWrong: '놀리거나 피하면 친구가 더 슬퍼해요. 친구는 서로를 위로하고 지켜 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 도움을 요청한다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['못 들은 척한다', '도와준다', '화낸다'], correctIndex: 1, explanation: '친구가 도움을 요청할 때 도와주는 것이 맞아요. 막대기가 "도와줘!"라고 했을 때 돌멩이가 굴러가서 구해 준 것처럼, 친구가 부르면 도와주는 것이 친구의 역할이에요.', explanationCorrect: '친구가 "도와줘!"라고 하면 할 수 있는 만큼 도와주는 것이 친구가 할 일이에요. "그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지."', explanationWrong: '못 들은 척하거나 화를 내면 친구가 더 힘들어해요. 친구는 서로를 도와 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 위험한 곳에 빠졌다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['구해준다', '구경한다', '떠난다'], correctIndex: 0, explanation: '친구가 위험한 곳에 빠졌을 때 구해 주는 것이 맞아요. 돌멩이가 웅덩이에 꽂힌 막대기를 굴러가서 구한 것처럼, 친구가 위험하면 구해 주는 것이 친구의 역할이에요.', explanationCorrect: '위험한 곳에 빠진 친구를 구해 주는 것이 친구가 할 일이에요. "정말 잘 굴렀어, 돌멩아!"처럼 서로 도우며 친구가 돼요.', explanationWrong: '구경하거나 떠나면 친구가 위험해져요. 친구는 서로를 지켜 주고 구해 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 외로워 보인다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['함께 논다', '무시한다', '피한다'], correctIndex: 0, explanation: '친구가 외로워 보일 때 함께 놀아 주는 것이 맞아요. 막대기와 돌멩이가 처음엔 각자 외로웠다가 만나서 함께 돌아다니고 탐험한 것처럼, 함께하면 외로움이 줄어들어요.', explanationCorrect: '외로워하는 친구와 함께 놀아 주는 것이 친구가 할 일이에요. 함께하면 "혼자는 재미없어요"가 "재미있어요"로 바뀌어요.', explanationWrong: '무시하거나 피하면 친구가 더 외로워해요. 친구는 서로와 함께해서 외로움을 나누는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 잘못을 했다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['놀린다', '이야기해준다', '외면한다'], correctIndex: 1, explanation: '친구가 잘못을 했을 때 이야기해 주는 것이 맞아요. 화를 내거나 놀리지 않고, "이렇게 하면 어때?"처럼 말해 주면 친구가 고쳐 나갈 수 있어요.', explanationCorrect: '친구의 잘못을 따뜻하게 이야기해 주는 것이 친구가 할 일이에요. 솔방울이 나중에 "놀려서 미안해"라고 한 것처럼, 말로 풀 수 있어요.', explanationWrong: '놀리거나 외면하면 친구가 더 상처받아요. 친구는 서로를 지켜 주고 바르게 이야기해 주는 존재예요.' },
+    { type: 'crisis_resolution', question: '친구가 힘들어한다. 이럴 때 친구는 무엇을 해야 할까요?', options: ['들어준다', '끼어든다', '떠난다'], correctIndex: 0, explanation: '친구가 힘들어할 때 들어 주는 것이 맞아요. 말을 경청하고 "괜찮아?"라고 물어 보면 친구가 마음을 나눌 수 있어요.', explanationCorrect: '힘들어하는 친구의 말을 들어 주는 것이 친구가 할 일이에요. 함께 있으면서 들어 주기만 해도 친구가 든든해져요.', explanationWrong: '끼어들거나 떠나면 친구가 더 힘들어해요. 친구는 서로의 말을 들어 주고 지켜 주는 존재예요.' },
+  ],
+  'stickpebble-crisis'
+);
+
+// 함께하면 어떻게 될까? (혼자 vs 함께 결과 분류)
+const stickPebbleTogetherOutcome: Content[] = withIdsAndOrder(
+  [
+    { type: 'together_outcome', question: '큰 바람이 불 때', categories: ['혼자라면', '함께라면'], items: ['날아갈 수 있다', '잡아줄 수 있다'], correctPlacement: [0, 1], explanation: '혼자면 바람에 날아갈 수 있지만, 함께라면 친구가 "꽉 잡아!"라고 하며 잡아줄 수 있어요. 막대기가 바람에 날아갔을 때 돌멩이가 잡으려 했던 것처럼요.' },
+    { type: 'together_outcome', question: '솔방울이 놀릴 때', categories: ['혼자라면', '함께라면'], items: ['속상하다', '막아줄 수 있다'], correctPlacement: [0, 1], explanation: '혼자면 속상하기만 하지만, 함께라면 친구가 "저리 가!"라고 막아줄 수 있어요. 돌멩이를 막대기가 막아 준 것처럼요.' },
+    { type: 'together_outcome', question: '무거운 일을 할 때', categories: ['혼자라면', '함께라면'], items: ['힘들다', '쉽게 할 수 있다'], correctPlacement: [0, 1], explanation: '혼자면 힘들지만, 함께라면 나눠 하면 쉽게 할 수 있어요. 막대기랑 돌멩이가 함께 탐험하고 쉬었던 것처럼, 함께하면 더 큰 힘이 돼요.' },
+    { type: 'together_outcome', question: '길을 잃었을 때', categories: ['혼자라면', '함께라면'], items: ['무섭다', '덜 무섭다'], correctPlacement: [0, 1], explanation: '혼자면 무섭지만, 함께라면 덜 무서워요. 친구가 곁에 있으면 "함께라서 괜찮아"라고 느낄 수 있어요.' },
+    { type: 'together_outcome', question: '찾는 일이 있을 때', categories: ['혼자라면', '함께라면'], items: ['오래 걸린다', '빨리 찾는다'], correctPlacement: [0, 1], explanation: '혼자면 찾느라 오래 걸리지만, 함께 찾으면 빨리 찾을 수 있어요. 돌멩이가 막대기를 찾아다닌 것처럼, 함께하면 찾는 일도 쉬워져요.' },
+    { type: 'together_outcome', question: '넘어졌을 때', categories: ['혼자라면', '함께라면'], items: ['일어나기 힘들다', '도와준다'], correctPlacement: [0, 1], explanation: '혼자면 일어나기 힘들지만, 함께라면 친구가 도와줄 수 있어요. 친구는 서로를 지켜 주고 도와 주는 존재예요.' },
+    { type: 'together_outcome', question: '비가 올 때', categories: ['혼자라면', '함께라면'], items: ['맞는다', '피할 방법을 찾는다'], correctPlacement: [0, 1], explanation: '혼자면 비를 맞기 쉽지만, 함께라면 "우리 여기서 비 피하자" 하며 피할 방법을 찾을 수 있어요. 함께하면 더 잘 해낼 수 있어요.' },
+    { type: 'together_outcome', question: '외로울 때', categories: ['혼자라면', '함께라면'], items: ['쓸쓸하다', '즐겁다'], correctPlacement: [0, 1], explanation: '혼자면 쓸쓸하지만, 함께라면 즐거워요. 막대기와 돌멩이가 처음엔 외로웠다가 만나서 "막대기랑 돌멩이는 이제 외롭지 않아요"가 된 것처럼요.' },
+    { type: 'together_outcome', question: '어려운 일이 생겼을 때', categories: ['혼자라면', '함께라면'], items: ['포기할 수 있다', '끝까지 해본다'], correctPlacement: [0, 1], explanation: '혼자면 포기할 수 있지만, 함께라면 "우리 해 보자" 하며 끝까지 해볼 수 있어요. 0과 1이 만나 10이 되는 것처럼, 함께하면 더 큰 힘이 돼요.' },
+    { type: 'together_outcome', question: '친구가 울고 있을 때', categories: ['혼자라면', '함께라면'], items: ['계속 운다', '위로받는다'], correctPlacement: [0, 1], explanation: '혼자 있으면 계속 울 수 있지만, 친구가 다가와 위로해 주면 "괜찮아"라고 느끼며 마음이 풀려요. 친구는 서로를 지켜 주고 위로해 주는 존재예요.' },
+  ],
+  'stickpebble-together'
+);
+
+// ---------- 나의 경청 이야기: 친구를 만드는 커다란 귀 (book-big-ear) ----------
+const bigEarOx: Content[] = withIdsAndOrder(
+  [
+    { type: 'ox_quiz', question: '나는 원래 귀를 잘 기울여 듣는 아이였다.', correctAnswer: 'X', explanation: '아니에요. 나는 듣기 싫은 소리가 들리면 귀를 접고, 엄마·아빠 말은 귓등으로, 선생님 말은 쇠귀에 경 읽기, 친구 말은 한 귀로 듣고 한 귀로 흘렸어요. 마녀를 만나고 경청을 배운 뒤에야 잘 듣게 됐어요.' },
+    { type: 'ox_quiz', question: '마녀는 "뭐든지 들어 드립니다"라고 적힌 간판을 걸어 두었다.', correctAnswer: 'O', explanation: '맞아요. 마녀네 집 앞 간판에는 "뭐든지 들어 드립니다. 누구나 들어 드립니다. 언제나 들어 드립니다. 방문 및 견학 환영합니다"라고 적혀 있었어요.' },
+    { type: 'ox_quiz', question: '마녀는 사람들에게 긴 조언을 해주었다.', correctAnswer: 'X', explanation: '아니에요. 마녀가 하는 말은 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?" 같은 짧은 말이 전부였어요. 긴 조언이 아니라 잘 들어 주는 것이 비밀이었어요.' },
+    { type: 'ox_quiz', question: '마녀는 "그랬군요"라고 말했다.', correctAnswer: 'O', explanation: '맞아요. 마녀가 자주 한 말이 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?"였어요. 상대의 말을 끝까지 듣고 맞장구를 치는 말이에요.' },
+    { type: 'ox_quiz', question: '성난 코뿔소처럼 화를 내던 아주머니는 더 화가 나서 나왔다.', correctAnswer: 'X', explanation: '아니에요. 아주머니는 화가 나서 마녀 집으로 들어갔다가 한참 뒤 순한 양처럼 나왔어요. 불그스름했던 얼굴이 편안해지고 입가에 미소가 번졌어요. 잘 들어 주는 것이 마법처럼 사람을 바꿔요.' },
+    { type: 'ox_quiz', question: '마녀는 사람의 말을 끝까지 들었다.', correctAnswer: 'O', explanation: '맞아요. 마녀의 비밀은 "잘 들어 주기"였어요. 끼어들지 않고 말을 다 할 때까지 기다리며 경청했기 때문에 사람들이 마녀를 찾았어요.' },
+    { type: 'ox_quiz', question: '우정은 듣는 데서 시작한다고 했다.', correctAnswer: 'O', explanation: '맞아요. 마녀가 "우정은 듣는 데서 시작한다"라고 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
+    { type: 'ox_quiz', question: '잘 말하는 사람에게 마음을 연다고 했다.', correctAnswer: 'X', explanation: '아니에요. "말 잘하는 사람에게는 귀를 열지만, 잘 듣는 사람에게는 마음을 연다"라고 했어요. 잘 듣는 사람에게 마음을 여는 거예요.' },
+    { type: 'ox_quiz', question: '잘 듣는 사람에게 마음을 연다고 했다.', correctAnswer: 'O', explanation: '맞아요. "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 마녀가 말했어요. 누구나 자기 이야기를 들어 주는 사람에게 호감을 가져요.' },
+    { type: 'ox_quiz', question: '경청은 끼어들어 말하는 것이다.', correctAnswer: 'X', explanation: '아니에요. 경청은 끼어들지 않고 말을 다 할 때까지 기다리는 것이에요. "기다린다"가 경청의 세 번째 단계예요. 끼어들면 상대가 속상해져요.' },
+    { type: 'ox_quiz', question: '경청할 때는 몸을 앞으로 조금 기울인다.', correctAnswer: 'O', explanation: '맞아요. "기울인다"는 경청의 두 번째 단계예요. 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕이며 맞장구를 치는 자세가 좋아요.' },
+    { type: 'ox_quiz', question: '팔짱을 끼고 뒤로 기대 앉는 것은 좋은 경청 자세이다.', correctAnswer: 'X', explanation: '아니에요. 다리를 꼬고 앉거나 뒤로 기대 앉거나 팔짱을 끼거나 상대의 눈을 노려보는 것은 좋지 않은 자세예요. 몸과 마음을 상대에게 기울이는 자세가 좋아요.' },
+    { type: 'ox_quiz', question: '경청은 마법이라고 했다.', correctAnswer: 'O', explanation: '맞아요. "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 마녀가 말했어요.' },
+    { type: 'ox_quiz', question: '끝까지 기다리는 것도 경청이다.', correctAnswer: 'O', explanation: '맞아요. 잘 들으려면 "기다린다"가 필요해요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
+    { type: 'ox_quiz', question: '이야기를 잘 듣는 사람은 친구가 생기지 않는다.', correctAnswer: 'X', explanation: '아니에요. "누구나 자기 이야기를 잘 들어 주는 사람에게 호감을 갖게 되지"라고 했어요. 나는 마녀에게 경청을 배운 뒤 친구가 생겼어요.' },
+  ],
+  'bigear-ox'
+);
+
+const bigEarMultiple: Content[] = withIdsAndOrder(
+  [
+    { type: 'multiple_choice', question: '마녀 집 간판에는 무엇이라고 적혀 있었나요?', options: ['약을 팝니다', '뭐든지 들어 드립니다', '마법을 가르칩니다', '상담은 안 합니다'], correctIndex: 1, explanation: '정답은 "뭐든지 들어 드립니다"예요. "뭐든지 들어 드립니다. 누구나 들어 드립니다. 언제나 들어 드립니다. 방문 및 견학 환영합니다"라고 적힌 간판이 마녀네 집 앞에 달려 있었어요.' },
+    { type: 'multiple_choice', question: '마녀가 자주 한 말은 무엇인가요?', options: ['조심하세요', '그랬군요', '틀렸어요', '하지 마세요'], correctIndex: 1, explanation: '정답은 "그랬군요"예요. 마녀가 하는 말은 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?" 같은 짧은 말이 전부였어요. 상대의 말을 인정하며 들어 주는 말이에요.' },
+    { type: 'multiple_choice', question: '우정은 어디에서 시작한다고 했나요?', options: ['말하기', '듣기', '놀이', '웃기'], correctIndex: 1, explanation: '정답은 "듣기"예요. "우정은 듣는 데서 시작한다"라고 마녀가 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
+    { type: 'multiple_choice', question: '경청할 때 먼저 해야 할 것은?', options: ['말한다', '멈춘다', '웃는다', '뛰어간다'], correctIndex: 1, explanation: '정답은 "멈춘다"예요. 잘 들으려면 일단 멈춰야 해요. 하던 일을 멈추고, 참견·비난·충고하고 싶은 마음을 멈춰야 다른 사람의 말을 잘 들을 수 있어요.' },
+    { type: 'multiple_choice', question: '경청 자세로 알맞은 것은?', options: ['팔짱 끼기', '눈 바라보기', '다리 꼬기', '뒤로 기대기'], correctIndex: 1, explanation: '정답은 "눈 바라보기"예요. 경청할 때는 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕이며 맞장구를 치는 자세가 좋아요.' },
+    { type: 'multiple_choice', question: '경청할 때 하면 안 되는 것은?', options: ['기다린다', '고개 끄덕인다', '끼어든다', '눈을 본다'], correctIndex: 2, explanation: '정답은 "끼어든다"예요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요. 끼어들면 상대가 속상해져요.' },
+    { type: 'multiple_choice', question: '마녀의 비밀은 무엇이었나요?', options: ['약', '차', '잘 들어주기', '주문'], correctIndex: 2, explanation: '정답은 "잘 들어주기"예요. 마녀는 긴 조언 대신 상대의 말을 끝까지 듣고 "그랬군요"처럼 맞장구만 쳤어요. 그게 마녀의 비밀이었어요.' },
+    { type: 'multiple_choice', question: '경청은 무엇이라고 했나요?', options: ['숙제', '게임', '마법', '벌'], correctIndex: 2, explanation: '정답은 "마법"이에요. "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 했어요.' },
+    { type: 'multiple_choice', question: '입은 몇 개이고 귀는 몇 개인가요?', options: ['입 2개 귀 1개', '입 1개 귀 2개', '입 2개 귀 2개', '입 1개 귀 1개'], correctIndex: 1, explanation: '정답은 "입 1개 귀 2개"예요. "그래서 입은 하나고 귀는 두 개인거야 잘 들으라고"라고 마녀가 말했어요. 말보다 듣기에 더 많이 쓰라는 뜻이에요.' },
+    { type: 'multiple_choice', question: '마녀는 상대의 무엇을 바라보았나요?', options: ['발', '손', '눈', '머리'], correctIndex: 2, explanation: '정답은 "눈"이에요. 마녀가 내 옆으로 다가와 앉더니 내게로 몸을 조금 기울이고 가만히 내 눈을 들여다봤어요. 눈을 바라보며 듣는 것이 경청이에요.' },
+    { type: 'multiple_choice', question: '잘 듣는다는 것은 무엇을 뜻하나요?', options: ['인정하고 존중한다', '웃는다', '혼낸다', '무시한다'], correctIndex: 0, explanation: '정답은 "인정하고 존중한다"예요. "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야"라고 마녀가 말했어요.' },
+    { type: 'multiple_choice', question: '끼어들지 않고 무엇을 해야 하나요?', options: ['웃는다', '기다린다', '뛰어간다', '말한다'], correctIndex: 1, explanation: '정답은 "기다린다"예요. 잘 들으려면 기다릴 줄 알아야 해요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
+    { type: 'multiple_choice', question: '잘 듣는 사람에게 사람들은 무엇을 연다고 했나요?', options: ['문', '귀', '마음', '눈'], correctIndex: 2, explanation: '정답은 "마음"이에요. "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 했어요. 누구나 잘 들어 주는 사람에게 마음을 열어요.' },
+    { type: 'multiple_choice', question: '마녀를 만나고 나는 무엇이 생겼나요?', options: ['마법', '친구', '차', '돈'], correctIndex: 1, explanation: '정답은 "친구"예요. 경청을 배운 뒤 "나도 친구가 생겼지. 또래 친구도 있고 나이 차이가 좀 나는 친구도 있어"라고 했어요.' },
+    { type: 'multiple_choice', question: '경청은 몸과 무엇을 기울이는 것인가요?', options: ['손', '마음', '발', '책'], correctIndex: 1, explanation: '정답은 "마음"이에요. "귀를 기울여 잘 듣는 것을 경청이라고 해. 몸과 마음을 상대방에게 기울이는 거야"라고 했어요.' },
+  ],
+  'bigear-mc'
+);
+
+const bigEarOrdering: Content[] = withIdsAndOrder(
+  [
+    { type: 'ordering', question: '아래 사건을 이야기 순서대로 배열하세요.', items: ['나는 귀를 접고 다녔다.', '마녀가 옆집으로 이사 왔다.', '마녀의 간판을 보았다.', '사람들이 마녀를 찾아갔다.'], explanation: '나는 원래 귀를 접고 다녔고, 그다음 마녀가 옆집으로 이사 왔어요. 마녀네 간판을 보고 사람들이 마녀를 찾아가는 순서로 이야기가 이어져요.', explanationCorrect: '나는 엄마·아빠 잔소리를 듣지 않으려 귀를 접고 다녔어요.\n그다음 마녀가 옆집으로 이사 왔고, "뭐든지 들어 드립니다"라는 간판을 봤어요.\n그 뒤로 수많은 사람들이 마녀를 찾아갔어요.', explanationWrong: '마녀가 이사 온 다음에 간판을 봐요.\n사람들이 마녀를 찾아간 건 간판을 본 뒤에 일어난 일이에요.' },
+    { type: 'ordering', question: '아래 사건을 이야기 순서대로 배열하세요.', items: ['나는 마녀에게 차를 마셨다.', '나는 친구가 없다고 말했다.', '마녀가 "그랬군요"라고 말했다.', '경청 이야기를 들었다.'], explanation: '옆집 심부름으로 마녀 집에 갔을 때 차를 마시고, 친구가 없다고 말했어요. 마녀가 "그랬군요"라고 하며 경청에 대한 이야기를 해 줬어요.', explanationCorrect: '마녀가 차를 한 잔 내줬고, 나는 차를 마시며 "난 친구가 하나도 없어요"라고 말했어요.\n마녀는 "진짜? 친구가 많게 생겼는데?"라고 하고, "우정은 듣는 데서 시작한다"며 경청 이야기를 해 줬어요.', explanationWrong: '친구가 없다고 말한 다음에 마녀가 "그랬군요"라고 해요.\n경청 이야기는 그다음에 들었어요.' },
+    { type: 'ordering', question: '경청의 세 단계를 순서대로 배열하세요.', items: ['멈춘다.', '기울인다.', '기다린다.'], explanation: '잘 들으려면 먼저 멈추고, 몸과 마음을 기울이고, 말을 다 할 때까지 기다려야 해요.', explanationCorrect: '첫째, 하던 일과 참견·비난·충고하고 싶은 마음을 멈춰요.\n둘째, 몸을 앞으로 기울이고 눈을 바라보며 고개를 끄덕여요.\n셋째, 끼어들지 않고 말이 끝날 때까지 기다려요.', explanationWrong: '먼저 멈춘 다음에 기울이고, 그다음 기다려요.' },
+  ],
+  'bigear-ord'
+);
+
+const bigEarFillBlank: Content[] = withIdsAndOrder(
+  [
+    { type: 'fill_blank', sentence: '우정은 (   )는 데서 시작한다.', options: ['듣', '말', '놀'], correctIndex: 0, explanation: '정답은 "듣"예요. "우정은 듣는 데서 시작한다"라고 마녀가 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
+    { type: 'fill_blank', sentence: '경청은 (   )이다.', options: ['숙제', '마법', '게임'], correctIndex: 1, explanation: '정답은 "마법"이에요. "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 했어요.' },
+    { type: 'fill_blank', sentence: '잘 듣는 사람에게 (   )을 연다.', options: ['문', '마음', '귀'], correctIndex: 1, explanation: '정답은 "마음"이에요. "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 했어요.' },
+    { type: 'fill_blank', sentence: '입은 한 개이고 귀는 (   )개이다.', options: ['한', '두', '세'], correctIndex: 1, explanation: '정답은 "두"예요. "그래서 입은 하나고 귀는 두 개인거야 잘 들으라고"라고 마녀가 말했어요. 말보다 듣기에 더 많이 쓰라는 뜻이에요.' },
+    { type: 'fill_blank', sentence: '잘 들으려면 먼저 (   )야 한다.', options: ['말해', '멈춰', '뛰어'], correctIndex: 1, explanation: '정답은 "멈춰"예요. 잘 들으려면 일단 멈춰야 해요. 하던 일을 멈추고 참견·비난·충고하고 싶은 마음을 멈춰야 해요.' },
+    { type: 'fill_blank', sentence: '몸을 앞으로 조금 (   )인다.', options: ['기울', '숙', '돌'], correctIndex: 0, explanation: '정답은 "기울"이에요. 경청할 때는 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕여요.' },
+    { type: 'fill_blank', sentence: '말을 자르지 말고 (   )려야 한다.', options: ['달아', '기다', '말해'], correctIndex: 1, explanation: '정답은 "기다"예요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
+    { type: 'fill_blank', sentence: '마녀는 "(   )군요"라고 말했다.', options: ['그랬', '맞', '잘'], correctIndex: 0, explanation: '정답은 "그랬"예요. 마녀가 자주 한 말이 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?"였어요.' },
+    { type: 'fill_blank', sentence: '이야기를 잘 듣는 것은 상대를 (   )하는 것이다.', options: ['무시', '존중', '혼내'], correctIndex: 1, explanation: '정답은 "존중"이에요. "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야"라고 마녀가 말했어요.' },
+    { type: 'fill_blank', sentence: '나는 결국 (   )가 생겼다.', options: ['돈', '친구', '마법'], correctIndex: 1, explanation: '정답은 "친구"예요. 경청을 배운 뒤 "나도 친구가 생겼지. 또래 친구도 있고 나이 차이가 좀 나는 친구도 있어"라고 했어요.' },
+  ],
+  'bigear-fb'
+);
+
+const bigEarListeningThreeStep: Content[] = withIdsAndOrder(
+  [
+    { type: 'listening_three_step', question: '친구 말이 끝나기 전에 끼어들고 싶다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 0, explanation: '끼어들고 싶을 때는 "멈춘다"가 맞아요. 참견하고 싶고, 비난하고 싶고, 충고하고 싶은 마음을 멈춰야 상대의 말을 끝까지 들을 수 있어요.', explanationCorrect: '끼어들고 싶은 마음을 멈추는 것이 경청의 첫 단계예요. "참견하고 싶고, 비난하고 싶고, 충고하고 싶은 마음을 멈춰야 해"라고 했어요.', explanationWrong: '끼어들면 "기다린다"를 지키지 못해요. 먼저 멈춰서 상대의 말을 끝까지 들을 수 있게 해요.' },
+    { type: 'listening_three_step', question: '친구가 말할 때 눈을 바라본다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 1, explanation: '눈을 바라보는 것은 "기울인다"에 해당해요. 몸과 마음을 상대에게 기울이고, 네가 진심으로 잘 듣고 있다는 것을 보여 주는 자세예요.', explanationCorrect: '경청할 때는 몸을 앞으로 조금 기울이고 상대방의 눈을 바라봐요. "몸과 마음을 상대방에게 기울이는 거야"라고 했어요.', explanationWrong: '눈을 바라보는 것은 멈추거나 기다리는 게 아니라, 몸과 마음을 기울이는 "기울인다" 단계예요.' },
+    { type: 'listening_three_step', question: '친구가 말하는 동안 가만히 듣는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 2, explanation: '가만히 듣는 것은 "기다린다"예요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다리는 것이에요.', explanationCorrect: '말을 다 할 때까지 기다리는 것이 "기다린다"예요. "불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해"라고 했어요.', explanationWrong: '가만히 듣는 것은 끼어들지 않고 기다리는 "기다린다" 단계예요.' },
+    { type: 'listening_three_step', question: '휴대폰을 보며 듣는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 0, explanation: '휴대폰을 보며 듣는 것은 잘 듣지 않는 거예요. 잘 들으려면 "멈춘다"가 필요해요. 하던 일(휴대폰 보기)을 멈추고 상대에게 집중해야 해요.', explanationCorrect: '다른 일을 하면 상대의 말을 잘 들을 수 없어요. "네가 무언가를 하고 있으면 다른 사람의 말을 잘 들을 수 없어"라고 했어요. 멈춰야 해요.', explanationWrong: '휴대폰을 보는 건 "기울인다"가 아니라, 하던 일을 멈추지 않은 거예요. 먼저 멈춰야 경청할 수 있어요.' },
+    { type: 'listening_three_step', question: '고개를 끄덕이며 듣는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 1, explanation: '고개를 끄덕이며 맞장구를 치는 것은 "기울인다"에 해당해요. 네가 진심으로 잘 듣고 있다는 것을 보여 주는 자세예요.', explanationCorrect: '"경청할 때는 이런 자세가 좋아. 몸을 앞으로 조금 기울인다. 상대방의 눈을 바라본다. 고개를 끄덕이며 맞장구를 친다"라고 했어요.', explanationWrong: '고개를 끄덕이는 것은 몸과 마음을 기울이는 "기울인다" 단계의 자세예요.' },
+    { type: 'listening_three_step', question: '말이 끝날 때까지 참는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 2, explanation: '말이 끝날 때까지 참는 것은 "기다린다"예요. 끼어들지 않고 말을 다 할 때까지 기다리는 것이에요.', explanationCorrect: '"기다린다. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해"라고 했어요.', explanationWrong: '말이 끝날 때까지 참는 것은 "기다린다" 단계예요. 끼어들지 않고 기다려요.' },
+    { type: 'listening_three_step', question: '충고하고 싶을 때 참는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 0, explanation: '충고하고 싶은 마음을 참는 것은 "멈춘다"예요. 참견·비난·충고하고 싶은 마음을 멈춰야 상대의 말을 잘 들을 수 있어요.', explanationCorrect: '"참견하고 싶고, 비난하고 싶고, 충고하고 싶은 마음을 멈춰야 해"라고 했어요. 충고는 나중에 하고 먼저 들어 줘요.', explanationWrong: '충고하고 싶을 때 참는 것은 "멈춘다"예요. 그 마음을 멈춰야 끝까지 들을 수 있어요.' },
+    { type: 'listening_three_step', question: '몸을 앞으로 조금 움직인다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 1, explanation: '몸을 앞으로 조금 기울이는 것은 "기울인다"예요. 몸과 마음을 상대에게 기울이는 자세가 좋은 경청이에요.', explanationCorrect: '"몸을 앞으로 조금 기울인다. 상대방의 눈을 바라본다. 고개를 끄덕이며 맞장구를 친다"라고 했어요.', explanationWrong: '몸을 앞으로 기울이는 것은 "기울인다" 단계의 자세예요.' },
+    { type: 'listening_three_step', question: '말을 자르지 않는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 2, explanation: '말을 자르지 않는 것은 "기다린다"예요. 말을 다 할 때까지 기다려야 해요.', explanationCorrect: '"불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해"라고 했어요.', explanationWrong: '말을 자르지 않는 것은 "기다린다"를 실천하는 거예요.' },
+    { type: 'listening_three_step', question: '화가 나도 먼저 듣는다.', options: ['멈춘다', '기울인다', '기다린다'], correctIndex: 0, explanation: '화가 나도 말하고 싶은 마음을 멈추고 먼저 듣는 것이 "멈춘다"예요. 반박하고 싶은 마음을 멈춰야 상대의 말을 끝까지 들을 수 있어요.', explanationCorrect: '화가 나도 참견·비난·충고하고 싶은 마음을 멈추고 들어 주는 것이 경청이에요. "멈춘다"가 첫 단계예요.', explanationWrong: '화가 나도 먼저 듣는 것은 말하고 싶은 마음을 "멈추는" 거예요. 그다음에 기다리며 들어 줘요.' },
+  ],
+  'bigear-listening-three'
+);
+
+const bigEarListeningResult: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 1: 말과 결과를 연결해 보세요.',
+      leftItems: ['친구 말을 잘 들으면', '끼어들면', '존중하며 들으면', '무시하면'],
+      rightItems: ['친구가 생긴다', '친구가 속상하다', '마음을 연다', '마음을 닫는다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 친구 말을 잘 들으면 → 친구가 생긴다: "누구나 자기 이야기를 잘 들어 주는 사람에게 호감을 갖게 되지."\n' +
+        '② 끼어들면 → 친구가 속상하다: 말을 자르면 상대가 불쾌해져요.\n' +
+        '③ 존중하며 들으면 → 마음을 연다: "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야."\n' +
+        '④ 무시하면 → 마음을 닫는다: 잘 듣는 사람에게 마음을 여는 거예요. 무시하면 마음을 닫아요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 2: 말과 결과를 연결해 보세요.',
+      leftItems: ['끝까지 들으면', '고개를 끄덕이면', '참견하면', '기다리면'],
+      rightItems: ['오해가 줄어든다', '안심한다', '화가 난다', '믿음이 생긴다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 끝까지 들으면 → 오해가 줄어든다: 말을 다 들으면 오해가 줄어들어요.\n' +
+        '② 고개를 끄덕이면 → 안심한다: 맞장구를 치면 "듣고 있어"라고 보여 줘서 상대가 안심해요.\n' +
+        '③ 참견하면 → 화가 난다: "충고는 됐고 그냥 들어 주면 안 될까"처럼 상대가 화를 내요.\n' +
+        '④ 기다리면 → 믿음이 생긴다: 말을 다 할 때까지 기다려 주면 믿음이 쌓여요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 3: 말과 결과를 연결해 보세요.',
+      leftItems: ['눈을 마주치면', '잘 들으면', '말을 자르면', '몸을 기울이면'],
+      rightItems: ['친해진다', '사람이 다르게 보인다', '대화가 끊긴다', '신뢰가 쌓인다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 눈을 마주치면 → 친해진다: 몸과 마음을 기울여 듣으면 친해져요.\n' +
+        '② 잘 들으면 → 사람이 다르게 보인다: "잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든."\n' +
+        '③ 말을 자르면 → 대화가 끊긴다: 끼어들면 상대의 말이 끊기고 대화가 어색해져요.\n' +
+        '④ 몸을 기울이면 → 신뢰가 쌓인다: "몸과 마음을 상대방에게 기울이는 거야." 진심이 전달돼요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 4: 말과 결과를 연결해 보세요.',
+      leftItems: ['휴대폰을 보면', '맞장구를 치면', '충고만 하면', '경청하면'],
+      rightItems: ['상대가 무시당한 느낌', '말하기 편해진다', '관계가 멀어진다', '마법처럼 보인다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 휴대폰을 보면 → 상대가 무시당한 느낌: "네가 무언가를 하고 있으면 다른 사람의 말을 잘 들을 수 없어."\n' +
+        '② 맞장구를 치면 → 말하기 편해진다: 고개를 끄덕이며 맞장구를 치면 상대가 말을 이어가기 편해요.\n' +
+        '③ 충고만 하면 → 관계가 멀어진다: "참견하고 싶고, 비난하고 싶고, 충고하고 싶은 마음을 멈춰야 해."\n' +
+        '④ 경청하면 → 마법처럼 보인다: "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고."',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 5: 말과 결과를 연결해 보세요.',
+      leftItems: ['한 귀로 흘리면', '진심으로 들으면', '말을 끝까지 기다리면', '무시하며 듣으면'],
+      rightItems: ['오해가 생긴다', '마음이 통한다', '감사함을 느낀다', '상처받는다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 한 귀로 흘리면 → 오해가 생긴다: 제대로 듣지 않으면 오해가 쌓여요.\n' +
+        '② 진심으로 들으면 → 마음이 통한다: "몸과 마음을 상대방에게 기울이는 거야."\n' +
+        '③ 말을 끝까지 기다리면 → 감사함을 느낀다: "불쑥 끼어들거나 말을 자르지 말고" 기다려 주면 고마워해요.\n' +
+        '④ 무시하며 듣으면 → 상처받는다: 무시하면 마음을 닫고 상처받아요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 6: 말과 결과를 연결해 보세요.',
+      leftItems: ['눈을 바라보면', '끼어들지 않으면', '참고 듣으면', '멈추고 들으면'],
+      rightItems: ['집중해 준 느낌', '말이 잘 풀린다', '친구가 늘어난다', '대화가 깊어진다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 눈을 바라보면 → 집중해 준 느낌: "상대방의 눈을 바라본다." 상대가 신뢰를 느껴요.\n' +
+        '② 끼어들지 않으면 → 말이 잘 풀린다: 말을 자르지 않으면 상대가 생각을 끝까지 말할 수 있어요.\n' +
+        '③ 참고 듣으면 → 친구가 늘어난다: "참견하고 싶은 마음을 멈춰야 해." 들어 주면 친구가 돼요.\n' +
+        '④ 멈추고 들으면 → 대화가 깊어진다: 하던 일을 멈추고 들으면 대화가 깊어져요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 7: 말과 결과를 연결해 보세요.',
+      leftItems: ['고개를 끄덕이면', '말을 자르지 않으면', '경청할 때 멈추면', '경청할 때 기울이면'],
+      rightItems: ['듣고 있다는 신호', '존중받는 느낌', '말에 집중할 수 있다', '진심이 전달된다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 고개를 끄덕이면 → 듣고 있다는 신호: "고개를 끄덕이며 맞장구를 친다." 상대가 안심해요.\n' +
+        '② 말을 자르지 않으면 → 존중받는 느낌: "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야."\n' +
+        '③ 경청할 때 멈추면 → 말에 집중할 수 있다: "잘 들으려면 일단 멈춰야 해."\n' +
+        '④ 경청할 때 기울이면 → 진심이 전달된다: "귀를 기울여 잘 듣는 것을 경청이라고 해. 몸과 마음을 상대방에게 기울이는 거야."',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 8: 말과 결과를 연결해 보세요.',
+      leftItems: ['경청할 때 기다리면', '우정은 듣기에서 시작하면', '입은 하나 귀는 두 개라', '이야기를 잘 들으면'],
+      rightItems: ['믿음이 커진다', '친구가 생긴다', '잘 들으라는 뜻', '상대를 존중하는 것'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 경청할 때 기다리면 → 믿음이 커진다: "말을 다 할 때까지 기다려야 해." 기다려 주면 믿음이 쌓여요.\n' +
+        '② 우정은 듣기에서 시작하면 → 친구가 생긴다: "우정은 듣는 데서 시작한다."\n' +
+        '③ 입은 하나 귀는 두 개라 → 잘 들으라는 뜻: "그래서 입은 하나고 귀는 두 개인거야 잘 들으라고."\n' +
+        '④ 이야기를 잘 들으면 → 상대를 존중하는 것: "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야."',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 9: 말과 결과를 연결해 보세요.',
+      leftItems: ['하던 일을 멈추고 들으면', '참견하지 않고 들으면', '비난하지 않고 들으면', '충고하지 않고 들으면'],
+      rightItems: ['상대가 중요하다는 느낌', '말이 자유로워진다', '마음이 열린다', '위로가 된다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 하던 일을 멈추고 들으면 → 상대가 중요하다는 느낌: "네가 무언가를 하고 있으면 다른 사람의 말을 잘 들을 수 없어." 멈추면 소중함이 전해져요.\n' +
+        '② 참견하지 않고 들으면 → 말이 자유로워진다: "충고는 됐고 그냥 들어 주면 안 될까." 들어 주기만 하면 말이 잘 나와요.\n' +
+        '③ 비난하지 않고 들으면 → 마음이 열린다: 비난하고 싶은 마음을 멈추면 상대가 마음을 열어요.\n' +
+        '④ 충고하지 않고 들으면 → 위로가 된다: "참견하고 싶고, 비난하고 싶고, 충고하고 싶은 마음을 멈춰야 해." 들어 주는 것만으로 위로가 돼요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '경청 결과 예측하기 10: 말과 결과를 연결해 보세요.',
+      leftItems: ['잘 듣는 사람에게는', '말 잘하는 사람에게는', '경청은 마법이라', '끝까지 기다려 주면'],
+      rightItems: ['마음을 연다', '귀를 연다', '사람이 다르게 보인다', '고마움을 느낀다'],
+      correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]],
+      explanation: '경청의 결과를 이야기에서 배운 내용과 연결해 보세요.',
+      detailedExplanation:
+        '① 잘 듣는 사람에게는 → 마음을 연다: "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다."\n' +
+        '② 말 잘하는 사람에게는 → 귀를 연다: "말 잘하는 사람에게는 귀를 열지만" 잘 듣는 사람에게는 마음을 연다.\n' +
+        '③ 경청은 마법이라 → 사람이 다르게 보인다: "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든."\n' +
+        '④ 끝까지 기다려 주면 → 고마움을 느낀다: 말을 다 할 때까지 기다려 주면 상대가 고마워해요.',
+    },
+  ],
+  'bigear-listening-result'
+);
+
 type ContentTypeKey = ContentType;
 const MARY: Record<ContentTypeKey, Content[]> = {
   ox_quiz: maryOx,
@@ -813,6 +1135,9 @@ const MARY: Record<ContentTypeKey, Content[]> = {
   categorize: maryCategorize,
   match_pairs: [],
   choice_with_result: [],
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
 };
 
 const MONGMONG: Record<ContentTypeKey, Content[]> = {
@@ -825,11 +1150,46 @@ const MONGMONG: Record<ContentTypeKey, Content[]> = {
   categorize: [],
   match_pairs: mongmongMatchPairs,
   choice_with_result: mongmongChoiceWithResult,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
+const STICKPEBBLE: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: stickPebbleOx,
+  multiple_choice: stickPebbleMultiple,
+  ordering: stickPebbleOrdering,
+  fill_blank: stickPebbleFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: [],
+  choice_with_result: [],
+  crisis_resolution: stickPebbleCrisisResolution,
+  together_outcome: stickPebbleTogetherOutcome,
+  listening_three_step: [],
+};
+
+const BIGEAR: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: bigEarOx,
+  multiple_choice: bigEarMultiple,
+  ordering: bigEarOrdering,
+  fill_blank: bigEarFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: bigEarListeningResult,
+  choice_with_result: [],
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: bigEarListeningThreeStep,
 };
 
 const PREDEFINED: Record<string, Record<ContentTypeKey, Content[]>> = {
   'book-mary': MARY,
   'book-mongmong': MONGMONG,
+  'book-stick-pebble': STICKPEBBLE,
+  'book-big-ear': BIGEAR,
 };
 
 /** explanation에 "정답인 이유:"와 "틀린 이유:"가 있으면 나누어 explanationCorrect, explanationWrong으로 설정 */

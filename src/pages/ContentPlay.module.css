@@ -708,6 +708,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  transition: box-shadow 0.15s ease;
 }
 .pairDotLeft {
   left: -10px;
@@ -715,6 +716,18 @@
 .pairDotRight {
   right: -10px;
 }
+
+/* 선택된 카드·점 강조 (선 연결 시) */
+.pairsList li[data-selected="true"] {
+  outline: 2px solid var(--color-primary, #3498db);
+  outline-offset: 1px;
+}
+.pairsList li[data-selected="true"] .pairDotLeft,
+.pairsList li[data-selected="true"] .pairDotRight {
+  background: var(--color-primary, #3498db);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px var(--color-primary, #3498db);
+}
+
 .pairRightHighlight li {
   cursor: pointer;
 }
