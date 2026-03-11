@@ -29,6 +29,8 @@ export async function generateNextContent(params: {
     elimination_reasons: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     categorize: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     match_pairs: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    match_pairs_sense: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
+    match_pairs_cause_effect: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     choice_with_result: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     crisis_resolution: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
     together_outcome: '도서별 확장 활동(미리 정의된 콘텐츠만 사용)',
