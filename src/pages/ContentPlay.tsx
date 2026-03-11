@@ -27,6 +27,11 @@ function getQuestionText(c: Content): string {
   return 'question' in c ? (c as { question: string }).question : '';
 }
 
+/** 빈칸 채우기 문장에서 언더바(____)를 (  ) 형식으로 표시 */
+function formatFillBlankSentence(sentence: string): string {
+  return sentence.replace(/_+/g, '(  )');
+}
+
 function shuffle<T>(arr: T[]): T[] {
   const out = [...arr];
   for (let i = out.length - 1; i > 0; i--) {
@@ -335,7 +340,7 @@ export default function ContentPlay() {
             index={currentIndex}
           />
         )}
-        {current.type === 'match_pairs' && (
+        {(current.type === 'match_pairs' || current.type === 'match_pairs_sense' || current.type === 'match_pairs_cause_effect') && (
           <MatchPairsPlay
             key={current.id}
             content={current as MatchPairsContent}
@@ -468,7 +473,7 @@ function OxQuizPlay({
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
           <p className={styles.answerLabel}>정답: {content.correctAnswer}</p>
-          <p className={styles.explanation}>
+          <p className={`${styles.explanation} ${styles.explanationResult}`}>
             {content.explanationCorrect != null && content.explanationWrong != null
               ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
               : isCorrect
@@ -542,7 +547,7 @@ function MultipleChoicePlay({
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
           <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
-          <p className={styles.explanation}>
+          <p className={`${styles.explanation} ${styles.explanationResult}`}>
             {content.explanationCorrect != null && content.explanationWrong != null
               ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
               : isCorrect
@@ -669,18 +674,29 @@ function OrderingPlay({
           <div className={styles.resultBadge} data-correct={isCorrect}>
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
-          <div className={styles.orderingAnswerBlock}>
-            <p className={styles.answerLabel}>정답 순서</p>
-            <ol className={styles.orderingAnswerList}>
-              {content.items.map((item, i) => (
-                <li key={i} className={styles.orderingAnswerItem}>
-                  {item}
-                </li>
-              ))}
+          <div className={styles.orderingUserOrderBlock}>
+            <p className={styles.answerLabel}>내가 고른 순서</p>
+            <ol className={styles.orderingUserOrderList}>
+              {order.map((itemIdx, listIndex) => {
+                const isItemCorrect = itemIdx === listIndex;
+                const userItem = content.items[itemIdx];
+                const correctItemForPosition = content.items[listIndex];
+                const displayText = isItemCorrect
+                  ? userItem
+                  : `${userItem} → ${correctItemForPosition}`;
+                return (
+                  <li
+                    key={`${itemIdx}-${listIndex}`}
+                    className={`${styles.orderingUserOrderItem} ${isItemCorrect ? styles.orderingUserOrderItemCorrect : styles.orderingUserOrderItemWrong}`}
+                  >
+                    {displayText}
+                  </li>
+                );
+              })}
             </ol>
           </div>
           <p className={styles.answerLabel}>설명</p>
-          <p className={`${styles.explanation} ${styles.explanationOrdering}`}>
+          <p className={`${styles.explanation} ${styles.explanationResult}`}>
             {content.explanationCorrect != null && content.explanationWrong != null
               ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
               : `설명: ${stripExplanationPrefix(content.explanation)}`}
@@ -730,7 +746,7 @@ function FillBlankPlay({
     <>
       <div className={styles.questionArea}>
         <p className={styles.question}>
-          {index + 1}번 · {content.sentence}
+          {index + 1}번 · {formatFillBlankSentence(content.sentence)}
         </p>
       </div>
       {!showResult ? (
@@ -752,7 +768,7 @@ function FillBlankPlay({
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
           <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
-          <p className={styles.explanation}>
+          <p className={`${styles.explanation} ${styles.explanationResult}`}>
             {content.explanationCorrect != null && content.explanationWrong != null
               ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
               : isCorrect
@@ -886,7 +902,7 @@ function EmotionStairPlay({
             </div>
           ) : null}
           {content.explanation && (
-            <p className={styles.explanation}>{content.explanation}</p>
+            <p className={`${styles.explanation} ${styles.explanationResult}`}>{content.explanation}</p>
           )}
           <div className={styles.resultButtons}>
             {canRequestMore && (
@@ -1023,7 +1039,7 @@ function EliminationReasonsPlay({
             })}
           </ul>
           {content.explanation && (
-            <p className={styles.explanation}>{content.explanation}</p>
+            <p className={`${styles.explanation} ${styles.explanationResult}`}>{content.explanation}</p>
           )}
           <div className={styles.resultButtons}>
             {canRequestMore && (
@@ -1127,7 +1143,7 @@ function CategorizePlay({
             {isCorrect ? '정답이에요!' : `${correct}개 맞았어요`}
           </div>
           {content.explanation && (
-            <p className={styles.explanation}>{content.explanation}</p>
+            <p className={`${styles.explanation} ${styles.explanationResult}`}>{content.explanation}</p>
           )}
           <div className={styles.resultButtons}>
             {canRequestMore && (
@@ -1327,6 +1343,10 @@ function MatchPairsPlay({
   };
 
   if (showResult) {
+    const correctPairSet = new Set(content.correctPairs.map(([l, r]) => `${l}-${r}`));
+    const rightIndexByLeft: Record<number, number> = {};
+    content.correctPairs.forEach(([l, r]) => { rightIndexByLeft[l] = r; });
+
     return (
       <>
         <div className={styles.questionArea}>
@@ -1336,14 +1356,37 @@ function MatchPairsPlay({
           <div className={styles.resultBadge} data-correct={isCorrect}>
             {isCorrect ? '정답이에요!' : `${correctCount}개 맞았어요`}
           </div>
+          <p className={styles.answerLabel}>연결한 짝</p>
+          <ul className={styles.matchResultPairs}>
+            {userPairs.map(({ left, right, key }) => {
+              const pairCorrect = correctPairSet.has(key);
+              const correctRightIdx = rightIndexByLeft[left];
+              const correctRightText = correctRightIdx != null ? content.rightItems[correctRightIdx] : null;
+              return (
+                <li
+                  key={key}
+                  className={`${styles.matchResultPair} ${pairCorrect ? styles.matchResultPairCorrect : styles.matchResultPairWrong}`}
+                >
+                  <span>{content.leftItems[left]}</span>
+                  <span className={styles.matchResultPairArrow}>→</span>
+                  <span>{content.rightItems[right]}</span>
+                  {!pairCorrect && correctRightText != null && (
+                    <span className={styles.matchResultCorrectAnswer}>
+                      정답: {correctRightText}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
           {content.detailedExplanation ? (
-            <div className={styles.detailedExplanation}>
+            <div className={`${styles.detailedExplanation} ${styles.detailedExplanationLarge}`}>
               {content.detailedExplanation.split('\n').map((line, idx) => (
                 <p key={idx}>{line}</p>
               ))}
             </div>
           ) : content.explanation ? (
-            <p className={styles.explanation}>{content.explanation}</p>
+            <p className={`${styles.explanation} ${styles.explanationResult}`}>{content.explanation}</p>
           ) : null}
           <div className={styles.resultButtons}>
             {canRequestMore && (
@@ -1552,7 +1595,7 @@ function ChoiceWithResultPlay({
             </div>
           )}
           {content.explanation && (
-            <p className={styles.explanation}>{content.explanation}</p>
+            <p className={`${styles.explanation} ${styles.explanationResult}`}>{content.explanation}</p>
           )}
           <div className={styles.resultButtons}>
             {canRequestMore && (
@@ -1616,7 +1659,7 @@ function CrisisResolutionPlay({
             {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
           </div>
           <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
-          <p className={styles.explanation}>
+          <p className={`${styles.explanation} ${styles.explanationResult}`}>
             {content.explanationCorrect != null && content.explanationWrong != null
               ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
               : isCorrect
@@ -1802,7 +1845,7 @@ function ListeningThreeStepPlay({
               {isCorrect ? '정답이에요!' : '다시 생각해 보세요'}
             </div>
             <p className={styles.answerLabel}>정답: {content.options[content.correctIndex]}</p>
-            <p className={styles.explanation}>
+            <p className={`${styles.explanation} ${styles.explanationResult}`}>
               {content.explanationCorrect != null && content.explanationWrong != null
                 ? normalizeExplanation(isCorrect ? content.explanationCorrect : content.explanationWrong)
                 : isCorrect

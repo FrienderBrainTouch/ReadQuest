@@ -280,10 +280,88 @@
   white-space: pre-line;
 }
 
-/* 순서 맞추기 설명: 글자 수가 많아 읽기 편하도록 작은 글자 */
-.explanationOrdering {
+/* 결과 화면 설명: 글자 크기 키움 (순서맞추기, 말-결과 등) */
+.explanationResult {
+  font-size: var(--text-xl);
+  line-height: 1.75;
+  margin-top: var(--space-md);
+}
+
+/* 순서 맞추기 결과: 내가 고른 순서 정오 표시 */
+.orderingUserOrderBlock {
+  width: 100%;
+  text-align: left;
+  margin-bottom: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+.orderingUserOrderList {
+  margin: 0;
+  padding-left: 1.4em;
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  list-style: decimal;
+}
+.orderingUserOrderItem {
+  margin-bottom: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+.orderingUserOrderItemCorrect {
+  background: #e8f5e9;
+  border-left: 3px solid #2e7d32;
+}
+.orderingUserOrderItemWrong {
+  background: #ffebee;
+  border-left: 3px solid #c62828;
+}
+
+/* 말-결과 선잇기 결과: 연결별 정오 + 정답 표시 */
+.matchResultPairs {
+  width: 100%;
+  text-align: left;
+  margin-bottom: var(--space-lg);
+  padding: 0;
+  list-style: none;
+}
+.matchResultPair {
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  border-left: 4px solid transparent;
+}
+.matchResultPairCorrect {
+  background: #e8f5e9;
+  border-left-color: #2e7d32;
+}
+.matchResultPairWrong {
+  background: #ffebee;
+  border-left-color: #c62828;
+}
+.matchResultPairArrow {
+  margin: 0 var(--space-xs);
+  color: var(--color-text-soft);
+}
+.matchResultCorrectAnswer {
+  display: block;
+  margin-top: var(--space-xs);
   font-size: var(--text-sm);
-  line-height: 1.65;
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+/* 말-결과·순서맞추기 결과 설명 텍스트 크기 */
+.detailedExplanationLarge {
+  font-size: var(--text-xl);
+  line-height: 1.75;
+  margin: var(--space-md) 0;
+}
+.detailedExplanationLarge p {
+  margin: var(--space-sm) 0;
 }
 
 .answerLabel {

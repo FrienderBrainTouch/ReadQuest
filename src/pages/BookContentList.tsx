@@ -13,6 +13,8 @@ const CONTENT_ITEMS: { type: ContentType; label: string; subLabel: string }[] = 
   { type: 'elimination_reasons', label: '따뜻해진 이유 찾기', subLabel: '진짜 이유만 남겨요' },
   { type: 'categorize', label: '이야기 구조 나누기', subLabel: '시작·중간·끝으로 나눠요' },
   { type: 'match_pairs', label: '말-결과 연결', subLabel: '말과 결과를 이어요' },
+  { type: 'match_pairs_sense', label: '감각 연결', subLabel: '상황과 감각을 이어요' },
+  { type: 'match_pairs_cause_effect', label: '원인과 결과 연결', subLabel: '원인과 결과를 이어요' },
   { type: 'choice_with_result', label: '같은 상황 다른 말', subLabel: '말에 따른 결과를 비교해요' },
   { type: 'crisis_resolution', label: '위기 상황 해결하기', subLabel: '이럴 때 친구는 무엇을 해야 할까요?' },
   { type: 'together_outcome', label: '함께하면 어떻게 될까?', subLabel: '함께라면의 결과를 골라요' },
