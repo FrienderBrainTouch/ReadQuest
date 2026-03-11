@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import BookList from './pages/BookList';
@@ -12,6 +12,14 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const { isLoggedIn } = useAuth();
+  const location = useLocation();
+
+  // 새로고침 등으로 로그인이 풀리면 로그인 화면으로 이동
+  if (!isLoggedIn && location.pathname !== '/login') {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
