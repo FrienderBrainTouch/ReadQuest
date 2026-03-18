@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useState, useCallback, useRef } from 'react
 import { useParams, useNavigate } from 'react-router-dom';
 import { getBookById } from '../data/books';
 import type {
+  Content,
   ContentType,
   OxQuizContent,
   MultipleChoiceContent,
