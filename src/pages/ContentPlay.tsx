@@ -18,7 +18,6 @@ import type {
   ListeningThreeStepContent,
 } from '../data/books';
 import { getPreGeneratedContents } from '../data/preGeneratedQuestions';
-import { generateNextContent } from '../services/ai';
 import styles from './ContentPlay.module.css';
 
 function getQuestionText(c: Content): string {
@@ -68,10 +67,8 @@ export default function ContentPlay() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [loadingFirst, setLoadingFirst] = useState(true);
-  const [loadingNext, setLoadingNext] = useState(false);
   const [noFirstQuestion, setNoFirstQuestion] = useState(false);
   const [noMore, setNoMore] = useState(false);
-  const isPreGeneratedMode = useRef(false);
 
   const handleBack = useCallback(() => {
     navigate(`/books/${bookId}`);
@@ -83,39 +80,15 @@ export default function ContentPlay() {
 
     const preGenerated = getPreGeneratedContents(book.id, contentType);
     if (preGenerated && preGenerated.length > 0) {
-      isPreGeneratedMode.current = true;
       setQuestions(preGenerated);
       setLoadingFirst(false);
       return;
     }
 
-    isPreGeneratedMode.current = false;
-    let cancelled = false;
-    setLoadingFirst(true);
-    setNoFirstQuestion(false);
-    generateNextContent({
-      bookTitle: book.title,
-      contentForPrompt: book.contentForPrompt,
-      contentType,
-      previousQuestions: [],
-    })
-      .then((one) => {
-        if (cancelled) return;
-        setLoadingFirst(false);
-        if (one) {
-          const withOrder = { ...one, order: 1 };
-          setQuestions([withOrder]);
-        } else {
-          setNoFirstQuestion(true);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setLoadingFirst(false);
-          setNoFirstQuestion(true);
-        }
-      });
-    return () => { cancelled = true; };
+    // 더 이상 AI를 통한 문제 생성은 지원하지 않으므로,
+    // 사전 생성된 콘텐츠가 없으면 곧바로 "문제를 만들 수 없음" 상태로 전환한다.
+    setLoadingFirst(false);
+    setNoFirstQuestion(true);
   }, [book?.id, contentType]);
 
   function handleNext() {
@@ -126,34 +99,9 @@ export default function ContentPlay() {
       return;
     }
 
-    if (isPreGeneratedMode.current) {
-      setNoMore(true);
-      return;
-    }
-
-    if (!book || !contentType) return;
-    setLoadingNext(true);
-    const prevTexts = questions.map(getQuestionText);
-    generateNextContent({
-      bookTitle: book.title,
-      contentForPrompt: book.contentForPrompt,
-      contentType,
-      previousQuestions: prevTexts,
-    })
-      .then((one) => {
-        setLoadingNext(false);
-        if (one) {
-          setQuestions((q) => [...q, { ...one, order: q.length + 1 }]);
-          setCurrentIndex(prevTexts.length);
-          setShowResult(false);
-        } else {
-          setNoMore(true);
-        }
-      })
-      .catch(() => {
-        setLoadingNext(false);
-        setNoMore(true);
-      });
+    // 더 이상 AI를 통한 추가 문제 생성을 지원하지 않으므로,
+    // 마지막 문제까지 풀었다면 바로 종료 상태로 전환한다.
+    setNoMore(true);
   }
 
   if (!book) {
@@ -241,7 +189,11 @@ export default function ContentPlay() {
   const isChoiceWithResult = current.type === 'choice_with_result';
 
   return (
-    <div className={isChoiceWithResult ? `${styles.wrapper} ${styles.wrapperWide}` : styles.wrapper}>
+    <div
+      className={isChoiceWithResult ? `${styles.wrapper} ${styles.wrapperWide}` : styles.wrapper}
+      data-show-result={showResult ? 'true' : 'false'}
+      data-book-id={book.id}
+    >
       <header className={styles.header}>
         <button type="button" className={styles.backBtn} onClick={handleBack} aria-label="이전으로">
           뒤로
@@ -258,7 +210,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -271,7 +223,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -284,7 +236,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -297,7 +249,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -310,7 +262,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -323,7 +275,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -336,7 +288,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -349,7 +301,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -362,7 +314,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -375,7 +327,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}
@@ -388,7 +340,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}

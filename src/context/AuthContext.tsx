@@ -1,13 +1,6 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { useState, useCallback, type ReactNode } from 'react';
 import { MOCK_PASSWORD } from '../data/books';
-
-interface AuthContextType {
-  isLoggedIn: boolean;
-  login: (password: string) => boolean;
-  logout: () => void;
-}
-
-const AuthContext = createContext<AuthContextType | null>(null);
+import { AuthContext } from './authCore';
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,10 +22,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuth() {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error('useAuth must be used within AuthProvider');
-  return ctx;
 }

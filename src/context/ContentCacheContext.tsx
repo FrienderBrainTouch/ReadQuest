@@ -1,18 +1,6 @@
-import { createContext, useContext, useCallback, useState, type ReactNode } from 'react';
-import type { Book, Content } from '../data/books';
-import { getBookById } from '../data/books';
-import { generateContentsForBook } from '../services/ai';
-
-type ContentMap = Record<string, Content[]>;
-
-interface ContentCacheContextType {
-  getContents: (bookId: string) => Content[] | undefined;
-  setContents: (bookId: string, contents: Content[]) => void;
-  fetchContentsForBook: (bookId: string) => Promise<Content[]>;
-  isLoading: (bookId: string) => boolean;
-}
-
-const ContentCacheContext = createContext<ContentCacheContextType | null>(null);
+import { useCallback, useState, type ReactNode } from 'react';
+import type { Content } from '../data/books';
+import { ContentCacheContext, type ContentMap } from './contentCacheCore';
 
 export function ContentCacheProvider({ children }: { children: ReactNode }) {
   const [cache, setCache] = useState<ContentMap>({});
@@ -29,25 +17,13 @@ export function ContentCacheProvider({ children }: { children: ReactNode }) {
   );
 
   const fetchContentsForBook = useCallback(async (bookId: string): Promise<Content[]> => {
-    const book = getBookById(bookId) as Book | undefined;
-    if (!book) return [];
-
-    setLoadingIds((prev) => new Set(prev).add(bookId));
-    try {
-      const contents = await generateContentsForBook({
-        bookTitle: book.title,
-        contentForPrompt: book.contentForPrompt,
-      });
-      setCache((prev) => ({ ...prev, [bookId]: contents }));
-      return contents;
-    } finally {
-      setLoadingIds((prev) => {
-        const next = new Set(prev);
-        next.delete(bookId);
-        return next;
-      });
-    }
-  }, []);
+    // OpenAI 기반 일괄 생성 기능은 제거되었으므로,
+    // 현재 구현에서는 캐시에 이미 존재하는 내용만 반환하고,
+    // 없으면 빈 배열을 돌려줍니다.
+    const existing = cache[bookId];
+    if (existing) return existing;
+    return [];
+  }, [cache]);
 
   return (
     <ContentCacheContext.Provider
@@ -56,10 +32,4 @@ export function ContentCacheProvider({ children }: { children: ReactNode }) {
       {children}
     </ContentCacheContext.Provider>
   );
-}
-
-export function useContentCache() {
-  const ctx = useContext(ContentCacheContext);
-  if (!ctx) throw new Error('useContentCache must be used within ContentCacheProvider');
-  return ctx;
 }

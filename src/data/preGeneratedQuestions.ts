@@ -4,7 +4,18 @@ import type { Content, ContentType } from './books';
 type ContentWithoutIdOrder = Omit<Content, 'id' | 'order'>;
 
 /** 미리 생성된 문제가 있는 책 ID */
-export const PRE_GENERATED_BOOK_IDS = ['book-mary', 'book-mongmong', 'book-stick-pebble', 'book-big-ear', 'book-am-i-really-me', 'book-jirungi', 'book-willy'] as const;
+export const PRE_GENERATED_BOOK_IDS = [
+  'book-mary',
+  'book-mongmong',
+  'book-stick-pebble',
+  'book-big-ear',
+  'book-am-i-really-me',
+  'book-jirungi',
+  'book-willy',
+  'book-why-school',
+  'book-invitation-missing',
+  'book-mira-first-school-day',
+] as const;
 
 export function isPreGeneratedBook(bookId: string): boolean {
   return (PRE_GENERATED_BOOK_IDS as readonly string[]).includes(bookId);
@@ -34,46 +45,46 @@ function withIdsAndOrder(
 // ---------- 메리식당 (book-mary) ----------
 const maryOx: Content[] = withIdsAndOrder(
   [
-    { type: 'ox_quiz', question: '아무도 고슴도치 씨를 좋아하지 않았나요?', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 이야기 맨 처음에 “아무도 고슴도치 씨를 좋아하지 않았습니다.”라고 나와 있어요. 주변에서는 말에 가시가 있다고 했지만, 아무도 고슴도치 씨의 마음을 알아주지 않았어요. 틀린 이유: X라고 생각했다면, 이야기에서 "아무도 좋아하지 않았습니다"라고 분명히 했으므로 O가 맞아요.' },
-    { type: 'ox_quiz', question: '사람들은 고슴도치 씨가 항상 잘 웃는다고 했나요?', correctAnswer: 'X', explanation: '아니에요. 사람들은 “잘 웃지도 않아.”라고 말했어요. 고슴도치 씨는 겁이 나고 생각이 많아서 웃지 못했지만, 나중에 메리식당에서 눈사람 그릇을 보니 피식 웃음이 났어요.' },
-    { type: 'ox_quiz', question: '사람들은 고슴도치 씨 말에 가시가 있다고 했나요?', correctAnswer: 'O', explanation: '맞아요. 동네 사람들이 “말에 가시가 있어.”라고 했어요. 고슴도치 씨는 속으로 “내 마음은 그게 아닌데.”라고 생각했지만, 아무도 그 마음을 알아주지 않았어요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 일부러 차갑게 행동한 것이었나요?', correctAnswer: 'X', explanation: '아니에요. 고슴도치 씨는 속으로 “난 겁이 나서 그런 건데.” “난 생각하느라 그런 건데.”라고 생각했어요. 마음이 오해받고 있을 뿐, 일부러 차갑게 굴었던 게 아니에요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 속으로 겁이 난다고 생각했나요?', correctAnswer: 'O', explanation: '맞아요. 고슴도치 씨는 속으로 “난 겁이 나서 그런 건데.”라고 생각했어요. 그래서 잘 웃지도 못하고 말에 가시가 있다고 오해받았던 거예요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 자신의 마음이 오해받고 있다고 느꼈나요?', correctAnswer: 'O', explanation: '맞아요. “내 마음은 그게 아닌데.”라고 생각했고, “아무도 고슴도치 씨 마음을 알아주지 않았습니다.”라고 이야기에 나와 있어요. 오해받는 마음이 잘 드러나 있어요.' },
-    { type: 'ox_quiz', question: '눈이 사락사락 내렸나요?', correctAnswer: 'O', explanation: '맞아요. “흰 눈이 사락사락 내렸습니다.”라고 나와 있어요. 그날은 크리스마스였고, 눈 내리는 거리를 고슴도치 씨가 걸어다녔어요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 좁은 길에서 넓은 길로 갔나요?', correctAnswer: 'O', explanation: '맞아요. “고슴도치 씨는 좁은 길을 나와 넓은 길로 갔습니다.”라고 나와 있어요. 목욕탕, 마트, 정류장을 지나 가게마다 거리마다 사람들로 붐볐어요.' },
-    { type: 'ox_quiz', question: '거리는 사람들로 붐볐나요?', correctAnswer: 'O', explanation: '맞아요. “가게마다 거리마다 사람들로 붐볐습니다.”라고 나와 있어요. 고슴도치 씨는 “오늘 무슨 날이지?”라고 생각했을 만큼 거리가 북적였어요.' },
-    { type: 'ox_quiz', question: '빨간 풍선이 나뭇가지에 걸려 있었나요?', correctAnswer: 'O', explanation: '맞아요. “놀이터를 지나다 나뭇가지에 걸린 빨간 풍선을 보았습니다.”라고 나와 있어요. 고슴도치 씨가 머뭇대다 풍선 끈을 잡았어요.' },
-    { type: 'ox_quiz', question: '풍선에는 "메리 크리스마스"라고 적혀 있었나요?', correctAnswer: 'O', explanation: '맞아요. “풍선에는 ‘메리 크리스마스’라고 쓰여 있었습니다.”라고 나와 있어요. 그 풍선이 고슴도치 씨를 골목 끝 식당 앞까지 이끌었어요.' },
-    { type: 'ox_quiz', question: '풍선은 파란색이었나요?', correctAnswer: 'X', explanation: '아니에요. 풍선은 빨간색이었어요. 나뭇가지에 걸린 빨간 풍선이고, 식당에 있는 친구들도 모두 빨간 풍선을 의자에 매달았어요.' },
-    { type: 'ox_quiz', question: '풍선이 골목 끝 식당 앞에서 멈췄나요?', correctAnswer: 'O', explanation: '맞아요. “풍선이 길을 이끄는 것 같았습니다. 어느 골목 끝, 오랫동안 문이 닫혀 있던 이름 없는 식당 앞에서 멈췄습니다.”라고 나와 있어요.' },
-    { type: 'ox_quiz', question: '식당은 오래도록 문이 닫혀 있었나요?', correctAnswer: 'O', explanation: '맞아요. “오랫동안 문이 닫혀 있던 이름 없는 식당”이라고 나와 있어요. 고슴도치 씨가 문에 붙은 종이를 보고 슬며시 문을 열고 들어갔어요.' },
-    { type: 'ox_quiz', question: '식당 이름이 크게 간판에 쓰여 있었나요?', correctAnswer: 'X', explanation: '아니에요. “이름 없는 식당”이라고 나와 있어요. 간판에 이름이 크게 쓰여 있지 않았고, 그래서 이름 없는 식당이라고 부른 거예요.' },
-    { type: 'ox_quiz', question: '수염이 하얀 할아버지가 맞아주었나요?', correctAnswer: 'O', explanation: '맞아요. “수염이 눈처럼 하얀 할아버지가 반갑게 맞아주었습니다.”라고 나와 있어요. 나중에 밤이 되자 그 그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸어요.' },
-    { type: 'ox_quiz', question: '식당 한가운데에는 둥근 식탁이 있었나요?', correctAnswer: 'O', explanation: '맞아요. “식당 한가운데에는 커다랗고 둥근 식탁이 놓여 있었습니다.”라고 나와 있어요. 고슴도치 씨도 그 둥근 식탁에 앉아 오므라이스를 먹었어요.' },
-    { type: 'ox_quiz', question: '길냥이 씨도 식당에 있었나요?', correctAnswer: 'O', explanation: '맞아요. “길냥이 씨, 기러기 씨, 거북이 씨도 와 있었습니다.”라고 나와 있어요. 모두 빨간 풍선을 의자에 매달고, 메리라면, 메리피자, 메리버거를 먹으며 웃었어요.' },
-    { type: 'ox_quiz', question: '모두 파란 풍선을 의자에 매달았나요?', correctAnswer: 'X', explanation: '아니에요. “모두 빨간 풍선을 의자에 매달았습니다.”라고 나와 있어요. 고슴도치 씨도 엉거주춤 앉아 빨간 풍선을 매달았어요.' },
-    { type: 'ox_quiz', question: '모두 빨간 풍선을 의자에 매달았나요?', correctAnswer: 'O', explanation: '맞아요. “모두 빨간 풍선을 의자에 매달았습니다.”라고 나와 있어요. 고슴도치 씨가 식당에 들어왔을 때 친구들이 이미 빨간 풍선을 매달아 두었어요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 오므라이스를 골랐나요?', correctAnswer: 'O', explanation: '맞아요. “메뉴에도 ‘메리’가 가득했습니다. 고슴도치 씨는 오므라이스를 골랐습니다.”라고 나와 있어요. 할아버지는 “마음을 안아 주는 오므라이스입니다.”라고 말했어요.' },
-    { type: 'ox_quiz', question: '할아버지는 "마음을 안아 주는 오므라이스입니다."라고 말했나요?', correctAnswer: 'O', explanation: '맞아요. 할아버지가 오므라이스를 내오면서 “마음을 안아 주는 오므라이스입니다.”라고 말했어요. 고슴도치 씨는 그 말대로 한 입씩 먹을 때마다 따뜻한 크리스마스 기억이 떠올랐어요.' },
-    { type: 'ox_quiz', question: '오므라이스는 눈사람 그릇에 담겨 있었나요?', correctAnswer: 'O', explanation: '맞아요. “어릴 적 좋아하던 눈사람 그릇이었습니다.”라고 나와 있어요. 웃는 눈사람을 보니 고슴도치 씨는 피식 웃음이 났어요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 전혀 웃지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 식당에서는 “웃는 눈사람을 보니 피식 웃음이 났습니다.”라고 나와 있어요. 그리고 “식당 안은 웃음으로 가득했습니다.”라고 했으니 고슴도치 씨도 그 웃음에 참여했어요.' },
-    { type: 'ox_quiz', question: '한 입 먹을 때마다 크리스마스 기억이 떠올랐나요?', correctAnswer: 'O', explanation: '맞아요. “한 입씩 먹을 때마다 잊고 있던 크리스마스 기억이 떠올랐습니다.”라고 나와 있어요. 루돌프 코가 되어 눈썰매를 타던 날, 반짝이는 트리를 장식하던 날이 생각났어요.' },
-    { type: 'ox_quiz', question: '루돌프 코가 되어 눈썰매를 탄 기억이 떠올랐나요?', correctAnswer: 'O', explanation: '맞아요. “루돌프 코가 되어 눈썰매를 타던 날, 반짝이는 트리를 장식하던 날.”이라고 나와 있어요. 오므라이스를 먹으며 예전 크리스마스의 따뜻한 기억이 되살아났어요.' },
-    { type: 'ox_quiz', question: '식당 안은 조용하고 슬펐나요?', correctAnswer: 'X', explanation: '아니에요. “식당 안은 웃음으로 가득했습니다.”라고 나와 있어요. 케이크에 적힌 “마, 음, 이, 사, 르, 르, 녹, 아, 요.”를 읽고 모두 “메리 크리스마스.”라고 말했어요.' },
-    { type: 'ox_quiz', question: '길냥이 씨는 메리라면을 먹으며 웃었나요?', correctAnswer: 'O', explanation: '맞아요. 식당에 있던 길냥이 씨, 기러기 씨, 거북이 씨는 각각 메리라면, 메리피자, 메리버거를 먹으며 웃었고, 식당 안은 웃음으로 가득했어요.' },
-    { type: 'ox_quiz', question: '기러기 씨는 메리피자를 먹으며 웃었나요?', correctAnswer: 'O', explanation: '맞아요. 둥근 식탁에 모인 친구들이 메뉴에 있는 ‘메리’ 음식을 먹으며 웃었고, 그중 기러기 씨는 메리피자를 먹었어요. 식당 안은 웃음으로 가득했어요.' },
-    { type: 'ox_quiz', question: '거북이 씨는 메리버거를 먹으며 웃었나요?', correctAnswer: 'O', explanation: '맞아요. 길냥이 씨는 메리라면, 기러기 씨는 메리피자, 거북이 씨는 메리버거를 먹으며 웃었어요. 모두 빨간 풍선을 매단 식당에서 크리스마스를 함께 보냈어요.' },
-    { type: 'ox_quiz', question: '케이크 장식에는 "마음이 사르르 녹아요."라고 적혀 있었나요?', correctAnswer: 'O', explanation: '맞아요. “케이크가 나왔고” 모두가 “마, 음, 이, 사, 르, 르, 녹, 아, 요.”라고 글자를 읽었어요. 케이크에 “마음이 사르르 녹아요.”라고 적혀 있었던 거예요.' },
-    { type: 'ox_quiz', question: '모두 "해피 뉴 이어"라고 말했나요?', correctAnswer: 'X', explanation: '아니에요. 케이크가 나온 뒤 모두 “메리 크리스마스.”라고 말했어요. 해피 뉴 이어가 아니라 크리스마스 인사였어요.' },
-    { type: 'ox_quiz', question: '모두 "메리 크리스마스"라고 말했나요?', correctAnswer: 'O', explanation: '맞아요. “케이크가 나왔고, 모두 말했습니다. ‘메리 크리스마스.’”라고 나와 있어요. 풍선에 쓰인 말과 식당에서의 인사가 같아요.' },
-    { type: 'ox_quiz', question: '밖은 따뜻했나요?', correctAnswer: 'X', explanation: '아니에요. “바깥은 여전히 추웠지만, 이제는 춥지 않았습니다.”라고 나와 있어요. 날씨는 추웠지만 고슴도치 씨 마음만 따뜻해졌어요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨는 빨간 냄비에 동전을 넣었나요?', correctAnswer: 'O', explanation: '맞아요. “버스 정류장 옆 빨간 냄비에 고슴도치 씨는 동전을 넣었습니다.”라고 나와 있어요. 식당을 나온 뒤 고마운 마음을 담아 동전을 넣었어요.' },
-    { type: 'ox_quiz', question: '식당 불은 밤새 켜져 있었나요?', correctAnswer: 'X', explanation: '아니에요. “밤이 되자 식당 불이 꺼지고”라고 나와 있어요. 그다음 그림자가 산타 할아버지가 되어 루돌프 썰매를 타고 달렸고, 지나간 자리에는 흰 눈이 소복소복 쌓였어요.' },
-    { type: 'ox_quiz', question: '그림자는 산타 옷을 입은 할아버지였나요?', correctAnswer: 'O', explanation: '맞아요. “밤이 되자 식당 불이 꺼지고, 그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸습니다.”라고 나와 있어요. 수염 하얀 할아버지가 산타로 변한 거예요.' },
-    { type: 'ox_quiz', question: '산타는 루돌프 썰매를 타고 달렸나요?', correctAnswer: 'O', explanation: '맞아요. “그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸습니다.”라고 나와 있어요. 고슴도치 씨가 떠올렸던 루돌프 눈썰매 기억처럼, 산타가 썰매를 타고 달렸어요.' },
-    { type: 'ox_quiz', question: '빨간 풍선 꾸러미가 나부끼며 달렸나요?', correctAnswer: 'O', explanation: '맞아요. 산타 할아버지가 루돌프 썰매를 타고 달릴 때, 지나간 자리에는 흰 눈이 소복소복 쌓였고, 빨간 풍선 꾸러미가 나부끼며 따라갔을 거예요. 크리스마스 밤의 마지막 장면이에요.' },
-    { type: 'ox_quiz', question: '고슴도치 씨의 마음은 끝까지 차가웠나요?', correctAnswer: 'X', explanation: '아니에요. “바깥은 여전히 추웠지만, 이제는 춥지 않았습니다.”라고 나와 있어요. 메리식당에서 맞은 따뜻함 때문에 고슴도치 씨 마음은 더 이상 차갑지 않았어요.' },
+    { type: 'ox_quiz', question: '아무도 고슴도치 씨를 좋아하지 않았나요?', correctAnswer: 'O', explanation: '이야기 맨 처음에 “아무도 고슴도치 씨를 좋아하지 않았습니다.”라고 나와 있어요. 주변에서는 말에 가시가 있다고 했지만, 아무도 고슴도치 씨의 마음을 알아주지 않았어요.' },
+    { type: 'ox_quiz', question: '사람들은 고슴도치 씨가 항상 잘 웃는다고 했나요?', correctAnswer: 'X', explanation: '사람들은 “잘 웃지도 않아.”라고 말했어요. 고슴도치 씨는 겁이 나고 생각이 많아서 웃지 못했지만, 나중에 메리식당에서 눈사람 그릇을 보니 피식 웃음이 났어요.' },
+    { type: 'ox_quiz', question: '사람들은 고슴도치 씨 말에 가시가 있다고 했나요?', correctAnswer: 'O', explanation: '동네 사람들이 “말에 가시가 있어.”라고 했어요. 고슴도치 씨는 속으로 “내 마음은 그게 아닌데.”라고 생각했지만, 아무도 그 마음을 알아주지 않았어요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 일부러 차갑게 행동한 것이었나요?', correctAnswer: 'X', explanation: '고슴도치 씨는 속으로 “난 겁이 나서 그런 건데.” “난 생각하느라 그런 건데.”라고 생각했어요. 마음이 오해받고 있을 뿐, 일부러 차갑게 굴었던 게 아니에요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 속으로 겁이 난다고 생각했나요?', correctAnswer: 'O', explanation: '고슴도치 씨는 속으로 “난 겁이 나서 그런 건데.”라고 생각했어요. 그래서 잘 웃지도 못하고 말에 가시가 있다고 오해받았던 거예요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 자신의 마음이 오해받고 있다고 느꼈나요?', correctAnswer: 'O', explanation: '“내 마음은 그게 아닌데.”라고 생각했고, “아무도 고슴도치 씨 마음을 알아주지 않았습니다.”라고 이야기에 나와 있어요. 오해받는 마음이 잘 드러나 있어요.' },
+    { type: 'ox_quiz', question: '눈이 사락사락 내렸나요?', correctAnswer: 'O', explanation: '“흰 눈이 사락사락 내렸습니다.”라고 나와 있어요. 그날은 크리스마스였고, 눈 내리는 거리를 고슴도치 씨가 걸어다녔어요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 좁은 길에서 넓은 길로 갔나요?', correctAnswer: 'O', explanation: '“고슴도치 씨는 좁은 길을 나와 넓은 길로 갔습니다.”라고 나와 있어요. 목욕탕, 마트, 정류장을 지나 가게마다 거리마다 사람들로 붐볐어요.' },
+    { type: 'ox_quiz', question: '거리는 사람들로 붐볐나요?', correctAnswer: 'O', explanation: '“가게마다 거리마다 사람들로 붐볐습니다.”라고 나와 있어요. 고슴도치 씨는 “오늘 무슨 날이지?”라고 생각했을 만큼 거리가 북적였어요.' },
+    { type: 'ox_quiz', question: '빨간 풍선이 나뭇가지에 걸려 있었나요?', correctAnswer: 'O', explanation: '“놀이터를 지나다 나뭇가지에 걸린 빨간 풍선을 보았습니다.”라고 나와 있어요. 고슴도치 씨가 머뭇대다 풍선 끈을 잡았어요.' },
+    { type: 'ox_quiz', question: '풍선에는 "메리 크리스마스"라고 적혀 있었나요?', correctAnswer: 'O', explanation: '“풍선에는 ‘메리 크리스마스’라고 쓰여 있었습니다.”라고 나와 있어요. 그 풍선이 고슴도치 씨를 골목 끝 식당 앞까지 이끌었어요.' },
+    { type: 'ox_quiz', question: '풍선은 파란색이었나요?', correctAnswer: 'X', explanation: '풍선은 빨간색이었어요. 나뭇가지에 걸린 빨간 풍선이고, 식당에 있는 친구들도 모두 빨간 풍선을 의자에 매달았어요.' },
+    { type: 'ox_quiz', question: '풍선이 골목 끝 식당 앞에서 멈췄나요?', correctAnswer: 'O', explanation: '“풍선이 길을 이끄는 것 같았습니다. 어느 골목 끝, 오랫동안 문이 닫혀 있던 이름 없는 식당 앞에서 멈췄습니다.”라고 나와 있어요.' },
+    { type: 'ox_quiz', question: '식당은 오래도록 문이 닫혀 있었나요?', correctAnswer: 'O', explanation: '“오랫동안 문이 닫혀 있던 이름 없는 식당”이라고 나와 있어요. 고슴도치 씨가 문에 붙은 종이를 보고 슬며시 문을 열고 들어갔어요.' },
+    { type: 'ox_quiz', question: '식당 이름이 크게 간판에 쓰여 있었나요?', correctAnswer: 'X', explanation: '“이름 없는 식당”이라고 나와 있어요. 간판에 이름이 크게 쓰여 있지 않았고, 그래서 이름 없는 식당이라고 부른 거예요.' },
+    { type: 'ox_quiz', question: '수염이 하얀 할아버지가 맞아주었나요?', correctAnswer: 'O', explanation: '“수염이 눈처럼 하얀 할아버지가 반갑게 맞아주었습니다.”라고 나와 있어요. 나중에 밤이 되자 그 그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸어요.' },
+    { type: 'ox_quiz', question: '식당 한가운데에는 둥근 식탁이 있었나요?', correctAnswer: 'O', explanation: '“식당 한가운데에는 커다랗고 둥근 식탁이 놓여 있었습니다.”라고 나와 있어요. 고슴도치 씨도 그 둥근 식탁에 앉아 오므라이스를 먹었어요.' },
+    { type: 'ox_quiz', question: '길냥이 씨도 식당에 있었나요?', correctAnswer: 'O', explanation: '“길냥이 씨, 기러기 씨, 거북이 씨도 와 있었습니다.”라고 나와 있어요. 모두 빨간 풍선을 의자에 매달고, 메리라면, 메리피자, 메리버거를 먹으며 웃었어요.' },
+    { type: 'ox_quiz', question: '모두 파란 풍선을 의자에 매달았나요?', correctAnswer: 'X', explanation: '“모두 빨간 풍선을 의자에 매달았습니다.”라고 나와 있어요. 고슴도치 씨도 엉거주춤 앉아 빨간 풍선을 매달았어요.' },
+    { type: 'ox_quiz', question: '모두 빨간 풍선을 의자에 매달았나요?', correctAnswer: 'O', explanation: '“모두 빨간 풍선을 의자에 매달았습니다.”라고 나와 있어요. 고슴도치 씨가 식당에 들어왔을 때 친구들이 이미 빨간 풍선을 매달아 두었어요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 오므라이스를 골랐나요?', correctAnswer: 'O', explanation: '“메뉴에도 ‘메리’가 가득했습니다. 고슴도치 씨는 오므라이스를 골랐습니다.”라고 나와 있어요. 할아버지는 “마음을 안아 주는 오므라이스입니다.”라고 말했어요.' },
+    { type: 'ox_quiz', question: '할아버지는 "마음을 안아 주는 오므라이스입니다."라고 말했나요?', correctAnswer: 'O', explanation: '할아버지가 오므라이스를 내오면서 “마음을 안아 주는 오므라이스입니다.”라고 말했어요. 고슴도치 씨는 그 말대로 한 입씩 먹을 때마다 따뜻한 크리스마스 기억이 떠올랐어요.' },
+    { type: 'ox_quiz', question: '오므라이스는 눈사람 그릇에 담겨 있었나요?', correctAnswer: 'O', explanation: '“어릴 적 좋아하던 눈사람 그릇이었습니다.”라고 나와 있어요. 웃는 눈사람을 보니 고슴도치 씨는 피식 웃음이 났어요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 전혀 웃지 않았나요?', correctAnswer: 'X', explanation: '식당에서는 “웃는 눈사람을 보니 피식 웃음이 났습니다.”라고 나와 있어요. 그리고 “식당 안은 웃음으로 가득했습니다.”라고 했으니 고슴도치 씨도 그 웃음에 참여했어요.' },
+    { type: 'ox_quiz', question: '한 입 먹을 때마다 크리스마스 기억이 떠올랐나요?', correctAnswer: 'O', explanation: '“한 입씩 먹을 때마다 잊고 있던 크리스마스 기억이 떠올랐습니다.”라고 나와 있어요. 루돌프 코가 되어 눈썰매를 타던 날, 반짝이는 트리를 장식하던 날이 생각났어요.' },
+    { type: 'ox_quiz', question: '루돌프 코가 되어 눈썰매를 탄 기억이 떠올랐나요?', correctAnswer: 'O', explanation: '“루돌프 코가 되어 눈썰매를 타던 날, 반짝이는 트리를 장식하던 날.”이라고 나와 있어요. 오므라이스를 먹으며 예전 크리스마스의 따뜻한 기억이 되살아났어요.' },
+    { type: 'ox_quiz', question: '식당 안은 조용하고 슬펐나요?', correctAnswer: 'X', explanation: '“식당 안은 웃음으로 가득했습니다.”라고 나와 있어요. 케이크에 적힌 “마, 음, 이, 사, 르, 르, 녹, 아, 요.”를 읽고 모두 “메리 크리스마스.”라고 말했어요.' },
+    { type: 'ox_quiz', question: '길냥이 씨는 메리라면을 먹으며 웃었나요?', correctAnswer: 'O', explanation: '식당에 있던 길냥이 씨, 기러기 씨, 거북이 씨는 각각 메리라면, 메리피자, 메리버거를 먹으며 웃었고, 식당 안은 웃음으로 가득했어요.' },
+    { type: 'ox_quiz', question: '기러기 씨는 메리피자를 먹으며 웃었나요?', correctAnswer: 'O', explanation: '둥근 식탁에 모인 친구들이 메뉴에 있는 ‘메리’ 음식을 먹으며 웃었고, 그중 기러기 씨는 메리피자를 먹었어요. 식당 안은 웃음으로 가득했어요.' },
+    { type: 'ox_quiz', question: '거북이 씨는 메리버거를 먹으며 웃었나요?', correctAnswer: 'O', explanation: '길냥이 씨는 메리라면, 기러기 씨는 메리피자, 거북이 씨는 메리버거를 먹으며 웃었어요. 모두 빨간 풍선을 매단 식당에서 크리스마스를 함께 보냈어요.' },
+    { type: 'ox_quiz', question: '케이크 장식에는 "마음이 사르르 녹아요."라고 적혀 있었나요?', correctAnswer: 'O', explanation: '“케이크가 나왔고” 모두가 “마, 음, 이, 사, 르, 르, 녹, 아, 요.”라고 글자를 읽었어요. 케이크에 “마음이 사르르 녹아요.”라고 적혀 있었던 거예요.' },
+    { type: 'ox_quiz', question: '모두 "해피 뉴 이어"라고 말했나요?', correctAnswer: 'X', explanation: '케이크가 나온 뒤 모두 “메리 크리스마스.”라고 말했어요. 해피 뉴 이어가 아니라 크리스마스 인사였어요.' },
+    { type: 'ox_quiz', question: '모두 "메리 크리스마스"라고 말했나요?', correctAnswer: 'O', explanation: '“케이크가 나왔고, 모두 말했습니다. ‘메리 크리스마스.’”라고 나와 있어요. 풍선에 쓰인 말과 식당에서의 인사가 같아요.' },
+    { type: 'ox_quiz', question: '밖은 따뜻했나요?', correctAnswer: 'X', explanation: '“바깥은 여전히 추웠지만, 이제는 춥지 않았습니다.”라고 나와 있어요. 날씨는 추웠지만 고슴도치 씨 마음만 따뜻해졌어요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨는 빨간 냄비에 동전을 넣었나요?', correctAnswer: 'O', explanation: '“버스 정류장 옆 빨간 냄비에 고슴도치 씨는 동전을 넣었습니다.”라고 나와 있어요. 식당을 나온 뒤 고마운 마음을 담아 동전을 넣었어요.' },
+    { type: 'ox_quiz', question: '식당 불은 밤새 켜져 있었나요?', correctAnswer: 'X', explanation: '“밤이 되자 식당 불이 꺼지고”라고 나와 있어요. 그다음 그림자가 산타 할아버지가 되어 루돌프 썰매를 타고 달렸고, 지나간 자리에는 흰 눈이 소복소복 쌓였어요.' },
+    { type: 'ox_quiz', question: '그림자는 산타 옷을 입은 할아버지였나요?', correctAnswer: 'O', explanation: '“밤이 되자 식당 불이 꺼지고, 그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸습니다.”라고 나와 있어요. 수염 하얀 할아버지가 산타로 변한 거예요.' },
+    { type: 'ox_quiz', question: '산타는 루돌프 썰매를 타고 달렸나요?', correctAnswer: 'O', explanation: '“그림자는 산타 할아버지가 되어 루돌프 썰매를 타고 달렸습니다.”라고 나와 있어요. 고슴도치 씨가 떠올렸던 루돌프 눈썰매 기억처럼, 산타가 썰매를 타고 달렸어요.' },
+    { type: 'ox_quiz', question: '빨간 풍선 꾸러미가 나부끼며 달렸나요?', correctAnswer: 'O', explanation: '산타 할아버지가 루돌프 썰매를 타고 달릴 때, 지나간 자리에는 흰 눈이 소복소복 쌓였고, 빨간 풍선 꾸러미가 나부끼며 따라갔을 거예요. 크리스마스 밤의 마지막 장면이에요.' },
+    { type: 'ox_quiz', question: '고슴도치 씨의 마음은 끝까지 차가웠나요?', correctAnswer: 'X', explanation: '“바깥은 여전히 추웠지만, 이제는 춥지 않았습니다.”라고 나와 있어요. 메리식당에서 맞은 따뜻함 때문에 고슴도치 씨 마음은 더 이상 차갑지 않았어요.' },
   ],
   'mary-ox'
 );
@@ -436,7 +447,7 @@ const maryCategorize: Content[] = [];
 
 const maryMultiple: Content[] = withIdsAndOrder(
   [
-    { type: 'multiple_choice', question: '이야기 마지막에 어울리는 문장은?', options: ['나는 혼자야.', '나는 혼자가 아니야.'], correctIndex: 1, explanation: '고슴도치 씨는 처음에 외로웠지만 메리식당에서 할아버지와 친구들의 따뜻한 말과 마음을 만나 "이제는 춥지 않았습니다."라고 느끼며, 혼자가 아니라는 걸 깨닫게 돼요.' },
+    { type: 'multiple_choice', question: '이야기 마지막에 어울리는 문장은?', options: ['나는 혼자야.', '나는 혼자가 아니야.'], correctIndex: 1, explanation: '정답은 “나는 혼자가 아니야.”예요. 고슴도치 씨는 처음에 외로웠지만 메리식당에서 할아버지와 친구들의 따뜻한 말과 마음을 만나 "이제는 춥지 않았습니다."라고 느끼며, 혼자가 아니라는 걸 깨닫게 돼요.' },
     { type: 'multiple_choice', question: '사람들은 고슴도치 씨의 말이 어떻다고 했나요?', options: ['달콤하다', '말에 가시가 있다', '노래 같다'], correctIndex: 1, explanation: '정답은 “말에 가시가 있다”예요. 동네 사람들이 “말에 가시가 있어.”라고 말했어요. 고슴도치 씨는 속으로 “내 마음은 그게 아닌데.”라고 생각했지만, 아무도 그 마음을 알아주지 않았어요. 나중에 메리식당에서 따뜻한 말과 마음을 만나며 오해가 풀려요.' },
     { type: 'multiple_choice', question: '빨간 풍선에는 무엇이 적혀 있었나요?', options: ['생일 축하해', '메리 크리스마스', '사랑해요'], correctIndex: 1, explanation: '정답은 “메리 크리스마스”예요. “풍선에는 ‘메리 크리스마스’라고 쓰여 있었습니다.”라고 나와 있어요. 그 풍선이 고슴도치 씨를 골목 끝 식당 앞까지 이끌었고, 식당에서 케이크를 먹을 때도 모두 “메리 크리스마스.”라고 인사했어요.' },
     { type: 'multiple_choice', question: '풍선은 어디에서 멈췄나요?', options: ['놀이터', '골목 끝 식당 앞', '마트'], correctIndex: 1, explanation: '정답은 “골목 끝 식당 앞”이에요. “어느 골목 끝, 오랫동안 문이 닫혀 있던 이름 없는 식당 앞에서 멈췄습니다.”라고 나와 있어요. 고슴도치 씨는 그 식당 문에 붙은 종이를 보고 슬며시 문을 열고 들어갔어요.' },
@@ -694,46 +705,46 @@ const mongmongChoiceWithResult: Content[] = withIdsAndOrder(
 
 const mongmongOx: Content[] = withIdsAndOrder(
   [
-    { type: 'ox_quiz', question: '달콤 박쥐와 뾰족 박쥐는 몽몽 숲으로 이사 왔나요?', correctAnswer: 'O', explanation: '맞아요. 이야기 맨 처음에 “몽몽 숲에 달콤 박쥐와 뾰족 박쥐가 이사를 왔어”라고 나와 있어요. 달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 가시나무에 자리를 잡았나요?', correctAnswer: 'X', explanation: '아니에요. “달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았지”라고 나와 있어요. 달콤 박쥐는 과일나무, 뾰족 박쥐는 가시나무에 각각 잡았어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 가시나무에 자리를 잡았나요?', correctAnswer: 'O', explanation: '맞아요. “뾰족 박쥐는 가시나무에 자리를 잡았지”라고 나와 있어요. 뾰족 박쥐는 나중에 가시나무에게 “이 못생긴 나무야!”라고 투덜대자 가시로 콕콕 찔렸어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 "꽃향기가 참 좋아요"라고 말했나요?', correctAnswer: 'O', explanation: '맞아요. “나무님! 꽃향기가 참 좋아요.”라고 달콤 박쥐가 활짝 웃으며 인사하자, 과일나무가 가지를 살랑살랑 흔들었어요. 다정한 말에는 나무도 기쁘게 반응했어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 나무를 보고 "멋진 나무다!"라고 말했나요?', correctAnswer: 'X', explanation: '아니에요. 뾰족 박쥐는 “이 못생긴 나무야! 꼭 유령 나무 같구나.”라고 얼굴을 찌푸리며 투덜댔어요. 그 말에 가시나무가 가시로 콕콕 찔렀어요. 말이 뾰족하면 반응도 뾰족해져요.' },
-    { type: 'ox_quiz', question: '과일나무는 달콤 박쥐의 인사에 가지를 살랑살랑 흔들었나요?', correctAnswer: 'O', explanation: '맞아요. 달콤 박쥐가 “꽃향기가 참 좋아요.”라고 인사하자 “과일나무가 가지를 살랑살랑.” 흔들었어요. 따뜻한 말에는 나무도 기쁘게 응해 주는 거예요.' },
-    { type: 'ox_quiz', question: '가시나무는 뾰족 박쥐의 말에 가시로 콕콕 찔렀나요?', correctAnswer: 'O', explanation: '맞아요. 뾰족 박쥐가 “이 못생긴 나무야!”라고 투덜대자 “가시나무가 가시로 콕콕 콕콕.” 찔렀어요. 뾰족한 말에는 가시나무도 뾰족하게 반응했어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐가 "아야!"라고 소리쳤나요?', correctAnswer: 'O', explanation: '맞아요. 가시나무가 콕콕 찌르자 “아야, 아야!”라고 뾰족 박쥐가 소리쳤어요. 달콤 박쥐가 그 비명을 듣고 “뾰족 박쥐야, 괜찮니?”라고 물었지만 뾰족 박쥐는 “치, 상관 마!”라고 했어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 "괜찮니?"라고 물었나요?', correctAnswer: 'O', explanation: '맞아요. 뾰족 박쥐가 “아야!”라고 외치자 달콤 박쥐가 푸드득 날아와 “뾰족 박쥐야, 괜찮니?”라고 물었어요. 다정하게 걱정해 주는 말이에요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 바로 "고마워!"라고 했나요?', correctAnswer: 'X', explanation: '아니에요. 달콤 박쥐가 “괜찮니?”라고 물었을 때 뾰족 박쥐는 “치, 상관 마!”라고 톡 쏘아붙이고 디룽디룽 갔어요. “고마워!”는 나중에 달콤 박쥐가 도와준 뒤에 했어요.' },
-    { type: 'ox_quiz', question: '몽몽 숲에 나비들이 날아들었나요?', correctAnswer: 'O', explanation: '맞아요. “얼마 뒤, 몽몽 숲에 나비들이 날아들었어.”라고 나와 있어요. 달콤 박쥐는 “예쁜 나비님, 어서 오세요!”라고 맞이했고, 뾰족 박쥐는 “이 귀찮은 나비 떼야, 저리 가!”라고 했어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 나비를 반갑게 맞이했나요?', correctAnswer: 'O', explanation: '맞아요. “예쁜 나비님, 어서 오세요!” 달콤 박쥐가 정답게 맞이했어요. 반갑고 다정한 말이라 나비도 기분이 좋았을 거예요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐도 나비를 반갑게 맞이했나요?', correctAnswer: 'X', explanation: '아니에요. 뾰족 박쥐는 “이 귀찮은 나비 떼야, 저리 가!”라고 말했어요. 달콤 박쥐와 반대로 뾰족한 말만 했어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 "저리 가!"라고 말했나요?', correctAnswer: 'O', explanation: '맞아요. 나비가 날아들었을 때 “이 귀찮은 나비 떼야, 저리 가!”라고 했어요. 말이 뾰족해서 “뾰족 박쥐”라는 이름이 잘 어울려요.' },
-    { type: 'ox_quiz', question: '몽몽 숲에 동물들이 찾아왔나요?', correctAnswer: 'O', explanation: '맞아요. “어느 날에는 몽몽 숲에 동물들이 찾아왔어.”라고 나와 있어요. 달콤 박쥐는 “친구들아, 정말 반가워!”라고 반겼고, 뾰족 박쥐는 “친구는 무슨 친구! 흥!”이라고 했어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 동물들을 반겼나요?', correctAnswer: 'O', explanation: '맞아요. “친구들아, 정말 반가워!” 달콤 박쥐가 기쁘게 반겼어요. 나중에 과일나무 열매가 열리자 동물들을 초대해 오순도순 나눠 먹었어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 "흥!"이라고 했나요?', correctAnswer: 'O', explanation: '맞아요. 동물들이 찾아왔을 때 “친구는 무슨 친구! 흥!”이라고 했어요. 달콤 박쥐와는 반대로 냉랭하게 대했어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 동물들을 쫓아냈나요?', correctAnswer: 'X', explanation: '아니에요. 달콤 박쥐는 동물들을 “정말 반가워!”라고 반겼고, 과일나무에 열매가 열리자 “동물들을 초대해 오순도순 나눠 먹었어.”라고 나와 있어요. 쫓아낸 게 아니라 같이 나눠 먹었어요.' },
-    { type: 'ox_quiz', question: '보름달이 뜨자 달콤 박쥐는 고마워했나요?', correctAnswer: 'O', explanation: '맞아요. “보름달이 떠오르자 달콤 박쥐는 다정하게 인사했어. ‘고운 달님, 환하게 비춰 주어 고마워요’”라고 나와 있어요. 달에게도 고맙다고 말하는 다정한 박쥐예요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 달이 눈부시다고 했나요?', correctAnswer: 'O', explanation: '맞아요. “하지만 뾰족 박쥐는, ‘에이, 눈부셔서 잠을 못 자겠네!’”라고 나와 있어요. 같은 보름달인데 달콤 박쥐는 고맙다고 하고, 뾰족 박쥐는 불평했어요.' },
-    { type: 'ox_quiz', question: '과일나무에는 탐스런 열매가 열렸나요?', correctAnswer: 'O', explanation: '맞아요. “드디어 과일나무에 탐스런 열매가 주렁주렁!”이라고 나와 있어요. 달콤 박쥐는 “나무님, 감사해요!”라고 인사하고 동물들을 초대해 나눠 먹었어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 감사하다고 인사했나요?', correctAnswer: 'O', explanation: '맞아요. “나무님, 감사해요!” 달콤 박쥐는 공손히 인사하고 동물들을 초대해 오순도순 나눠 먹었어요. 감사한 말을 하니까 과일나무도 기쁘고, 동물들도 함께 먹을 수 있었어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 열매를 혼자 다 먹었나요?', correctAnswer: 'X', explanation: '아니에요. “달콤 박쥐는 공손히 인사하고 동물들을 초대해 오순도순 나눠 먹었어.”라고 나와 있어요. 혼자 먹지 않고 동물들과 나눠 먹었어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 열매를 나눠 먹었나요?', correctAnswer: 'O', explanation: '맞아요. “동물들을 초대해 오순도순 나눠 먹었어.”라고 나와 있어요. 탐스런 열매가 열리자 나눠 먹는 모습이 이야기의 따뜻한 부분이에요.' },
-    { type: 'ox_quiz', question: '가시나무에는 딱딱한 열매가 열렸나요?', correctAnswer: 'O', explanation: '맞아요. “가시나무에는 딱딱한 열매가 듬성듬성!”이라고 나와 있어요. 뾰족 박쥐가 오도독 맛을 보더니 “퉤퉤! 무슨 맛이 이래?”라고 하고 가지를 마구 꺾었어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 "맛있다!"라고 했나요?', correctAnswer: 'X', explanation: '아니에요. 딱딱한 열매를 맛보고 “퉤퉤! 무슨 맛이 이래?”라고 했어요. 화가 나서 가지를 마구 꺾었더니 열매가 머리 위로 떨어져 “살려!”라고 외쳤어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 "퉤퉤!"라고 했나요?', correctAnswer: 'O', explanation: '맞아요. 가시나무의 딱딱한 열매를 먹고 “퉤퉤! 무슨 맛이 이래?”라고 했어요. 맛이 없다고 화를 내며 가지를 마구 꺾었더니 열매가 떨어져 위험해졌어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 가지를 마구 꺾었나요?', correctAnswer: 'O', explanation: '맞아요. “뾰족 박쥐는 툴툴거리며 가지를 마구 꺾었지.”라고 나와 있어요. 그러자 갑자기 뾰족 박쥐 머리 위로 열매가 후두두 따다닥 떨어졌어요.' },
-    { type: 'ox_quiz', question: '열매가 머리 위로 떨어졌나요?', correctAnswer: 'O', explanation: '맞아요. “그러자 갑자기 뾰족 박쥐의 머리 위로 열매가 후두두, 따다닥!”이라고 나와 있어요. 뾰족 박쥐가 “으악, 뾰족 박쥐 살려”라고 외치며 가시나무에 매달려 훌쩍훌쩍 울었어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 아무렇지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 열매가 떨어지자 “으악, 뾰족 박쥐 살려”라고 외치고, 가시나무에 매달려 훌쩍훌쩍 울었어요. 그때 달콤 박쥐가 날아와 “울지 마, 친구야. 나랑 가서 열매 먹자.”라고 했어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 "살려!"라고 했나요?', correctAnswer: 'O', explanation: '맞아요. 열매가 머리 위로 떨어지자 “으악, 뾰족 박쥐 살려”라고 외쳤어요. 그 소리를 듣고 달콤 박쥐가 포르르 날아와 도와주었어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 울었나요?', correctAnswer: 'O', explanation: '맞아요. “뾰족 박쥐는 가시나무에 매달려 훌쩍훌쩍.” 울고 있을 때 달콤 박쥐가 “울지 마, 친구야.”라고 말하며 다가왔어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 "울지 마, 친구야"라고 했나요?', correctAnswer: 'O', explanation: '맞아요. 뾰족 박쥐가 울고 있을 때 “울지마, 친구야. 나랑 가서 열매 먹자.”라고 말했어요. 뾰족하게 대했던 뾰족 박쥐를 달콤 박쥐는 친구라고 부르며 도와줬어요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 "나랑 가서 열매 먹자"라고 했나요?', correctAnswer: 'O', explanation: '맞아요. “나랑 가서 열매 먹자.”라고 해서 두 박쥐는 다정하게 과일나무로 날아갔어요. 뾰족 박쥐는 “달콤 박쥐야, 고마워!”라고 말했고, 마지막에는 사이좋게 대롱대롱 매달렸어요.' },
-    { type: 'ox_quiz', question: '두 박쥐는 함께 과일나무로 갔나요?', correctAnswer: 'O', explanation: '맞아요. “달콤 박쥐와 뾰족 박쥐는 다정하게 과일나무로 날아갔단다.”라고 나와 있어요. 달콤 박쥐의 따뜻한 말 덕분에 뾰족 박쥐도 함께 갈 수 있었어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 끝까지 혼자 있었나요?', correctAnswer: 'X', explanation: '아니에요. 달콤 박쥐가 “나랑 가서 열매 먹자”라고 해서 둘은 과일나무로 함께 갔고, “달콤 박쥐와 뾰족 박쥐가 사이좋게 대롱대롱.” 매달렸어요. 끝에는 친구가 됐어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 "고마워!"라고 했나요?', correctAnswer: 'O', explanation: '맞아요. 과일나무로 같이 간 뒤 “달콤 박쥐야, 고마워!”라고 말했어요. 처음에는 “상관 마!”라고 했던 뾰족 박쥐가, 달콤 박쥐의 다정함에 마음이 열려 고맙다고 말한 거예요.' },
-    { type: 'ox_quiz', question: '마지막에 둘은 사이좋게 매달렸나요?', correctAnswer: 'O', explanation: '맞아요. “달콤 박쥐와 뾰족 박쥐가 사이좋게 대롱대롱.”이라고 이야기가 끝나요. 따뜻한 말의 힘으로 뾰족 박쥐의 마음이 달라지고, 둘이 친구가 된 결말이에요.' },
-    { type: 'ox_quiz', question: '달콤 박쥐는 항상 뾰족한 말만 했나요?', correctAnswer: 'X', explanation: '아니에요. 달콤 박쥐는 “꽃향기가 참 좋아요”, “괜찮니?”, “어서 오세요!”, “정말 반가워!”, “고마워요”, “울지 마, 친구야. 나랑 가서 열매 먹자.”처럼 다정한 말만 했어요.' },
-    { type: 'ox_quiz', question: '뾰족 박쥐는 처음부터 다정했나요?', correctAnswer: 'X', explanation: '아니에요. 처음에는 “상관 마!”, “저리 가!”, “흥!”처럼 뾰족한 말만 했어요. 나중에 달콤 박쥐가 위기 때 도와주고 “나랑 가서 열매 먹자”라고 하자 마음이 열려 “고마워!”라고 하며 사이좋게 지내게 됐어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐와 뾰족 박쥐는 몽몽 숲으로 이사 왔나요?', correctAnswer: 'O', explanation: '이야기 맨 처음에 “몽몽 숲에 달콤 박쥐와 뾰족 박쥐가 이사를 왔어”라고 나와 있어요. 달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 가시나무에 자리를 잡았나요?', correctAnswer: 'X', explanation: '“달콤 박쥐는 과일나무에, 뾰족 박쥐는 가시나무에 자리를 잡았지”라고 나와 있어요. 달콤 박쥐는 과일나무, 뾰족 박쥐는 가시나무에 각각 잡았어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 가시나무에 자리를 잡았나요?', correctAnswer: 'O', explanation: '“뾰족 박쥐는 가시나무에 자리를 잡았지”라고 나와 있어요. 뾰족 박쥐는 나중에 가시나무에게 “이 못생긴 나무야!”라고 투덜대자 가시로 콕콕 찔렸어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 "꽃향기가 참 좋아요"라고 말했나요?', correctAnswer: 'O', explanation: '“나무님! 꽃향기가 참 좋아요.”라고 달콤 박쥐가 활짝 웃으며 인사하자, 과일나무가 가지를 살랑살랑 흔들었어요. 다정한 말에는 나무도 기쁘게 반응했어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 나무를 보고 "멋진 나무다!"라고 말했나요?', correctAnswer: 'X', explanation: '뾰족 박쥐는 “이 못생긴 나무야! 꼭 유령 나무 같구나.”라고 얼굴을 찌푸리며 투덜댔어요. 그 말에 가시나무가 가시로 콕콕 찔렀어요. 말이 뾰족하면 반응도 뾰족해져요.' },
+    { type: 'ox_quiz', question: '과일나무는 달콤 박쥐의 인사에 가지를 살랑살랑 흔들었나요?', correctAnswer: 'O', explanation: '달콤 박쥐가 “꽃향기가 참 좋아요.”라고 인사하자 “과일나무가 가지를 살랑살랑.” 흔들었어요. 따뜻한 말에는 나무도 기쁘게 응해 주는 거예요.' },
+    { type: 'ox_quiz', question: '가시나무는 뾰족 박쥐의 말에 가시로 콕콕 찔렀나요?', correctAnswer: 'O', explanation: '뾰족 박쥐가 “이 못생긴 나무야!”라고 투덜대자 “가시나무가 가시로 콕콕 콕콕.” 찔렀어요. 뾰족한 말에는 가시나무도 뾰족하게 반응했어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐가 "아야!"라고 소리쳤나요?', correctAnswer: 'O', explanation: '가시나무가 콕콕 찌르자 “아야, 아야!”라고 뾰족 박쥐가 소리쳤어요. 달콤 박쥐가 그 비명을 듣고 “뾰족 박쥐야, 괜찮니?”라고 물었지만 뾰족 박쥐는 “치, 상관 마!”라고 했어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 "괜찮니?"라고 물었나요?', correctAnswer: 'O', explanation: '뾰족 박쥐가 “아야!”라고 외치자 달콤 박쥐가 푸드득 날아와 “뾰족 박쥐야, 괜찮니?”라고 물었어요. 다정하게 걱정해 주는 말이에요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 바로 "고마워!"라고 했나요?', correctAnswer: 'X', explanation: '달콤 박쥐가 “괜찮니?”라고 물었을 때 뾰족 박쥐는 “치, 상관 마!”라고 톡 쏘아붙이고 디룽디룽 갔어요. “고마워!”는 나중에 달콤 박쥐가 도와준 뒤에 했어요.' },
+    { type: 'ox_quiz', question: '몽몽 숲에 나비들이 날아들었나요?', correctAnswer: 'O', explanation: '“얼마 뒤, 몽몽 숲에 나비들이 날아들었어.”라고 나와 있어요. 달콤 박쥐는 “예쁜 나비님, 어서 오세요!”라고 맞이했고, 뾰족 박쥐는 “이 귀찮은 나비 떼야, 저리 가!”라고 했어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 나비를 반갑게 맞이했나요?', correctAnswer: 'O', explanation: '“예쁜 나비님, 어서 오세요!” 달콤 박쥐가 정답게 맞이했어요. 반갑고 다정한 말이라 나비도 기분이 좋았을 거예요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐도 나비를 반갑게 맞이했나요?', correctAnswer: 'X', explanation: '뾰족 박쥐는 “이 귀찮은 나비 떼야, 저리 가!”라고 말했어요. 달콤 박쥐와 반대로 뾰족한 말만 했어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 "저리 가!"라고 말했나요?', correctAnswer: 'O', explanation: '나비가 날아들었을 때 “이 귀찮은 나비 떼야, 저리 가!”라고 했어요. 말이 뾰족해서 “뾰족 박쥐”라는 이름이 잘 어울려요.' },
+    { type: 'ox_quiz', question: '몽몽 숲에 동물들이 찾아왔나요?', correctAnswer: 'O', explanation: '“어느 날에는 몽몽 숲에 동물들이 찾아왔어.”라고 나와 있어요. 달콤 박쥐는 “친구들아, 정말 반가워!”라고 반겼고, 뾰족 박쥐는 “친구는 무슨 친구! 흥!”이라고 했어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 동물들을 반겼나요?', correctAnswer: 'O', explanation: '“친구들아, 정말 반가워!” 달콤 박쥐가 기쁘게 반겼어요. 나중에 과일나무 열매가 열리자 동물들을 초대해 오순도순 나눠 먹었어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 "흥!"이라고 했나요?', correctAnswer: 'O', explanation: '동물들이 찾아왔을 때 “친구는 무슨 친구! 흥!”이라고 했어요. 달콤 박쥐와는 반대로 냉랭하게 대했어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 동물들을 쫓아냈나요?', correctAnswer: 'X', explanation: '달콤 박쥐는 동물들을 “정말 반가워!”라고 반겼고, 과일나무에 열매가 열리자 “동물들을 초대해 오순도순 나눠 먹었어.”라고 나와 있어요. 쫓아낸 게 아니라 같이 나눠 먹었어요.' },
+    { type: 'ox_quiz', question: '보름달이 뜨자 달콤 박쥐는 고마워했나요?', correctAnswer: 'O', explanation: '“보름달이 떠오르자 달콤 박쥐는 다정하게 인사했어. ‘고운 달님, 환하게 비춰 주어 고마워요’”라고 나와 있어요. 달에게도 고맙다고 말하는 다정한 박쥐예요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 달이 눈부시다고 했나요?', correctAnswer: 'O', explanation: '“하지만 뾰족 박쥐는, ‘에이, 눈부셔서 잠을 못 자겠네!’”라고 나와 있어요. 같은 보름달인데 달콤 박쥐는 고맙다고 하고, 뾰족 박쥐는 불평했어요.' },
+    { type: 'ox_quiz', question: '과일나무에는 탐스런 열매가 열렸나요?', correctAnswer: 'O', explanation: '“드디어 과일나무에 탐스런 열매가 주렁주렁!”이라고 나와 있어요. 달콤 박쥐는 “나무님, 감사해요!”라고 인사하고 동물들을 초대해 나눠 먹었어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 감사하다고 인사했나요?', correctAnswer: 'O', explanation: '“나무님, 감사해요!” 달콤 박쥐는 공손히 인사하고 동물들을 초대해 오순도순 나눠 먹었어요. 감사한 말을 하니까 과일나무도 기쁘고, 동물들도 함께 먹을 수 있었어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 열매를 혼자 다 먹었나요?', correctAnswer: 'X', explanation: '“달콤 박쥐는 공손히 인사하고 동물들을 초대해 오순도순 나눠 먹었어.”라고 나와 있어요. 혼자 먹지 않고 동물들과 나눠 먹었어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 열매를 나눠 먹었나요?', correctAnswer: 'O', explanation: '“동물들을 초대해 오순도순 나눠 먹었어.”라고 나와 있어요. 탐스런 열매가 열리자 나눠 먹는 모습이 이야기의 따뜻한 부분이에요.' },
+    { type: 'ox_quiz', question: '가시나무에는 딱딱한 열매가 열렸나요?', correctAnswer: 'O', explanation: '“가시나무에는 딱딱한 열매가 듬성듬성!”이라고 나와 있어요. 뾰족 박쥐가 오도독 맛을 보더니 “퉤퉤! 무슨 맛이 이래?”라고 하고 가지를 마구 꺾었어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 "맛있다!"라고 했나요?', correctAnswer: 'X', explanation: '딱딱한 열매를 맛보고 “퉤퉤! 무슨 맛이 이래?”라고 했어요. 화가 나서 가지를 마구 꺾었더니 열매가 머리 위로 떨어져 “살려!”라고 외쳤어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 "퉤퉤!"라고 했나요?', correctAnswer: 'O', explanation: '가시나무의 딱딱한 열매를 먹고 “퉤퉤! 무슨 맛이 이래?”라고 했어요. 맛이 없다고 화를 내며 가지를 마구 꺾었더니 열매가 떨어져 위험해졌어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 가지를 마구 꺾었나요?', correctAnswer: 'O', explanation: '“뾰족 박쥐는 툴툴거리며 가지를 마구 꺾었지.”라고 나와 있어요. 그러자 갑자기 뾰족 박쥐 머리 위로 열매가 후두두 따다닥 떨어졌어요.' },
+    { type: 'ox_quiz', question: '열매가 머리 위로 떨어졌나요?', correctAnswer: 'O', explanation: '“그러자 갑자기 뾰족 박쥐의 머리 위로 열매가 후두두, 따다닥!”이라고 나와 있어요. 뾰족 박쥐가 “으악, 뾰족 박쥐 살려”라고 외치며 가시나무에 매달려 훌쩍훌쩍 울었어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 아무렇지 않았나요?', correctAnswer: 'X', explanation: '열매가 떨어지자 “으악, 뾰족 박쥐 살려”라고 외치고, 가시나무에 매달려 훌쩍훌쩍 울었어요. 그때 달콤 박쥐가 날아와 “울지 마, 친구야. 나랑 가서 열매 먹자.”라고 했어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 "살려!"라고 했나요?', correctAnswer: 'O', explanation: '열매가 머리 위로 떨어지자 “으악, 뾰족 박쥐 살려”라고 외쳤어요. 그 소리를 듣고 달콤 박쥐가 포르르 날아와 도와주었어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 울었나요?', correctAnswer: 'O', explanation: '“뾰족 박쥐는 가시나무에 매달려 훌쩍훌쩍.” 울고 있을 때 달콤 박쥐가 “울지 마, 친구야.”라고 말하며 다가왔어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 "울지 마, 친구야"라고 했나요?', correctAnswer: 'O', explanation: '뾰족 박쥐가 울고 있을 때 “울지마, 친구야. 나랑 가서 열매 먹자.”라고 말했어요. 뾰족하게 대했던 뾰족 박쥐를 달콤 박쥐는 친구라고 부르며 도와줬어요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 "나랑 가서 열매 먹자"라고 했나요?', correctAnswer: 'O', explanation: '“나랑 가서 열매 먹자.”라고 해서 두 박쥐는 다정하게 과일나무로 날아갔어요. 뾰족 박쥐는 “달콤 박쥐야, 고마워!”라고 말했고, 마지막에는 사이좋게 대롱대롱 매달렸어요.' },
+    { type: 'ox_quiz', question: '두 박쥐는 함께 과일나무로 갔나요?', correctAnswer: 'O', explanation: '“달콤 박쥐와 뾰족 박쥐는 다정하게 과일나무로 날아갔단다.”라고 나와 있어요. 달콤 박쥐의 따뜻한 말 덕분에 뾰족 박쥐도 함께 갈 수 있었어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 끝까지 혼자 있었나요?', correctAnswer: 'X', explanation: '달콤 박쥐가 “나랑 가서 열매 먹자”라고 해서 둘은 과일나무로 함께 갔고, “달콤 박쥐와 뾰족 박쥐가 사이좋게 대롱대롱.” 매달렸어요. 끝에는 친구가 됐어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 "고마워!"라고 했나요?', correctAnswer: 'O', explanation: '과일나무로 같이 간 뒤 “달콤 박쥐야, 고마워!”라고 말했어요. 처음에는 “상관 마!”라고 했던 뾰족 박쥐가, 달콤 박쥐의 다정함에 마음이 열려 고맙다고 말한 거예요.' },
+    { type: 'ox_quiz', question: '마지막에 둘은 사이좋게 매달렸나요?', correctAnswer: 'O', explanation: '“달콤 박쥐와 뾰족 박쥐가 사이좋게 대롱대롱.”이라고 이야기가 끝나요. 따뜻한 말의 힘으로 뾰족 박쥐의 마음이 달라지고, 둘이 친구가 된 결말이에요.' },
+    { type: 'ox_quiz', question: '달콤 박쥐는 항상 뾰족한 말만 했나요?', correctAnswer: 'X', explanation: '달콤 박쥐는 “꽃향기가 참 좋아요”, “괜찮니?”, “어서 오세요!”, “정말 반가워!”, “고마워요”, “울지 마, 친구야. 나랑 가서 열매 먹자.”처럼 다정한 말만 했어요.' },
+    { type: 'ox_quiz', question: '뾰족 박쥐는 처음부터 다정했나요?', correctAnswer: 'X', explanation: '처음에는 “상관 마!”, “저리 가!”, “흥!”처럼 뾰족한 말만 했어요. 나중에 달콤 박쥐가 위기 때 도와주고 “나랑 가서 열매 먹자”라고 하자 마음이 열려 “고마워!”라고 하며 사이좋게 지내게 됐어요.' },
   ],
   'mongmong-ox'
 );
@@ -805,21 +816,21 @@ const mongmongFillBlank: Content[] = withIdsAndOrder(
 // ---------- 막대기랑 돌멩이랑 (book-stick-pebble) ----------
 const stickPebbleOx: Content[] = withIdsAndOrder(
   [
-    { type: 'ox_quiz', question: '막대기와 돌멩이는 처음부터 함께 살았나요?', correctAnswer: 'X', explanation: '아니에요. 이야기에서는 막대기는 외로웠고 돌멩이는 쓸쓸했어요. 나중에 “막대기가 놀러 왔어요. 돌멩이도 놀러 왔지요.”라고 나와 있어요. 처음엔 각자 혼자였다가 만나서 친구가 된 거예요.' },
-    { type: 'ox_quiz', question: '막대기는 1을 닮았나요?', correctAnswer: 'O', explanation: '맞아요. “막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 나중에 둘이 함께일 때는 10을 닮았다고 했어요. 혼자일 때와 함께일 때가 다르다는 비유예요.' },
-    { type: 'ox_quiz', question: '돌멩이는 0을 닮았나요?', correctAnswer: 'O', explanation: '맞아요. “돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 둘이 만나서 함께일 때는 10을 닮았다고 해요. 0과 1이 만나 10이 되는 이야기예요.' },
-    { type: 'ox_quiz', question: '막대기와 돌멩이는 혼자 있는 것이 더 재미있었나요?', correctAnswer: 'X', explanation: '아니에요. “혼자는 재미없어요.”라고 나와 있어요. 그래서 막대기가 놀러 오고 돌멩이도 놀러 와서 만났고, 함께 돌아다니고 탐험하고 바닷가에서 쉬며 우정이 자랐어요.' },
-    { type: 'ox_quiz', question: '솔방울은 돌멩이를 놀렸나요?', correctAnswer: 'O', explanation: '맞아요. “그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 효과가 있었고, 돌멩이가 “와! 네가 날 막아 줬어!”라고 말했어요.' },
-    { type: 'ox_quiz', question: '막대기는 돌멩이를 지켜주지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 솔방울이 돌멩이를 놀릴 때 막대기가 “저리 가!”라고 소리쳐서 막아 줬어요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 속삭였고, “그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
-    { type: 'ox_quiz', question: '막대기와 돌멩이는 함께 탐험을 했나요?', correctAnswer: 'O', explanation: '맞아요. “막대기랑 돌멩이는 함께 돌아다니고 함께 탐험하고 바닷가에서 함께 쉬었어요.”라고 나와 있어요. 우정이 점점 자라서 둘이 함께하는 일이 많아졌어요.' },
-    { type: 'ox_quiz', question: '허리케인이 와서 막대기가 날아갔나요?', correctAnswer: 'O', explanation: '맞아요. “갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요. 막대기가 바람에 날아가요.”라고 나와 있어요. 돌멩이가 “꽉 잡아!”라고 외쳤지만 막대기는 날아가 버리고 돌멩이는 다시 혼자가 되었어요.' },
-    { type: 'ox_quiz', question: '돌멩이는 막대기를 찾으러 가지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 돌멩이는 막대기를 찾으러 다녔어요. “낮에는 찾아다니고 ‘막대기야?’ ‘막대기야!’ ‘막대기야~!’ 밤에도 찾아다녔지만 막대기는 보이지 않았어요.”라고 나와 있어요. 끝까지 찾아다니다가 웅덩이에서 막대기를 발견했어요.' },
-    { type: 'ox_quiz', question: '막대기는 웅덩이에 꽂혀 있었나요?', correctAnswer: 'O', explanation: '맞아요. “이게 뭘까요? 커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 재빨리 굴러가서 막대기를 구했어요.' },
-    { type: 'ox_quiz', question: '돌멩이는 막대기를 구하기 위해 굴러갔나요?', correctAnswer: 'O', explanation: '맞아요. “돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 돌멩이가 할 수 있는 방법으로 굴러가서 웅덩이에 들어가 막대기를 구했어요.' },
-    { type: 'ox_quiz', question: '돌멩이는 막대기를 구하지 못했나요?', correctAnswer: 'X', explanation: '아니에요. 돌멩이가 굴러가서 웅덩이에 들어가 막대기를 구했어요. 막대기가 “정말 잘 굴렀어, 돌멩아!”라고 말했고, “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 둘은 다시 함께 있게 되었어요.' },
-    { type: 'ox_quiz', question: '막대기와 돌멩이는 다시 함께 있게 되었나요?', correctAnswer: 'O', explanation: '맞아요. 돌멩이가 막대기를 구한 뒤 “막대기랑 돌멩이는 다시 함께 있어요.”라고 나와 있어요. “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 이야기가 끝나요.' },
-    { type: 'ox_quiz', question: '막대기와 돌멩이는 10을 닮았다고 했나요?', correctAnswer: 'O', explanation: '맞아요. 처음엔 돌멩이는 0, 막대기는 1을 닮았는데, 다시 만난 뒤에는 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요.”라고 나와 있어요. 둘이 함께일 때 더 큰 것이 된다는 뜻이에요.' },
-    { type: 'ox_quiz', question: '솔방울은 끝까지 사과하지 않았나요?', correctAnswer: 'X', explanation: '아니에요. 마지막에 “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 미안하다고 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 처음부터 함께 살았나요?', correctAnswer: 'X', explanation: '이야기에서는 막대기는 외로웠고 돌멩이는 쓸쓸했어요. 나중에 “막대기가 놀러 왔어요. 돌멩이도 놀러 왔지요.”라고 나와 있어요. 처음엔 각자 혼자였다가 만나서 친구가 된 거예요.' },
+    { type: 'ox_quiz', question: '막대기는 1을 닮았나요?', correctAnswer: 'O', explanation: '“막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 나중에 둘이 함께일 때는 10을 닮았다고 했어요. 혼자일 때와 함께일 때가 다르다는 비유예요.' },
+    { type: 'ox_quiz', question: '돌멩이는 0을 닮았나요?', correctAnswer: 'O', explanation: '“돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 둘이 만나서 함께일 때는 10을 닮았다고 해요. 0과 1이 만나 10이 되는 이야기예요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 혼자 있는 것이 더 재미있었나요?', correctAnswer: 'X', explanation: '“혼자는 재미없어요.”라고 나와 있어요. 그래서 막대기가 놀러 오고 돌멩이도 놀러 와서 만났고, 함께 돌아다니고 탐험하고 바닷가에서 쉬며 우정이 자랐어요.' },
+    { type: 'ox_quiz', question: '솔방울은 돌멩이를 놀렸나요?', correctAnswer: 'O', explanation: '“그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 효과가 있었고, 돌멩이가 “와! 네가 날 막아 줬어!”라고 말했어요.' },
+    { type: 'ox_quiz', question: '막대기는 돌멩이를 지켜주지 않았나요?', correctAnswer: 'X', explanation: '솔방울이 돌멩이를 놀릴 때 막대기가 “저리 가!”라고 소리쳐서 막아 줬어요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 속삭였고, “그게 바로 막대기가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 함께 탐험을 했나요?', correctAnswer: 'O', explanation: '“막대기랑 돌멩이는 함께 돌아다니고 함께 탐험하고 바닷가에서 함께 쉬었어요.”라고 나와 있어요. 우정이 점점 자라서 둘이 함께하는 일이 많아졌어요.' },
+    { type: 'ox_quiz', question: '허리케인이 와서 막대기가 날아갔나요?', correctAnswer: 'O', explanation: '“갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요. 막대기가 바람에 날아가요.”라고 나와 있어요. 돌멩이가 “꽉 잡아!”라고 외쳤지만 막대기는 날아가 버리고 돌멩이는 다시 혼자가 되었어요.' },
+    { type: 'ox_quiz', question: '돌멩이는 막대기를 찾으러 가지 않았나요?', correctAnswer: 'X', explanation: '돌멩이는 막대기를 찾으러 다녔어요. “낮에는 찾아다니고 ‘막대기야?’ ‘막대기야!’ ‘막대기야~!’ 밤에도 찾아다녔지만 막대기는 보이지 않았어요.”라고 나와 있어요. 끝까지 찾아다니다가 웅덩이에서 막대기를 발견했어요.' },
+    { type: 'ox_quiz', question: '막대기는 웅덩이에 꽂혀 있었나요?', correctAnswer: 'O', explanation: '“이게 뭘까요? 커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 재빨리 굴러가서 막대기를 구했어요.' },
+    { type: 'ox_quiz', question: '돌멩이는 막대기를 구하기 위해 굴러갔나요?', correctAnswer: 'O', explanation: '“돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 돌멩이가 할 수 있는 방법으로 굴러가서 웅덩이에 들어가 막대기를 구했어요.' },
+    { type: 'ox_quiz', question: '돌멩이는 막대기를 구하지 못했나요?', correctAnswer: 'X', explanation: '돌멩이가 굴러가서 웅덩이에 들어가 막대기를 구했어요. 막대기가 “정말 잘 굴렀어, 돌멩아!”라고 말했고, “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 둘은 다시 함께 있게 되었어요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 다시 함께 있게 되었나요?', correctAnswer: 'O', explanation: '돌멩이가 막대기를 구한 뒤 “막대기랑 돌멩이는 다시 함께 있어요.”라고 나와 있어요. “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 이야기가 끝나요.' },
+    { type: 'ox_quiz', question: '막대기와 돌멩이는 10을 닮았다고 했나요?', correctAnswer: 'O', explanation: '처음엔 돌멩이는 0, 막대기는 1을 닮았는데, 다시 만난 뒤에는 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요.”라고 나와 있어요. 둘이 함께일 때 더 큰 것이 된다는 뜻이에요.' },
+    { type: 'ox_quiz', question: '솔방울은 끝까지 사과하지 않았나요?', correctAnswer: 'X', explanation: '마지막에 “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 미안하다고 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
   ],
   'stickpebble-ox'
 );
@@ -856,16 +867,16 @@ const stickPebbleOrdering: Content[] = withIdsAndOrder(
 
 const stickPebbleFillBlank: Content[] = withIdsAndOrder(
   [
-    { type: 'fill_blank', sentence: '막대기는 (   )을 닮았어요.', options: ['0', '1', '10'], correctIndex: 1, explanation: '정답은 “1”이에요. “막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 둘이 함께일 때는 10을 닮았다고 해요. 0과 1이 만나 10이 되는 비유예요.' },
-    { type: 'fill_blank', sentence: '돌멩이는 (   )을 닮았어요.', options: ['0', '1', '5'], correctIndex: 0, explanation: '정답은 “0”이에요. “돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 나중에 둘이 다시 함께일 때는 10을 닮았다고 했어요.' },
-    { type: 'fill_blank', sentence: '솔방울은 돌멩이를 (   ).', options: ['도와주었다', '놀렸다', '숨겼다'], correctIndex: 1, explanation: '정답은 “놀렸다”예요. “그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 효과가 있었고, 마지막에 솔방울이 “놀려서 미안해..”라고 사과했어요.' },
-    { type: 'fill_blank', sentence: '막대기는 "(   ) 가!"라고 말했어요.', options: ['저리', '여기', '빨리'], correctIndex: 0, explanation: '정답은 “저리”예요. 솔방울이 돌멩이를 놀릴 때 “저리 가!” 막대기가 소리쳤어요. 오! 효과가 있네요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 속삭였어요.' },
-    { type: 'fill_blank', sentence: '갑자기 (   )이 몰아쳤어요.', options: ['눈보라', '허리케인', '해일'], correctIndex: 1, explanation: '정답은 “허리케인”이에요. “갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요.”라고 나와 있어요. 막대기가 바람에 날아가고 돌멩이는 다시 혼자가 되었어요.' },
-    { type: 'fill_blank', sentence: '막대기는 (   )에 꽂혀 있었어요.', options: ['나무', '웅덩이', '바다'], correctIndex: 1, explanation: '정답은 “웅덩이”예요. “커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 재빨리 굴러가서 막대기를 구했어요.' },
-    { type: 'fill_blank', sentence: '돌멩이는 (   )가 막대기를 구했어요.', options: ['날아가', '굴러가', '걸어가'], correctIndex: 1, explanation: '정답은 “굴러가”예요. “돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 막대기가 “정말 잘 굴렀어, 돌멩아!” “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
-    { type: 'fill_blank', sentence: '막대기와 돌멩이는 (   )을 닮았어요.', options: ['2', '10', '100'], correctIndex: 1, explanation: '정답은 “10”이에요. 다시 만난 뒤 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 나와 있어요. 0과 1이 함께일 때 10이 된다는 비유예요.' },
-    { type: 'fill_blank', sentence: '친구는 서로를 (   ) 존재예요.', options: ['놀리는', '지켜주는', '떠나는'], correctIndex: 1, explanation: '정답은 “지켜주는”이에요. 막대기가 돌멩이를 막아 준 뒤, 돌멩이가 막대기를 구한 뒤 모두 “그게 바로 ○○가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 친구는 서로를 지켜 주는 존재라는 뜻이에요.' },
-    { type: 'fill_blank', sentence: '마지막에 솔방울은 "(   )"라고 말했어요.', options: ['고마워', '미안해', '안녕'], correctIndex: 1, explanation: '정답은 “미안해”예요. “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
+    { type: 'fill_blank', sentence: '막대기는 ( )을 닮았어요.', options: ['0', '1', '10'], correctIndex: 1, explanation: '정답은 “1”이에요. “막대기는 1을 닮았고요.”라고 나와 있어요. 돌멩이는 0을 닮았고, 둘이 함께일 때는 10을 닮았다고 해요. 0과 1이 만나 10이 되는 비유예요.' },
+    { type: 'fill_blank', sentence: '돌멩이는 ( )을 닮았어요.', options: ['0', '1', '5'], correctIndex: 0, explanation: '정답은 “0”이에요. “돌멩이는 0을 닮았어요.”라고 나와 있어요. 막대기는 1을 닮았고, 나중에 둘이 다시 함께일 때는 10을 닮았다고 했어요.' },
+    { type: 'fill_blank', sentence: '솔방울은 돌멩이를 ( ).', options: ['도와주었다', '놀렸다', '숨겼다'], correctIndex: 1, explanation: '정답은 “놀렸다”예요. “그런데 솔방울이 다가오더니 돌멩이를 놀렸어요.” “계속 놀렸어요.”라고 나와 있어요. 막대기가 “저리 가!”라고 소리치자 효과가 있었고, 마지막에 솔방울이 “놀려서 미안해..”라고 사과했어요.' },
+    { type: 'fill_blank', sentence: '막대기는 "( ) 가!"라고 말했어요.', options: ['저리', '여기', '빨리'], correctIndex: 0, explanation: '정답은 “저리”예요. 솔방울이 돌멩이를 놀릴 때 “저리 가!” 막대기가 소리쳤어요. 오! 효과가 있네요. 돌멩이가 “와! 네가 날 막아 줬어!”라고 속삭였어요.' },
+    { type: 'fill_blank', sentence: '갑자기 ( )이 몰아쳤어요.', options: ['눈보라', '허리케인', '해일'], correctIndex: 1, explanation: '정답은 “허리케인”이에요. “갑자기 천둥이 치고 비바람이 불더니 엄청난 허리케인이 몰아쳤어요.”라고 나와 있어요. 막대기가 바람에 날아가고 돌멩이는 다시 혼자가 되었어요.' },
+    { type: 'fill_blank', sentence: '막대기는 ( )에 꽂혀 있었어요.', options: ['나무', '웅덩이', '바다'], correctIndex: 1, explanation: '정답은 “웅덩이”예요. “커다란 웅덩이가 있네요? 막대기가 웅덩이에 꽂혀 있어요!”라고 나와 있어요. 막대기가 “도와줘!”라고 했고, 돌멩이가 재빨리 굴러가서 막대기를 구했어요.' },
+    { type: 'fill_blank', sentence: '돌멩이는 ( )가 막대기를 구했어요.', options: ['날아가', '굴러가', '걸어가'], correctIndex: 1, explanation: '정답은 “굴러가”예요. “돌멩이는 막대기를 구하려고 재빨리 굴러갔어요. ‘자, 간다아아!’ 첨-벙!”이라고 나와 있어요. 막대기가 “정말 잘 굴렀어, 돌멩아!” “그게 바로 돌멩이가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요.' },
+    { type: 'fill_blank', sentence: '막대기와 돌멩이는 ( )을 닮았어요.', options: ['2', '10', '100'], correctIndex: 1, explanation: '정답은 “10”이에요. 다시 만난 뒤 “막대기랑 돌멩이는 10을 닮았어요. 완벽한 짝꿍이에요. 언제나…”라고 나와 있어요. 0과 1이 함께일 때 10이 된다는 비유예요.' },
+    { type: 'fill_blank', sentence: '친구는 서로를 ( ) 존재예요.', options: ['놀리는', '지켜주는', '떠나는'], correctIndex: 1, explanation: '정답은 “지켜주는”이에요. 막대기가 돌멩이를 막아 준 뒤, 돌멩이가 막대기를 구한 뒤 모두 “그게 바로 ○○가 하는 일이야. 친구가 하는 일이기도 하지.”라고 했어요. 친구는 서로를 지켜 주는 존재라는 뜻이에요.' },
+    { type: 'fill_blank', sentence: '마지막에 솔방울은 "( )"라고 말했어요.', options: ['고마워', '미안해', '안녕'], correctIndex: 1, explanation: '정답은 “미안해”예요. “솔방울) 놀려서 미안해..”라고 나와 있어요. 솔방울이 돌멩이를 놀린 것에 대해 사과했어요. 이야기가 사과와 용서로 마무리돼요.' },
   ],
   'stickpebble-fb'
 );
@@ -907,21 +918,21 @@ const stickPebbleTogetherOutcome: Content[] = withIdsAndOrder(
 // ---------- 나의 경청 이야기: 친구를 만드는 커다란 귀 (book-big-ear) ----------
 const bigEarOx: Content[] = withIdsAndOrder(
   [
-    { type: 'ox_quiz', question: '나는 원래 귀를 잘 기울여 듣는 아이였다.', correctAnswer: 'X', explanation: '아니에요. 나는 듣기 싫은 소리가 들리면 귀를 접고, 엄마·아빠 말은 귓등으로, 선생님 말은 쇠귀에 경 읽기, 친구 말은 한 귀로 듣고 한 귀로 흘렸어요. 마녀를 만나고 경청을 배운 뒤에야 잘 듣게 됐어요.' },
-    { type: 'ox_quiz', question: '마녀는 "뭐든지 들어 드립니다"라고 적힌 간판을 걸어 두었다.', correctAnswer: 'O', explanation: '맞아요. 마녀네 집 앞 간판에는 "뭐든지 들어 드립니다. 누구나 들어 드립니다. 언제나 들어 드립니다. 방문 및 견학 환영합니다"라고 적혀 있었어요.' },
-    { type: 'ox_quiz', question: '마녀는 사람들에게 긴 조언을 해주었다.', correctAnswer: 'X', explanation: '아니에요. 마녀가 하는 말은 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?" 같은 짧은 말이 전부였어요. 긴 조언이 아니라 잘 들어 주는 것이 비밀이었어요.' },
-    { type: 'ox_quiz', question: '마녀는 "그랬군요"라고 말했다.', correctAnswer: 'O', explanation: '맞아요. 마녀가 자주 한 말이 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?"였어요. 상대의 말을 끝까지 듣고 맞장구를 치는 말이에요.' },
-    { type: 'ox_quiz', question: '성난 코뿔소처럼 화를 내던 아주머니는 더 화가 나서 나왔다.', correctAnswer: 'X', explanation: '아니에요. 아주머니는 화가 나서 마녀 집으로 들어갔다가 한참 뒤 순한 양처럼 나왔어요. 불그스름했던 얼굴이 편안해지고 입가에 미소가 번졌어요. 잘 들어 주는 것이 마법처럼 사람을 바꿔요.' },
-    { type: 'ox_quiz', question: '마녀는 사람의 말을 끝까지 들었다.', correctAnswer: 'O', explanation: '맞아요. 마녀의 비밀은 "잘 들어 주기"였어요. 끼어들지 않고 말을 다 할 때까지 기다리며 경청했기 때문에 사람들이 마녀를 찾았어요.' },
-    { type: 'ox_quiz', question: '우정은 듣는 데서 시작한다고 했다.', correctAnswer: 'O', explanation: '맞아요. 마녀가 "우정은 듣는 데서 시작한다"라고 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
-    { type: 'ox_quiz', question: '잘 말하는 사람에게 마음을 연다고 했다.', correctAnswer: 'X', explanation: '아니에요. "말 잘하는 사람에게는 귀를 열지만, 잘 듣는 사람에게는 마음을 연다"라고 했어요. 잘 듣는 사람에게 마음을 여는 거예요.' },
-    { type: 'ox_quiz', question: '잘 듣는 사람에게 마음을 연다고 했다.', correctAnswer: 'O', explanation: '맞아요. "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 마녀가 말했어요. 누구나 자기 이야기를 들어 주는 사람에게 호감을 가져요.' },
-    { type: 'ox_quiz', question: '경청은 끼어들어 말하는 것이다.', correctAnswer: 'X', explanation: '아니에요. 경청은 끼어들지 않고 말을 다 할 때까지 기다리는 것이에요. "기다린다"가 경청의 세 번째 단계예요. 끼어들면 상대가 속상해져요.' },
-    { type: 'ox_quiz', question: '경청할 때는 몸을 앞으로 조금 기울인다.', correctAnswer: 'O', explanation: '맞아요. "기울인다"는 경청의 두 번째 단계예요. 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕이며 맞장구를 치는 자세가 좋아요.' },
-    { type: 'ox_quiz', question: '팔짱을 끼고 뒤로 기대 앉는 것은 좋은 경청 자세이다.', correctAnswer: 'X', explanation: '아니에요. 다리를 꼬고 앉거나 뒤로 기대 앉거나 팔짱을 끼거나 상대의 눈을 노려보는 것은 좋지 않은 자세예요. 몸과 마음을 상대에게 기울이는 자세가 좋아요.' },
-    { type: 'ox_quiz', question: '경청은 마법이라고 했다.', correctAnswer: 'O', explanation: '맞아요. "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 마녀가 말했어요.' },
-    { type: 'ox_quiz', question: '끝까지 기다리는 것도 경청이다.', correctAnswer: 'O', explanation: '맞아요. 잘 들으려면 "기다린다"가 필요해요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
-    { type: 'ox_quiz', question: '이야기를 잘 듣는 사람은 친구가 생기지 않는다.', correctAnswer: 'X', explanation: '아니에요. "누구나 자기 이야기를 잘 들어 주는 사람에게 호감을 갖게 되지"라고 했어요. 나는 마녀에게 경청을 배운 뒤 친구가 생겼어요.' },
+    { type: 'ox_quiz', question: '나는 원래 귀를 잘 기울여 듣는 아이였다.', correctAnswer: 'X', explanation: '나는 듣기 싫은 소리가 들리면 귀를 접고, 엄마·아빠 말은 귓등으로, 선생님 말은 쇠귀에 경 읽기, 친구 말은 한 귀로 듣고 한 귀로 흘렸어요. 마녀를 만나고 경청을 배운 뒤에야 잘 듣게 됐어요.' },
+    { type: 'ox_quiz', question: '마녀는 "뭐든지 들어 드립니다"라고 적힌 간판을 걸어 두었다.', correctAnswer: 'O', explanation: '마녀네 집 앞 간판에는 "뭐든지 들어 드립니다. 누구나 들어 드립니다. 언제나 들어 드립니다. 방문 및 견학 환영합니다"라고 적혀 있었어요.' },
+    { type: 'ox_quiz', question: '마녀는 사람들에게 긴 조언을 해주었다.', correctAnswer: 'X', explanation: '마녀가 하는 말은 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?" 같은 짧은 말이 전부였어요. 긴 조언이 아니라 잘 들어 주는 것이 비밀이었어요.' },
+    { type: 'ox_quiz', question: '마녀는 "그랬군요"라고 말했다.', correctAnswer: 'O', explanation: '마녀가 자주 한 말이 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?"였어요. 상대의 말을 끝까지 듣고 맞장구를 치는 말이에요.' },
+    { type: 'ox_quiz', question: '성난 코뿔소처럼 화를 내던 아주머니는 더 화가 나서 나왔다.', correctAnswer: 'X', explanation: '아주머니는 화가 나서 마녀 집으로 들어갔다가 한참 뒤 순한 양처럼 나왔어요. 불그스름했던 얼굴이 편안해지고 입가에 미소가 번졌어요. 잘 들어 주는 것이 마법처럼 사람을 바꿔요.' },
+    { type: 'ox_quiz', question: '마녀는 사람의 말을 끝까지 들었다.', correctAnswer: 'O', explanation: '마녀의 비밀은 "잘 들어 주기"였어요. 끼어들지 않고 말을 다 할 때까지 기다리며 경청했기 때문에 사람들이 마녀를 찾았어요.' },
+    { type: 'ox_quiz', question: '우정은 듣는 데서 시작한다고 했다.', correctAnswer: 'O', explanation: '마녀가 "우정은 듣는 데서 시작한다"라고 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
+    { type: 'ox_quiz', question: '잘 말하는 사람에게 마음을 연다고 했다.', correctAnswer: 'X', explanation: '"말 잘하는 사람에게는 귀를 열지만, 잘 듣는 사람에게는 마음을 연다"라고 했어요. 잘 듣는 사람에게 마음을 여는 거예요.' },
+    { type: 'ox_quiz', question: '잘 듣는 사람에게 마음을 연다고 했다.', correctAnswer: 'O', explanation: '"말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 마녀가 말했어요. 누구나 자기 이야기를 들어 주는 사람에게 호감을 가져요.' },
+    { type: 'ox_quiz', question: '경청은 끼어들어 말하는 것이다.', correctAnswer: 'X', explanation: '경청은 끼어들지 않고 말을 다 할 때까지 기다리는 것이에요. "기다린다"가 경청의 세 번째 단계예요. 끼어들면 상대가 속상해져요.' },
+    { type: 'ox_quiz', question: '경청할 때는 몸을 앞으로 조금 기울인다.', correctAnswer: 'O', explanation: '"기울인다"는 경청의 두 번째 단계예요. 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕이며 맞장구를 치는 자세가 좋아요.' },
+    { type: 'ox_quiz', question: '팔짱을 끼고 뒤로 기대 앉는 것은 좋은 경청 자세이다.', correctAnswer: 'X', explanation: '다리를 꼬고 앉거나 뒤로 기대 앉거나 팔짱을 끼거나 상대의 눈을 노려보는 것은 좋지 않은 자세예요. 몸과 마음을 상대에게 기울이는 자세가 좋아요.' },
+    { type: 'ox_quiz', question: '경청은 마법이라고 했다.', correctAnswer: 'O', explanation: '"경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 마녀가 말했어요.' },
+    { type: 'ox_quiz', question: '끝까지 기다리는 것도 경청이다.', correctAnswer: 'O', explanation: '잘 들으려면 "기다린다"가 필요해요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
+    { type: 'ox_quiz', question: '이야기를 잘 듣는 사람은 친구가 생기지 않는다.', correctAnswer: 'X', explanation: '"누구나 자기 이야기를 잘 들어 주는 사람에게 호감을 갖게 되지"라고 했어요. 나는 마녀에게 경청을 배운 뒤 친구가 생겼어요.' },
   ],
   'bigear-ox'
 );
@@ -958,16 +969,16 @@ const bigEarOrdering: Content[] = withIdsAndOrder(
 
 const bigEarFillBlank: Content[] = withIdsAndOrder(
   [
-    { type: 'fill_blank', sentence: '우정은 (   )는 데서 시작한다.', options: ['듣', '말', '놀'], correctIndex: 0, explanation: '정답은 "듣"예요. "우정은 듣는 데서 시작한다"라고 마녀가 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
-    { type: 'fill_blank', sentence: '경청은 (   )이다.', options: ['숙제', '마법', '게임'], correctIndex: 1, explanation: '정답은 "마법"이에요. "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 했어요.' },
-    { type: 'fill_blank', sentence: '잘 듣는 사람에게 (   )을 연다.', options: ['문', '마음', '귀'], correctIndex: 1, explanation: '정답은 "마음"이에요. "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 했어요.' },
-    { type: 'fill_blank', sentence: '입은 한 개이고 귀는 (   )개이다.', options: ['한', '두', '세'], correctIndex: 1, explanation: '정답은 "두"예요. "그래서 입은 하나고 귀는 두 개인거야 잘 들으라고"라고 마녀가 말했어요. 말보다 듣기에 더 많이 쓰라는 뜻이에요.' },
-    { type: 'fill_blank', sentence: '잘 들으려면 먼저 (   )야 한다.', options: ['말해', '멈춰', '뛰어'], correctIndex: 1, explanation: '정답은 "멈춰"예요. 잘 들으려면 일단 멈춰야 해요. 하던 일을 멈추고 참견·비난·충고하고 싶은 마음을 멈춰야 해요.' },
-    { type: 'fill_blank', sentence: '몸을 앞으로 조금 (   )인다.', options: ['기울', '숙', '돌'], correctIndex: 0, explanation: '정답은 "기울"이에요. 경청할 때는 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕여요.' },
-    { type: 'fill_blank', sentence: '말을 자르지 말고 (   )려야 한다.', options: ['달아', '기다', '말해'], correctIndex: 1, explanation: '정답은 "기다"예요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
-    { type: 'fill_blank', sentence: '마녀는 "(   )군요"라고 말했다.', options: ['그랬', '맞', '잘'], correctIndex: 0, explanation: '정답은 "그랬"예요. 마녀가 자주 한 말이 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?"였어요.' },
-    { type: 'fill_blank', sentence: '이야기를 잘 듣는 것은 상대를 (   )하는 것이다.', options: ['무시', '존중', '혼내'], correctIndex: 1, explanation: '정답은 "존중"이에요. "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야"라고 마녀가 말했어요.' },
-    { type: 'fill_blank', sentence: '나는 결국 (   )가 생겼다.', options: ['돈', '친구', '마법'], correctIndex: 1, explanation: '정답은 "친구"예요. 경청을 배운 뒤 "나도 친구가 생겼지. 또래 친구도 있고 나이 차이가 좀 나는 친구도 있어"라고 했어요.' },
+    { type: 'fill_blank', sentence: '우정은 ( )는 데서 시작한다.', options: ['듣', '말', '놀'], correctIndex: 0, explanation: '정답은 "듣"예요. "우정은 듣는 데서 시작한다"라고 마녀가 말했어요. 잘 듣는 것이 친구를 만드는 첫걸음이에요.' },
+    { type: 'fill_blank', sentence: '경청은 ( )이다.', options: ['숙제', '마법', '게임'], correctIndex: 1, explanation: '정답은 "마법"이에요. "경청은 마법이야. 잘 듣다 보면 몰랐던 것도 알게 되고 그 사람이 아주 다르게 보이기도 하거든"이라고 했어요.' },
+    { type: 'fill_blank', sentence: '잘 듣는 사람에게 ( )을 연다.', options: ['문', '마음', '귀'], correctIndex: 1, explanation: '정답은 "마음"이에요. "말 잘하는 사람에게는 귀를 열지만 잘 듣는 사람에게는 마음을 연다"라고 했어요.' },
+    { type: 'fill_blank', sentence: '입은 한 개이고 귀는 ( )개이다.', options: ['한', '두', '세'], correctIndex: 1, explanation: '정답은 "두"예요. "그래서 입은 하나고 귀는 두 개인거야 잘 들으라고"라고 마녀가 말했어요. 말보다 듣기에 더 많이 쓰라는 뜻이에요.' },
+    { type: 'fill_blank', sentence: '잘 들으려면 먼저 ( )야 한다.', options: ['말해', '멈춰', '뛰어'], correctIndex: 1, explanation: '정답은 "멈춰"예요. 잘 들으려면 일단 멈춰야 해요. 하던 일을 멈추고 참견·비난·충고하고 싶은 마음을 멈춰야 해요.' },
+    { type: 'fill_blank', sentence: '몸을 앞으로 조금 ( )인다.', options: ['기울', '숙', '돌'], correctIndex: 0, explanation: '정답은 "기울"이에요. 경청할 때는 몸을 앞으로 조금 기울이고, 상대방의 눈을 바라보고, 고개를 끄덕여요.' },
+    { type: 'fill_blank', sentence: '말을 자르지 말고 ( )려야 한다.', options: ['달아', '기다', '말해'], correctIndex: 1, explanation: '정답은 "기다"예요. 불쑥 끼어들거나 말을 자르지 말고 말을 다 할 때까지 기다려야 해요.' },
+    { type: 'fill_blank', sentence: '마녀는 "( )군요"라고 말했다.', options: ['그랬', '맞', '잘'], correctIndex: 0, explanation: '정답은 "그랬"예요. 마녀가 자주 한 말이 "그랬군요.", "너무 웃겨요.", "그래서요?", "정말요?"였어요.' },
+    { type: 'fill_blank', sentence: '이야기를 잘 듣는 것은 상대를 ( )하는 것이다.', options: ['무시', '존중', '혼내'], correctIndex: 1, explanation: '정답은 "존중"이에요. "이야기를 잘 듣는다는 건 상대방을 인정하고 존중한다는 뜻이야"라고 마녀가 말했어요.' },
+    { type: 'fill_blank', sentence: '나는 결국 ( )가 생겼다.', options: ['돈', '친구', '마법'], correctIndex: 1, explanation: '정답은 "친구"예요. 경청을 배운 뒤 "나도 친구가 생겼지. 또래 친구도 있고 나이 차이가 좀 나는 친구도 있어"라고 했어요.' },
   ],
   'bigear-fb'
 );
@@ -1128,16 +1139,16 @@ const bigEarListeningResult: Content[] = withIdsAndOrder(
 // OX 퀴즈: 이야기 내용을 떠올리며 맞는지 틀린지 생각해 보는 활동. 이야기 속 사건을 기억하고 이해하는 능력을 기릅니다.
 const ugoOx: Content[] = withIdsAndOrder(
   [
-    { type: 'ox_quiz', question: '우고는 어느 날 아침 자신이 낙서가 된 것을 발견했다.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 이야기에서 우고는 처음에 온몸이 끄적끄적 낙서가 된 모습으로 깨어났어요. 속으로도 생각이 뒤죽박죽 뒤엉킨 낙서였지요. 틀린 이유: X라고 생각했다면, 이야기 맨 처음에 우고가 낙서가 되어 깨어나는 장면이 나오므로 O가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 매일 같은 모습으로 깨어났다.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. 우고는 매일 다른 모습으로 변했어요. 낙서, 점선, 점, 곡선, 흐릿함, 덜덜거림, 사각형, 동심원, 가시, 지그재그 등 날마다 달랐어요. 틀린 이유: O라고 생각했다면, "날마다 다른 모습으로 깨어났어"라고 나오므로 X가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 점이 되었을 때 수줍어서 말을 하지 못했다.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 점이 되었을 때 선생님이 질문했는데 우고는 "........"만 하고 너무 수줍어서 말도 생각도 끝내지 못했어요. 틀린 이유: X라고 생각했다면, 이야기에서 점이 된 날 말을 못했다고 나오므로 O가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 친구들과 항상 즐겁게 놀았다.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. 어떤 날에는 우고가 흐릿흐릿해지면서 이상한 말로 말다툼을 벌여 반 친구들과 큰 소란을 일으켰고, 마리우치아는 우고하고 놀려 하지 않았어요. 틀린 이유: O라고 생각했다면, 친구와 갈등한 날도 있으므로 X가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 사각형이 되었을 때 매우 정확하게 행동했다.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 반듯반듯 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요. 틀린 이유: X라고 생각했다면, 이야기에서 "아주 정확하게 시간표를 지켰어"라고 나오므로 O가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 매일 변하는 모습 때문에 혼란을 느꼈다.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 날마다 다른 모습으로 깨어나자 우고는 자신이 누구인지, 무엇을 좋아하는지, 무엇을 해야 하는지 몰라 맞힐 수 없는 그림 퀴즈나 풀 수 없는 수수께끼 같다고 느꼈어요. 틀린 이유: X라고 생각했다면, 이야기에서 "나는 내 자신이 누구인지 모르게 되었어"라고 나오므로 O가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 변하는 모습을 가족에게 모두 말했다.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. "아무도 알아채지 못하는 것 같았어"라고 나와 있어요. 우고는 매일 달라진 모습을 가족이 눈치채지 못한다고 느꼈어요. 틀린 이유: O라고 생각했다면, 아무도 눈치채지 못하는 것 같았다고 했으므로 X가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 동심원이 되었을 때 목표가 생긴 것 같다고 느꼈다.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 동글동글 동심원이 된 날 우고는 연못에 돌을 던지고 과녁을 맞히며 놀다가 "나는 처음으로 목표가 있다고 느꼈어"라고 했어요. 틀린 이유: X라고 생각했다면, 이야기에서 처음으로 목표가 있다고 느꼈다고 나오므로 O가 맞아요.' },
-    { type: 'ox_quiz', question: '우고는 미로 같은 모습이 되었을 때 문제를 해결하기 쉬웠다.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. 거울에 비친 내 모습이 미로를 헤매는 날에는 신발 끈 묶기, 버스 타기 같은 아주 간단한 문제도 너무 어렵게 느껴졌고 출구를 찾을 수 없었어요. 틀린 이유: O라고 생각했다면, "아주 간단한 문제를 해결하는 것도 나에게는 너무나 어렵게 느껴졌어"라고 나오므로 X가 맞아요.' },
-    { type: 'ox_quiz', question: '마지막에 우고는 다시 원래 모습으로 돌아왔다.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. 어느 날 깨어나 보니 우고는 다시 우고였고, 속으로는 조금 바뀌었을 수 있어도 겉모습은 의심할 여지 없이 우고였어요. 식구들이 있는 부엌로 달려가 "나 다시…" "정상이야…"라고 말했어요. 틀린 이유: X라고 생각했다면, 이야기 끝에서 다시 우고가 된다고 나오므로 O가 맞아요.' },
+    { type: 'ox_quiz', question: '우고는 어느 날 아침 자신이 낙서가 된 것을 발견했다.', correctAnswer: 'O', explanation: '이야기에서 우고는 처음에 온몸이 끄적끄적 낙서가 된 모습으로 깨어났어요. 속으로도 생각이 뒤죽박죽 뒤엉킨 낙서였지요.' },
+    { type: 'ox_quiz', question: '우고는 매일 같은 모습으로 깨어났다.', correctAnswer: 'X', explanation: '우고는 매일 다른 모습으로 변했어요. 낙서, 점선, 점, 곡선, 흐릿함, 덜덜거림, 사각형, 동심원, 가시, 지그재그 등 날마다 달랐어요.' },
+    { type: 'ox_quiz', question: '우고는 점이 되었을 때 수줍어서 말을 하지 못했다.', correctAnswer: 'O', explanation: '점이 되었을 때 선생님이 질문했는데 우고는 "........"만 하고 너무 수줍어서 말도 생각도 끝내지 못했어요.' },
+    { type: 'ox_quiz', question: '우고는 친구들과 항상 즐겁게 놀았다.', correctAnswer: 'X', explanation: '어떤 날에는 우고가 흐릿흐릿해지면서 이상한 말로 말다툼을 벌여 반 친구들과 큰 소란을 일으켰어요.' },
+    { type: 'ox_quiz', question: '우고는 사각형이 되었을 때 매우 정확하게 행동했다.', correctAnswer: 'O', explanation: '반듯반듯 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요.' },
+    { type: 'ox_quiz', question: '우고는 매일 변하는 모습 때문에 혼란을 느꼈다.', correctAnswer: 'O', explanation: '날마다 다른 모습으로 깨어나자 우고는 자신이 누구인지, 무엇을 좋아하는지, 무엇을 해야 하는지 몰라 수수께끼처럼 느꼈어요.' },
+    { type: 'ox_quiz', question: '우고는 변하는 모습을 가족에게 모두 말했다.', correctAnswer: 'X', explanation: '이야기에서는 우고가 변하는 모습을 가족에게 말했다는 내용이 나오지 않아요. 엄마에게 대답할 때 말이 이상하게 나온다든지, 가족의 반응이 드러나는 부분만 있어요.' },
+    { type: 'ox_quiz', question: '우고는 동심원이 되었을 때 목표가 생긴 것 같다고 느꼈다.', correctAnswer: 'O', explanation: '동글동글 동심원이 된 날 우고는 연못에 돌을 던지고 과녁을 맞히며 놀다가 "나는 처음으로 목표가 있다고 느꼈어"라고 했어요.' },
+    { type: 'ox_quiz', question: '우고는 미로 같은 모습이 되었을 때 문제를 해결하기 쉬웠다.', correctAnswer: 'X', explanation: '거울에 비친 내 모습이 미로를 헤매는 날에는 신발 끈 묶기, 버스 타기 같은 아주 간단한 문제도 너무 어렵게 느껴졌고 출구를 찾을 수 없었어요.' },
+    { type: 'ox_quiz', question: '마지막에 우고는 다시 원래 모습으로 돌아왔다.', correctAnswer: 'O', explanation: '어느 날 깨어나 보니 우고는 다시 우고였고, 속으로는 조금 바뀌었을 수 있어도 겉모습은 의심할 여지 없이 우고였어요. 식구들이 있는 부엌로 달려가 "나 다시…" "정상이야…"라고 말했어요.' },
   ],
   'ugo-ox'
 );
@@ -1162,16 +1173,16 @@ const ugoMultiple: Content[] = withIdsAndOrder(
 // 빈칸 채우기: 문장을 읽고 알맞은 말을 고르는 활동. 이야기의 핵심 내용을 다시 생각해 봅니다.
 const ugoFillBlank: Content[] = withIdsAndOrder(
   [
-    { type: 'fill_blank', sentence: '우고는 매일 다른 ____으로 변했다.', options: ['모습', '집', '학교', '친구'], correctIndex: 0, explanation: '정답은 "모습"이에요. 우고는 날마다 낙서, 점선, 점, 곡선, 흐릿함, 덜덜거림, 사각형, 동심원, 가시, 지그재그 등 매일 다른 모습으로 깨어났어요. 그래서 자신이 누구인지 몰라 혼란스러웠지요.', explanationCorrect: '맞아요. "날마다 다른 모습으로 깨어났어"라고 이야기에 나와 있어요. 우고는 어느 날은 끄적끄적 낙서가 되었다가, 다음 날은 가늘가늘 점선이 되고, 그다음엔 점, 곡선, 흐릿함, 덜덜거림, 사각형, 동심원, 가시, 지그재그처럼 매일 다른 모습으로 깨어났어요. 그래서 "나는 내 자신이 누구인지 모르게 되었어"라고 느꼈지요.', explanationWrong: '정답은 "모습"이에요. 우고는 집이나 학교, 친구가 바뀐 게 아니라 "날마다 다른 모습으로 깨어났어"라고 했어요. 낙서, 점선, 점, 곡선처럼 겉모습이 매일 달랐기 때문에 자신이 누구인지 몰라 혼란스러웠어요.' },
-    { type: 'fill_blank', sentence: '처음에 우고는 ____ 낙서가 되었다.', options: ['큰', '끄적끄적', '파란', '동그란'], correctIndex: 1, explanation: '정답은 "끄적끄적"이에요. "나는 온몸이 끄적끄적 낙서였어"라고 나와 있어요. 겉으로만이 아니라 속으로도 모든 생각이 뒤죽박죽 뒤엉킨 낙서였지요.', explanationCorrect: '맞아요. 어느 날 아침 우고가 잠에서 깨어났을 때 "나는 온몸이 끄적끄적 낙서였어"라고 했어요. 겉모습만이 아니라 속으로도 생각이 뒤죽박죽 뒤엉킨 낙서였대요. 그날이 우고가 처음으로 "더 이상 예전의 우고가 아니게 된" 날이었어요.', explanationWrong: '정답은 "끄적끄적"이에요. 이야기에서는 "온몸이 끄적끄적 낙서였어"라고 나와 있어요. 큰, 파란, 동그랗다는 말이 아니라 끄적끄적 그어진 낙서 같은 모습이었다는 뜻이에요.' },
-    { type: 'fill_blank', sentence: '점이 되었을 때 우고는 너무 ____.', options: ['행복했다', '수줍었다', '졸렸다', '화났다'], correctIndex: 1, explanation: '정답은 "수줍었다"예요. 점이 된 날 선생님이 질문했는데 우고는 "........"만 하고 "너무나 수줍어서 말도 생각도 끝내지 못했지"라고 나와 있어요.', explanationCorrect: '맞아요. 점점점 점이 된 날 선생님이 질문했는데 우고는 "........"만 하고 끝냈어요. "너무나 수줍어서 말도 생각도 끝내지 못했지"라고 이야기에 나와 있어요. 말을 하고 싶어도 수줍어서 제대로 말하지 못한 하루였어요.', explanationWrong: '정답은 "수줍었다"예요. 점이 되었을 때 우고는 행복하거나 화난 게 아니라 "너무나 수줍어서 말도 생각도 끝내지 못했지"라고 했어요. 선생님 질문에 "........"만 하고 대답하지 못할 정도로 수줍었대요.' },
-    { type: 'fill_blank', sentence: '사각형이 되었을 때 우고는 ____ 행동했다.', options: ['정확하게', '천천히', '졸리게', '웃으며'], correctIndex: 0, explanation: '정답은 "정확하게"예요. 반듯반듯 사각형이 된 날 "나는 그날 아주 정확하게 시간표를 지켰어"라고 나와 있어요. 다만 수학 시간에 실수를 해서 화가 났지요.', explanationCorrect: '맞아요. 반듯반듯 사각형이 된 날 우고는 "나는 그날 아주 정확하게 시간표를 지켰어"라고 했어요. 그날만큼은 모든 일을 정확하게 하려 했지만, 수학 시간에 실수를 해서 자기 자신에게 화가 났고, 반 친구들은 "쟤, 너무 따분해!"라고 생각했대요.', explanationWrong: '정답은 "정확하게"예요. 사각형이 된 날 우고는 "아주 정확하게 시간표를 지켰어"라고 했어요. 천천히나 졸리게, 웃으며가 아니라 그날만큼은 모든 걸 정확하게 지키려 했던 날이에요.' },
-    { type: 'fill_blank', sentence: '우고는 자신이 ____인지 몰라 혼란스러웠다.', options: ['누구', '어디', '언제', '얼마'], correctIndex: 0, explanation: '정답은 "누구"예요. "날마다 다른 모습으로 깨어나자 나는 내 자신이 누구인지 모르게 되었어" "나는 더 이상 내가 누구인지, 무엇을 좋아하는지, 무엇을 해야 하는지 몰랐어"라고 나와 있어요.', explanationCorrect: '맞아요. 우고는 "날마다 다른 모습으로 깨어나자 나는 내 자신이 누구인지 모르게 되었어"라고 했어요. "나는 더 이상 내가 누구인지, 무엇을 좋아하는지, 무엇을 해야 하는지 몰랐어"라고도 했고, 맞힐 수 없는 그림 퀴즈나 풀 수 없는 수수께끼 같다고 느꼈대요. 나에 대한 수수께끼를 풀려고 애썼지만 잘 풀리지 않았지요.', explanationWrong: '정답은 "누구"예요. 우고가 혼란스러웠던 건 어디에 있는지, 언제인지, 얼마인지가 아니라 "내 자신이 누구인지" 몰랐기 때문이에요. "나는 더 이상 내가 누구인지 몰랐어"라고 분명히 나와 있어요.' },
-    { type: 'fill_blank', sentence: '점선이 되었을 때 엄마가 ____를 물어봤다.', options: ['숙제', '점심', '친구', '선생님'], correctIndex: 0, explanation: '정답은 "숙제"예요. "엄마가 숙제 다 했느냐고 물어서 대답했어"라고 나와 있어요. 그때 우고의 대답은 "입에 음식을 가득 문 채로 말하지 말라"는 말만 들은 이상한 소리였지요.', explanationCorrect: '맞아요. 가늘가늘 점선이 된 날 엄마가 "숙제 다 했느냐?"고 물어봤어요. 우고가 대답했는데 말이 이상하게 나와서, 엄마에게는 "입에 음식을 가득 문 채로 말하지 말라"는 말만 들린 것 같았대요. 점선이 된 날이라 말이 제대로 나오지 않았던 거예요.', explanationWrong: '정답은 "숙제"예요. 점선이 된 날 엄마가 물어본 것은 점심이나 친구, 선생님이 아니라 "숙제 다 했느냐?"였어요. "엄마가 숙제 다 했느냐고 물어서 대답했어"라고 이야기에 나와 있어요.' },
-    { type: 'fill_blank', sentence: '곡선이 되었을 때 누나와 형이 우고를 ____라고 했다.', options: ['우아하다', '이상하다', '무섭다', '시끄럽다'], correctIndex: 0, explanation: '정답은 "우아하다"예요. 구불구불 곡선이 되었을 때 "누나는 \'와아, 너 오늘 아주 우아하다!\' 형은 \'뭐야, 너 정말 멋쟁이 같아!\'라고 말했어요.', explanationCorrect: '맞아요. 구불구불 곡선이 된 날 누나는 "와아, 너 오늘 아주 우아하다!"라고 했고, 형은 "뭐야, 너 정말 멋쟁이 같아!"라고 말했어요. 그날 우고는 기분이 좋아서 "마리우치아가 분명히 나하고 놀고 싶어 할 거야!"라고 생각했대요. 가족에게 칭찬받은 하루였어요.', explanationWrong: '정답은 "우아하다"예요. 곡선이 된 날 가족은 우고를 이상하다, 무섭다, 시끄럽다고 하지 않았어요. 누나와 형이 "우아하다", "멋쟁이 같아"라고 칭찬했어요. "너 오늘 아주 우아하다!"라고 나와 있어요.' },
-    { type: 'fill_blank', sentence: '지그재그일 때 우고는 한 손으로 이것, 다른 손으로 ____를 했다.', options: ['저것', '같은 것', '아무것도', '숙제'], correctIndex: 0, explanation: '정답은 "저것"이에요. "나는 한 손으로 이걸 하고 다른 손으로는 저걸 했어"라고 나와 있어요. 그날은 그 어느 날보다 더 많은 문제를 일으켰지요.', explanationCorrect: '맞아요. 지그재그 제멋대로가 된 날 우고는 "한 손으로 이걸 하고 다른 손으로는 저걸 했어"라고 했어요. 친구와 이야기하면서 공을 튀기고, 화장실에 가면서 윗도리를 벗어 던지는 등 그날은 그 어느 날보다 더 많은 문제를 일으켰대요. 한 가지에 집중하지 못하고 이것저것 동시에 하던 날이에요.', explanationWrong: '정답은 "저것"이에요. 이야기에서는 "한 손으로 이걸 하고 다른 손으로는 저걸 했어"라고 나와 있어요. 같은 것을 한 게 아니라 손마다 다른 일을 해서 문제를 많이 일으켰대요.' },
-    { type: 'fill_blank', sentence: '마지막에 우고는 ____로 달려갔다.', options: ['부엌', '학교', '공원', '친구 집'], correctIndex: 0, explanation: '정답은 "부엌"이에요. 다시 우고가 되었을 때 "나는 식구들이 있는 부엌으로 달려갔어"라고 나와 있어요. 식구들은 막 아침밥을 먹으려던 참이었지요.', explanationCorrect: '맞아요. 어느 날 우고가 다시 우고가 되어 깨어났을 때 "나는 식구들이 있는 부엌으로 달려갔어"라고 했어요. 식구들은 막 아침밥을 먹으려던 참이었고, 우고는 "나 다시…"라고 하자 가족이 "정상이야…"라고 말해 줬어요. 다시 나다움을 찾고 가족에게 달려간 마지막 장면이에요.', explanationWrong: '정답은 "부엌"이에요. 우고가 마지막에 달려간 곳은 학교나 공원, 친구 집이 아니라 "식구들이 있는 부엌"이에요. "나는 식구들이 있는 부엌으로 달려갔어"라고 이야기 끝에 나와 있어요.' },
-    { type: 'fill_blank', sentence: '가족이 우고에게 "____"라고 말했다.', options: ['정상이야', '이상해', '빨리 와', '잘했어'], correctIndex: 0, explanation: '정답은 "정상이야"예요. 우고가 "나 다시…"라고 하자 가족이 "정상이야…"라고 말했어요. 우고가 다시 원래 모습으로 돌아왔음을 받아주는 말이에요.', explanationCorrect: '맞아요. 우고가 다시 우고가 되어 부엌으로 달려와 "나 다시…"라고 하자 가족이 "정상이야…"라고 말했어요. 날마다 다른 모습으로 변하던 우고가 드디어 원래 모습으로 돌아왔을 때, 가족이 우고를 그대로 받아주며 "정상이야"라고 해 준 거예요. 이 한마디가 우고에게 큰 위로가 되었을 거예요.', explanationWrong: '정답은 "정상이야"예요. 가족이 우고에게 한 말은 "이상해", "빨리 와", "잘했어"가 아니라 "정상이야…"였어요. 우고가 "나 다시…"라고 하자 가족이 우고를 받아주며 "정상이야"라고 말한 장면이에요.' },
+    { type: 'fill_blank', sentence: '우고는 매일 다른 ( )으로 변했다.', options: ['모습', '집', '학교', '친구'], correctIndex: 0, explanation: '정답은 "모습"이에요. 우고는 날마다 낙서, 점선, 점, 곡선, 흐릿함, 덜덜거림, 사각형, 동심원, 가시, 지그재그 등 매일 다른 모습으로 깨어났어요. 그래서 자신이 누구인지 몰라 혼란스러웠지요.', explanationCorrect: '맞아요. "날마다 다른 모습으로 깨어났어"라고 이야기에 나와 있어요. 우고는 어느 날은 끄적끄적 낙서가 되었다가, 다음 날은 가늘가늘 점선이 되고, 그다음엔 점, 곡선, 흐릿함, 덜덜거림, 사각형, 동심원, 가시, 지그재그처럼 매일 다른 모습으로 깨어났어요. 그래서 "나는 내 자신이 누구인지 모르게 되었어"라고 느꼈지요.', explanationWrong: '정답은 "모습"이에요. 우고는 집이나 학교, 친구가 바뀐 게 아니라 "날마다 다른 모습으로 깨어났어"라고 했어요. 낙서, 점선, 점, 곡선처럼 겉모습이 매일 달랐기 때문에 자신이 누구인지 몰라 혼란스러웠어요.' },
+    { type: 'fill_blank', sentence: '처음에 우고는 ( ) 낙서가 되었다.', options: ['큰', '끄적끄적', '파란', '동그란'], correctIndex: 1, explanation: '정답은 "끄적끄적"이에요. "나는 온몸이 끄적끄적 낙서였어"라고 나와 있어요. 겉으로만이 아니라 속으로도 모든 생각이 뒤죽박죽 뒤엉킨 낙서였지요.', explanationCorrect: '맞아요. 어느 날 아침 우고가 잠에서 깨어났을 때 "나는 온몸이 끄적끄적 낙서였어"라고 했어요. 겉모습만이 아니라 속으로도 생각이 뒤죽박죽 뒤엉킨 낙서였대요. 그날이 우고가 처음으로 "더 이상 예전의 우고가 아니게 된" 날이었어요.', explanationWrong: '정답은 "끄적끄적"이에요. 이야기에서는 "온몸이 끄적끄적 낙서였어"라고 나와 있어요. 큰, 파란, 동그랗다는 말이 아니라 끄적끄적 그어진 낙서 같은 모습이었다는 뜻이에요.' },
+    { type: 'fill_blank', sentence: '점이 되었을 때 우고는 너무 ( ).', options: ['행복했다', '수줍었다', '졸렸다', '화났다'], correctIndex: 1, explanation: '정답은 "수줍었다"예요. 점이 된 날 선생님이 질문했는데 우고는 "........"만 하고 "너무나 수줍어서 말도 생각도 끝내지 못했지"라고 나와 있어요.', explanationCorrect: '맞아요. 점점점 점이 된 날 선생님이 질문했는데 우고는 "........"만 하고 끝냈어요. "너무나 수줍어서 말도 생각도 끝내지 못했지"라고 이야기에 나와 있어요. 말을 하고 싶어도 수줍어서 제대로 말하지 못한 하루였어요.', explanationWrong: '정답은 "수줍었다"예요. 점이 되었을 때 우고는 행복하거나 화난 게 아니라 "너무나 수줍어서 말도 생각도 끝내지 못했지"라고 했어요. 선생님 질문에 "........"만 하고 대답하지 못할 정도로 수줍었대요.' },
+    { type: 'fill_blank', sentence: '사각형이 되었을 때 우고는 ( ) 행동했다.', options: ['정확하게', '천천히', '졸리게', '웃으며'], correctIndex: 0, explanation: '정답은 "정확하게"예요. 반듯반듯 사각형이 된 날 "나는 그날 아주 정확하게 시간표를 지켰어"라고 나와 있어요. 다만 실수를 받아들이지 못해 따분하다는 말을 들었어요.', explanationCorrect: '맞아요. 반듯반듯 사각형이 된 날 우고는 "나는 그날 아주 정확하게 시간표를 지켰어"라고 했어요. 그날만큼은 모든 일을 정확하게 하려 했지만, 실수를 받아들이지 못해 화가 났고 반 친구들은 "쟤, 너무 따분해!"라고 생각했대요.', explanationWrong: '정답은 "정확하게"예요. 사각형이 된 날 우고는 "아주 정확하게 시간표를 지켰어"라고 했어요. 천천히나 졸리게, 웃으며가 아니라 그날만큼은 모든 걸 정확하게 지키려 했던 날이에요.' },
+    { type: 'fill_blank', sentence: '우고는 자신이 ( )인지 몰라 혼란스러웠다.', options: ['누구', '어디', '언제', '얼마'], correctIndex: 0, explanation: '정답은 "누구"예요. "날마다 다른 모습으로 깨어나자 나는 내 자신이 누구인지 모르게 되었어" "나는 더 이상 내가 누구인지, 무엇을 좋아하는지, 무엇을 해야 하는지 몰랐어"라고 나와 있어요.', explanationCorrect: '맞아요. 우고는 "날마다 다른 모습으로 깨어나자 나는 내 자신이 누구인지 모르게 되었어"라고 했어요. "나는 더 이상 내가 누구인지, 무엇을 좋아하는지, 무엇을 해야 하는지 몰랐어"라고도 했고, 풀 수 없는 수수께끼 같다고 느꼈대요. 나에 대한 수수께끼를 풀려고 애썼지만 잘 풀리지 않았지요.', explanationWrong: '정답은 "누구"예요. 우고가 혼란스러웠던 건 어디에 있는지, 언제인지, 얼마인지가 아니라 "내 자신이 누구인지" 몰랐기 때문이에요. "나는 더 이상 내가 누구인지 몰랐어"라고 분명히 나와 있어요.' },
+    { type: 'fill_blank', sentence: '점선이 되었을 때 우고가 엄마에게 대답했더니 ( )라는 말만 들었다.', options: ['입에 음식을 가득 문 채로 말하지 말라', '밥 먹어', '잘했어', '빨리 와'], correctIndex: 0, explanation: '정답은 "입에 음식을 가득 문 채로 말하지 말라"예요. 점선이 된 날 엄마에게 대답할 때 말이 이상하게 나와서, 엄마에게는 그 말만 들린 것 같았어요.', explanationCorrect: '맞아요. 가늘가늘 점선이 된 날 우고가 엄마에게 대답했는데 말이 제대로 나오지 않아서, 엄마에게는 "입에 음식을 가득 문 채로 말하지 말라"는 말만 들린 것 같았대요.', explanationWrong: '정답은 "입에 음식을 가득 문 채로 말하지 말라"예요. 점선이 된 날 우고의 대답이 이상하게 나와 엄마가 그렇게 말한 걸로 나와 있어요.' },
+    { type: 'fill_blank', sentence: '곡선이 되었을 때 누나와 형이 우고를 ( )라고 했다.', options: ['우아하다', '이상하다', '무섭다', '시끄럽다'], correctIndex: 0, explanation: '정답은 "우아하다"예요. 구불구불 곡선이 되었을 때 "누나는 \'와아, 너 오늘 아주 우아하다!\' 형은 \'뭐야, 너 정말 멋쟁이 같아!\'라고 말했어요.', explanationCorrect: '맞아요. 구불구불 곡선이 된 날 누나는 "와아, 너 오늘 아주 우아하다!"라고 했고, 형은 "뭐야, 너 정말 멋쟁이 같아!"라고 말했어요. 그날 우고는 기분이 좋아서 "마리우치아가 분명히 나하고 놀고 싶어 할 거야!"라고 생각했대요. 가족에게 칭찬받은 하루였어요.', explanationWrong: '정답은 "우아하다"예요. 곡선이 된 날 가족은 우고를 이상하다, 무섭다, 시끄럽다고 하지 않았어요. 누나와 형이 "우아하다", "멋쟁이 같아"라고 칭찬했어요. "너 오늘 아주 우아하다!"라고 나와 있어요.' },
+    { type: 'fill_blank', sentence: '지그재그일 때 우고는 한 손으로 이것, 다른 손으로 ( )를 했다.', options: ['저것', '같은 것', '아무것도', '숙제'], correctIndex: 0, explanation: '정답은 "저것"이에요. "나는 한 손으로 이걸 하고 다른 손으로는 저걸 했어"라고 나와 있어요. 그날은 그 어느 날보다 더 많은 문제를 일으켰지요.', explanationCorrect: '맞아요. 지그재그 제멋대로가 된 날 우고는 "한 손으로 이걸 하고 다른 손으로는 저걸 했어"라고 했어요. 친구와 이야기하면서 공을 튀기고, 화장실에 가면서 윗도리를 벗어 던지는 등 그날은 그 어느 날보다 더 많은 문제를 일으켰대요. 한 가지에 집중하지 못하고 이것저것 동시에 하던 날이에요.', explanationWrong: '정답은 "저것"이에요. 이야기에서는 "한 손으로 이걸 하고 다른 손으로는 저걸 했어"라고 나와 있어요. 같은 것을 한 게 아니라 손마다 다른 일을 해서 문제를 많이 일으켰대요.' },
+    { type: 'fill_blank', sentence: '마지막에 우고는 ( )로 달려갔다.', options: ['부엌', '학교', '공원', '친구 집'], correctIndex: 0, explanation: '정답은 "부엌"이에요. 다시 우고가 되었을 때 "나는 식구들이 있는 부엌으로 달려갔어"라고 나와 있어요. 식구들은 막 아침밥을 먹으려던 참이었지요.', explanationCorrect: '맞아요. 어느 날 우고가 다시 우고가 되어 깨어났을 때 "나는 식구들이 있는 부엌으로 달려갔어"라고 했어요. 식구들은 막 아침밥을 먹으려던 참이었고, 우고는 "나 다시…"라고 하자 가족이 "정상이야…"라고 말해 줬어요. 다시 나다움을 찾고 가족에게 달려간 마지막 장면이에요.', explanationWrong: '정답은 "부엌"이에요. 우고가 마지막에 달려간 곳은 학교나 공원, 친구 집이 아니라 "식구들이 있는 부엌"이에요. "나는 식구들이 있는 부엌으로 달려갔어"라고 이야기 끝에 나와 있어요.' },
+    { type: 'fill_blank', sentence: '가족이 우고에게 "( )"라고 말했다.', options: ['정상이야', '이상해', '빨리 와', '잘했어'], correctIndex: 0, explanation: '정답은 "정상이야"예요. 우고가 "나 다시…"라고 하자 가족이 "정상이야…"라고 말했어요. 우고가 다시 원래 모습으로 돌아왔음을 받아주는 말이에요.', explanationCorrect: '맞아요. 우고가 다시 우고가 되어 부엌으로 달려와 "나 다시…"라고 하자 가족이 "정상이야…"라고 말했어요. 날마다 다른 모습으로 변하던 우고가 드디어 원래 모습으로 돌아왔을 때, 가족이 우고를 그대로 받아주며 "정상이야"라고 해 준 거예요. 이 한마디가 우고에게 큰 위로가 되었을 거예요.', explanationWrong: '정답은 "정상이야"예요. 가족이 우고에게 한 말은 "이상해", "빨리 와", "잘했어"가 아니라 "정상이야…"였어요. 우고가 "나 다시…"라고 하자 가족이 우고를 받아주며 "정상이야"라고 말한 장면이에요.' },
   ],
   'ugo-fill'
 );
@@ -1181,10 +1192,10 @@ const ugoOrdering: Content[] = withIdsAndOrder(
   [
     { type: 'ordering', question: '이야기의 순서를 맞추세요.', items: ['우고가 낙서가 된다', '우고가 여러 모습으로 변한다', '우고가 혼란을 느낀다', '우고가 다시 우고가 된다'], explanation: '우고는 여러 모습으로 변하다가 결국 자신을 찾는다.', explanationCorrect: '맞아요. 우고는 처음에 낙서가 되어 깨어났어요.\n그다음 날마다 점선, 점, 곡선 등 여러 모습으로 변했어요.\n그래서 자신이 누구인지 몰라 혼란을 느꼈고, 마지막에는 다시 우고가 되어 부엌으로 달려갔어요.', explanationWrong: '처음에 낙서가 된 다음에 여러 모습으로 변해요.\n혼란을 느낀 다음에 다시 우고가 되는 거예요.' },
     { type: 'ordering', question: '우고가 변한 모습의 순서를 맞추세요.', items: ['낙서', '점선', '점', '곡선'], explanation: '처음엔 낙서, 그다음 점선, 그다음 점, 그다음 곡선 순으로 변했다.', explanationCorrect: '맞아요. 첫날 낙서, 다음 날 점선, 그다음 점, 그다음 구불구불 곡선 순으로 우고의 모습이 바뀌었어요.', explanationWrong: '낙서가 처음이에요. 그다음 점선, 점, 곡선 순이에요.' },
-    { type: 'ordering', question: '이야기 순서를 맞추세요.', items: ['우고가 점선이 되어 말이 이상하게 나온다', '엄마가 숙제를 물어본다', '우고가 "입에 음식 가득 문 채로 말하지 말라"는 말을 듣는다'], explanation: '점선이 된 날 엄마가 숙제를 물어봤고, 대답이 이상하게 나와 엄마의 말을 들었다.', explanationCorrect: '맞아요. 점선이 된 날 엄마가 숙제 다 했느냐고 물었어요.\n우고가 대답했는데 "입에 음식을 가득 문 채로 말하지 말라"는 말만 들었어요. 대답이 이상하게 나온 거예요.', explanationWrong: '엄마가 먼저 숙제를 물어봐요. 그다음 우고가 대답하는데 말이 이상하게 나와서 엄마의 말을 듣게 돼요.' },
+    { type: 'ordering', question: '이야기 순서를 맞추세요.', items: ['우고가 점선이 된다', '엄마에게 대답할 때 말이 이상하게 나온다', '우고가 "입에 음식 가득 문 채로 말하지 말라"는 말을 듣는다'], explanation: '점선이 된 날 엄마에게 대답했는데 말이 이상하게 나와 엄마의 말만 들었다.', explanationCorrect: '맞아요. 점선이 된 날 우고가 엄마에게 대답했는데 말이 이상하게 나와서, 엄마에게는 "입에 음식을 가득 문 채로 말하지 말라"는 말만 들린 것 같았어요.', explanationWrong: '우고가 먼저 점선이 되어요. 엄마에게 대답할 때 말이 이상하게 나와서 엄마의 말을 듣게 돼요.' },
     { type: 'ordering', question: '순서를 맞추세요.', items: ['우고가 곡선이 된다', '누나와 형이 멋지다고 한다', '우고가 마리우치아가 놀고 싶어 할 거라 생각한다'], explanation: '곡선이 된 날 가족이 칭찬했고, 우고는 기분이 좋았다.', explanationCorrect: '맞아요. 우고가 구불구불 곡선이 되었어요.\n누나와 형이 우아하다, 멋쟁이 같다고 말했어요.\n우고는 "마리우치아가 분명히 나하고 놀고 싶어 할 거야!"라고 생각했어요.', explanationWrong: '우고가 먼저 곡선이 되어요. 그다음 가족이 칭찬하고, 우고가 마리우치아 생각을 해요.' },
-    { type: 'ordering', question: '이야기 순서를 맞추세요.', items: ['우고가 흐릿흐릿해진다', '이상한 말로 말다툼을 한다', '마리우치아가 놀려 하지 않는다'], explanation: '흐릿해진 날 말다툼이 있었고, 마리우치아는 놀지 않았다.', explanationCorrect: '맞아요. 흐릿흐릿해진 날 우고는 이상한 말로 말다툼을 벌여 큰 소란을 일으켰어요.\n그래서 마리우치아는 우고하고 전혀 놀려 하지 않았어요.', explanationWrong: '우고가 먼저 흐릿해져요. 그다음 말다툼이 있고, 그 결과 마리우치아가 놀지 않아요.' },
-    { type: 'ordering', question: '순서를 맞추세요.', items: ['우고가 사각형이 된다', '시간표를 정확히 지킨다', '수학 시간에 실수를 해서 화가 난다'], explanation: '사각형이 된 날 정확했지만 실수에 화를 냈다.', explanationCorrect: '맞아요. 반듯반듯 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요.\n그러다가 수학 시간에 실수를 해서 자기 자신에게 화가 났어요.', explanationWrong: '우고가 먼저 사각형이 되어요. 그다음 시간표를 지키고, 수학 시간에 실수해서 화가 나요.' },
+    { type: 'ordering', question: '이야기 순서를 맞추세요.', items: ['우고가 흐릿흐릿해진다', '이상한 말로 말다툼을 한다', '반 친구들과 큰 소란을 일으킨다'], explanation: '흐릿해진 날 말다툼이 있었고, 반 친구들과 큰 소란을 일으켰어요.', explanationCorrect: '맞아요. 흐릿흐릿해진 날 우고는 이상한 말로 말다툼을 벌여 반 친구들과 큰 소란을 일으켰어요.', explanationWrong: '우고가 먼저 흐릿해져요. 그다음 말다툼을 하고, 반 친구들과 소란을 일으켜요.' },
+    { type: 'ordering', question: '순서를 맞추세요.', items: ['우고가 사각형이 된다', '시간표를 정확히 지킨다', '실수를 받아들이지 못해 화가 난다'], explanation: '사각형이 된 날 정확했지만 실수에 화를 냈다.', explanationCorrect: '맞아요. 반듯반듯 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요.\n그러다가 실수를 받아들이지 못해 화가 났고, 반 친구들은 "쟤, 너무 따분해!"라고 생각했어요.', explanationWrong: '우고가 먼저 사각형이 되어요. 그다음 시간표를 지키고, 실수에 화를 내요.' },
     { type: 'ordering', question: '이야기 순서를 맞추세요.', items: ['우고가 동심원이 된다', '연못에 돌을 던진다', '목표가 있다고 처음 느낀다'], explanation: '동심원이 된 날 돌 던지기를 하며 목표를 느꼈다.', explanationCorrect: '맞아요. 동글동글 동심원이 된 날 우고는 연못에 돌을 던지고 과녁을 맞히며 놀았어요.\n"나는 처음으로 목표가 있다고 느꼈어"라고 했지요.', explanationWrong: '우고가 먼저 동심원이 되어요. 연못에 돌을 던지고 놀다가 목표가 있다고 느껴요.' },
     { type: 'ordering', question: '순서를 맞추세요.', items: ['우고가 지그재그가 된다', '한 손으로 이것 저 손으로 저것 한다', '많은 문제를 일으킨다'], explanation: '지그재그일 때 제멋대로 행동해 문제가 많았다.', explanationCorrect: '맞아요. 지그재그 제멋대로가 된 날 우고는 한 손으로 이걸 하고 다른 손으로는 저걸 했어요. 친구와 이야기하면서 공을 튀기고, 화장실에 가면서 윗도리를 벗어 던지는 등 많은 문제를 일으켰어요.', explanationWrong: '우고가 먼저 지그재그가 되어요. 그다음 제멋대로 행동하고, 그 결과 문제를 많이 일으켜요.' },
     { type: 'ordering', question: '이야기 순서를 맞추세요.', items: ['우고가 미로처럼 느껴진다', '신발 끈 묶기와 버스 타기가 어렵다', '출구를 찾지 못한다'], explanation: '미로 같은 날 간단한 일도 어려웠다.', explanationCorrect: '맞아요. 거울에 비친 내 모습이 미로를 헤매는 날이 있었어요.\n신발 끈 묶기, 버스 타기 같은 간단한 문제도 너무 어렵게 느껴졌고, 우고는 출구를 찾을 수 없었어요.', explanationWrong: '우고가 미로처럼 느껴져요. 그다음 간단한 일도 어렵고, 출구를 찾지 못해요.' },
@@ -1197,15 +1208,15 @@ const ugoOrdering: Content[] = withIdsAndOrder(
 const ugoMatchPairs: Content[] = withIdsAndOrder(
   [
     { type: 'match_pairs', question: '우고의 모습과 특징을 연결하세요.', leftItems: ['점', '사각형', '곡선', '동심원'], rightItems: ['말을 못함', '정확함', '우아함', '목표 느낌'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '각 모습마다 우고의 행동과 느낌이 달랐다.', detailedExplanation: '① 점 → 말을 못함: 점이 되었을 때 우고는 너무 수줍어서 선생님 질문에 "........"만 했어요.\n② 사각형 → 정확함: 반듯반듯 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요.\n③ 곡선 → 우아함: 구불구불 곡선이 되었을 때 누나와 형이 "우아하다", "멋쟁이 같아"라고 말했어요.\n④ 동심원 → 목표 느낌: 동글동글 동심원이 된 날 우고는 "처음으로 목표가 있다고 느꼈어"라고 했어요.' },
-    { type: 'match_pairs', question: '우고의 모습과 그날 일어난 일을 연결하세요.', leftItems: ['낙서', '점선', '흐릿함', '덜덜거림'], rightItems: ['생각이 뒤죽박죽', '엄마가 숙제를 물어봄', '말다툼을 함', '가만히 앉지 못함'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '모습에 따라 말과 행동이 달라졌다.', detailedExplanation: '① 낙서 → 생각이 뒤죽박죽: 처음 깨어났을 때 온몸이 낙서였고 속으로도 모든 생각이 뒤죽박죽 뒤엉켰어요.\n② 점선 → 엄마가 숙제를 물어봄: 점선이 된 날 엄마가 숙제 다 했느냐고 물어서 우고가 대답했는데 말이 이상하게 나왔어요.\n③ 흐릿함 → 말다툼을 함: 흐릿흐릿해진 날 우고는 이상한 말로 말다툼을 벌여 반 친구들과 큰 소란을 일으켰어요.\n④ 덜덜거림 → 가만히 앉지 못함: 부들부들 덜덜거릴 때 온몸이 흔들려서 가만히 앉을 수 없었고 망가진 핀볼 같았어요.' },
-    { type: 'match_pairs', question: '우고의 모습과 가족·친구의 반응을 연결하세요.', leftItems: ['곡선', '흐릿함', '사각형', '다시 우고'], rightItems: ['멋지다, 우아하다', '마리우치아가 놀지 않음', '따분하다', '정상이야'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '모습에 따라 주변 반응도 달랐다.', detailedExplanation: '① 곡선 → 멋지다, 우아하다: 구불구불 곡선이 되었을 때 누나는 "우아하다", 형은 "멋쟁이 같아"라고 말했어요.\n② 흐릿함 → 마리우치아가 놀지 않음: 흐릿해진 날 말다툼을 벌인 뒤 마리우치아는 우고하고 전혀 놀려 하지 않았어요.\n③ 사각형 → 따분하다: 반듯반듯 사각형이 된 날 실수에 화를 내자 반 친구들은 "쟤, 너무 따분해!"라고 생각했어요.\n④ 다시 우고 → 정상이야: 우고가 다시 우고가 되어 부엌으로 달려갔을 때 가족이 "정상이야"라고 말했어요.' },
+    { type: 'match_pairs', question: '우고의 모습과 그날 일어난 일을 연결하세요.', leftItems: ['낙서', '점선', '흐릿함', '덜덜거림'], rightItems: ['생각이 뒤죽박죽', '엄마에게 대답할 때 말이 이상하게 나옴', '말다툼을 함', '가만히 앉지 못함'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '모습에 따라 말과 행동이 달라졌다.', detailedExplanation: '① 낙서 → 생각이 뒤죽박죽: 처음 깨어났을 때 온몸이 낙서였고 속으로도 모든 생각이 뒤죽박죽 뒤엉켰어요.\n② 점선 → 엄마에게 대답할 때 말이 이상하게 나옴: 점선이 된 날 우고가 엄마에게 대답했는데 말이 이상하게 나와 "입에 음식을 가득 문 채로 말하지 말라"는 말만 들었어요.\n③ 흐릿함 → 말다툼을 함: 흐릿흐릿해진 날 우고는 이상한 말로 말다툼을 벌여 반 친구들과 큰 소란을 일으켰어요.\n④ 덜덜거림 → 가만히 앉지 못함: 부들부들 덜덜거릴 때 온몸이 흔들려서 가만히 앉을 수 없었고 망가진 핀볼 같았어요.' },
+    { type: 'match_pairs', question: '우고의 모습과 가족·친구의 반응을 연결하세요.', leftItems: ['곡선', '흐릿함', '사각형', '다시 우고'], rightItems: ['멋지다, 우아하다', '말다툼을 벌임', '따분하다', '정상이야'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '모습에 따라 주변 반응도 달랐다.', detailedExplanation: '① 곡선 → 멋지다, 우아하다: 구불구불 곡선이 되었을 때 누나는 "우아하다", 형은 "멋쟁이 같아"라고 말했어요.\n② 흐릿함 → 말다툼을 벌임: 흐릿해진 날 우고는 이상한 말로 말다툼을 벌여 반 친구들과 큰 소란을 일으켰어요.\n③ 사각형 → 따분하다: 반듯반듯 사각형이 된 날 실수에 화를 내자 반 친구들은 "쟤, 너무 따분해!"라고 생각했어요.\n④ 다시 우고 → 정상이야: 우고가 다시 우고가 되어 부엌으로 달려갔을 때 가족이 "정상이야"라고 말했어요.' },
     { type: 'match_pairs', question: '우고가 한 행동과 결과를 연결하세요.', leftItems: ['돌을 던졌다', '시간표를 지켰다', '한 손으로 이것 저 손으로 저것', '말을 못했다'], rightItems: ['목표를 느꼈다', '정확하다고 느꼈다', '많은 문제를 일으켰다', '수줍었다'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '행동에 따라 느낌과 결과가 달랐다.', detailedExplanation: '① 돌을 던졌다 → 목표를 느꼈다: 동심원이 된 날 연못에 돌을 던지고 과녁을 맞히며 놀다가 "처음으로 목표가 있다고 느꼈어"라고 했어요.\n② 시간표를 지켰다 → 정확하다고 느꼈다: 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요.\n③ 한 손으로 이것 저 손으로 저것 → 많은 문제를 일으켰다: 지그재그일 때 한 손으로 이걸, 다른 손으로 저걸 하며 그날은 더 많은 문제를 일으켰어요.\n④ 말을 못했다 → 수줍었다: 점이 되었을 때 선생님이 질문했는데 수줍어서 "........"만 했어요.' },
-    { type: 'match_pairs', question: '우고의 모습과 어려웠던 것을 연결하세요.', leftItems: ['점', '미로 같을 때', '지그재그', '사각형'], rightItems: ['말하기', '버스 타기·신발 끈', '한 가지에 집중하기', '실수 받아들이기'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '모습마다 어려운 것이 달랐다.', detailedExplanation: '① 점 → 말하기: 점이 되었을 때 우고는 너무 수줍어서 말을 하지 못했어요.\n② 미로 같을 때 → 버스 타기·신발 끈: 거울에 비친 모습이 미로를 헤매는 날에는 신발 끈 묶기, 버스 타기 같은 간단한 일도 너무 어려웠어요.\n③ 지그재그 → 한 가지에 집중하기: 지그재그 제멋대로일 때 우고는 한 손으로 이것, 다른 손으로 저것 해서 한 가지에 집중하기 어려웠어요.\n④ 사각형 → 실수 받아들이기: 사각형이 된 날 시간표는 정확히 지켰지만 수학 시간 실수를 받아들이지 못하고 화를 냈어요.' },
-    { type: 'match_pairs', question: '말과 그 결과를 연결하세요.', leftItems: ['"정상이야"', '엄마의 "입에 음식 문 채로 말하지 마"', '누나·형의 "멋지다"', '반 친구들의 "따분해"'], rightItems: ['가족이 우고를 받아줌', '점선이 된 날 대답이 이상함', '곡선인 날 기분이 좋음', '사각형인 날 실수에 화냄'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '이야기 속 말과 상황이 연결된다.', detailedExplanation: '① "정상이야" → 가족이 우고를 받아줌: 우고가 "나 다시…"라고 하자 가족이 "정상이야"라고 말하며 우고를 받아줬어요.\n② 엄마의 "입에 음식 문 채로 말하지 마" → 점선이 된 날 대답이 이상함: 점선이 된 날 엄마가 숙제를 물어봤는데 우고 대답이 이상하게 나와서 엄마가 그렇게 말했어요.\n③ 누나·형의 "멋지다" → 곡선인 날 기분이 좋음: 곡선이 되었을 때 누나와 형이 우아하다, 멋쟁이 같다고 해서 우고는 기분이 좋았어요.\n④ 반 친구들의 "따분해" → 사각형인 날 실수에 화냄: 사각형이 된 날 우고가 실수에 화를 내자 반 친구들은 "쟤, 너무 따분해!"라고 생각했어요.' },
+    { type: 'match_pairs', question: '우고의 모습과 어려웠던 것을 연결하세요.', leftItems: ['점', '미로 같을 때', '지그재그', '사각형'], rightItems: ['말하기', '버스 타기·신발 끈', '한 가지에 집중하기', '실수 받아들이기'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '모습마다 어려운 것이 달랐다.', detailedExplanation: '① 점 → 말하기: 점이 되었을 때 우고는 너무 수줍어서 말을 하지 못했어요.\n② 미로 같을 때 → 버스 타기·신발 끈: 거울에 비친 모습이 미로를 헤매는 날에는 신발 끈 묶기, 버스 타기 같은 간단한 일도 너무 어려웠어요.\n③ 지그재그 → 한 가지에 집중하기: 지그재그 제멋대로일 때 우고는 한 손으로 이것, 다른 손으로 저것 해서 한 가지에 집중하기 어려웠어요.\n④ 사각형 → 실수 받아들이기: 사각형이 된 날 시간표는 정확히 지켰지만 실수를 받아들이지 못하고 화를 냈어요.' },
+    { type: 'match_pairs', question: '말과 그 결과를 연결하세요.', leftItems: ['"정상이야"', '엄마의 "입에 음식 문 채로 말하지 마"', '누나·형의 "멋지다"', '반 친구들의 "따분해"'], rightItems: ['가족이 우고를 받아줌', '점선이 된 날 대답이 이상함', '곡선인 날 기분이 좋음', '사각형인 날 실수에 화냄'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '이야기 속 말과 상황이 연결된다.', detailedExplanation: '① "정상이야" → 가족이 우고를 받아줌: 우고가 "나 다시…"라고 하자 가족이 "정상이야"라고 말하며 우고를 받아줬어요.\n② 엄마의 "입에 음식 문 채로 말하지 마" → 점선이 된 날 대답이 이상함: 점선이 된 날 우고가 엄마에게 대답했는데 말이 이상하게 나와서 엄마가 그렇게 말했어요.\n③ 누나·형의 "멋지다" → 곡선인 날 기분이 좋음: 곡선이 되었을 때 누나와 형이 우아하다, 멋쟁이 같다고 해서 우고는 기분이 좋았어요.\n④ 반 친구들의 "따분해" → 사각형인 날 실수에 화냄: 사각형이 된 날 우고가 실수에 화를 내자 반 친구들은 "쟤, 너무 따분해!"라고 생각했어요.' },
     { type: 'match_pairs', question: '우고의 감정과 상황을 연결하세요.', leftItems: ['혼란', '기대', '수줍음', '안정'], rightItems: ['누구인지 모름', '마리우치아가 놀아주길', '점이 되어 말 못함', '다시 우고가 됨'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '상황에 따라 우고의 감정이 달랐다.', detailedExplanation: '① 혼란 → 누구인지 모름: 날마다 다른 모습으로 깨어나자 우고는 자신이 누구인지, 무엇을 좋아하는지 몰라 혼란스러웠어요.\n② 기대 → 마리우치아가 놀아주길: 곡선이 되어 칭찬받았을 때 "마리우치아가 분명히 나하고 놀고 싶어 할 거야!"라고 기대했어요.\n③ 수줍음 → 점이 되어 말 못함: 점이 되었을 때 우고는 너무 수줍어서 선생님 질문에 아무 말도 못 했어요.\n④ 안정 → 다시 우고가 됨: 다시 우고가 되고 가족이 "정상이야"라고 하자 우고는 안정을 찾았어요.' },
     { type: 'match_pairs', question: '우고가 한 활동과 그때 느낀 것을 연결하세요.', leftItems: ['연못에 돌 던지기', '시간표 지키기', '거울에 비친 모습 보기', '부엌으로 달려가기'], rightItems: ['목표가 있다고 느낌', '정확하게 하고 싶음', '미로처럼 출구를 못 찾음', '다시 나라고 말하고 싶음'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '활동과 느낌이 이야기 속에서 연결된다.', detailedExplanation: '① 연못에 돌 던지기 → 목표가 있다고 느낌: 동심원이 된 날 연못에 돌을 던지고 과녁을 맞히며 놀다가 "처음으로 목표가 있다고 느꼈어"라고 했어요.\n② 시간표 지키기 → 정확하게 하고 싶음: 사각형이 된 날 우고는 아주 정확하게 시간표를 지켰어요.\n③ 거울에 비친 모습 보기 → 미로처럼 출구를 못 찾음: 거울에 비친 내 모습이 미로를 헤매는 날에는 출구를 찾을 수 없었어요.\n④ 부엌으로 달려가기 → 다시 나라고 말하고 싶음: 다시 우고가 되었을 때 "나 다시…"라고 말하며 식구들이 있는 부엌으로 달려갔어요.' },
-    { type: 'match_pairs', question: '모습과 우고의 생각을 연결하세요.', leftItems: ['곡선', '동심원', '가시·지그재그', '다시 우고'], rightItems: ['마리우치아가 놀고 싶어 할 거야', '목표가 있는 것 같아', '문제를 많이 일으켰어', '나는 우고야'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '각 모습에서 우고가 생각한 내용이 다르다.', detailedExplanation: '① 곡선 → 마리우치아가 놀고 싶어 할 거야: 곡선이 되어 칭찬받았을 때 "계속 이러면 좋겠다. 마리우치아가 분명히 나하고 놀고 싶어 할 거야!"라고 생각했어요.\n② 동심원 → 목표가 있는 것 같아: 동심원이 된 날 돌 던지기를 하며 "목표가 있다고 처음 느꼈어" "그게 무엇인지 완전히 이해하지는 못했어"라고 했어요.\n③ 가시·지그재그 → 문제를 많이 일으켰어: 지그재그일 때 한 손으로 이것 저 손으로 저것 하며 그날은 더 많은 문제를 일으켰어요.\n④ 다시 우고 → 나는 우고야: 마지막에 "나는 우고, 우고였어. 우고가 나였지"라고 했어요.' },
-    { type: 'match_pairs', question: '이야기 속 장면과 의미를 연결하세요.', leftItems: ['매일 다른 모습으로 깨어남', '수수께끼를 풀려고 함', '가족에게 달려감', '"정상이야"'], rightItems: ['자신이 누구인지 혼란', '나를 알아가려는 시도', '다시 나임을 알리려 함', '받아들여짐'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '이야기의 흐름과 의미를 생각해 보는 활동이다.', detailedExplanation: '① 매일 다른 모습으로 깨어남 → 자신이 누구인지 혼란: 날마다 다른 모습으로 깨어나자 우고는 "나는 내 자신이 누구인지 모르게 되었어" "맞힐 수 없는 그림 퀴즈나 풀 수 없는 수수께끼 같았지"라고 했어요.\n② 수수께끼를 풀려고 함 → 나를 알아가려는 시도: "나는 나에 대한 수수께끼를 풀려고 애썼어. 하지만 잘 풀리지 않았지"라고 했어요.\n③ 가족에게 달려감 → 다시 나임을 알리려 함: 다시 우고가 되었을 때 "나 다시…"라고 말하며 식구들이 있는 부엌으로 달려갔어요.\n④ "정상이야" → 받아들여짐: 가족이 "정상이야"라고 말하며 우고를 그대로 받아줬어요.' },
+    { type: 'match_pairs', question: '모습과 우고의 생각을 연결하세요.', leftItems: ['곡선', '동심원', '가시·지그재그', '다시 우고'], rightItems: ['마리우치아가 놀고 싶어 할 거야', '목표가 있는 것 같아', '문제를 많이 일으켰어', '나는 우고야'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '각 모습에서 우고가 생각한 내용이 다르다.', detailedExplanation: '① 곡선 → 마리우치아가 놀고 싶어 할 거야: 곡선이 되어 칭찬받았을 때 "계속 이러면 좋겠다. 마리우치아가 분명히 나하고 놀고 싶어 할 거야!"라고 생각했어요.\n② 동심원 → 목표가 있는 것 같아: 동심원이 된 날 돌 던지기를 하며 "목표가 있다고 처음 느꼈어" "그게 무엇인지 완전히 이해하지는 못했어"라고 했어요.\n③ 가시·지그재그 → 문제를 많이 일으켰어: 지그재그일 때 한 손으로 이것 저 손으로 저것 하며 그날은 더 많은 문제를 일으켰어요.\n④ 다시 우고 → 나는 우고야: 다시 우고가 되었을 때 우고는 자신이 우고임을 깨닫고 부엌으로 달려가 "나 다시…"라고 했어요.' },
+    { type: 'match_pairs', question: '이야기 속 장면과 의미를 연결하세요.', leftItems: ['매일 다른 모습으로 깨어남', '수수께끼를 풀려고 함', '가족에게 달려감', '"정상이야"'], rightItems: ['자신이 누구인지 혼란', '나를 알아가려는 시도', '다시 나임을 알리려 함', '받아들여짐'], correctPairs: [[0, 0], [1, 1], [2, 2], [3, 3]], explanation: '이야기의 흐름과 의미를 생각해 보는 활동이다.', detailedExplanation: '① 매일 다른 모습으로 깨어남 → 자신이 누구인지 혼란: 날마다 다른 모습으로 깨어나자 우고는 "나는 내 자신이 누구인지 모르게 되었어" "풀 수 없는 수수께끼 같았지"라고 했어요.\n② 수수께끼를 풀려고 함 → 나를 알아가려는 시도: "나는 나에 대한 수수께끼를 풀려고 애썼어. 하지만 잘 풀리지 않았지"라고 했어요.\n③ 가족에게 달려감 → 다시 나임을 알리려 함: 다시 우고가 되었을 때 "나 다시…"라고 말하며 식구들이 있는 부엌으로 달려갔어요.\n④ "정상이야" → 받아들여짐: 가족이 "정상이야"라고 말하며 우고를 그대로 받아줬어요.' },
   ],
   'ugo-match'
 );
@@ -1235,7 +1246,7 @@ const ugoEmotionStair: Content[] = withIdsAndOrder(
       type: 'emotion_stair',
       question: '이야기 속 사건을 감정 강도에 맞게 배치해 보세요.',
       steps: ['매우 힘듦', '조금 힘듦', '보통', '조금 좋음', '매우 좋음'],
-      items: ['미로처럼 출구를 못 찾음', '말다툼으로 마리우치아가 놀지 않음', '동심원일 때 돌 던지기', '곡선일 때 칭찬받음', '가족이 정상이야라고 함'],
+      items: ['미로처럼 출구를 못 찾음', '말다툼을 벌임', '동심원일 때 돌 던지기', '곡선일 때 칭찬받음', '가족이 정상이야라고 함'],
       correctPlacement: [0, 1, 2, 3, 4],
       stepExplanations: ['미로 같을 때는 가장 힘들었어요.', '말다툼 후엔 조금 힘들었어요.', '돌 던지기는 보통의 기분이었어요.', '곡선일 때 칭찬받아 조금 좋았어요.', '가족이 받아줄 때 가장 좋았어요.'],
       explanation: '사건마다 우고가 느낀 정도가 달랐어요.',
@@ -1262,9 +1273,9 @@ const ugoEmotionStair: Content[] = withIdsAndOrder(
       type: 'emotion_stair',
       question: '친구·가족과의 관계에 따른 우고의 감정을 배치해 보세요.',
       steps: ['외로움', '불안', '보통', '기대', '행복'],
-      items: ['아무도 눈치채지 못함', '말다툼 후 마리우치아가 놀지 않음', '동심원일 때 과녁 맞히기', '곡선일 때 마리우치아가 놀고 싶어 할 거야', '가족이 정상이야라고 함'],
+      items: ['매일 달라진 모습', '말다툼을 벌임', '동심원일 때 과녁 맞히기', '곡선일 때 마리우치아가 놀고 싶어 할 거야', '가족이 정상이야라고 함'],
       correctPlacement: [0, 1, 2, 3, 4],
-      stepExplanations: ['아무도 알아채지 못해 외로웠어요.', '말다툼 후엔 불안했어요.', '돌 던지기는 보통이었어요.', '마리우치아가 놀아줄 거라 기대했어요.', '가족이 받아주어 행복했어요.'],
+      stepExplanations: ['매일 다른 모습으로 깨어나 외로웠어요.', '말다툼 후엔 불안했어요.', '돌 던지기는 보통이었어요.', '마리우치아가 놀아줄 거라 기대했어요.', '가족이 받아주어 행복했어요.'],
       explanation: '관계에 따라 우고의 감정이 달라졌어요.',
     },
     {
@@ -1280,7 +1291,7 @@ const ugoEmotionStair: Content[] = withIdsAndOrder(
       type: 'emotion_stair',
       question: '우고의 "나"에 대한 생각을 감정 단계에 배치해 보세요.',
       steps: ['몰라', '궁금해', '찾고 싶어', '알 것 같아', '알았어'],
-      items: ['맞힐 수 없는 퀴즈 같다', '수수께끼를 풀려 한다', '나는 누구일까 고민', '다시 우고가 된 것 같다', '우고가 나다'],
+      items: ['풀 수 없는 수수께끼 같다', '수수께끼를 풀려 한다', '나는 누구일까 고민', '다시 우고가 된 것 같다', '우고가 나다'],
       correctPlacement: [0, 1, 2, 3, 4],
       stepExplanations: ['누구인지 몰랐어요.', '수수께끼를 풀려 했어요.', '누구인지 찾고 싶었어요.', '다시 우고인 것 같아 깨달았어요.', '우고가 나라는 걸 알았어요.'],
       explanation: '우고가 자신을 찾아가는 과정이에요.',
@@ -1298,7 +1309,7 @@ const ugoEmotionStair: Content[] = withIdsAndOrder(
       type: 'emotion_stair',
       question: '우고가 느낀 "나다움"의 정도를 계단에 올려 보세요.',
       steps: ['전혀 몰라', '헷갈려', '조금 알아', '알 것 같아', '나다'],
-      items: ['맞힐 수 없는 퀴즈', '매일 다른 모습', '목표가 있다고 느낌', '다시 우고인 것 같음', '우고가 나다'],
+      items: ['풀 수 없는 수수께끼', '매일 다른 모습', '목표가 있다고 느낌', '다시 우고인 것 같음', '우고가 나다'],
       correctPlacement: [0, 1, 2, 3, 4],
       stepExplanations: ['처음엔 전혀 몰랐어요.', '매일 변해 헷갈렸어요.', '동심원일 때 조금 알 것 같았어요.', '다시 우고가 된 것 같아요.', '마지막에 나라는 걸 확인했어요.'],
       explanation: '우고가 "나"를 알아가는 과정을 감정 단계로 나눠 보세요.',
@@ -1316,80 +1327,70 @@ const jirungiOx: Content[] = withIdsAndOrder(
       question: '에밀의 방에는 책도 많고 장난감도 산더미처럼 많아요.',
       correctAnswer: 'O',
       explanation:
-        '정답인 이유: 맞아요. 이야기 처음에 “방에는 책도 많고 장난감도 산더미예요.”라고 나와요.\n' +
-        '틀린 이유: X라고 생각했다면, 책과 장난감이 많다고 분명히 말하고 있어요.',
+        '이야기 처음에 “방에는 책도 많고 장난감도 산더미예요.”라고 나와요.',
     },
     {
       type: 'ox_quiz',
       question: '에밀은 장난감이 많아서 심심하지 않았어요.',
       correctAnswer: 'X',
       explanation:
-        '정답인 이유: 아니에요. 책과 장난감이 많아도 에밀은 아무것도 하지 않아서 “아무 일도 안 일어나요.”라고 나와요.\n' +
-        '틀린 이유: O라고 생각했다면, 에밀은 아무것도 안 해서 지루했어요.',
+        '책과 장난감이 많아도 에밀은 아무것도 하지 않아서 “아무 일도 안 일어나요.”라고 나와요.',
     },
     {
       type: 'ox_quiz',
       question: '창문을 두드린 것은 지룽이의 뾰족한 코였어요.',
       correctAnswer: 'O',
       explanation:
-        '정답인 이유: 맞아요. “뾰족한 코로 창문을 두드리고 있었어요.”라고 나와요.\n' +
-        '틀린 이유: X라고 생각했다면, 손이 아니라 코로 두드렸다고 되어 있어요.',
+        '“뾰족한 코로 창문을 두드리고 있었어요.”라고 나와요.',
     },
     {
       type: 'ox_quiz',
       question: '지룽이는 “나는 너무너무 지루한 지룽이야”라고 말했어요.',
       correctAnswer: 'O',
       explanation:
-        '정답인 이유: 맞아요. 지룽이가 자기 소개를 하면서 “너무너무 지루한 지룽이”라고 했어요.\n' +
-        '틀린 이유: X라고 생각했다면, 지룽이가 직접 그렇게 말해요.',
+        '지룽이가 자기 소개를 하면서 “너무너무 지루한 지룽이”라고 했어요.',
     },
     {
       type: 'ox_quiz',
       question: '지룽이는 글씨를 잘 읽어서 책을 읽어 줄 수 있었어요.',
       correctAnswer: 'X',
       explanation:
-        '정답인 이유: 아니에요. 지룽이는 “난 글씨 못 읽어.”라고 말했어요.\n' +
-        '틀린 이유: O라고 생각했다면, 지룽이는 글씨를 못 읽는다고 했어요.',
+        '지룽이는 “난 글씨 못 읽어.”라고 말했어요.',
     },
     {
       type: 'ox_quiz',
       question: '에밀은 장난감 악어의 이름을 프리츠라고 했어요.',
       correctAnswer: 'O',
       explanation:
-        '정답인 이유: 맞아요. 에밀이 “얘는 프리츠야.”라고 소개해요.\n' +
-        '틀린 이유: X라고 생각했다면, 악어의 이름이 프리츠라고 나와요.',
+        '에밀이 “얘는 프리츠야.”라고 소개해요.',
     },
     {
       type: 'ox_quiz',
       question: '지룽이는 보물 상자를 보고 “이거 봐!”라고 기뻐했어요.',
       correctAnswer: 'X',
       explanation:
-        '정답인 이유: 아니에요. 지룽이는 보물 상자를 보자 “저리 치워!”라고 소리치고 침대 밑으로 숨어 버렸어요.\n' +
-        '틀린 이유: O라고 생각했다면, 기뻐한 게 아니라 무서워하며 숨었어요.',
+        '지룽이는 보물 상자를 보자 “저리 치워!”라고 소리치고 침대 밑으로 숨어 버렸어요.',
     },
     {
       type: 'ox_quiz',
       question: '에밀은 장난감 강아지 둘과 호랑이를 용으로 정했어요.',
       correctAnswer: 'O',
       explanation:
-        '정답인 이유: 맞아요. 에밀이 “이제부터 얘들은 보물 상자를 지키는 용이야.”라고 말해요.\n' +
-        '틀린 이유: X라고 생각했다면, 강아지 둘과 호랑이를 용으로 바꿔요.',
+        '에밀이 “이제부터 얘들은 보물 상자를 지키는 용이야.”라고 말해요.',
     },
     {
       type: 'ox_quiz',
       question: '에밀은 베개와 방석으로 성을 쌓았어요.',
       correctAnswer: 'O',
       explanation:
-        '정답인 이유: 맞아요. 에밀이 “베개와 방석으로 성을 쌓았어요.”라고 나와요.\n' +
-        '틀린 이유: X라고 생각했다면, 성을 쌓은 재료가 베개와 방석이에요.',
+        '에밀이 “베개와 방석으로 성을 쌓았어요.”라고 나와요.',
     },
     {
       type: 'ox_quiz',
       question: '마지막에 지룽이는 더 커지고 길어지며 방에 남아 있었어요.',
       correctAnswer: 'X',
       explanation:
-        '정답인 이유: 아니에요. 지룽이는 오히려 “훨씬 작아지고 짧아져” 있었고, 연기처럼 창밖으로 빠져나갔어요.\n' +
-        '틀린 이유: O라고 생각했다면, 지룽이는 떠났고 작아졌어요.',
+        '지룽이는 오히려 “훨씬 작아지고 짧아져” 있었고, 연기처럼 창밖으로 빠져나갔어요.',
     },
   ],
   'jirungi-ox'
@@ -1924,16 +1925,16 @@ const jirungiMatchPairs: Content[] = withIdsAndOrder(
 // ---------- 윌리가 보는 세상 (book-willy) ----------
 const willyOx: Content[] = withIdsAndOrder(
   [
-    { type: 'ox_quiz', question: '윌리는 눈이 보이지 않는 친구입니다.', correctAnswer: 'O', explanation: '정답인 이유: 윌리의 엄마가 "윌리는 눈이 보이지 않는단다"라고 말했어요. 윌리는 시각장애가 있어 손가락으로 점자를 읽고, 귀와 코와 손으로 세상을 느껴요. 틀린 이유: X라고 생각했다면, 이야기에서 윌리가 눈이 보이지 않는다고 분명히 나와 있어요.' },
-    { type: 'ox_quiz', question: '윌리는 애비와 같은 학교에 다닙니다.', correctAnswer: 'O', explanation: '정답인 이유: 윌리 엄마가 "우리 애도 같은 학교에 다니는데, 둘이 함께 다니면 좋겠네요!"라고 했어요. 그래서 애비는 매일 윌리와 같이 등하교하게 됐어요. 틀린 이유: X라고 생각했다면, 같은 학교에 다닌다고 이야기에 나와 있어요.' },
-    { type: 'ox_quiz', question: '걸을 때 윌리는 애비의 손을 잡았어요.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. 윌리는 애비의 "팔꿈치"를 잡았어요. "앞으로 걸어갈 때 윌리는 내 팔꿈치를 잡았어요. 그렇게 해야 자기가 마음을 놓을 수 있다고 하더라고요." 틀린 이유: O라고 생각했다면, 손이 아니라 팔꿈치를 잡는다고 나와 있어요.' },
-    { type: 'ox_quiz', question: '윌리는 점으로 이루어진 글자를 손가락 끝으로 읽어요.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. "윌리는 조금 특별한 아이예요. 점으로 이루어진 글자들을 손가락 끝으로 읽거든요." 이 글자가 바로 점자예요. 틀린 이유: X라고 생각했다면, 점자(점으로 된 글자)를 손가락으로 읽는다고 나와 있어요.' },
-    { type: 'ox_quiz', question: '꿀벌이 윙윙 거리는 소리는 윌리에게 작게 들려요.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. "꿀벌이 윙윙 날갯짓하는 소리도 윌리에게는 너무 크게 들려서 겁이 난다고 하더라고요." 윌리에게는 그 소리가 너무 커서 무서웠어요. 틀린 이유: O라고 생각했다면, 너무 "크게" 들린다고 했어요.' },
-    { type: 'ox_quiz', question: '정전이 났을 때 윌리가 애비를 화장실로 데려다줬어요.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. "한 번은 윌리네 집에서 놀고 있는데 갑자기 정전이 돼서 집 안이 온통 캄캄해졌지 뭐예요. 하지만 윌리는 집 안의 모든 방향을 알고 있었어요. 복도에 있는 문 하나하나의 위치까지 정확하게 찾아 나를 금세 화장실에 데려다주었답니다." 틀린 이유: X라고 생각했다면, 윌리가 어둠 속에서 길을 안내해 줬다고 나와 있어요.' },
-    { type: 'ox_quiz', question: '윌리의 고양이 이름은 마리예요.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. "윌리는 듣고, 만지고, 냄새를 맡아서 자신의 고양이 마리를 알아보기도 해요." 마리는 울음소리, 털 감촉, 허브 차 같은 향기로 알아챌 수 있대요. 틀린 이유: X라고 생각했다면, 고양이 이름이 마리라고 나와 있어요.' },
-    { type: 'ox_quiz', question: '할아버지가 세상을 떠난 날 애비는 눈물을 흘렸어요.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. "슬퍼서 엉엉 우는 엄마, 아빠와 달리 나는 눈물을 흘리지 않았어요." 친척들은 이상하다고 수군거렸지만, 윌리가 손을 잡고 꼬옥 안아 주며 등을 토닥여 주자 그때서야 눈물이 주르륵 흘러내렸어요. 틀린 이유: O라고 생각했다면, 처음엔 눈물을 흘리지 않았다고 나와 있어요.' },
-    { type: 'ox_quiz', question: '윌리는 상대가 거짓말하는지 말투로 알아차릴 수 있어요.', correctAnswer: 'O', explanation: '정답인 이유: 맞아요. "때로 윌리는 상대가 거짓말을 하는지 아닌지도 쉽게 알아차려요." "너한테 말하는 말투가 너무 이상했거든. 그냥 느낄 수 있었어."라고 윌리가 말했어요. 틀린 이유: X라고 생각했다면, 거짓말을 말투로 느낀다고 나와 있어요.' },
-    { type: 'ox_quiz', question: '윌리는 사랑을 눈으로 볼 수 있어요.', correctAnswer: 'X', explanation: '정답인 이유: 아니에요. 애비가 "사랑도 볼 수 있어?"라고 묻자 윌리가 "음… 난 사랑을 느낄 수 있는 것 같아."라고 했어요. 선생님의 손, 아빠의 말, 엄마의 품에 안길 때 차고 넘치는 사랑을 "느낀다"고 했지, "본다"고 하지 않았어요. 틀린 이유: O라고 생각했다면, 윌리는 사랑을 "느끼는" 것 같다고 했어요.' },
+    { type: 'ox_quiz', question: '윌리는 눈이 보이지 않는 친구입니다.', correctAnswer: 'O', explanation: '윌리의 엄마가 "윌리는 눈이 보이지 않는단다"라고 말했어요. 윌리는 시각장애가 있어 손가락으로 점자를 읽고, 귀와 코와 손으로 세상을 느껴요.' },
+    { type: 'ox_quiz', question: '윌리는 애비와 같은 학교에 다닙니다.', correctAnswer: 'O', explanation: '윌리 엄마가 "우리 애도 같은 학교에 다니는데, 둘이 함께 다니면 좋겠네요!"라고 했어요. 그래서 애비는 매일 윌리와 같이 등하교하게 됐어요.' },
+    { type: 'ox_quiz', question: '걸을 때 윌리는 애비의 손을 잡았어요.', correctAnswer: 'X', explanation: '윌리는 애비의 "팔꿈치"를 잡았어요. "앞으로 걸어갈 때 윌리는 내 팔꿈치를 잡았어요. 그렇게 해야 자기가 마음을 놓을 수 있다고 하더라고요."' },
+    { type: 'ox_quiz', question: '윌리는 점으로 이루어진 글자를 손가락 끝으로 읽어요.', correctAnswer: 'O', explanation: '"윌리는 조금 특별한 아이예요. 점으로 이루어진 글자들을 손가락 끝으로 읽거든요." 이 글자가 바로 점자예요.' },
+    { type: 'ox_quiz', question: '꿀벌이 윙윙 거리는 소리는 윌리에게 작게 들려요.', correctAnswer: 'X', explanation: '"꿀벌이 윙윙 날갯짓하는 소리도 윌리에게는 너무 크게 들려서 겁이 난다고 하더라고요." 윌리에게는 그 소리가 너무 커서 무서웠어요.' },
+    { type: 'ox_quiz', question: '정전이 났을 때 윌리가 애비를 화장실로 데려다줬어요.', correctAnswer: 'O', explanation: '"한 번은 윌리네 집에서 놀고 있는데 갑자기 정전이 돼서 집 안이 온통 캄캄해졌지 뭐예요. 하지만 윌리는 집 안의 모든 방향을 알고 있었어요. 복도에 있는 문 하나하나의 위치까지 정확하게 찾아 나를 금세 화장실에 데려다주었답니다."' },
+    { type: 'ox_quiz', question: '윌리의 고양이 이름은 마리예요.', correctAnswer: 'O', explanation: '"윌리는 듣고, 만지고, 냄새를 맡아서 자신의 고양이 마리를 알아보기도 해요." 마리는 울음소리, 털 감촉, 허브 차 같은 향기로 알아챌 수 있대요.' },
+    { type: 'ox_quiz', question: '할아버지가 세상을 떠난 날 애비는 눈물을 흘렸어요.', correctAnswer: 'X', explanation: '"슬퍼서 엉엉 우는 엄마, 아빠와 달리 나는 눈물을 흘리지 않았어요." 친척들은 이상하다고 수군거렸지만, 윌리가 손을 잡고 꼬옥 안아 주며 등을 토닥여 주자 그때서야 눈물이 주르륵 흘러내렸어요.' },
+    { type: 'ox_quiz', question: '윌리는 상대가 거짓말하는지 말투로 알아차릴 수 있어요.', correctAnswer: 'O', explanation: '"때로 윌리는 상대가 거짓말을 하는지 아닌지도 쉽게 알아차려요." "너한테 말하는 말투가 너무 이상했거든. 그냥 느낄 수 있었어."라고 윌리가 말했어요.' },
+    { type: 'ox_quiz', question: '윌리는 사랑을 눈으로 볼 수 있어요.', correctAnswer: 'X', explanation: '애비가 "사랑도 볼 수 있어?"라고 묻자 윌리가 "음… 난 사랑을 느낄 수 있는 것 같아."라고 했어요. 선생님의 손, 아빠의 말, 엄마의 품에 안길 때 차고 넘치는 사랑을 "느낀다"고 했지, "본다"고 하지 않았어요.' },
   ],
   'willy-ox'
 );
@@ -2137,6 +2138,1059 @@ const WILLY: Record<ContentTypeKey, Content[]> = {
   listening_three_step: [],
 };
 
+// ---------- 학교는 왜 가는거야 (book-why-school) ----------
+const whySchoolOx: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ox_quiz',
+      question: '샘과 조에는 집에서 엄마가 만들어 준 달콤한 핫초코를 마셨어요.',
+      correctAnswer: 'O',
+      explanation:
+        '샘과 조에는 수업을 마치고 집에 와서 엄마가 만들어 준 달콤한 핫초코를 마셨어요. 엄마는 "너희가 좋아하는 달콤한 핫초코야."라고 말하며 웃었지요. 집에서 가족과 함께 따뜻한 시간을 보내는 장면이에요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '왓슨은 사람이라서 직접 학교에 가서 철학 수업을 들었어요.',
+      correctAnswer: 'X',
+      explanation:
+        '왓슨은 사람 친구들과 함께 지내는 고양이예요. 왓슨도 철학 수업을 듣고 싶어 했지만 고양이라서 정식으로 학교에 다닐 수 없다고 나와요. 그래서 몰래 학교에 들어가는 방법을 고민하고, 롤라의 도움으로 살금살금 교실에 들어가서 숨어 수업을 듣지요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '선생님은 철학을 "함께 더 잘 살기 위해 스스로에게 질문하는 것"이라고 설명했어요.',
+      correctAnswer: 'O',
+      explanation:
+        '선생님은 철학이라는 말이 겉으로는 어려워 보여도 사실은 우리가 함께 더 잘 살기 위해 스스로에게 질문하는 일이라고 알려 줘요. "우리가 성장하는 데 도움이 되는 건 무엇일까요?" 같은 질문이 바로 철학 질문이지요. 아이들이 자기 삶을 돌아보게 만드는 따뜻한 설명이에요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '선생님은 공부를 머리 운동에 비유하면서 연습이 필요하다고 말했어요.',
+      correctAnswer: 'O',
+      explanation:
+        '선생님은 받아쓰기, 외우기, 숙제하기 같은 활동을 예로 들며 공부도 축구나 춤처럼 연습이 필요하다고 말해요. 무언가를 이해하고 기억하는 법을 배우는 게 바로 머리 운동이라고 설명하지요. 그래서 공부를 할수록 우리 뇌와 기억력이 조금씩 자라난다고 알려 줍니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '아이들은 학교가 전혀 도움이 안 된다고 모두 같은 의견을 말했어요.',
+      correctAnswer: 'X',
+      explanation:
+        '아이들은 학교에 대해 다양한 생각을 말했어요. 시험 볼 때는 몸이 작아지는 기분이 든다는 친구도 있었고, 숙제가 힘들다고 느끼는 친구도 있었지요. 하지만 읽기·쓰기·셈하기를 배우는 중요한 곳이고, 지구를 지키는 방법을 배우고 싶다는 의견처럼 학교가 성장에 도움이 된다고 보는 말들도 함께 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '폴의 아빠는 학교를 "지식이 담긴 보물 상자를 여는 열쇠"라고 표현했어요.',
+      correctAnswer: 'O',
+      explanation:
+        '폴은 아빠가 "학교는 지식이 담긴 보물 상자를 여는 열쇠"라고 말했다고 친구들에게 전해요. 이 말은 학교에서 배우는 시간들이 눈에 보이는 물건이 아니라 머릿속에 쌓이는 보물이라는 뜻이에요. 열쇠처럼 배움을 통해 새로운 세상과 가능성이 열린다는 점을 잘 보여 줍니다.',
+    },
+  ],
+  'why-school-ox'
+);
+
+const whySchoolMultiple: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'multiple_choice',
+      question: '샘이 엄마에게 들려준 "이번 주에 학교에서 배운 것"이 아닌 것은 무엇인가요?',
+      options: ['화산', '태양계와 행성', '공부는 운동이라는 생각', '바닷속 물고기 종류'],
+      correctIndex: 3,
+      explanation:
+        '샘과 조에는 이번 주에 화산, 태양계, 행성 이야기를 공부했다고 말해요. 토성의 고리와 화성의 붉은 색도 이야기하지요. 바닷속 물고기 종류에 대해서는 책에서 언급되지 않았어요.',
+      explanationCorrect:
+        '맞아요. 이야기 속에서 샘과 조에는 화산과 태양계, 행성에 대해 배웠다고만 말해요. 바닷속 물고기 종류에 관한 수업 이야기는 나오지 않으니 ④번이 정답이에요.',
+      explanationWrong:
+        '이번 주에 학교에서 배운 내용으로 화산과 태양계, 행성이 등장해요. 바닷속 물고기 이야기는 나오지 않으므로 "바닷속 물고기 종류"가 아닌 것을 고르는 게 맞아요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '선생님이 "우리 몸이 성장하는 데 도움이 되는 것"으로 예로 들지 않은 것은 무엇인가요?',
+      options: ['과일과 채소', '국과 비타민', '운동', '밤늦게까지 TV 보기'],
+      correctIndex: 3,
+      explanation:
+        '아이들은 과일과 채소, 국, 비타민, 운동, 사탕과 과자를 대답했어요. 선생님은 사탕과 과자는 조금만 먹어야 한다고 덧붙이지요. 밤늦게까지 TV 보는 습관은 몸을 건강하게 키우는 예로 등장하지 않습니다.',
+      explanationCorrect:
+        '맞아요. 책 속에는 몸을 키우는 예로 과일과 채소, 국, 비타민, 운동 같은 답만 나오고, 사탕과 과자는 조금만 먹어야 한다고 설명해요. 밤늦게까지 TV 보는 것은 도움이 되는 예로 등장하지 않으니 ④번이 정답이에요.',
+      explanationWrong:
+        '문제에서 묻는 것은 "선생님이 예로 들지 않은 것"이에요. 과일과 채소, 국과 비타민, 운동은 모두 아이들이 말한 건강한 예에 들어가지만, 밤늦게까지 TV 보는 습관은 책 속에서 몸을 키우는 예로 나오지 않아요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '선생님에 따르면, 학교에서 배우는 이유와 가장 잘 맞는 설명은 무엇인가요?',
+      options: [
+        '좋은 성적을 받아야만 어른이 되기 때문에',
+        '친구들과 놀기 위해서만 가는 곳이기 때문에',
+        '무언가를 이해하고 기억하는 법을 배워 머리를 단련하기 위해',
+        '숙제를 안 해 가면 혼나기 때문에',
+      ],
+      correctIndex: 2,
+      explanation:
+        '선생님은 학교를 머리 운동을 하는 곳이라고 설명해요. 이해하고 기억하는 법을 연습하면서 뇌와 기억력이 자란다고 말하지요. 단지 혼나지 않기 위해서가 아니라 스스로 성장하기 위해 배우는 것이라는 메시지를 전합니다.',
+      explanationCorrect:
+        '맞아요. 선생님은 공부를 축구나 춤처럼 연습이 필요한 머리 운동이라고 설명해요. 이해하고 기억하는 법을 배우며 뇌가 단단해진다고 말하니, ③번이 학교에서 배우는 이유와 가장 잘 맞는 답이에요.',
+      explanationWrong:
+        '이야기 속에서 선생님은 좋은 성적이나 혼나는 것보다 "머리 운동"이라는 표현을 강조해요. 무언가를 이해하고 기억하는 법을 연습하며 뇌와 기억력이 자란다고 했으니 ③번을 다시 떠올려 보세요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '샘이 집에 돌아와서 깨달은 "공부"에 대한 생각으로 가장 알맞은 것은 무엇인가요?',
+      options: ['공부는 힘들기만 해서 쓸모가 없다.', '공부는 운동처럼 매일 연습해야 자라난다.', '공부는 시험 점수를 올릴 때만 필요하다.', '공부는 재미있을 때만 하는 게 좋다.'],
+      correctIndex: 1,
+      explanation:
+        '샘은 선생님 수업을 들은 뒤, 공부가 머리 운동처럼 매일 연습해야 하는 것이라는 말을 집에 와서 부모님께 전해요. 아침에 학교 가기 싫을 때마다 이 말을 떠올리면 좋겠다는 대화도 이어지지요. 공부의 즐거움과 필요성을 함께 이해하게 된 장면이에요.',
+      explanationCorrect:
+        '맞아요. 샘은 "공부도 운동처럼 매일매일 연습해야 한대요."라고 말하며 수업 내용을 잘 정리해 전해요. 공부를 힘들기만 한 일로 보는 것이 아니라, 연습을 통해 조금씩 나아지는 활동으로 받아들이게 된 거예요.',
+      explanationWrong:
+        '샘은 공부가 힘들기만 하다거나 시험 점수만을 위한 것이라고 말하지 않아요. 오히려 운동처럼 매일 연습해야 머리가 자란다고 이해했으니, ②번이 샘의 새 생각과 가장 잘 어울리는 답이에요.',
+    },
+  ],
+  'why-school-mc'
+);
+
+const whySchoolOrdering: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ordering',
+      question: '왓슨이 철학 수업을 듣기까지의 이야기를 순서대로 나열해 보세요.',
+      items: ['롤라에게서 몰래 학교에 들어가는 방법을 들음', '샘을 조금 떨어져서 따라 학교로 감', '학교 건물 뒤 열린 문으로 들어감', '철망 문 뒤에서 교실을 들여다보며 자리를 잡음'],
+      explanation:
+        '먼저 저녁에 롤라와 이야기하며 학교에 몰래 들어가는 방법을 듣고, 다음 날 아침 샘을 멀찍이 따라가요. 학교에 도착한 뒤 건물 뒤쪽 열린 문으로 들어가 복도를 지나 작은 철망 문 앞에 서고, 그 뒤에서 수업을 들을 자리를 잡지요.',
+      explanationCorrect:
+        '맞아요. 순서는 "롤라에게 방법을 듣기 → 샘을 따라 학교로 가기 → 열린 문으로 들어가기 → 철망 문 뒤에서 교실을 들여다보기" 순서예요. 이 흐름을 기억하면 왓슨이 얼마나 용기 있게 계획을 실행했는지 잘 느낄 수 있어요.',
+      explanationWrong:
+        '왓슨은 먼저 롤라에게서 학교에 몰래 들어가는 방법을 듣고, 그다음 날 샘을 따라 학교에 갔어요. 그리고 열린 문으로 들어가 복도를 따라가 철망 문 뒤에서 교실을 들여다보며 자리를 잡았다는 흐름을 떠올리며 다시 순서를 맞춰 보세요.',
+    },
+    {
+      type: 'ordering',
+      question: '선생님이 수업 시간에 던진 질문과 활동의 흐름을 순서대로 맞춰 보세요.',
+      items: ['우리 몸이 성장하는 데 도움이 되는 것은?', '우리 생각이 자라는 데 도움이 되는 것은?', '학교도 여러분이 성장하는 데 도움이 되나요?'],
+      explanation:
+        '선생님은 몸이 자라는 데 도움이 되는 것부터 묻고, 아이들의 대답을 정리해 줍니다. 그다음 생각이 자라는 데 도움이 되는 활동을 묻고, 마지막에는 학교가 성장에 도움이 되는지까지 질문을 넓혀 가지요. 몸 → 생각 → 학교로 질문이 점점 확장되는 구조예요.',
+      explanationCorrect:
+        '맞아요. 질문은 "몸"에서 시작해 "생각", 그리고 "학교 전체"로 넓어져요. 이렇게 순서를 정리하면 선생님이 아이들이 스스로 배움의 의미를 찾도록 도와준 방식을 잘 이해하게 돼요.',
+      explanationWrong:
+        '책에서는 선생님이 먼저 몸 성장에 도움이 되는 것을 묻고, 다음으로 생각이 자라는 데 도움이 되는 활동을 물었어요. 마지막에 학교가 성장에 도움이 되는지까지 이어지니, 이 흐름을 기준으로 다시 순서를 맞춰 보세요.',
+    },
+    {
+      type: 'ordering',
+      question: '샘이 학교에 다녀온 뒤 집에서 나눈 대화를 순서대로 맞춰 보세요.',
+      items: ['샘이 오늘 배운 공부에 대해 이야기함', '아빠가 아침에 학교 가기 싫을 때를 떠올리라고 함', '샘이 왓슨에게도 들려주고 싶었다고 말함'],
+      explanation:
+        '샘은 집에 돌아와 먼저 오늘 철학 시간에 들은 "공부는 운동처럼 매일 연습하는 것"이라는 내용을 부모님께 전해요. 아빠는 그 설명이 좋다며, 아침에 학교 가기 싫을 때마다 떠올리라고 말하지요. 마지막으로 샘은 왓슨을 쓰다듬으며, 고양이 친구에게도 이 중요한 이야기를 들려주고 싶었다고 고백합니다.',
+      explanationCorrect:
+        '맞아요. 순서는 "샘이 오늘 배운 내용을 말함 → 아빠가 그 말을 아침마다 떠올리자고 함 → 샘이 왓슨에게도 들려주고 싶었다고 말함" 흐름이에요. 이 순서를 기억하면 샘이 공부의 의미를 이해하고 친구와도 나누고 싶어 했다는 점이 잘 보입니다.',
+      explanationWrong:
+        '책에서는 샘이 먼저 오늘 배운 공부에 대해 설명하고, 그다음 아빠가 그 생각을 아침마다 떠올리자고 제안해요. 마지막에 샘은 왓슨을 쓰다듬으며 "너도 들었으면 좋았을 텐데"라고 말하니, 이 흐름을 떠올리며 다시 순서를 정리해 보세요.',
+    },
+  ],
+  'why-school-ord'
+);
+
+const whySchoolFillBlank: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'fill_blank',
+      sentence: '철학은 우리가 함께 더 잘 살기 위해 스스로에게 (  )하는 것이다.',
+      options: ['자랑', '질문', '명령', '자랑'],
+      correctIndex: 1,
+      explanation:
+        '선생님은 철학을 멋진 말로 설명하지 않고, 우리가 함께 더 잘 살기 위해 스스로에게 질문하는 일이라고 알려 줘요. "우리가 성장하는 데 도움이 되는 건 무엇일까요?" 같은 생각이 바로 철학 질문이에요. 그래서 빈칸에는 자기에게 묻는다는 뜻의 "질문"이 들어가야 합니다.',
+      explanationCorrect:
+        '맞아요. 철학은 스스로에게 질문하면서 삶을 돌아보는 활동이에요. 책에서도 선생님이 "철학은 우리가 함께 더 잘 살기 위해 스스로에게 질문하는 거예요."라고 말해요. 아이들도 그 질문에 각자 답하며 생각을 키워 갔지요.',
+      explanationWrong:
+        '철학은 누군가에게 명령하거나 자랑하는 일이 아니라, 자기 자신에게 차분히 묻는 활동이에요. 선생님이 직접 "스스로에게 질문하는 거예요."라고 말했으니, 빈칸에는 "질문"이 들어가야 문장이 자연스러워져요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '선생님은 공부를 머리 (  )과/와 같다고 설명했어요.',
+      options: ['운동', '휴식', '장난', '쉬는 시간'],
+      correctIndex: 0,
+      explanation:
+        '책에서 선생님은 축구나 춤을 예로 들며 공부도 머리 운동과 같다고 말해요. 받아쓰기, 외우기, 숙제하기 모두 머리를 쓰는 연습이라고 알려 주지요. 그래서 빈칸에는 몸을 단련하는 모습을 떠올리게 하는 "운동"이 들어가야 합니다.',
+      explanationCorrect:
+        '맞아요. 선생님은 공부를 "머리 운동"이라고 표현하면서, 연습을 통해 조금씩 나아지는 활동이라고 설명해요. 운동처럼 계속해 볼수록 실력이 느는 것처럼, 공부도 반복할수록 머리가 자라난다는 뜻이에요.',
+      explanationWrong:
+        '공부는 잠깐 쉬는 "휴식"이나 아무 생각 없이 하는 "장난"과는 달라요. 선생님이 축구와 춤을 예로 들며 공부도 연습이 필요한 활동이라고 말했어요. 그래서 공부는 머리를 쓰는 연습이라는 뜻에 더 가깝습니다.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '폴의 아빠는 학교를 지식이 담긴 (  )를/을 여는 열쇠라고 했어요.',
+      options: ['보물 상자', '집', '문', '서랍'],
+      correctIndex: 0,
+      explanation:
+        '폴은 아빠가 "학교는 지식이 담긴 보물 상자를 여는 열쇠"라고 말했다고 친구들에게 들려줘요. 여기서 보물 상자는 머릿속에 쌓이는 지식과 경험을 비유한 말이에요. 학교는 그 상자를 열어 주는 열쇠라는 뜻이니, 빈칸에는 "보물 상자"가 들어가야 합니다.',
+      explanationCorrect:
+        '맞아요. 아빠는 학교를 단순히 가야 하는 곳이 아니라, 지식이라는 보물을 꺼내 보게 해 주는 장소로 생각해요. "보물 상자"라는 표현은 배움이 우리 삶을 얼마나 풍부하게 만들어 주는지 잘 보여 줍니다.',
+      explanationWrong:
+        '아빠는 학교를 그냥 집이나 문, 서랍에 비유하지 않았어요. "지식이 담긴 보물 상자를 여는 열쇠"라고 표현하며, 학교가 새로운 지식과 경험을 열어 준다고 말한 거예요. 그래서 이 표현의 핵심은 "보물 상자"라는 비유에 있어요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '샘은 집에 돌아와 "공부도 (  )처럼 매일매일 연습해야 한대요."라고 말했어요.',
+      options: ['운동', '놀이', '휴식', '게임'],
+      correctIndex: 0,
+      explanation:
+        '샘은 철학 시간에 들은 선생님의 설명을 집에 와서 그대로 전해요. 공부 역시 운동처럼 매일 연습해야 한다는 말이지요. 그래서 빈칸에는 몸을 계속 움직이며 실력을 키우는 "운동"이라는 단어가 들어가야 합니다.',
+      explanationCorrect:
+        '맞아요. 샘은 "공부도 운동처럼 매일매일 연습해야 한대요."라고 말하며 공부를 보는 눈이 달라졌음을 보여 줘요. 이 말 덕분에 아빠는 아침에 학교 가기 싫을 때마다 떠올리자고 하며 샘을 응원해 줍니다.',
+      explanationWrong:
+        '이야기에서 샘은 공부를 놀이나 휴식, 게임과 비교하지 않고 "운동"에 비유해요. 운동은 연습할수록 실력이 느는 활동이니, (  ) 안에 들어갈 알맞은 단어는 "운동"이에요.',
+    },
+  ],
+  'why-school-fill'
+);
+
+const whySchoolMatchPairs: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '이야기 속 장면과 어울리는 장소를 연결해 보세요.',
+      leftItems: ['샘과 조에가 핫초코 냄새를 맡는 장면', '왓슨이 살금살금 열린 문으로 들어가는 장면', '선생님이 철학을 소개하는 장면', '샘이 공부에 대해 깨달음을 말하는 장면'],
+      rightItems: ['집', '학교 건물 뒤쪽', '교실', '집 거실 또는 식탁'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ],
+      explanation:
+        '핫초코 냄새가 나는 장면은 엄마가 기다리고 있는 집에서 벌어져요. 열린 문으로 살금살금 들어가는 장면은 학교 건물 뒤쪽이고, 철학 설명은 교실에서, 공부 이야기를 부모님께 전하는 장면은 집에서 이루어집니다.',
+      detailedExplanation:
+        '① 샘과 조에가 핫초코를 마시는 곳은 집이에요. 엄마가 "너희가 좋아하는 달콤한 핫초코야."라고 말하며 맞이하지요.\n② 왓슨이 문 하나가 열려 있는 곳으로 살금살금 들어가는 장면은 학교 건물 뒤쪽이에요. 롤라가 알려 준 비밀 통로지요.\n③ 선생님이 철학을 소개하고 아이들이 귀를 쫑긋하는 장면은 교실 안에서 일어나요.\n④ 샘이 "공부도 운동처럼 매일매일 연습해야 한대요."라고 말하는 장면은 집에 돌아와 부모님과 나누는 대화예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장면과 그때 등장한 사람 또는 동물을 연결해 보세요.',
+      leftItems: ['철학 수업을 소개하는 장면', '시험 볼 때 아주 작아지는 기분이라는 말이 나오는 장면', '학교는 보물 상자를 여는 열쇠라는 말이 나오는 장면', '공부를 운동에 비유한 말을 집에서 전하는 장면'],
+      rightItems: ['선생님', '가뱅이', '폴과 폴의 아빠', '샘과 샘의 부모님'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ],
+      explanation:
+        '철학을 소개한 사람은 선생님이고, 시험 볼 때 몸이 작아지는 기분이라고 표현한 친구는 가뱅이에요. 학교를 보물 상자를 여는 열쇠라고 전한 아이는 폴이고, 공부를 운동에 비유한 말을 집에서 다시 말한 인물은 샘입니다.',
+      detailedExplanation:
+        '① 철학 수업을 소개하는 장면에서 "오늘 우리는 철학에 대해 공부할 거예요."라고 말한 사람은 선생님이에요.\n② 시험을 볼 때 아주아주 작아지는 기분이 든다고 말해 반 아이들을 웃게 만든 친구는 가뱅이지요.\n③ "학교는 지식이 담긴 보물 상자를 여는 열쇠"라는 말은 폴이 아빠에게 들은 말을 친구들에게 전한 것이에요.\n④ 공부를 운동처럼 매일 연습해야 한다는 말을 집에서 부모님께 들려준 인물은 샘입니다.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장면과 아이들이 했던 생각 또는 바람을 연결해 보세요.',
+      leftItems: ['지구를 지키는 방법을 배우고 싶다고 말한 장면', '시험이 힘들다고 느끼는 장면', '친구들과 학교를 그리는 활동', '왓슨이 학교에 가고 싶어 하는 장면'],
+      rightItems: ['니나의 바람', '발렌틴의 마음', '아이들의 활동 시간', '왓슨의 숨은 소원'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ],
+      explanation:
+        '지구를 지키는 수업을 원한 친구는 니나이고, 숙제가 힘들다고 말한 친구는 발렌틴이에요. 학교 그림을 그리는 장면은 아이들 모두가 참여하는 활동 시간이고, 고양이 왓슨은 사람처럼 학교에 가서 철학을 듣고 싶어 하는 마음을 몰래 품고 있습니다.',
+      detailedExplanation:
+        '① 지구를 지키는 방법을 배우고 싶다는 말은 니나가 한 말이에요. 학교에서 환경에 대해 배우고 싶어 하지요.\n② 숙제가 너무 힘들다고 한숨 쉰 친구는 발렌틴이에요. 학교가 좋지만 힘든 점도 있다고 솔직하게 말해요.\n③ 선생님이 "이제 각자 학교를 그려 볼까요?"라고 한 뒤 모두가 그림을 그리는 장면은 아이들의 활동 시간입니다.\n④ 왓슨은 고양이지만 철학 수업을 직접 듣고 싶어 해서 몰래 학교에 따라가고, 그 마음이 "왓슨의 숨은 소원"으로 나타나요.',
+    },
+  ],
+  'why-school-match'
+);
+
+const whySchoolMatchPairsCauseEffect: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs_cause_effect',
+      question: '결과와 알맞은 이유(원인)를 연결해 보세요.',
+      leftItems: ['샘이 공부를 운동처럼 생각하게 되었다', '반 아이들이 깔깔 웃음을 터뜨렸다', '샘의 아빠가 아침마다 한 말을 떠올리자고 했다'],
+      rightItems: [
+        '선생님이 "공부는 머리 운동"이라고 설명했기 때문',
+        '가뱅이가 시험 볼 때 아주 작아지는 느낌이라고 말했기 때문',
+        '샘이 공부도 운동처럼 매일 연습해야 한다고 설명했기 때문',
+      ],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      explanation:
+        '선생님의 설명은 샘이 공부를 새롭게 보게 만든 원인이에요. 가뱅이의 솔직한 말은 반 친구들에게 웃음을 주는 이유가 되었고, 샘의 정리는 아침마다 떠올리자는 아빠의 제안으로 이어졌어요.',
+      detailedExplanation:
+        '① 샘이 공부를 운동처럼 생각하게 된 것은 선생님이 축구와 춤을 예로 들며 "공부는 머리 운동"이라고 설명해 주었기 때문이에요.\n② 반 아이들이 크게 웃은 장면은 가뱅이가 시험 볼 때 아주아주 작아지는 기분이 든다고 말했기 때문이에요. 모두 공감되면서도 재미있게 느꼈지요.\n③ 샘의 아빠가 아침마다 이 말을 떠올리자고 한 이유는, 샘이 집에서 "공부도 운동처럼 매일매일 연습해야 한대요."라고 들려주었기 때문이에요.',
+    },
+    {
+      type: 'match_pairs_cause_effect',
+      question: '결과와 그 전에 있었던 이유를 연결해 보세요.',
+      leftItems: ['왓슨이 철학 수업을 몰래 들을 수 있었다', '왓슨이 웃음이 터지는 걸 꾹 참았다', '샘이 학교에 가기 싫을 때 생각을 바꿀 수 있게 되었다'],
+      rightItems: [
+        '교장 선생님네 고양이 롤라가 비밀 통로를 알려 주었기 때문',
+        '고양이가 학교에 다녀온 사실이 들킬까 봐서',
+        '공부의 의미를 이해하고 가족과 이야기로 나누었기 때문',
+      ],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      explanation:
+        '왓슨은 롤라의 도움 덕분에 학교 안으로 들어갈 수 있었고, 집에서는 비밀을 지키기 위해 웃음을 참아요. 샘은 철학 시간에 배운 내용을 기억하고 가족과 나누면서, 학교 가기 싫은 마음을 다르게 바라볼 힘을 갖게 되지요.',
+      detailedExplanation:
+        '① 왓슨이 몰래 철학 수업을 들을 수 있었던 이유는 교장 선생님네 고양이 롤라가 학교에 들어가는 비밀 길을 알려 주었기 때문이에요.\n② 왓슨이 집에서 웃음을 꾹 참은 것은, 자신이 실제로 학교에 다녀온 사실이 들키면 안 된다고 생각했기 때문이지요.\n③ 샘이 아침에 학교에 가기 싫을 때 생각을 조금씩 바꿀 수 있게 된 건, "공부도 운동처럼 연습해야 한다"는 말을 이해하고 엄마 아빠와 나누었기 때문이에요.',
+    },
+  ],
+  'why-school-match-cause'
+);
+
+const WHY_SCHOOL: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: whySchoolOx,
+  multiple_choice: whySchoolMultiple,
+  ordering: whySchoolOrdering,
+  fill_blank: whySchoolFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: whySchoolMatchPairs,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: whySchoolMatchPairsCauseEffect,
+  choice_with_result: [],
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
+// ---------- 초대장이 없어졌어요 (book-invitation-missing) ----------
+const invitationMissingOx: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ox_quiz',
+      question: '이번 달 생일 파티의 주인공은 염소자리예요.',
+      correctAnswer: 'O',
+      explanation:
+        '이야기에서 태양이 염소자리를 성으로 불러 생일 파티 초대장을 주며, "이번 달은 염소자리의 생일"이라고 알려 줘요.\n그래서 이번 파티의 주인공은 염소자리가 맞습니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '태양은 초대장을 모두 열 개 준비했어요.',
+      correctAnswer: 'X',
+      explanation:
+        '염소자리가 받은 초대장은 "모두 열두 개"라고 분명히 나와요.\n열 개가 아니라 열두 개였기 때문에, 마지막에 한 장이 남을 정도로 정확히 세어 전달하는 흐름이 생겼습니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '염소자리는 초대장을 물병자리에게 먼저 나누어 주었어요.',
+      correctAnswer: 'O',
+      explanation:
+        '염소자리는 옆집에 사는 물병자리에게 먼저 초대장을 건네요.\n그다음 물병자리가 물고기자리에게, 물고기자리가 양자리에게 전달하며 "옆집 → 옆집" 규칙이 이어집니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '전갈자리는 궁수자리에게 초대장을 직접 손에 쥐여 주었어요.',
+      correctAnswer: 'X',
+      explanation:
+        '전갈자리는 궁수자리 집에 갔지만 궁수자리가 집에 없었어요.\n그래서 직접 주지 못하고, 우편함에 초대장을 넣고 돌아왔다고 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '궁수자리는 생일 파티 날이 되어서야 초대장을 못 받았다는 걸 알게 되었어요.',
+      correctAnswer: 'O',
+      explanation:
+        '파티 날 전갈자리가 궁수자리 집에 들러 "준비 다 했어?"라고 묻자, 그때서야 궁수자리가 "난 초대장을 못 받았는데?"라고 말해요.\n즉, 파티 당일 대화 속에서 문제가 드러났습니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '없어진 초대장은 결국 뱀주인자리의 우편함에서 발견되었어요.',
+      correctAnswer: 'O',
+      explanation:
+        '별자리들이 마을을 한 바퀴 돌아 궁수자리 집 앞에 모였을 때, 뱀주인자리가 초대장을 들고 나오는 장면이 있어요.\n전갈자리는 초대장을 뱀주인자리 우편함에 넣은 것 같다고 사과합니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '뱀주인자리는 오래전부터 별자리 마을에 살던 친구예요.',
+      correctAnswer: 'X',
+      explanation:
+        '뱀주인자리는 별자리 마을에 "이사 온 지 얼마 안 되었다"고 설명돼요.\n친구를 사귀고 싶었지만 용기가 없었다는 마음도 함께 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '별자리 친구들은 뱀주인자리를 위해 열세 번째 초대장을 새로 만들었어요.',
+      correctAnswer: 'O',
+      explanation:
+        '전갈자리가 자기 초대장을 반으로 자르고, 처녀자리가 글씨를 쓰고, 사자자리·게자리·황소자리가 꾸며서 열세 번째 초대장을 완성해요.\n그래서 뱀주인자리도 파티에 함께 갈 수 있었습니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '파티장에는 손님용 의자가 열세 개 준비되어 있었어요.',
+      correctAnswer: 'X',
+      explanation:
+        '태양은 뱀주인자리가 올 줄 몰라서 손님용 의자가 "열두 개밖에" 없다고 해요.\n그래서 물고기자리가 자리를 양보하고, 물병자리가 물고기자리를 물병 안에 있게 하자는 해결책이 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '태양은 다음 달 물병자리 생일 파티에는 초대장을 열세 개 준비하겠다고 약속했어요.',
+      correctAnswer: 'O',
+      explanation:
+        '파티가 끝날 무렵 태양이 "물병자리 생일 파티 때는 초대장 열세 개를 준비할게"라고 말해요.\n이번 일을 통해 더 많은 친구가 함께할 수 있도록 준비를 바꾸겠다는 약속입니다.',
+    },
+  ],
+  'invitation-missing-ox'
+);
+
+const invitationMissingMultiple: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'multiple_choice',
+      question: '염소자리가 태양에게서 받은 초대장은 모두 몇 개였나요?',
+      options: ['10개', '11개', '12개', '13개'],
+      correctIndex: 2,
+      explanation:
+        '염소자리가 "초대장이 모두 열두 개네요."라고 말해요.\n이 숫자가 이야기 전체의 전달과 문제 해결(열세 번째 초대장)까지 이어지는 핵심 단서가 됩니다.',
+      explanationCorrect:
+        '맞아요. 초대장은 열두 개였어요.\n그래서 열두 별자리에 전달되는 과정이 생기고, 한 장이 잘못 들어가면서 문제가 생깁니다.',
+      explanationWrong:
+        '정답은 ③번(12개)예요.\n이야기 초반에 염소자리가 직접 "열두 개"라고 말하니, 숫자를 다시 확인해 보세요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '초대장을 가장 처음 나누어 준 별자리는 누구인가요?',
+      options: ['전갈자리', '염소자리', '물병자리', '태양'],
+      correctIndex: 1,
+      explanation:
+        '태양이 염소자리에 초대장 묶음을 주고, 염소자리가 친구들에게 나누어 주기 시작해요.\n따라서 "나누어 준" 첫 별자리는 염소자리입니다.',
+      explanationCorrect:
+        '맞아요. 염소자리가 처음으로 초대장을 전달했어요.\n염소자리 → 물병자리로 시작해 옆집으로 차례대로 이어집니다.',
+      explanationWrong:
+        '정답은 ②번 염소자리예요.\n태양은 초대장을 준 사람이고, 실제로 친구들에게 나눠 준 시작은 염소자리입니다.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '전갈자리가 궁수자리에게 초대장을 전달한 방법은 무엇인가요?',
+      options: ['직접 만나서 손에 쥐여 줌', '우편함에 넣어 둠', '태양에게 다시 돌려줌', '다음 날 다시 방문함'],
+      correctIndex: 1,
+      explanation:
+        '전갈자리가 궁수자리 집에 갔지만, 궁수자리가 집에 없어서 대답이 없었어요.\n그래서 우편함에 초대장을 넣고 돌아왔다는 장면이 나옵니다.',
+      explanationCorrect:
+        '맞아요. 우편함에 넣어 두었어요.\n이 전달 방식 때문에 초대장이 다른 우편함으로 들어가는 실수가 발생할 수 있었지요.',
+      explanationWrong:
+        '정답은 ②번(우편함에 넣어 둠)이에요.\n궁수자리가 집에 없어서 직접 전달하지 못했다는 점이 핵심입니다.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '없어진 초대장을 들고 나온 별자리는 누구인가요?',
+      options: ['물고기자리', '처녀자리', '뱀주인자리', '양자리'],
+      correctIndex: 2,
+      explanation:
+        '별자리들이 궁수자리 집 앞에 모였을 때, 뱀주인자리가 초대장을 들고 집을 나서는 장면이 있어요.\n그 순간 궁수자리가 "초대장이다!"라고 외치며 찾게 됩니다.',
+      explanationCorrect:
+        '맞아요. 뱀주인자리가 초대장을 들고 나왔어요.\n우편함이 붙어 있어 초대장이 잘못 들어간 사실이 드러납니다.',
+      explanationWrong:
+        '정답은 ③번 뱀주인자리예요.\n초대장이 궁수자리가 아닌 뱀주인자리 우편함에 들어가 있었기 때문입니다.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '문제가 생긴 가장 큰 이유는 무엇인가요?',
+      options: ['초대장이 부족해서', '전달 순서가 무작위라서', '우편함 위치가 헷갈렸기 때문에', '파티가 취소되었기 때문에'],
+      correctIndex: 2,
+      explanation:
+        '뱀주인자리 집은 궁수자리 집과 전갈자리 집 사이에 있어 잘 보이지 않았고, 우편함도 딱 붙어 있었어요.\n그 때문에 전갈자리가 초대장을 잘못 넣었다고 말합니다.',
+      explanationCorrect:
+        '맞아요. 우편함 위치가 헷갈렸기 때문이에요.\n전갈자리가 직접 "내가 초대장을 뱀주인 우편함에 넣었나 봐"라고 말하며 이유가 분명해집니다.',
+      explanationWrong:
+        '정답은 ③번이에요.\n초대장이 부족하거나 파티가 취소된 게 아니라, 우편함이 붙어 있어 전달이 헷갈린 것이 원인이었습니다.',
+    },
+  ],
+  'invitation-missing-mc'
+);
+
+const invitationMissingOrdering: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ordering',
+      question: '이야기의 큰 흐름을 순서대로 배열해 보세요.',
+      items: ['초대장이 옆집으로 차례대로 전달된다', '궁수자리가 초대장을 못 받았다고 말한다', '별자리들이 초대장을 찾아 마을을 돌며 확인한다', '열세 번째 초대장을 만들어 함께 파티에 간다'],
+      explanation:
+        '초대장은 규칙대로 전달되다가, 궁수자리가 못 받았다는 말로 문제가 시작돼요.\n친구들이 함께 찾고, 마지막엔 열세 번째 초대장을 만들어 모두가 함께 파티를 즐깁니다.',
+      explanationCorrect:
+        '맞아요. 전달 → 문제 발견 → 찾기 → 해결의 흐름이에요.\n이 순서를 잡으면 이야기가 “실수 → 협력 → 해결”로 전개된다는 게 선명해집니다.',
+      explanationWrong:
+        '먼저 초대장이 전달되고, 그다음 궁수자리가 못 받았다고 말하며 문제가 드러나요.\n이후 모두가 찾아보고, 열세 번째 초대장을 만들어 해결하는 순서로 다시 맞춰 보세요.',
+    },
+    {
+      type: 'ordering',
+      question: '전갈자리와 궁수자리 사이에서 일어난 일을 순서대로 배열해 보세요.',
+      items: ['전갈자리가 궁수자리 집을 찾았지만 없었다', '전갈자리가 우편함에 초대장을 넣었다', '파티 날 전갈자리가 궁수자리에게 준비를 물었다', '궁수자리가 초대장을 못 받았다고 했다'],
+      explanation:
+        '궁수자리가 집에 없어서 전갈자리가 우편함에 넣었고, 파티 날에야 못 받았다는 사실이 드러났어요.\n즉 “전달 시도 → 우편함 → 파티날 확인 → 문제 확인” 흐름입니다.',
+      explanationCorrect:
+        '맞아요. 전갈자리는 먼저 찾아갔다가 못 만나 우편함에 넣었고, 파티 날 대화로 문제가 밝혀졌어요.\n이 순서가 바로 초대장이 “사라진 것처럼 보이게 된” 원인이 됩니다.',
+      explanationWrong:
+        '파티 날 대화는 가장 뒤에 와요.\n그전에 전갈자리가 집에 갔다가 못 만나고, 우편함에 넣었다는 사실부터 떠올려 다시 배열해 보세요.',
+    },
+    {
+      type: 'ordering',
+      question: '열세 번째 초대장이 만들어지는 과정을 순서대로 배열해 보세요.',
+      items: ['전갈자리가 자기 초대장을 반으로 자른다', '처녀자리가 예쁜 글씨로 “초대장”이라고 쓴다', '사자자리·게자리·황소자리가 초대장을 꾸민다', '열세 번째 초대장이 완성된다'],
+      explanation:
+        '전갈자리의 행동으로 재료가 마련되고, 처녀자리가 글씨를 쓰고, 친구들이 꾸며서 마침내 완성돼요.\n각자 역할을 나눠 협력한 장면이라 순서가 중요합니다.',
+      explanationCorrect:
+        '맞아요. 자르기 → 쓰기 → 꾸미기 → 완성 순서예요.\n작은 손길이 모여 한 장의 초대장이 되고, 그 초대장이 친구를 파티로 데려옵니다.',
+      explanationWrong:
+        '완성은 맨 마지막이에요.\n먼저 전갈자리가 자르고, 처녀자리가 글씨를 쓰고, 여러 친구가 꾸민 뒤에 완성된다는 흐름으로 다시 배열해 보세요.',
+    },
+  ],
+  'invitation-missing-ord'
+);
+
+const invitationMissingFillBlank: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'fill_blank',
+      sentence: '염소자리는 태양에게서 초대장 (  )개를 받았어요.',
+      options: ['10', '11', '12', '13'],
+      correctIndex: 2,
+      explanation:
+        '염소자리가 "초대장이 모두 열두 개네요."라고 말하는 장면이 있어요.\n이 숫자(12)가 전달 규칙과, 열세 번째 초대장을 만들게 되는 이유까지 연결됩니다.',
+      explanationCorrect:
+        '맞아요.\n초대장이 열두 개였기 때문에 각 별자리에게 하나씩 전달하려는 흐름이 만들어졌습니다. 이 숫자가 정확해야 마지막에 한 장이 어디로 갔는지도 추적할 수 있어요.',
+      explanationWrong:
+        '정답은 12예요.\n이야기 초반에 염소자리가 직접 숫자를 말하니, 그 문장을 다시 떠올리면 쉽게 찾을 수 있어요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '초대장은 옆집 그리고 옆집으로 (  )대로 전달되었어요.',
+      options: ['차례', '무작위', '거꾸로', '비밀'],
+      correctIndex: 0,
+      explanation:
+        '이야기에는 초대장이 “옆집 그리고 옆집으로 전달되었다”고 나오며, 흐름이 규칙적이었다는 점이 강조돼요.\n그래서 빈칸에는 ‘순서가 있다’는 뜻의 “차례”가 가장 알맞습니다.',
+      explanationCorrect:
+        '맞아요.\n전달이 차례대로 이루어졌기 때문에, 어느 지점에서 실수가 생겼는지 추적할 수 있었어요. 그래서 친구들이 마을을 한 바퀴 돌며 확인하는 장면도 자연스럽게 이어집니다.',
+      explanationWrong:
+        '초대장은 무작위가 아니라 옆집으로 차례대로 전달되었어요.\n따라서 빈칸에는 “차례”가 들어가야 문장이 이야기 내용과 같아집니다.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '천칭자리는 전갈자리에게 초대장을 주며 나머지 한 개는 (  )자리에게 주라고 했어요.',
+      options: ['사자', '궁수', '물고기', '게'],
+      correctIndex: 1,
+      explanation:
+        '천칭자리는 전갈자리에게 초대장을 주며 “나머지 한 개는 궁수한테 줘”라고 말해요.\n즉 마지막 초대장은 궁수자리에 도착해야 했습니다.',
+      explanationCorrect:
+        '맞아요.\n이 마지막 전달에서 우편함이 헷갈리면서 초대장 분실 사건이 시작됩니다. 천칭자리가 전갈자리에게 마지막 한 장을 부탁한 장면이 중요한 단서예요.',
+      explanationWrong:
+        '정답은 궁수예요.\n천칭자리가 전갈자리에게 “나머지 한 개는 궁수한테”라고 말했던 장면을 기억해 보세요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '없어진 초대장은 결국 (  )자리의 우편함에 들어가 있었어요.',
+      options: ['뱀주인', '처녀', '물병', '황소'],
+      correctIndex: 0,
+      explanation:
+        '별자리들이 궁수자리 집 앞에 모였을 때, 뱀주인자리가 초대장을 들고 나오며 “우리 집 우편함에 있었는데…”라고 말해요.\n그래서 초대장은 뱀주인자리 우편함에 들어가 있었던 것이지요.',
+      explanationCorrect:
+        '맞아요.\n집 위치가 잘 보이지 않고 우편함이 딱 붙어 있어 생긴 실수였어요. 그래서 초대장이 궁수자리가 아니라 다른 집 우편함에 들어가 버렸던 거예요.',
+      explanationWrong:
+        '정답은 뱀주인자리예요.\n초대장을 들고 나온 별자리가 누구였는지 떠올리면 빈칸을 쉽게 채울 수 있어요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '별자리 친구들은 결국 (  )번째 초대장을 새로 만들었어요.',
+      options: ['열한', '열두', '열세', '열넷'],
+      correctIndex: 2,
+      explanation:
+        '원래 초대장은 열두 개였는데, 뱀주인자리가 초대장을 돌려주게 되자 친구들이 새로운 초대장을 만들었어요.\n그래서 “드디어 열세 번째 초대장이 완성되었어요.”라는 문장이 등장합니다.',
+      explanationCorrect:
+        '맞아요.\n모두가 힘을 합쳐 한 장을 더 만들었기 때문에, 뱀주인자리도 파티에 함께 갈 수 있었어요. 전갈자리의 자르기, 처녀자리의 글씨, 친구들의 꾸밈이 합쳐져 해결이 완성됩니다.',
+      explanationWrong:
+        '정답은 열세예요.\n이야기에 “열세 번째 초대장이 완성되었어요”라고 정확히 나오니 그 문장을 다시 떠올려 보세요.',
+    },
+  ],
+  'invitation-missing-fill'
+);
+
+// 5) 연결하기(전달 관계 매칭) — 도서 핵심
+const invitationMissingMatchPairs: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '초대장이 전달된 관계를 연결해 보세요. (앞 → 다음)',
+      leftItems: ['염소자리', '물병자리', '물고기자리', '천칭자리', '전갈자리'],
+      rightItems: ['물병자리', '물고기자리', '양자리', '전갈자리', '궁수자리'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation:
+        '이 이야기는 초대장이 “옆집으로 차례대로” 전달되는 구조가 핵심이에요.\n전달 관계를 정확히 연결하면, 마지막에 어디서 실수가 생겼는지도 자연스럽게 이해할 수 있습니다.',
+      detailedExplanation:
+        '① 염소자리 → 물병자리: 염소자리가 가장 먼저 옆집 물병자리에게 줘요.\n② 물병자리 → 물고기자리: 물병자리가 다음 옆집 물고기자리에게 전달해요.\n③ 물고기자리 → 양자리: 물고기자리가 남은 초대장을 양자리에게 갖다주겠다고 말하지요.\n④ 천칭자리 → 전갈자리: 천칭자리가 전갈자리에게 초대장을 주며 마지막 전달을 부탁해요.\n⑤ 전갈자리 → 궁수자리: 전갈자리가 궁수자리에게 주어야 하는 마지막 초대장이었어요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '전달 과정에서 “마지막 두 장”이 누구에게 갔는지 연결해 보세요.',
+      leftItems: ['천칭자리가 준 초대장', '천칭자리가 부탁한 마지막 한 장'],
+      rightItems: ['전갈자리에게', '궁수자리에게'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+      ],
+      explanation:
+        '천칭자리는 초대장이 두 장 남았을 때 전갈자리에게 한 장을 주고, 마지막 한 장은 궁수자리에게 전해 달라고 부탁해요.\n이 두 정보가 바로 “분실 사건”이 어디서 시작됐는지 보여 주는 지점입니다.',
+      detailedExplanation:
+        '① 천칭자리가 준 초대장 → 전갈자리: 천칭자리는 옆집 전갈자리에게 초대장을 건네요.\n② 천칭자리가 부탁한 마지막 한 장 → 궁수자리: 천칭자리는 전갈자리에게 “나머지 한 개는 궁수한테 줘”라고 말했어요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '사건 해결을 위해 누가 어떤 행동을 했는지 연결해 보세요.',
+      leftItems: ['전갈자리', '처녀자리', '사자자리·게자리·황소자리'],
+      rightItems: ['초대장을 반으로 자름', '예쁜 글씨로 “초대장”이라고 씀', '초대장을 예쁘게 꾸밈'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      explanation:
+        '문제가 생겼을 때 친구들은 서로 탓하기보다 역할을 나눠 해결책을 만들었어요.\n누가 무엇을 했는지 연결하면 “협력으로 해결한다”는 이야기의 메시지가 더 또렷해집니다.',
+      detailedExplanation:
+        '① 전갈자리 → 반으로 자름: 전갈자리는 자기 초대장을 반으로 잘라 새 초대장의 바탕을 만들었어요.\n② 처녀자리 → 글씨 씀: 처녀자리는 예쁜 글씨로 “초대장”이라고 적어 주었지요.\n③ 사자자리·게자리·황소자리 → 꾸밈: 여러 친구들이 함께 꾸며서 열세 번째 초대장이 완성됐어요.',
+    },
+  ],
+  'invitation-missing-match'
+);
+
+// 6) 규칙 찾기 선택형 — 형식 중복 방지 위해 choice_with_result 사용
+const invitationMissingRuleChoice: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'choice_with_result',
+      situation: '초대장은 어떤 규칙으로 전달되었나요?',
+      options: ['무작위로 전달', '옆집으로 차례대로 전달', '태양이 한 번에 모두 전달', '파티 날에만 전달'],
+      resultTexts: [
+        '이야기에서는 초대장이 무작위로 움직이지 않아요.\n“옆집 그리고 옆집으로 전달되었어요”라는 문장이 규칙을 분명히 보여 줍니다.',
+        '초대장은 옆집으로 차례대로 전달되었고, 그래서 전달 흐름을 따라가며 문제를 찾을 수 있었어요.\n이 규칙 덕분에 누가 누구에게 전했는지 연결해서 확인할 수 있지요.',
+        '태양은 염소자리에게 초대장을 주었지만, 친구들에게 나누어 준 건 별자리들이에요.\n즉 태양이 직접 한 번에 모두 전달한 것이 아니라 전달 규칙이 이어졌습니다.',
+        '초대장은 파티 날이 아니라, 파티 전에 미리 전달되었어요.\n전갈자리가 궁수자리 우편함에 넣은 것도 파티 전의 일이지요.',
+      ],
+      correctIndex: 1,
+      explanation:
+        '규칙을 찾는 문제는 이야기의 구조를 이해하는 데 도움이 돼요.\n전달 규칙을 알면, 초대장이 왜 “없어진 것처럼 보였는지”도 논리적으로 설명할 수 있습니다.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '초대장이 사라진 것처럼 보인 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['초대장이 모자랐다', '전달을 일부러 건너뛰었다', '우편함이 붙어 있어 잘못 넣었다', '태양이 초대장을 회수했다'],
+      resultTexts: [
+        '초대장이 모자랐던 건 아니에요.\n처음에 초대장은 열두 개였고, 문제는 “어디로 갔는지”였어요.',
+        '일부러 건너뛴 것이 아니라, 전갈자리가 궁수자리 집에 갔다가 못 만나 우편함에 넣는 과정에서 실수가 생겨요.\n의도적인 생략이 아니라 착각이 원인이었습니다.',
+        '뱀주인자리 집이 사이에 있어 잘 보이지 않았고 우편함도 딱 붙어 있어, 전갈자리가 다른 우편함에 넣어 버린 거예요.\n그래서 궁수자리는 초대장을 못 받은 줄 알고, 모두가 함께 찾게 됩니다.',
+        '태양이 초대장을 회수한 장면은 나오지 않아요.\n오히려 태양은 모두를 환영하고, 다음 달에는 초대장을 더 준비하겠다고 말합니다.',
+      ],
+      correctIndex: 2,
+      explanation:
+        '이야기 속 문제는 “규칙이 틀렸다”기보다, 규칙대로 하려다 생긴 작은 착각에서 시작돼요.\n원인을 정확히 찾으면, 해결 과정(열세 번째 초대장)이 더 의미 있게 느껴집니다.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '별자리 친구들이 선택한 해결 방법으로 가장 알맞은 것은 무엇인가요?',
+      options: ['파티를 취소한다', '새 초대장을 한 장 더 만든다', '뱀주인자리를 집에 혼자 남긴다', '태양에게 화를 낸다'],
+      resultTexts: [
+        '파티 취소는 이야기의 해결이 아니에요.\n친구들은 파티를 계속 즐기되, 모두가 함께 들어갈 방법을 찾아요.',
+        '전갈자리·처녀자리·사자자리·게자리·황소자리가 힘을 합쳐 열세 번째 초대장을 만들어 뱀주인자리도 함께 가게 해 줍니다.\n이 장면은 친구를 받아들이고 함께 기뻐해 주는 분위기를 잘 보여 줘요.',
+        '뱀주인자리를 남기는 선택은 하지 않아요.\n오히려 친구를 사귀고 싶었던 뱀주인자리가 함께 기뻐할 수 있도록 도와줍니다.',
+        '태양에게 화를 내는 장면은 없어요.\n태양은 의자가 부족하자 미안해하고, 다음 달에는 초대장을 더 준비하겠다고 약속합니다.',
+      ],
+      correctIndex: 1,
+      explanation:
+        '해결 방법을 고르는 문제는 이야기의 메시지를 정리하는 데 좋아요.\n이 책의 핵심은 “누구도 빼놓지 않기 위해 함께 방법을 만든다”는 점입니다.',
+    },
+  ],
+  'invitation-missing-rule'
+);
+
+const INVITATION_MISSING: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: invitationMissingOx,
+  multiple_choice: invitationMissingMultiple,
+  ordering: invitationMissingOrdering,
+  fill_blank: invitationMissingFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: invitationMissingMatchPairs,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: [],
+  choice_with_result: invitationMissingRuleChoice,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
+// ---------- 미라의 처음 학교 가는 날 (book-mira-first-school-day) ----------
+const miraFirstSchoolOx: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ox_quiz',
+      question: '미라는 겨울 내내 학교에 가는 날을 기다렸어요.',
+      correctAnswer: 'O',
+      explanation:
+        '미라는 "겨울 내내 이날이 오기만을 얼마나 기다렸는지 몰라요"라고 말할 만큼 학교에 가는 날을 기대했어요.\n기다림이 크기 때문에, 막상 학교에서 낯설고 두려운 감정을 느끼는 대비도 더 크게 보입니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '미라는 계단을 내려갈수록 한 뼘씩 작아졌어요.',
+      correctAnswer: 'X',
+      explanation:
+        '이야기 초반에는 계단을 한 칸씩 내려갈 때마다 미라가 한 뼘씩 "자라났다"고 나와요.\n하지만 학교에 도착해 엄마와 헤어지거나 불안해질 때는 오히려 점점 작아지는 일이 생깁니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '엄마가 미라의 손을 놓고 작별 인사를 하자, 미라는 생쥐만큼 작아졌어요.',
+      correctAnswer: 'O',
+      explanation:
+        '엄마가 손을 놓고 작별 인사를 하는 순간 "아주 이상한 일"이 일어나 미라가 생쥐만큼 작아져요.\n미라에게 이별과 낯선 교실이 긴장으로 다가왔다는 걸 보여 주는 장면입니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '선생님이 이름을 물었을 때, 미라는 또렷한 목소리로 크게 대답했어요.',
+      correctAnswer: 'X',
+      explanation:
+        '미라는 얼른 대답하고 싶었지만 입이 떨어지지 않았고, 아주 작은 소리만 흘러나왔다고 해요.\n모두의 시선이 부담스럽고 긴장되면서 목소리도 작아진 모습이에요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '쉬는 시간에 아이들은 “지나간다, 비켜!”라고 말하며 밖으로 달려 나갔어요.',
+      correctAnswer: 'O',
+      explanation:
+        '쉬는 시간이 되자 아이들이 앞다투어 밖으로 뛰쳐나가며 "지나간다, 비켜!"라고 말해요.\n미라는 그 모습을 보고 ‘조금 떨어져 있어야지’라고 생각하며 더 조심하게 됩니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '운동장에서 미라는 처음부터 새 친구들과 바로 어울려 놀았어요.',
+      correctAnswer: 'X',
+      explanation:
+        '아이들은 이미 새 친구와 즐겁게 놀고 있었지만, 미라는 숨어 버린 것처럼 혼자였어요.\n혼자 있을수록 재미가 없고 점점 더 작아지는 모습에서 외로움이 드러납니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '미라는 “무궁화 꽃이 피었습니다” 놀이 중에 중심을 잃고 흔들렸어요.',
+      correctAnswer: 'O',
+      explanation:
+        '술래가 뒤돌아보는 순간 미라는 중심을 잃고 말아요.\n그런데 미라가 혼자 움직였는데도 아무도 뭐라 하지 않는 장면이 이어지며, “미라가 보이지 않나?”라는 생각이 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '베티가 미라에게 “나랑 같이 놀래?”라고 말하며 손을 잡아 주었어요.',
+      correctAnswer: 'O',
+      explanation:
+        '누군가가 미라의 손을 덥석 잡고 "나랑 같이 놀래?"라고 말하는데, 그 아이가 베티예요.\n그 순간 미라의 키가 훌쩍 커지며, ‘친구의 한마디’가 마음을 바꾸는 계기가 됩니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '미라는 베티와 줄넘기를 하면서 최고 기록을 세웠어요.',
+      correctAnswer: 'O',
+      explanation:
+        '처음엔 줄이 엉켜서 어쩔 줄 몰랐지만 금세 풀리고, 둘은 폴짝폴짝 줄을 넘어요.\n“하나, 둘… 아홉, 열!”까지 세며 최고 기록도 세우는 장면이 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '다음 날 아침, 미라는 또 학교에 가고 싶어서 엄마보다 먼저 앞장섰어요.',
+      correctAnswer: 'X',
+      explanation:
+        '다음 날 미라는 아주 천천히 걸으며 "오늘은 내가 보일까?" 같은 걱정을 해요.\n오히려 엄마가 앞장서서 데려가고, 미라는 학교에 안 갈 수만 있다면 좋겠다고 생각할 정도로 불안해집니다.',
+    },
+  ],
+  'mira-first-ox'
+);
+
+const miraFirstSchoolMultiple: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'multiple_choice',
+      question: '미라가 처음 생쥐만큼 작아진 순간은 언제인가요?',
+      options: ['집에서', '학교 가는 길에서', '엄마와 헤어질 때', '운동장에서 놀 때'],
+      correctIndex: 2,
+      explanation:
+        '엄마가 손을 놓고 작별 인사를 한 바로 그 순간, 미라에게 이상한 일이 일어나요.\n그때 미라는 생쥐만큼 작아졌고, 낯선 학교가 얼마나 떨리는지 보여 줍니다.',
+      explanationCorrect:
+        '맞아요. 엄마와 헤어질 때였어요.\n미라는 엄마가 작아 보일 만큼 마음이 흔들렸고, 이별의 긴장 때문에 몸까지 작아지는 것으로 표현됩니다.',
+      explanationWrong:
+        '정답은 ③번이에요.\n작아지는 일은 엄마와 헤어지는 순간에 처음 일어나고, 그 뒤 학교에서 불안할 때 더 심해집니다.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '선생님이 이름을 부르며 “이 다음은 누굴까?”라고 물었을 때, 미라의 모습은 어땠나요?',
+      options: ['큰 목소리로 또렷하게 대답했다', '입이 떨어지지 않아 작은 소리만 나왔다', '웃으며 “나예요!”라고 손을 들었다', '친구가 대신 대답해 주었다'],
+      correctIndex: 1,
+      explanation:
+        '미라는 얼른 대답하고 싶었지만, 입이 떨어지지 않았고 아주 작은 소리만 흘러나왔어요.\n처음 교실에서 느끼는 긴장과 시선이 미라를 더 작게 만들었습니다.',
+      explanationCorrect:
+        '맞아요. 입이 잘 안 떨어지고 작은 소리만 나왔어요.\n이 장면은 미라가 “보이지 않는 것처럼” 느끼는 불안과 연결되어 이야기의 핵심 감정을 만들어 줍니다.',
+      explanationWrong:
+        '정답은 ②번이에요.\n미라는 대답하려고 했지만 너무 떨려서 작은 소리만 나왔고, 모두의 시선에 더 얼어붙었어요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '운동장에서 미라가 속으로 했던 생각으로 가장 알맞은 것은 무엇인가요?',
+      options: ['“오늘은 제일 재미있다!”', '“조금 떨어져 있어야지.”', '“다들 나만 바라보네.”', '“집에 가고 싶어.”'],
+      correctIndex: 1,
+      explanation:
+        '쉬는 시간에 아이들이 달려 나가자, 미라는 ‘조금 떨어져 있어야지’라고 생각해요.\n낯선 공간에서 조심하려는 마음이 결국 외로움으로 이어지는 흐름입니다.',
+      explanationCorrect:
+        '맞아요. “조금 떨어져 있어야지.”였어요.\n미라는 다가가고 싶지만 두려워서 멀찍이 서고, 그 사이 더 작아지는 기분을 겪게 됩니다.',
+      explanationWrong:
+        '정답은 ②번이에요.\n이야기에는 미라가 혼자 조용히 떨어져 있으려는 마음을 먼저 떠올리는 장면이 나오고, 그 마음이 다음 사건으로 이어집니다.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '미라가 다시 커지기 시작한 계기는 무엇이었나요?',
+      options: ['선생님이 칭찬해 줘서', '베티가 손을 잡고 같이 놀자고 해서', '엄마가 다시 돌아와서', '혼자 줄넘기를 잘해서'],
+      correctIndex: 1,
+      explanation:
+        '누군가가 미라의 손을 덥석 잡고 “나랑 같이 놀래?”라고 말해요.\n그 아이가 베티였고, 그 순간 미라의 키가 훌쩍 커졌습니다.',
+      explanationCorrect:
+        '맞아요. 베티가 손을 잡아 준 순간이었어요.\n누군가가 나를 “보아 주는 것”이 미라에게 가장 큰 용기와 힘이 되었던 거예요.',
+      explanationWrong:
+        '정답은 ②번이에요.\n미라가 커지는 변화는 친구의 손길과 말에서 시작되고, 이후 함께 놀며 점점 더 자라나는 장면으로 이어집니다.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '이야기 끝에서 미라의 목소리는 어떻게 묘사되나요?',
+      options: ['더 작아져서 들리지 않았다', '평소처럼 조용했다', '어느 때보다 크고 또렷했다', '울먹이며 떨렸다'],
+      correctIndex: 2,
+      explanation:
+        '미라는 베티와 등을 맞대고 서서 “우리 키가 똑같아”라고 외쳐요.\n그때 목소리가 어느 때보다 크고 또렷했다고 하며, 미라가 “다 컸다”는 느낌이 완성됩니다.',
+      explanationCorrect:
+        '맞아요. 크고 또렷했어요.\n함께 놀고 웃는 경험이 미라의 자신감을 키웠고, 목소리도 당당해진 것으로 표현됩니다.',
+      explanationWrong:
+        '정답은 ③번이에요.\n마지막에는 미라가 자신 있게 외치며, 목소리가 크고 또렷해졌다고 묘사됩니다.',
+    },
+  ],
+  'mira-first-mc'
+);
+
+const miraFirstSchoolOrdering: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ordering',
+      question: '미라의 첫 등교 날에 벌어진 일을 순서대로 배열해 보세요.',
+      items: ['엄마와 학교에 도착한다', '엄마와 작별 인사를 한다', '미라가 생쥐만큼 작아진다', '쉬는 시간에 혼자 운동장에 있다', '베티가 손을 잡고 같이 놀자고 한다'],
+      explanation:
+        '학교에 도착해 엄마와 헤어지는 순간, 미라가 갑자기 작아지는 일이 생겨요.\n그 뒤 운동장에서 혼자 외로워하다가, 베티의 한마디로 다시 커지기 시작합니다.',
+      explanationCorrect:
+        '맞아요. 도착 → 이별 → 작아짐 → 혼자 있음 → 베티 만남 흐름이에요.\n이 순서가 미라의 감정 변화(기대 → 긴장 → 외로움 → 용기)를 자연스럽게 보여 줍니다.',
+      explanationWrong:
+        '미라가 작아지는 일은 엄마와 헤어질 때 처음 일어나요.\n그 뒤 운동장에서 혼자 지내다가 베티가 말을 걸어 주며 변화가 생긴다는 흐름으로 다시 정리해 보세요.',
+    },
+    {
+      type: 'ordering',
+      question: '무궁화꽃 놀이 장면의 흐름을 순서대로 배열해 보세요.',
+      items: ['호루라기 소리가 울린다', '아이들이 한데 모인다', '술래가 노래하고 아이들이 달린다', '술래가 뒤돌아본다', '미라가 중심을 잃는다'],
+      explanation:
+        '호루라기 소리가 울리며 아이들이 모이고, 놀이가 시작돼요.\n술래가 뒤돌아보는 순간 미라가 중심을 잃는 사건이 벌어집니다.',
+      explanationCorrect:
+        '맞아요. 모이기 전에는 호루라기 소리가 먼저 들리고, 그다음 놀이가 진행돼요.\n사건(중심을 잃음)은 술래가 뒤돌아보는 순간에 일어나며, 미라의 불안이 커지는 장면입니다.',
+      explanationWrong:
+        '호루라기 → 모이기 → 노래하며 달리기 → 뒤돌아보기 → 중심 잃기 순서로 떠올려 보세요.\n이 순서가 정확해야, 미라가 왜 당황했는지도 자연스럽게 이해할 수 있어요.',
+    },
+    {
+      type: 'ordering',
+      question: '둘째 날 아침, 미라의 마음 변화를 순서대로 배열해 보세요.',
+      items: ['미라가 천천히 학교로 걸어간다', '미라가 “오늘은 내가 보일까?”라고 걱정한다', '엄마가 앞장서서 데려간다', '미라가 “가지 마세요”라고 말한다', '베티가 “이따 같이 놀자”라고 말한다'],
+      explanation:
+        '둘째 날 미라는 천천히 걸으며 걱정이 많고, 엄마 손도 쉽게 놓지 못해요.\n하지만 베티의 목소리를 듣는 순간 무서웠던 마음이 사라지고, 다시 학교가 가까워집니다.',
+      explanationCorrect:
+        '맞아요. 걱정 → 엄마와 함께 → 붙잡기 → 친구의 부름 순서예요.\n이 흐름은 미라가 혼자가 아닐 때 더 단단해진다는 규칙을 보여 줍니다.',
+      explanationWrong:
+        '“이따 같이 놀자”는 말은 가장 뒤에서 미라를 변화시키는 계기예요.\n그 전에 천천히 걷고 걱정하고 엄마를 놓지 못하는 흐름을 먼저 떠올려 보세요.',
+    },
+  ],
+  'mira-first-ord'
+);
+
+const miraFirstSchoolFillBlank: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'fill_blank',
+      sentence: '미라는 (  )부터 학교에 가요.',
+      options: ['내일', '오늘', '어제', '가을'],
+      correctIndex: 1,
+      explanation:
+        '이야기 첫 문장은 “오늘부터 학교에 가거든요”로 시작해요.\n기다리던 날이 드디어 “오늘”이라는 점이, 미라의 설렘과 긴장을 동시에 만들어 줍니다.',
+      explanationCorrect:
+        '맞아요. 미라는 오늘부터 학교에 가요.\n처음에는 설레지만, 교실과 운동장에서 낯선 상황을 겪으며 마음이 흔들리는 과정이 이어집니다.',
+      explanationWrong:
+        '정답은 “오늘”이에요.\n미라는 오래 기다리던 날이 드디어 왔다고 말하며, 바로 그날 학교에 처음 가게 됩니다.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '엄마와 헤어지는 순간, 미라는 (  )만큼 작아졌어요.',
+      options: ['새끼 고양이', '생쥐', '강아지', '개미'],
+      correctIndex: 1,
+      explanation:
+        '엄마가 손을 놓고 작별 인사를 하는 순간, 미라에게 아주 이상한 일이 일어나요.\n그때 미라는 생쥐만큼 작아졌고, 두려움이 몸의 크기로 표현됩니다.',
+      explanationCorrect:
+        '맞아요. 미라는 생쥐만큼 작아졌어요.\n이 장면은 미라가 얼마나 불안했는지 보여 주며, 뒤에서 “친구를 만나면 커진다”는 변화와 대비됩니다.',
+      explanationWrong:
+        '정답은 “생쥐”예요.\n처음 작아지는 순간이 정확히 묘사되어 있고, 그 표현이 이야기의 핵심 규칙(작아짐/커짐)을 만들어 줍니다.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '쉬는 시간에 아이들은 “지나간다, (  )!”라고 말하며 달려 나갔어요.',
+      options: ['비켜', '안녕', '기다려', '조심해'],
+      correctIndex: 0,
+      explanation:
+        '쉬는 시간이 되자 아이들이 앞다투어 밖으로 뛰어나가며 “지나간다, 비켜!”라고 말해요.\n빠르고 시끌벅적한 분위기가 미라에게는 더 낯설고 부담스럽게 느껴집니다.',
+      explanationCorrect:
+        '맞아요. 아이들은 “비켜!”라고 말했어요.\n미라가 ‘조금 떨어져 있어야지’라고 생각하게 되는 이유가 이 장면에 담겨 있어요.',
+      explanationWrong:
+        '정답은 “비켜”예요.\n쉬는 시간의 빠른 분위기와 아이들의 말이 그대로 나오니, 장면을 떠올리며 다시 골라 보세요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '베티는 미라의 (  )을/를 덥석 잡으며 “나랑 같이 놀래?”라고 말했어요.',
+      options: ['가방', '손', '모자', '옷자락'],
+      correctIndex: 1,
+      explanation:
+        '누군가가 미라의 손을 덥석 잡는 장면이 등장해요.\n그 손길과 말 한마디가 미라를 다시 “보이게” 만들고, 키가 훌쩍 커지는 계기가 됩니다.',
+      explanationCorrect:
+        '맞아요. 베티는 미라의 손을 잡아 줬어요.\n미라는 그 순간 혼자가 아니라는 걸 느끼고, 두려움 대신 용기를 얻습니다.',
+      explanationWrong:
+        '정답은 “손”이에요.\n이 장면은 이야기의 전환점이라서, 무엇을 잡았는지가 뚜렷하게 남도록 구성돼 있어요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '미라와 베티는 “하나, 둘… 아홉, (  )!”까지 세며 줄넘기를 했어요.',
+      options: ['여덟', '아홉', '열', '스무'],
+      correctIndex: 2,
+      explanation:
+        '미라와 베티는 줄넘기를 하며 “하나, 둘… 아홉, 열!”이라고 세어요.\n함께 뛰고 웃는 경험이 미라를 점점 더 크게, 더 당당하게 만들어 줍니다.',
+      explanationCorrect:
+        '맞아요. “열!”까지 세며 최고 기록도 세웠어요.\n이 장면은 두 친구가 ‘함께하면 자란다’는 이야기를 몸으로 보여 주는 부분입니다.',
+      explanationWrong:
+        '정답은 “열”이에요.\n숫자를 세는 장면이 그대로 나오고, 그 기록이 다음 날의 자신감으로 이어집니다.',
+    },
+  ],
+  'mira-first-fill'
+);
+
+// 5) 감정 변화 연결하기 — 상황 → 감정 매칭
+const miraFirstSchoolEmotionMatch: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '상황과 미라의 마음(감정)을 연결해 보세요.',
+      leftItems: ['엄마와 헤어지는 순간', '이름을 말하려는데 입이 떨어지지 않을 때', '혼자 운동장에서 아이들을 바라볼 때', '베티가 “같이 놀래?”라고 말해 줄 때', '함께 줄넘기를 하며 기록을 세울 때'],
+      rightItems: ['긴장', '두려움', '외로움', '기쁨', '자신감'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation:
+        '미라는 낯선 공간에서 긴장하고 두려워지면 점점 작아지는 것처럼 느껴요.\n반대로 누군가가 다가와 주고 함께 놀면 기쁨과 자신감이 생기며 다시 커지는 변화가 나타납니다.',
+      detailedExplanation:
+        '① 엄마와 헤어짐 → 긴장: 익숙한 손을 놓는 순간 마음이 흔들려요.\n② 이름을 못 말함 → 두려움: 모두의 시선 앞에서 입이 안 떨어지는 떨림이에요.\n③ 혼자 운동장 → 외로움: 친구들이 놀고 있는데 자신만 숨어 있는 느낌이 들지요.\n④ 베티의 말 → 기쁨: 누군가 나를 “보고” 손을 잡아 주는 순간이에요.\n⑤ 함께 줄넘기 → 자신감: 같이 뛰고 성공을 쌓으며 목소리도 또렷해집니다.',
+    },
+    {
+      type: 'match_pairs',
+      question: '둘째 날 아침 상황과 미라의 감정을 연결해 보세요.',
+      leftItems: ['학교에 가기 싫다는 마음', '엄마 손을 놓지 못하는 순간', '베티의 “이따 같이 놀자!”를 듣는 순간', '운동장으로 달려가는 순간'],
+      rightItems: ['불안', '두려움', '안도감', '설렘'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ],
+      explanation:
+        '둘째 날 미라는 “보일까, 들릴까” 걱정하며 불안해져요.\n하지만 베티의 목소리를 듣자 무서웠던 마음이 사라지고, 다시 설레는 마음으로 운동장에 달려갑니다.',
+      detailedExplanation:
+        '① 학교에 가기 싫음 → 불안: 가고 싶지 않을 만큼 마음이 복잡해요.\n② 엄마 손을 못 놓음 → 두려움: 혼자 남는 순간을 무서워해요.\n③ 베티 목소리 → 안도감: “나 혼자가 아니구나” 하는 마음이 생겨요.\n④ 운동장으로 달리기 → 설렘: 함께 놀 생각에 몸이 가벼워집니다.',
+    },
+    {
+      type: 'match_pairs',
+      question: '미라가 “작아지는 장면”과 “커지는 장면”을 연결해 보세요.',
+      leftItems: ['엄마와 작별하는 순간', '혼자 숨어 버린 순간', '베티가 손을 잡아 준 순간', '함께 놀이를 이어 가는 순간'],
+      rightItems: ['작아짐', '작아짐', '커짐', '커짐'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ],
+      explanation:
+        '이 책에는 “불안하면 작아지고, 함께하면 커진다”는 변화 규칙이 숨어 있어요.\n장면을 연결하면 미라의 몸 크기가 사실 미라 마음의 크기라는 걸 더 잘 느낄 수 있습니다.',
+      detailedExplanation:
+        '① 작별 순간 → 작아짐: 엄마 손을 놓는 긴장으로 생쥐만큼 작아져요.\n② 혼자 숨음 → 작아짐: 아무도 자신을 못 보는 느낌이 들며 더 작아져요.\n③ 손을 잡아 줌 → 커짐: 베티의 손길이 미라를 다시 크게 만들어요.\n④ 함께 놀이 → 커짐: 줄넘기·그네·공놀이 속에서 자신감이 자라납니다.',
+    },
+  ],
+  'mira-first-emotion-match'
+);
+
+// 6) 규칙 찾기 선택형 — 형식 중복 방지 위해 choice_with_result 사용
+const miraFirstSchoolRuleChoice: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'choice_with_result',
+      situation: '미라가 작아지는 상황으로 가장 알맞은 것은 무엇인가요?',
+      options: ['친구와 놀 때', '긴장하거나 불안할 때', '맛있는 걸 먹을 때', '집에서 쉬고 있을 때'],
+      resultTexts: [
+        '친구와 함께 놀 때는 오히려 미라가 커지는 장면이 나와요.\n베티와 함께 줄넘기를 하며 기록을 세울수록 미라의 목소리도 더 또렷해졌지요.',
+        '미라는 낯선 교실에서 이름을 말하지 못하고, 엄마와 헤어질 때 몸이 작아졌어요.\n이 장면들은 긴장과 불안이 커질수록 미라가 더 작아지는 규칙을 보여 줍니다.',
+        '먹는 장면은 이야기의 핵심 사건으로 나오지 않아요.\n이 책의 변화는 배고픔보다 “마음”과 “관계”에 의해 일어납니다.',
+        '집에서 쉬는 동안의 변화는 강조되지 않아요.\n학교에서 낯설고 긴장되는 순간에 작아지는 일이 반복됩니다.',
+      ],
+      correctIndex: 1,
+      explanation:
+        '이야기에서 미라의 몸 크기는 마음 상태를 보여 주는 장치예요.\n어떤 상황에서 작아지는지 규칙을 찾으면, 미라가 무엇을 두려워했는지도 함께 이해할 수 있습니다.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '미라가 커지는 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['공부를 열심히 해서', '친구가 생겨서', '혼자 숨었기 때문에', '엄마가 계속 붙어 있었기 때문에'],
+      resultTexts: [
+        '공부를 해서 커졌다는 장면은 나오지 않아요.\n미라의 변화는 교실 성적보다, “누가 나를 보고 함께하느냐”에 더 가깝습니다.',
+        '베티가 손을 잡고 “나랑 같이 놀래?”라고 말한 순간 미라의 키가 훌쩍 커졌어요.\n그리고 함께 놀며 기록을 세울수록 더 자신감이 생겨, 목소리도 크고 또렷해집니다.',
+        '혼자 숨었을 때 미라는 재미가 없었고, 더 작아졌어요.\n혼자 있을수록 ‘보이지 않는 느낌’이 커져서 마음도 더 위축됩니다.',
+        '엄마가 곁에 있을 때는 안심이 되지만, 이야기의 성장 포인트는 또래 친구와의 관계에서 크게 나타나요.\n베티의 한마디가 미라를 변화시키는 중심 사건입니다.',
+      ],
+      correctIndex: 1,
+      explanation:
+        '이 책은 “친구의 다정한 손길과 말”이 한 사람을 크게 만든다는 메시지를 담고 있어요.\n그래서 커지는 이유를 찾는 문제는, 미라가 진짜로 필요했던 것이 무엇인지 보여 줍니다.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '이야기에서 “보이지 않는 것처럼 느껴짐”이 가장 잘 드러나는 장면은 무엇인가요?',
+      options: ['아이들이 새 친구와 이미 놀고 있을 때', '베티가 손을 잡아 줄 때', '미라가 최고 기록을 세울 때', '미라가 등을 맞대고 키가 같다고 말할 때'],
+      resultTexts: [
+        '운동장에서 아이들은 즐겁게 놀지만, 아무도 옆의 미라를 보지 못해요.\n미라는 숨어 버린 것처럼 혼자 있고, 그때 “점점 더 작아졌다”는 표현이 이어집니다.',
+        '베티가 손을 잡아 줄 때는 오히려 미라가 “보이기 시작하는” 전환점이에요.\n그 순간 미라의 키가 커지고, 마음도 따뜻해집니다.',
+        '줄넘기 기록을 세우는 장면은 자신감이 생기는 순간이에요.\n보이지 않는 느낌보다는, 함께 놀며 커지는 변화가 강조됩니다.',
+        '마지막 장면은 미라의 목소리가 크고 또렷해진 순간이라, 위축된 상태와는 반대예요.\n이 장면은 ‘이제 다 컸다’는 마음의 결말을 보여 줍니다.',
+      ],
+      correctIndex: 0,
+      explanation:
+        '미라는 “혼자 있을 때 보이지 않는 것 같다”는 마음을 몸의 크기로 보여 줘요.\n어떤 장면이 그 감정을 가장 잘 드러내는지 찾으면, 이야기의 핵심 감정이 정리됩니다.',
+    },
+  ],
+  'mira-first-rule'
+);
+
+const MIRA_FIRST_SCHOOL_DAY: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: miraFirstSchoolOx,
+  multiple_choice: miraFirstSchoolMultiple,
+  ordering: miraFirstSchoolOrdering,
+  fill_blank: miraFirstSchoolFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: miraFirstSchoolEmotionMatch,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: [],
+  choice_with_result: miraFirstSchoolRuleChoice,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
 const PREDEFINED: Record<string, Record<ContentTypeKey, Content[]>> = {
   'book-mary': MARY,
   'book-mongmong': MONGMONG,
@@ -2145,8 +3199,10 @@ const PREDEFINED: Record<string, Record<ContentTypeKey, Content[]>> = {
   'book-am-i-really-me': UGO,
   'book-jirungi': JIRUNGI,
   'book-willy': WILLY,
+  'book-why-school': WHY_SCHOOL,
+  'book-invitation-missing': INVITATION_MISSING,
+  'book-mira-first-school-day': MIRA_FIRST_SCHOOL_DAY,
 };
-
 /** explanation에 "정답인 이유:"와 "틀린 이유:"가 있으면 나누어 explanationCorrect, explanationWrong으로 설정 */
 function ensureExplanationCorrectWrong(c: Content): Content {
   const exp = c.explanation || '';

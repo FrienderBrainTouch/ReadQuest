@@ -53,6 +53,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   min-width: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .main {
@@ -69,6 +74,11 @@
   max-width: 100%;
   text-align: center;
   margin-bottom: clamp(40px, 10vw, 64px);
+}
+
+/* 결과 화면에서는 질문 영역 아래 여백을 줄임 (모든 도서/활동 공통) */
+.wrapper[data-show-result="true"] .questionArea {
+  margin-bottom: clamp(16px, 4vw, 24px);
 }
 
 .question {
@@ -422,10 +432,10 @@
   color: var(--color-text-soft);
 }
 
-/* 같은 상황 다른 말: 정답/선택 이야기 좌우 2열 */
+/* 같은 상황 다른 말: 정답/오답 이야기 위아래 */
 .choiceStoriesRow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-lg);
   width: 100%;
   margin: var(--space-md) 0;
@@ -433,11 +443,6 @@
 }
 .choiceStoriesRowSingle {
   grid-template-columns: 1fr;
-}
-@media (max-width: 640px) {
-  .choiceStoriesRow {
-    grid-template-columns: 1fr;
-  }
 }
 .choiceStoryColumn {
   padding: var(--space-md);
