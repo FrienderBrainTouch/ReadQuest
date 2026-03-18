@@ -2,7 +2,6 @@ import { useEffect, useLayoutEffect, useState, useCallback, useRef } from 'react
 import { useParams, useNavigate } from 'react-router-dom';
 import { getBookById } from '../data/books';
 import type {
-  Content,
   ContentType,
   OxQuizContent,
   MultipleChoiceContent,
@@ -19,12 +18,6 @@ import type {
 } from '../data/books';
 import { getPreGeneratedContents } from '../data/preGeneratedQuestions';
 import styles from './ContentPlay.module.css';
-
-function getQuestionText(c: Content): string {
-  if (c.type === 'fill_blank') return c.sentence;
-  if (c.type === 'choice_with_result') return c.situation;
-  return 'question' in c ? (c as { question: string }).question : '';
-}
 
 /** 빈칸 채우기 문장에서 언더바(____)를 (  ) 형식으로 표시 */
 function formatFillBlankSentence(sentence: string): string {
@@ -353,7 +346,7 @@ export default function ContentPlay() {
             onBack={handleBack}
             onNext={handleNext}
             canRequestMore={canRequestMore}
-            loadingNext={loadingNext}
+            loadingNext={false}
             index={currentIndex}
           />
         )}

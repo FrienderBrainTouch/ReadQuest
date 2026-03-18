@@ -4,7 +4,6 @@ import { ContentCacheContext, type ContentMap } from './contentCacheCore';
 
 export function ContentCacheProvider({ children }: { children: ReactNode }) {
   const [cache, setCache] = useState<ContentMap>({});
-  const [loadingIds, setLoadingIds] = useState<Set<string>>(new Set());
 
   const getContents = useCallback((bookId: string) => cache[bookId], [cache]);
   const setContents = useCallback((bookId: string, contents: Content[]) => {
@@ -12,8 +11,8 @@ export function ContentCacheProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const isLoading = useCallback(
-    (bookId: string) => loadingIds.has(bookId),
-    [loadingIds]
+    () => false,
+    []
   );
 
   const fetchContentsForBook = useCallback(async (bookId: string): Promise<Content[]> => {
