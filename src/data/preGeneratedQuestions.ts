@@ -14,6 +14,10 @@ export const PRE_GENERATED_BOOK_IDS = [
   'book-willy',
   'book-why-school',
   'book-invitation-missing',
+  'book-elliots-boots',
+  'book-spoon-family',
+  'book-daddy-when',
+  'book-moon',
   'book-mira-first-school-day',
 ] as const;
 
@@ -2821,6 +2825,1654 @@ const INVITATION_MISSING: Record<ContentTypeKey, Content[]> = {
   listening_three_step: [],
 };
 
+// ---------- 엘리엇의 장화 (book-elliots-boots) ----------
+const elliotsBootsOx: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ox_quiz',
+      question: '부모님은 엘리엇에게 입학 선물로 장화 한 켤레를 사 주었어요.',
+      correctAnswer: 'O',
+      explanation: '이야기 첫 부분에 부모님이 입학 선물로 장화를 사 주었다고 나와요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '엘리엇의 장화는 비가 와도 끄떡없을 만큼 튼튼했어요.',
+      correctAnswer: 'O',
+      explanation: '장화는 비와 웅덩이에도 끄떡없을 정도로 튼튼하다고 설명돼요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '엘리엇의 장화는 엘리엇 발에 딱 맞았어요.',
+      correctAnswer: 'X',
+      explanation: '엘리엇의 작은 발에 비해 장화는 “엄청 컸다”고 나와요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '할아버지는 장화 안에 줄넘기와 구슬, 게임 카드를 넣어 보라고 했어요.',
+      correctAnswer: 'O',
+      explanation: '할아버지가 장화 안이 넓다며 줄넘기·구슬·게임 카드를 넣어 보라고 말해요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '할머니는 엘리엇에게 사탕과 케이크를 넣어 보라고 했어요.',
+      correctAnswer: 'X',
+      explanation: '사탕·누가·케이크를 넣자고 한 사람은 아빠예요. 할머니는 반창고와 연고, 입맞춤을 말해요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '할머니는 엘리엇의 무릎을 위해 알록달록한 반창고와 연고를 넣어 보라고 했어요.',
+      correctAnswer: 'O',
+      explanation: '할머니가 무릎을 위해 반창고와 연고를 넣고 “내 입맞춤도 잊지 마렴”이라고 말해요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '아빠는 장화 안에 사탕과 누가 한 상자, 달콤한 케이크를 넣어도 된다고 했어요.',
+      correctAnswer: 'O',
+      explanation: '아빠가 장화 안이 많이 남는다며 사탕·누가 한 상자·케이크를 넣자고 말해요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '엄마는 장화 안에 연필과 새 스케치북, 그리고 자를 넣어도 된다고 했어요.',
+      correctAnswer: 'O',
+      explanation: '엄마가 학교에서 꼭 필요하다며 연필·스케치북·자도 잊지 말라고 해요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '입학식 날, 엘리엇은 장화를 신고 매우 가볍게 뛰어다녔어요.',
+      correctAnswer: 'X',
+      explanation: '장화가 너무 무거워서 발을 아주 조금씩만 움직일 수 있었고, 걷기에도 불편했다고 나와요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '쉬는 시간에 모든 아이들은 물 웅덩이에 뛰어들었지만, 엘리엇은 뛰어들지 않았어요.',
+      correctAnswer: 'O',
+      explanation: '엘리엇은 장화 속 보물들을 잃어버리고 싶지 않아서 웅덩이에 뛰어들지 않아요.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '샬롯은 엘리엇에게 빗물을 튀겼고, “촤악”, “철퍽” 소리가 났어요.',
+      correctAnswer: 'O',
+      explanation: '샬롯이 뛰어와 빗물을 튀기며 “촤악”, “철퍽” 하는 묘사가 나옵니다.',
+    },
+    {
+      type: 'ox_quiz',
+      question: '엘리엇은 장화 속 보물들을 지키기 위해 끝까지 장화를 벗지 않았어요.',
+      correctAnswer: 'X',
+      explanation: '엘리엇은 답답함 끝에 “안녕, 내 장화! 안녕, 내 보물들!”이라며 모든 것을 벗어던져요.',
+    },
+  ],
+  'elliots-boots-ox'
+);
+
+const elliotsBootsMultiple: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'multiple_choice',
+      question: '엘리엇이 받은 입학 선물은 무엇인가요?',
+      options: ['운동화', '장화', '가방', '우산'],
+      correctIndex: 1,
+      explanation: '부모님이 입학 선물로 장화 한 켤레를 사 주었다고 나와요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '엘리엇의 장화는 어떤 점이 “완벽”했나요?',
+      options: ['아주 가벼웠다', '비와 웅덩이에 끄떡없었다', '작아서 신고 벗기 쉬웠다', '빛이 났다'],
+      correctIndex: 1,
+      explanation: '비가 와도, 웅덩이에도 끄떡없을 정도로 튼튼했다고 해요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '할아버지가 장화 안에 넣어 보라고 한 것은 무엇인가요?',
+      options: ['연필과 자', '사탕과 케이크', '줄넘기와 구슬, 게임 카드', '반창고와 연고'],
+      correctIndex: 2,
+      explanation: '할아버지는 줄넘기·구슬·게임 카드를 넣어 보라고 했어요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '할머니가 장화 안에 넣으라고 한 것은 무엇인가요?',
+      options: ['알록달록한 반창고와 연고', '줄넘기와 구슬', '사탕과 누가', '스케치북과 케이크'],
+      correctIndex: 0,
+      explanation: '할머니는 무릎을 위해 반창고와 연고를 넣고, 입맞춤도 잊지 말라고 해요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '아빠가 장화 안에 넣어도 된다고 한 것은 무엇인가요?',
+      options: ['사탕과 누가 한 상자, 케이크', '연필과 스케치북, 자', '구슬과 게임 카드', '반창고와 입맞춤'],
+      correctIndex: 0,
+      explanation: '아빠는 사탕·누가 한 상자·달콤한 케이크를 넣어도 된다고 했어요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '엄마가 학교에서 꼭 필요하다고 하며 넣으라고 한 것은 무엇인가요?',
+      options: ['연필, 새 스케치북, 자', '누가, 케이크, 사탕', '게임 카드, 구슬, 줄넘기', '반창고, 연고, 입맞춤'],
+      correctIndex: 0,
+      explanation: '엄마는 연필과 새 스케치북, 자를 말해요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '입학식 날 엘리엇이 걷기 불편했던 가장 큰 이유는 무엇인가요?',
+      options: ['장화가 젖어서', '장화가 너무 무거워서', '친구가 밀어서', '끈이 풀려서'],
+      correctIndex: 1,
+      explanation: '장화가 너무 무거워 발을 아주 조금씩만 움직일 수 있었다고 해요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '쉬는 시간에 엘리엇이 물 웅덩이에 뛰어들지 않은 이유는 무엇인가요?',
+      options: ['비가 싫어서', '선생님이 말려서', '장화 속 보물들을 잃고 싶지 않아서', '장화가 작아서'],
+      correctIndex: 2,
+      explanation: '장화 속 보물들을 잃어버리고 싶지 않아서 뛰어들지 않았어요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '샬롯이 엘리엇에게 무엇을 했나요?',
+      options: ['연필을 빌려 달라고 했다', '빗물을 튀겼다', '장화를 선물했다', '웅덩이에서 구해 줬다'],
+      correctIndex: 1,
+      explanation: '샬롯이 뛰어와 엘리엇에게 빗물을 튀겨요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '엘리엇이 마침내 결심하고 한 말은 무엇인가요?',
+      options: ['“학교는 재미없어!”', '“내 장화는 완벽해!”', '“안녕, 내 장화! 안녕, 내 보물들!”', '“샬롯, 그만해!”'],
+      correctIndex: 2,
+      explanation: '엘리엇은 답답함 끝에 장화와 보물들에게 작별하며 모든 것을 벗어던져요.',
+    },
+    {
+      type: 'multiple_choice',
+      question: '엘리엇이 집에 올 때의 기분은 어땠나요?',
+      options: ['무서웠다', '화가 났다', '몹시 설레고 즐거웠다', '지루했다'],
+      correctIndex: 2,
+      explanation: '진흙탕 싸움이 처음이었고, 집에 올 땐 몹시 설레고 즐거웠다고 나와요.',
+    },
+  ],
+  'elliots-boots-mc'
+);
+
+const elliotsBootsOrdering: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'ordering',
+      question: '이야기의 큰 흐름을 순서대로 배열해 보세요.',
+      items: ['장화를 입학 선물로 받는다', '장화 안에 여러 물건을 넣는다', '입학식 날 장화를 신고 학교에 간다', '샬롯이 빗물을 튀기며 공격한다', '엘리엇이 장화를 벗어던지고 진흙탕 싸움을 한다'],
+      explanation: '선물 → 채우기 → 학교 → 공격 → 결심과 놀이의 흐름이에요.',
+    },
+    {
+      type: 'ordering',
+      question: '가족이 장화 안에 넣자고 한 것을 등장 순서대로 배열해 보세요.',
+      items: ['줄넘기·구슬·게임 카드', '반창고·연고·입맞춤', '사탕·누가·케이크', '연필·스케치북·자'],
+      explanation: '할아버지 → 할머니 → 아빠 → 엄마 순서로 제안이 이어져요.',
+    },
+    {
+      type: 'ordering',
+      question: '엘리엇이 웅덩이에 들어가지 않던 장면의 흐름을 순서대로 배열해 보세요.',
+      items: ['쉬는 시간이 된다', '아이들이 웅덩이에 뛰어든다', '엘리엇은 보물을 잃기 싫어 망설인다', '샬롯이 달려온다', '빗물이 “촤악”, “철퍽” 튄다'],
+      explanation: '다른 아이들의 행동과 엘리엇의 망설임 뒤에 샬롯의 공격이 시작돼요.',
+    },
+    {
+      type: 'ordering',
+      question: '엘리엇이 답답함을 느끼게 된 이유의 흐름을 순서대로 배열해 보세요.',
+      items: ['장화가 엄청 크다', '장화에 물건들이 채워진다', '장화가 무거워진다', '발을 조금씩만 움직일 수 있다', '싸울 수 없어 답답해진다'],
+      explanation: '크기 → 채움 → 무게 → 움직임 제한 → 답답함으로 이어집니다.',
+    },
+    {
+      type: 'ordering',
+      question: '엘리엇이 결심한 뒤의 행동 흐름을 순서대로 배열해 보세요.',
+      items: ['“안녕, 내 장화! 안녕, 내 보물들!”이라고 말한다', '모든 것을 벗어던진다', '샬롯 해적에게 간다', '진흙탕 싸움을 한다', '집에 올 때 설레고 즐거워한다'],
+      explanation: '작별 인사 → 벗어던짐 → 맞서기 → 놀이 → 즐거움으로 끝나요.',
+    },
+    {
+      type: 'ordering',
+      question: '장화가 “완벽”하다고 느끼는 이유를 순서대로 정리해 보세요.',
+      items: ['비가 와도 끄떡없다', '웅덩이에도 끄떡없다', '아주 튼튼하다', '엘리엇이 몹시 설레고 즐거워한다'],
+      explanation: '튼튼함의 근거(비/웅덩이)와 엘리엇의 감정이 연결돼요.',
+    },
+    {
+      type: 'ordering',
+      question: '학교에서 벌어진 갈등과 해결 흐름을 순서대로 배열해 보세요.',
+      items: ['샬롯의 공격이 시작된다', '엘리엇은 발을 제대로 못 움직여 싸울 수 없다', '엘리엇이 답답해진다', '엘리엇이 결심한다', '엘리엇이 싸움(진흙탕 놀이)에 참여한다'],
+      explanation: '공격 → 한계 → 감정 → 결심 → 참여로 전개됩니다.',
+    },
+    {
+      type: 'ordering',
+      question: '엘리엇이 “보물”을 대하는 태도가 바뀌는 흐름을 순서대로 배열해 보세요.',
+      items: ['보물을 잃고 싶지 않아 웅덩이에 안 들어간다', '샬롯이 빗물을 튀긴다', '엘리엇은 답답함을 느낀다', '엘리엇은 보물들과 작별 인사를 한다', '새로운 보물(진흙탕 경험)이 생긴다'],
+      explanation: '보물의 의미가 “물건”에서 “경험”으로 바뀌어요.',
+    },
+    {
+      type: 'ordering',
+      question: '엘리엇이 집에 돌아온 뒤의 상태를 순서대로 정리해 보세요.',
+      items: ['몹시 설레고 즐거워한다', '매우 지치고 만신창이가 된다', '게임의 왕이 되는 법은 여전히 모른다', '하지만 아주 멋진 날이었다고 느낀다', '엄청난 새로운 보물들이 생긴다'],
+      explanation: '피곤함이 있어도 만족과 성취가 남는 결말이에요.',
+    },
+    {
+      type: 'ordering',
+      question: '장화 안에 물건이 채워질 때의 느낌을 순서대로 배열해 보세요.',
+      items: ['장화가 엄청 크다', '여전히 크다(할아버지 후)', '조금 컸다(할머니 후)', '점점 채워지는 것을 느낀다(아빠 후)', '공간이 조금 남았다(엄마 후)'],
+      explanation: '넓은 공간이 점점 줄어드는 묘사가 단계적으로 나와요.',
+    },
+  ],
+  'elliots-boots-ord'
+);
+
+const elliotsBootsFillBlank: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'fill_blank',
+      sentence: '부모님은 엘리엇에게 입학 선물로 (  ) 한 켤레를 사 주셨어요.',
+      options: ['운동화', '장화', '슬리퍼', '구두'],
+      correctIndex: 1,
+      explanation: '입학 선물은 장화 한 켤레예요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '엘리엇의 장화는 비가 와도 (  )없을 만큼 튼튼했어요.',
+      options: ['겁', '끄떡', '맛', '끝'],
+      correctIndex: 1,
+      explanation: '“비가 와도 끄떡없고”라고 나와요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '엘리엇의 작은 발에 비해 장화는 엄청 (  )어요.',
+      options: ['무거웠', '작았', '컸', '낡았'],
+      correctIndex: 2,
+      explanation: '장화는 엘리엇에게 엄청 컸다고 해요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '할아버지는 장화 안에 줄넘기랑 구슬, (  ) 카드를 넣어 보라고 했어요.',
+      options: ['게임', '수학', '그림', '초대'],
+      correctIndex: 0,
+      explanation: '할아버지는 게임 카드를 넣어 보라고 했어요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '할머니는 알록달록한 반창고와 (  )를 넣어 보라고 했어요.',
+      options: ['연고', '누가', '자', '풍선'],
+      correctIndex: 0,
+      explanation: '할머니는 반창고와 연고를 말해요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '아빠는 사탕과 누가 한 상자, 그리고 달콤한 (  )를 넣어도 된다고 했어요.',
+      options: ['케이크', '피자', '초콜릿', '국'],
+      correctIndex: 0,
+      explanation: '아빠가 케이크를 넣어도 된다고 했어요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '엄마는 연필과 새 스케치북, 그리고 (  )도 잊지 말라고 했어요.',
+      options: ['자', '구슬', '누가', '반창고'],
+      correctIndex: 0,
+      explanation: '엄마는 학교에서 필요하다며 자도 잊지 말라고 해요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '입학식 날 엘리엇은 자랑스럽게 장화를 (  )었어요.',
+      options: ['신', '던', '팔', '접'],
+      correctIndex: 0,
+      explanation: '엘리엇은 장화를 “신었어요”라고 나와요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '엘리엇은 너무 무거워서 발을 아주 (  )씩 움직일 수밖에 없었어요.',
+      options: ['크게', '조금', '빠르게', '높이'],
+      correctIndex: 1,
+      explanation: '“아주 조금씩 움직일 수밖에”라고 나옵니다.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '샬롯이 빗물을 튀기자 “촤악”, “(  )” 하고 튀었어요.',
+      options: ['철퍽', '딩동', '반짝', '쿵쾅'],
+      correctIndex: 0,
+      explanation: '빗물이 “촤악”, “철퍽” 하고 튀었다고 해요.',
+    },
+    {
+      type: 'fill_blank',
+      sentence: '엘리엇은 “안녕, 내 장화! 안녕, 내 (  )들!”이라고 말했어요.',
+      options: ['친구', '보물', '숙제', '우산'],
+      correctIndex: 1,
+      explanation: '엘리엇이 장화와 보물들에게 작별 인사를 해요.',
+    },
+  ],
+  'elliots-boots-fill'
+);
+
+// 5) 물건-의미 연결하기 — 도서 핵심
+const elliotsBootsMatchPairs: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '장화 안에 넣은 물건과 의미를 연결해 보세요.',
+      leftItems: ['줄넘기', '구슬', '게임 카드', '반창고', '연고'],
+      rightItems: ['놀이', '놀이', '놀이', '상처 대비', '상처 대비'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '할아버지의 물건들은 “놀이”, 할머니의 물건들은 “상처 대비”와 연결돼요.',
+      detailedExplanation:
+        '줄넘기·구슬·게임 카드는 할아버지가 넣어 보라고 한 “놀이/게임” 물건이에요.\n반창고와 연고는 할머니가 “상처는 언제든지 날 수 있다”며 준비하라고 한 물건이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장화 안에 넣은 물건과 “누가 말했는지”를 연결해 보세요.',
+      leftItems: ['줄넘기', '반창고', '케이크', '연필', '자'],
+      rightItems: ['할아버지', '할머니', '아빠', '엄마', '엄마'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '누가 어떤 물건을 넣자고 했는지 기억하면 이야기 흐름이 또렷해져요.',
+      detailedExplanation:
+        '할아버지: 줄넘기·구슬·게임 카드\n할머니: 반창고·연고(그리고 입맞춤)\n아빠: 사탕·누가 한 상자·케이크\n엄마: 연필·스케치북·자',
+    },
+    {
+      type: 'match_pairs',
+      question: '물건과 “왜 필요하다고 했는지”를 연결해 보세요.',
+      leftItems: ['반창고', '연고', '연필', '스케치북', '자'],
+      rightItems: ['무릎(상처) 대비', '상처 대비', '학교 준비', '학교 준비', '학교 준비'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '할머니는 상처 대비, 엄마는 학교에서 꼭 필요하다고 했어요.',
+      detailedExplanation:
+        '할머니는 “무릎을 위해” 반창고와 연고를 준비하라고 했고, 엄마는 연필·스케치북·자가 학교에서 필요하다고 했어요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장화 안의 “간식/달콤한 것”을 의미와 연결해 보세요.',
+      leftItems: ['사탕', '누가 한 상자', '달콤한 케이크'],
+      rightItems: ['달콤한 간식', '달콤한 간식', '달콤한 간식'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      explanation: '아빠가 넣자고 한 사탕·누가·케이크는 모두 달콤한 간식이에요.',
+      detailedExplanation: '아빠는 장화 안이 많이 남는다며 사탕과 누가 한 상자, 달콤한 케이크를 넣어도 된다고 말해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '상황과 엘리엇의 선택을 연결해 보세요.',
+      leftItems: ['장화가 너무 무거워졌다', '아이들이 웅덩이에 뛰어들었다', '샬롯이 빗물을 튀겼다', '싸울 수 없어 답답했다', '엘리엇이 결심했다'],
+      rightItems: ['발을 조금씩만 움직였다', '웅덩이에 뛰어들지 않았다', '공격이 시작되었다', '싸울 수 없었다', '장화를 벗어던졌다'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '원인과 행동을 연결하면 엘리엇의 결심이 자연스럽게 이해돼요.',
+      detailedExplanation:
+        '장화가 무거워지자 엘리엇은 발을 조금씩만 움직일 수 있었고, 보물을 잃기 싫어 웅덩이를 피했어요.\n샬롯의 공격으로 답답함이 커지자, 결국 장화를 벗어던지는 결심을 합니다.',
+    },
+    {
+      type: 'match_pairs',
+      question: '소리 표현과 상황을 연결해 보세요.',
+      leftItems: ['촤악', '철퍽'],
+      rightItems: ['빗물이 튀기는 소리', '빗물이 튀기는 소리'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+      ],
+      explanation: '샬롯이 빗물을 튀길 때 “촤악”, “철퍽” 소리가 났다고 해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '등장인물과 역할(말)을 연결해 보세요.',
+      leftItems: ['할아버지', '할머니', '아빠', '엄마'],
+      rightItems: ['놀이 물건을 넣자고 함', '상처 대비를 챙기자고 함', '달콤한 간식을 넣자고 함', '학교 준비물을 넣자고 함'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ],
+      explanation: '누가 어떤 방향의 “보물”을 챙겼는지 정리하는 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장화의 상태와 느낌을 연결해 보세요.',
+      leftItems: ['처음 받은 장화', '물건을 넣은 뒤 장화', '입학식 날 장화', '쉬는 시간의 엘리엇', '집에 온 엘리엇'],
+      rightItems: ['설레고 즐거움', '점점 채워짐', '걷기 불편함', '답답함', '설레고 즐거움'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '같은 “설렘”이라도 시작과 끝의 의미가 달라져요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '“보물”이 될 수 있는 것을 연결해 보세요.',
+      leftItems: ['장화 속 물건들', '진흙탕 싸움 경험', '새로운 보물들'],
+      rightItems: ['처음에 지키고 싶던 것', '마침내 얻은 즐거움', '마지막에 생긴 것'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      explanation: '이 책은 보물이 “물건”에서 “경험”으로 확장되는 느낌이 있어요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장화가 커서 가능했던 행동을 연결해 보세요.',
+      leftItems: ['장화 안이 매우 넓다', '장화가 여전히 크다', '장화 안에 공간이 남는다'],
+      rightItems: ['여러 물건을 넣을 수 있다', '더 넣을 수 있다', '학교 준비물을 넣을 수 있다'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      explanation: '장화가 컸기 때문에 “넣기”가 계속 이어졌고, 그게 무게로 연결돼요.',
+    },
+  ],
+  'elliots-boots-match'
+);
+
+// 6) 선택 행동 결과 찾기 — choice_with_result 사용
+const elliotsBootsChoiceWithResult: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇의 장화가 커서 할아버지가 제안한 것은 무엇인가요?',
+      options: ['장화에 물을 채우기', '장화 안에 놀이 물건 넣기', '장화를 버리기', '장화 끈 묶기'],
+      resultTexts: [
+        '이야기에는 장화에 물을 채우는 장면이 없어요.',
+        '할아버지는 줄넘기·구슬·게임 카드를 넣어 보라고 했어요.',
+        '할아버지는 장화를 버리라고 하지 않았어요.',
+        '장화에 끈을 묶는 내용은 나오지 않아요.',
+      ],
+      correctIndex: 1,
+      explanation: '할아버지는 장화 안이 넓다며 놀이 물건을 넣어 보라고 했어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇이 쉬는 시간에 웅덩이에 뛰어들지 않은 이유는 무엇인가요?',
+      options: ['비가 싫어서', '장화 속 보물을 잃기 싫어서', '친구가 없어서', '선생님이 금지해서'],
+      resultTexts: [
+        '비가 싫어서가 아니라, 보물을 잃을까 봐 걱정했어요.',
+        '엘리엇은 장화 속 보물들을 잃어버리고 싶지 않았어요.',
+        '친구가 없어서라는 내용은 나오지 않아요.',
+        '선생님이 금지했다는 내용은 없어요.',
+      ],
+      correctIndex: 1,
+      explanation: '보물을 지키고 싶어서 웅덩이를 피했어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '샬롯 해적의 공격이 시작된 행동은 무엇인가요?',
+      options: ['연필을 빌려감', '빗물을 튀김', '장화를 훔침', '선생님께 말함'],
+      resultTexts: [
+        '연필을 빌려가는 내용은 없어요.',
+        '샬롯이 뛰어와 빗물을 튀기며 공격이 시작돼요.',
+        '장화를 훔치는 장면은 없어요.',
+        '선생님께 말하는 장면은 없어요.',
+      ],
+      correctIndex: 1,
+      explanation: '샬롯이 엘리엇에게 빗물을 튀기며 “촤악”, “철퍽” 소리가 났어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇이 답답했던 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['장화가 젖어서', '발을 제대로 움직일 수 없어서', '친구들이 도망가서', '배가 고파서'],
+      resultTexts: [
+        '젖어서가 아니라, 무게 때문에 움직이기 힘들었어요.',
+        '너무 무거워서 발을 제대로 움직일 수 없어 싸울 수 없었어요.',
+        '친구들이 도망갔다는 내용은 없어요.',
+        '배가 고프다는 내용은 없어요.',
+      ],
+      correctIndex: 1,
+      explanation: '무거운 장화 때문에 싸울 수 없어서 답답했어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇이 결심하고 한 행동은 무엇인가요?',
+      options: ['장화를 꼭 붙잡고 숨는다', '모든 것을 벗어던진다', '집으로 먼저 돌아간다', '샬롯에게 사과한다'],
+      resultTexts: [
+        '엘리엇은 숨지 않았어요.',
+        '“안녕, 내 장화! 안녕, 내 보물들!”이라며 모든 것을 벗어던져요.',
+        '집으로 먼저 돌아간 것이 아니라, 샬롯에게 가요.',
+        '샬롯에게 사과했다는 내용은 없어요.',
+      ],
+      correctIndex: 1,
+      explanation: '엘리엇은 장화와 보물들을 내려놓고 싸움(놀이)에 참여해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇이 집에 올 때의 상태로 가장 알맞은 것은 무엇인가요?',
+      options: ['깨끗하고 말끔했다', '몹시 설레고 즐거웠다', '전혀 지치지 않았다', '게임의 왕이 되었다'],
+      resultTexts: [
+        '진흙탕 싸움을 했으니 깨끗하진 않아요.',
+        '집에 올 땐 몹시 설레고 즐거웠다고 나와요.',
+        '엘리엇은 매우 지치고 만신창이가 되었다고 해요.',
+        '여전히 게임의 왕이 되는 법도 몰랐다고 나와요.',
+      ],
+      correctIndex: 1,
+      explanation: '힘들었지만 즐거운 하루였어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇이 얻은 “새로운 보물”에 가장 가까운 것은 무엇인가요?',
+      options: ['장화 속 물건들', '진흙탕 싸움에서의 즐거운 경험', '새 스케치북', '누가 한 상자'],
+      resultTexts: [
+        '장화 속 물건들은 처음부터 있던 보물들이에요.',
+        '결말에서 “엄청난 새로운 보물들”이 생겼다고 하며, 진흙탕 싸움 경험이 그 보물에 가까워요.',
+        '스케치북은 엄마가 넣자고 한 준비물이에요.',
+        '누가는 아빠가 넣자고 한 간식이에요.',
+      ],
+      correctIndex: 1,
+      explanation: '이 책은 물건보다 “경험”이 보물이 되는 느낌을 줘요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엘리엇이 처음에 가장 중요하게 지키고 싶었던 것은 무엇이었나요?',
+      options: ['샬롯과의 놀이', '장화 속 보물들', '선생님의 칭찬', '교실 자리'],
+      resultTexts: [
+        '처음에는 놀이보다 보물을 지키려 했어요.',
+        '엘리엇은 장화 속 보물들을 잃어버리고 싶지 않았어요.',
+        '선생님 칭찬은 나오지 않아요.',
+        '교실 자리는 이야기와 관련이 없어요.',
+      ],
+      correctIndex: 1,
+      explanation: '그래서 웅덩이에 뛰어들지 않았죠.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '아빠가 케이크를 넣자고 하며 당부한 말은 무엇이었나요?',
+      options: ['“비가 올 거야.”', '“눌리지 않게 조심하렴.”', '“빨리 뛰어라.”', '“친구랑 나눠 먹어.”'],
+      resultTexts: [
+        '비가 온다는 당부는 없어요.',
+        '아빠는 케이크가 눌리지 않게 조심하라고 했어요.',
+        '빨리 뛰라는 말은 없고, 오히려 너무 무거워 움직이기 힘들었어요.',
+        '나눠 먹으라는 말은 없어요.',
+      ],
+      correctIndex: 1,
+      explanation: '아빠는 케이크가 눌리지 않게 조심하라고 말해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '할머니가 “상처는 언제든지 날 수 있다”고 말하며 잊지 말라고 한 것은 무엇인가요?',
+      options: ['입맞춤', '게임 카드', '누가', '자'],
+      resultTexts: [
+        '할머니는 반창고·연고와 함께 “내 입맞춤도 잊지 마렴”이라고 말해요.',
+        '게임 카드는 할아버지가 말한 물건이에요.',
+        '누가는 아빠가 말한 간식이에요.',
+        '자는 엄마가 말한 준비물이에요.',
+      ],
+      correctIndex: 0,
+      explanation: '할머니는 입맞춤도 잊지 말라고 했어요.',
+    },
+  ],
+  'elliots-boots-choice'
+);
+
+const ELLIOTS_BOOTS: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: elliotsBootsOx,
+  multiple_choice: elliotsBootsMultiple,
+  ordering: elliotsBootsOrdering,
+  fill_blank: elliotsBootsFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: elliotsBootsMatchPairs,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: [],
+  choice_with_result: elliotsBootsChoiceWithResult,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
+// ---------- 숟가락 가족 (book-spoon-family) ----------
+const spoonFamilyOx: Content[] = withIdsAndOrder(
+  [
+    { type: 'ox_quiz', question: '오늘은 가족 만들기 하는 날이에요.', correctAnswer: 'O', explanation: '이야기 첫 문장에 “오늘은 가족 만들기 하는 날”이라고 나와요.' },
+    { type: 'ox_quiz', question: '선생님은 나무젓가락과 색종이를 나눠주셨어요.', correctAnswer: 'X', explanation: '선생님은 “플라스틱 숟가락과 색종이”를 나눠주셨어요.' },
+    { type: 'ox_quiz', question: '친구들은 숟가락을 얼굴 삼아 눈과 코, 머리 모양을 그렸어요.', correctAnswer: 'O', explanation: '숟가락을 얼굴처럼 사용해 눈·코·머리 모양을 그렸다고 해요.' },
+    { type: 'ox_quiz', question: '가족의 수가 늘어난 만큼 교실은 조용해졌어요.', correctAnswer: 'X', explanation: '가족이 늘어나자 교실이 “시끌벅적해졌다”고 나와요.' },
+    { type: 'ox_quiz', question: '진현이는 자기 가족을 소개하려고 손을 번쩍 들었어요.', correctAnswer: 'O', explanation: '선생님 질문에 진현이가 손을 번쩍 들고 소개를 시작해요.' },
+    { type: 'ox_quiz', question: '진현이네는 모두 여덟 식구가 살아요.', correctAnswer: 'O', explanation: '할머니, 엄마, 아빠, 큰형, 작은형, 진현이, 쌍둥이 여동생까지 “여덟 식구”라고 말해요.' },
+    { type: 'ox_quiz', question: '선생님은 3대가 사는 대가족이라서 참 좋겠다고 했어요.', correctAnswer: 'O', explanation: '진현이 소개 뒤 선생님이 3대가 사는 대가족이 좋겠다고 말해요.' },
+    { type: 'ox_quiz', question: '이야기에는 핵가족, 다문화 가족, 한부모 가족, 조손가족이 나와요.', correctAnswer: 'O', explanation: '본문에 여러 가족 형태가 예시로 등장해요.' },
+    { type: 'ox_quiz', question: '숟가락 가족들은 책상 서랍 안에 자리를 잡았어요.', correctAnswer: 'X', explanation: '숟가락 가족들은 “사물함 위에” 자리를 잡았다고 해요.' },
+    { type: 'ox_quiz', question: '숟가락 할머니가 교실 바닥에 툭 떨어져 있었어요.', correctAnswer: 'O', explanation: '어느 날 숟가락 할머니가 교실 바닥에 떨어져 있어요.' },
+    { type: 'ox_quiz', question: '숟가락 할머니를 잃어버린 사람은 바로 나타났어요.', correctAnswer: 'X', explanation: '아이들은 눈만 멀뚱거렸고, 아무도 나오지 않았어요.' },
+    { type: 'ox_quiz', question: '두리는 엄마랑 단둘이 사는 아이예요.', correctAnswer: 'O', explanation: '쉬는 시간에 할머니를 보러 온 두리는 “엄마랑 단둘이” 산다고 나와요.' },
+    { type: 'ox_quiz', question: '장규는 두리에게 얼른 도서관에 갔다 오자고 불렀어요.', correctAnswer: 'O', explanation: '교실 뒤쪽에서 장규가 “얼른 도서관에 갔다 오자”고 불러요.' },
+    { type: 'ox_quiz', question: '날이 갈수록 숟가락 가족들은 더 예뻐졌어요.', correctAnswer: 'X', explanation: '날이 갈수록 “망가지고 추레해졌다”고 해요.' },
+    { type: 'ox_quiz', question: '두리는 선생님께 숟가락 할머니 옷을 붙여줘도 되는지 물었고, 선생님은 고개를 끄덕였어요.', correctAnswer: 'O', explanation: '두리가 조심히 여쭤보고, 선생님이 웃으며 고개를 끄덕여요.' },
+  ],
+  'spoon-family-ox'
+);
+
+const spoonFamilyMultiple: Content[] = withIdsAndOrder(
+  [
+    { type: 'multiple_choice', question: '가족 만들기 시간에 선생님이 나눠준 것은 무엇인가요?', options: ['플라스틱 숟가락과 색종이', '나무 막대와 천', '종이컵과 풀', '찰흙과 물감'], correctIndex: 0, explanation: '선생님은 플라스틱 숟가락과 색종이를 나눠주셨어요.' },
+    { type: 'multiple_choice', question: '친구들은 숟가락을 무엇으로 삼아 그림을 그렸나요?', options: ['발', '얼굴', '모자', '가방'], correctIndex: 1, explanation: '숟가락을 얼굴 삼아 눈·코·머리를 그렸어요.' },
+    { type: 'multiple_choice', question: '가족이 늘어나자 교실은 어떻게 되었나요?', options: ['시끌벅적해졌다', '불이 꺼졌다', '텅 비었다', '조용해졌다'], correctIndex: 0, explanation: '가족의 수가 늘어난 만큼 교실은 시끌벅적해졌어요.' },
+    { type: 'multiple_choice', question: '자기 가족을 먼저 소개하겠다고 손을 든 아이는 누구인가요?', options: ['두리', '장규', '진현이', '선생님'], correctIndex: 2, explanation: '선생님 질문에 진현이가 손을 번쩍 들었어요.' },
+    { type: 'multiple_choice', question: '진현이네 가족은 모두 몇 식구인가요?', options: ['여섯', '일곱', '여덟', '아홉'], correctIndex: 2, explanation: '진현이는 “모두 여덟 식구”라고 말해요.' },
+    { type: 'multiple_choice', question: '선생님이 좋겠다고 한 진현이네 가족의 특징은 무엇인가요?', options: ['친구가 많다', '3대가 함께 사는 대가족이다', '외국에 산다', '동물이 많다'], correctIndex: 1, explanation: '선생님은 3대가 사는 대가족이라서 좋겠다고 했어요.' },
+    { type: 'multiple_choice', question: '숟가락 가족들은 어디에 자리를 잡았나요?', options: ['사물함 위', '교탁 아래', '창틀', '운동장'], correctIndex: 0, explanation: '숟가락 가족들은 사물함 위에 자리를 잡았어요.' },
+    { type: 'multiple_choice', question: '교실 바닥에 떨어져 있었던 것은 무엇인가요?', options: ['숟가락 엄마', '숟가락 아빠', '숟가락 할머니', '숟가락 동생'], correctIndex: 2, explanation: '어느 날 숟가락 할머니가 교실 바닥에 툭 떨어져 있었어요.' },
+    { type: 'multiple_choice', question: '선생님이 “잃어버린 사람은 찾아가세요”라고 했을 때 아이들은 어땠나요?', options: ['서둘러 달려왔다', '눈만 멀뚱거렸다', '웃으며 박수쳤다', '교실을 나갔다'], correctIndex: 1, explanation: '아무도 나오지 않았고, 아이들은 눈만 멀뚱거렸어요.' },
+    { type: 'multiple_choice', question: '두리는 어떤 가족 형태로 살고 있나요?', options: ['핵가족', '조손가족', '한부모 가족(엄마와 단둘이)', '다문화 가족'], correctIndex: 2, explanation: '두리는 엄마랑 단둘이 산다고 나와요.' },
+    { type: 'multiple_choice', question: '두리가 숟가락 할머니를 보며 한 말은 무엇과 관련 있나요?', options: ['집에 가고 싶은 마음', '맛있는 음식', '새 옷', '여행'], correctIndex: 0, explanation: '두리는 “할머니는 얼마나 집에 가고 싶을까?”라고 말해요.' },
+    { type: 'multiple_choice', question: '장규가 두리에게 하자고 한 것은 무엇인가요?', options: ['운동장 가기', '도서관 다녀오기', '매점 가기', '미술실 가기'], correctIndex: 1, explanation: '장규가 “얼른 도서관에 갔다 오자”고 불렀어요.' },
+    { type: 'multiple_choice', question: '숟가락 가족들의 모습이 망가지자 아이들이 한 일은 무엇인가요?', options: ['버렸다', '새롭게 꾸몄다', '숨겼다', '집으로 가져갔다'], correctIndex: 1, explanation: '아이들은 숟가락 가족을 다시 예쁘게 꾸미기 시작했어요.' },
+    { type: 'multiple_choice', question: '두리가 숟가락 할머니에게 해 준 일로 알맞은 것은 무엇인가요?', options: ['옷을 정성스럽게 붙였다', '모자를 빼앗았다', '물에 담갔다', '바닥에 던졌다'], correctIndex: 0, explanation: '두리는 뜯어진 할머니 옷을 정성스럽게 붙였어요.' },
+  ],
+  'spoon-family-mc'
+);
+
+const spoonFamilyOrdering: Content[] = withIdsAndOrder(
+  [
+    { type: 'ordering', question: '이야기의 큰 흐름을 순서대로 배열해 보세요.', items: ['가족 만들기 활동을 한다', '숟가락 가족이 사물함 위에 자리 잡는다', '숟가락 할머니가 바닥에 떨어진다', '두리가 숟가락 할머니를 보러 온다', '아이들이 숟가락 가족을 다시 꾸민다', '장규가 “우리 할머니야!”라고 하고 데려간다', '점심시간에 아이들이 숟가락 가족을 데리고 모인다'], explanation: '만들기 → 자리 → 사건(할머니 분실) → 두리의 관심 → 다시 꾸밈 → 갈등 → 함께 인사로 마무리돼요.' },
+    { type: 'ordering', question: '진현이의 가족 소개 내용을 순서대로 정리해 보세요.', items: ['선생님이 소개할 사람을 묻는다', '진현이가 손을 번쩍 든다', '여덟 식구라고 말한다', '아이들이 입이 떡 벌어진다', '선생님이 대가족이 좋겠다고 말한다'], explanation: '질문 → 손 들기 → 소개 → 반응 → 선생님 말 순서예요.' },
+    { type: 'ordering', question: '숟가락 할머니를 찾는 장면의 흐름을 순서대로 배열해 보세요.', items: ['숟가락 할머니가 바닥에 떨어져 있다', '선생님이 할머니를 보여 준다', '선생님이 잃어버린 사람은 찾아가라고 한다', '아무도 나오지 않는다', '선생님이 교탁 한쪽에 올려둔다'], explanation: '발견 → 보여줌 → 안내 → 반응 없음 → 교탁에 두기 흐름이에요.' },
+    { type: 'ordering', question: '두리가 숟가락 할머니를 돌보게 되는 흐름을 순서대로 배열해 보세요.', items: ['쉬는 시간이 된다', '두리가 숟가락 할머니를 보러 온다', '옷자락을 만지작거린다', '장규가 도서관에 가자고 부른다'], explanation: '쉬는 시간에 두리가 관심을 갖고 다가가는 장면이 핵심이에요.' },
+    { type: 'ordering', question: '숟가락 가족이 망가진 뒤, 아이들이 다시 꾸미는 과정 흐름을 배열해 보세요.', items: ['날이 갈수록 추레해진다', '선생님이 모습이 어떻게 되었는지 묻는다', '아이들이 “못생겨졌어요”라고 말한다', '선생님이 다시 예쁘게 해 줄지 묻는다', '아이들이 “네!”라고 한다', '새롭게 꾸미기 시작한다'], explanation: '상태 변화 → 질문/답 → 다시 꾸미기 합의 → 실행 순서예요.' },
+    { type: 'ordering', question: '두리가 숟가락 할머니를 예쁘게 꾸민 뒤 벌어진 일을 순서대로 배열해 보세요.', items: ['두리가 할머니 옷을 붙여도 되는지 묻는다', '선생님이 고개를 끄덕인다', '두리가 뜯어진 옷을 붙인다', '진현이가 스티커로 눈코입을 붙인다', '두리가 “우리 할머니 하면 좋겠다”라고 중얼거린다'], explanation: '허락 → 꾸밈 → 마음이 드러나는 흐름이에요.' },
+    { type: 'ordering', question: '갈등이 생기는 장면의 흐름을 순서대로 배열해 보세요.', items: ['진현이가 “두리가 자기 할머니 하고 싶대요!”라고 말한다', '두리가 좋아서 엉덩이춤을 춘다', '장규가 다가와 “우리 할머니야!”라고 말한다', '진현이가 “지금까지 찾으러 오지도 않았잖아!”라고 말한다', '장규가 숟가락 할머니를 데리고 가버린다'], explanation: '비밀이 공개되며 기뻐하다가, 장규 등장으로 갈등이 생겨요.' },
+    { type: 'ordering', question: '두리가 장규에게 다가간 뒤의 흐름을 순서대로 배열해 보세요.', items: ['두리가 눈물이 나려는 걸 꾹 참는다', '두리가 결심한 듯 장규를 쫓아간다', '두리가 “또 잃어버리면 그땐 우리 할머니 해도 되지?”라고 말한다', '장규가 “그래”라고 한다', '장규가 고맙다고 말한다'], explanation: '서운함 → 결심 → 제안 → 동의 → 고마움 순서예요.' },
+    { type: 'ordering', question: '점심시간 인사 장면의 흐름을 순서대로 배열해 보세요.', items: ['아이들이 숟가락 가족을 데리고 모인다', '아이들이 “할머니, 안녕하세요?”라고 인사한다', '할머니가 “착한 두리가 왔구나!”라고 말한다', '아이들이 “집에 돌아오셔서 다행”이라고 말한다', '할머니가 “네 덕이고 고맙다”고 말한다'], explanation: '모임 → 인사 → 답 → 다행 인사 → 고마움으로 이어져요.' },
+    { type: 'ordering', question: '두리의 마음 변화와 관련된 사건을 순서대로 배열해 보세요.', items: ['두리가 할머니가 집에 가고 싶을까 생각한다', '두리가 할머니 옷을 붙인다', '두리가 “우리 할머니 하면 좋겠다”라고 말한다', '장규가 할머니를 데려가 서운해진다', '두리가 장규에게 “또 잃어버리면…”이라고 말한다'], explanation: '관심 → 돌봄 → 바람 → 서운함 → 새로운 약속 순서로 볼 수 있어요.' },
+  ],
+  'spoon-family-ord'
+);
+
+const spoonFamilyFillBlank: Content[] = withIdsAndOrder(
+  [
+    { type: 'fill_blank', sentence: '선생님은 플라스틱 (  )과 색종이를 나눠주셨어요.', options: ['숟가락', '포크', '그릇', '컵'], correctIndex: 0, explanation: '플라스틱 숟가락과 색종이를 나눠주셨어요.' },
+    { type: 'fill_blank', sentence: '친구들은 숟가락을 (  ) 삼아 눈과 코, 머리 모양을 그렸어요.', options: ['얼굴', '신발', '책', '창문'], correctIndex: 0, explanation: '숟가락을 얼굴 삼아 그렸어요.' },
+    { type: 'fill_blank', sentence: '가족의 수가 늘어난 만큼 교실은 (  )해졌어요.', options: ['시끌벅적', '캄캄', '쓸쓸', '조용'], correctIndex: 0, explanation: '교실이 시끌벅적해졌어요.' },
+    { type: 'fill_blank', sentence: '자기 가족을 소개하려고 손을 번쩍 든 아이는 (  )예요.', options: ['진현이', '두리', '장규', '베티'], correctIndex: 0, explanation: '진현이가 손을 번쩍 들었어요.' },
+    { type: 'fill_blank', sentence: '진현이는 “모두 (  ) 식구가 삽니다”라고 했어요.', options: ['여섯', '일곱', '여덟', '아홉'], correctIndex: 2, explanation: '진현이네는 여덟 식구예요.' },
+    { type: 'fill_blank', sentence: '숟가락 가족들은 (  ) 위에 자리를 잡았어요.', options: ['사물함', '칠판', '창문', '운동장'], correctIndex: 0, explanation: '사물함 위에 자리를 잡았어요.' },
+    { type: 'fill_blank', sentence: '어느 날 숟가락 (  )가 교실 바닥에 툭 떨어져 있었어요.', options: ['할머니', '아빠', '엄마', '동생'], correctIndex: 0, explanation: '숟가락 할머니가 떨어져 있었어요.' },
+    { type: 'fill_blank', sentence: '선생님은 숟가락 할머니를 교탁 (  )에 올려두셨어요.', options: ['한쪽', '위', '아래', '가운데'], correctIndex: 0, explanation: '교탁 한쪽에 올려두셨어요.' },
+    { type: 'fill_blank', sentence: '두리는 (  )랑 단둘이 사는 아이예요.', options: ['엄마', '아빠', '할아버지', '언니'], correctIndex: 0, explanation: '두리는 엄마랑 단둘이 살아요.' },
+    { type: 'fill_blank', sentence: '장규는 “두리야, 얼른 (  )에 갔다 오자”라고 불렀어요.', options: ['도서관', '운동장', '식당', '미술실'], correctIndex: 0, explanation: '장규가 도서관에 갔다 오자고 불렀어요.' },
+    { type: 'fill_blank', sentence: '두리는 뜯어진 할머니의 옷을 (  )스럽게 붙였어요.', options: ['정성', '대충', '거칠', '빠'], correctIndex: 0, explanation: '두리는 정성스럽게 붙였어요.' },
+  ],
+  'spoon-family-fill'
+);
+
+// 5) 가족 형태 연결하기 — 도서 핵심
+const spoonFamilyMatchPairs: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '가족 형태와 설명을 연결해 보세요.',
+      leftItems: ['핵가족', '다문화 가족', '한부모 가족', '조손가족', '대가족'],
+      rightItems: ['부모님과 아이가 사는 가족', '국제결혼 부부와 아이가 사는 가족', '엄마 또는 아빠하고만 사는 가족', '할머니·할아버지와 함께 사는 가족', '3대가 함께 사는 가족'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '본문에 나온 가족 형태 설명을 그대로 연결하는 문제예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '이야기 속 가족 말과 알맞은 가족 형태를 연결해 보세요.',
+      leftItems: ['“엄마랑 단둘이 사는” 두리', '“3대가 사는” 진현이네', '“할머니, 할아버지와 함께 사는” 경우', '“국제결혼을 한 부부와 아이”', '“부모님과 아이가 사는” 경우'],
+      rightItems: ['한부모 가족', '대가족', '조손가족', '다문화 가족', '핵가족'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '두리/진현이 사례와, 본문에 등장한 가족 형태 예시를 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '가족 형태를 “함께 사는 사람” 기준으로 연결해 보세요.',
+      leftItems: ['핵가족', '한부모 가족', '조손가족', '다문화 가족', '대가족'],
+      rightItems: ['부모+자녀', '부모 1명+자녀', '조부모+손자녀', '국제결혼 부부+자녀', '3대 함께'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '정의가 겹치지 않게 핵심 표현으로 정리한 연결 문제예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '가족 형태와 “이야기에서 언급된 표현”을 연결해 보세요.',
+      leftItems: ['대가족', '핵가족', '다문화 가족', '한부모 가족', '조손가족'],
+      rightItems: ['3대가 사는 대가족', '부모님과 아이가 사는', '국제결혼을 한 부부와 아이가 사는', '엄마 또는 아빠하고만 사는', '할머니, 할아버지와 함께 사는'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '본문에 나온 문장을 그대로 가져온 연결하기예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '가족 형태와 “대표 단어”를 연결해 보세요.',
+      leftItems: ['핵가족', '다문화 가족', '한부모 가족', '조손가족', '대가족'],
+      rightItems: ['부모+아이', '국제결혼', '엄마/아빠 한 명', '할머니·할아버지', '3대'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '긴 설명을 한 단어 힌트로 요약해 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '가족 형태와 “교실에서 언급된 가족 이야기”를 연결해 보세요.',
+      leftItems: ['핵가족', '다문화 가족', '한부모 가족', '조손가족', '대가족'],
+      rightItems: ['부모님과 아이가 사는 가족', '국제결혼을 한 부부와 아이가 사는 가족', '엄마 또는 아빠하고만 사는 가족', '할머니, 할아버지와 함께 사는 가족', '3대가 사는 가족'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '교실에서 다양한 가족 형태를 소개한 부분을 정리하는 문제예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '두리와 관련된 키워드를 연결해 보세요.',
+      leftItems: ['두리', '두리의 가족 형태', '두리의 말', '두리의 행동', '선생님의 반응'],
+      rightItems: ['엄마와 단둘이', '한부모 가족', '“할머니는 얼마나 집에 가고 싶을까?”', '옷자락을 만지작거림', '고개를 끄덕임'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '두리 장면의 핵심 정보(형태·말·행동)를 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '진현이네 가족 구성과 알맞은 정보들을 연결해 보세요.',
+      leftItems: ['가족 수', '가족 구성(예시)', '선생님이 말한 특징', '아이들 반응', '진현이 행동'],
+      rightItems: ['여덟 식구', '할머니·엄마·아빠·형들·쌍둥이 여동생', '3대가 사는 대가족', '입이 떡 벌어짐', '손을 번쩍 듦'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '진현이 소개 장면의 정보들을 한 번에 정리하는 매칭이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장소와 사건을 연결해 보세요.',
+      leftItems: ['사물함 위', '교실 바닥', '교탁 한쪽', '교실 뒤쪽', '점심시간 모임'],
+      rightItems: ['숟가락 가족이 자리 잡은 곳', '숟가락 할머니가 떨어진 곳', '선생님이 할머니를 올려둔 곳', '장규가 두리를 부른 곳(방향)', '아이들이 숟가락 가족을 데리고 모인 때'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '장면의 “장소 단서”를 잡는 연결 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '말과 말한 사람을 연결해 보세요.',
+      leftItems: ['“누가 먼저 자기 가족을 소개해 볼까요?”', '“자기 할머니 잃어버린 사람은 찾아가세요.”', '“할머니는 얼마나 집에 가고 싶을까?”', '“두리야, 얼른 도서관에 갔다 오자.”', '“두리가 길 잃은 할머니의 손녀가 되어 주면 좋지.”'],
+      rightItems: ['선생님', '선생님', '두리', '장규', '선생님'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '누가 어떤 말을 했는지 기억을 점검하는 매칭이에요.',
+    },
+  ],
+  'spoon-family-match'
+);
+
+// 6) 행동 결과 선택형 — choice_with_result 사용
+const spoonFamilyChoiceWithResult: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'choice_with_result',
+      situation: '선생님이 “자기 할머니 잃어버린 사람은 찾아가세요”라고 했을 때, 교실에서 일어난 일은 무엇인가요?',
+      options: ['아이들이 모두 손을 들었다', '아무도 나오지 않았다', '장규가 바로 데려갔다', '두리가 바로 집에 가져갔다'],
+      resultTexts: [
+        '이야기에서는 아이들이 손을 들지 않았어요.',
+        '아이들은 눈만 멀뚱거렸고, 아무도 나오지 않았어요.',
+        '장규가 바로 데려가는 장면은 나중에 나와요.',
+        '두리가 바로 집에 가져가지는 않아요.',
+      ],
+      correctIndex: 1,
+      explanation: '아무도 나오지 않아서 선생님이 교탁 한쪽에 올려두었어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '선생님이 숟가락 할머니를 교탁 한쪽에 올려둔 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['교탁이 예뻐서', '아무도 찾아가지 않아서', '두리가 시켜서', '바닥이 깨끗해서'],
+      resultTexts: [
+        '교탁이 예뻐서라는 내용은 없어요.',
+        '아무도 나오지 않자 “하는 수 없이” 교탁 한쪽에 올려두었어요.',
+        '두리가 시킨 장면은 없어요.',
+        '바닥이 깨끗해서가 아니라, 주인이 안 나타났기 때문이에요.',
+      ],
+      correctIndex: 1,
+      explanation: '잃어버린 사람이 나오지 않아 임시로 두었어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '쉬는 시간에 숟가락 할머니를 보러 온 아이는 누구인가요?',
+      options: ['진현이', '장규', '두리', '선생님'],
+      resultTexts: [
+        '진현이는 가족 소개를 한 아이예요.',
+        '장규는 뒤에서 두리를 부른 아이예요.',
+        '두리가 숟가락 할머니를 보러 왔어요.',
+        '선생님이 “보러 온 아이”로 묘사되진 않아요.',
+      ],
+      correctIndex: 2,
+      explanation: '두리는 엄마와 단둘이 사는 아이로 등장해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '두리가 숟가락 할머니의 색종이 옷자락을 만지작거린 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['새 옷을 만들고 싶어서', '할머니가 집에 가고 싶을 것 같아서', '장규가 시켜서', '스티커를 붙이려고'],
+      resultTexts: [
+        '옷을 새로 만들겠다는 말은 아니에요.',
+        '두리는 “할머니는 얼마나 집에 가고 싶을까?”라고 하며 옷자락을 만지작거렸어요.',
+        '장규가 시킨 내용은 없어요.',
+        '스티커는 나중에 진현이가 붙여요.',
+      ],
+      correctIndex: 1,
+      explanation: '두리는 할머니의 마음을 생각하며 다가가요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '날이 갈수록 숟가락 가족이 망가지고 추레해지자, 선생님과 아이들이 한 선택은 무엇인가요?',
+      options: ['그대로 둔다', '버린다', '다시 예쁘게 꾸민다', '교실 밖으로 옮긴다'],
+      resultTexts: [
+        '그대로 두지 않고 다시 꾸미기로 해요.',
+        '버리는 장면은 없어요.',
+        '아이들은 “네!”라고 하고 숟가락 가족을 새롭게 꾸미기 시작해요.',
+        '교실 밖으로 옮긴다는 내용은 없어요.',
+      ],
+      correctIndex: 2,
+      explanation: '아이들은 숟가락 가족을 새롭게 꾸미기 시작했어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '두리가 선생님께 허락을 받고 한 일은 무엇인가요?',
+      options: ['숟가락 할머니를 숨겼다', '뜯어진 할머니 옷을 붙였다', '할머니를 버렸다', '장규를 혼냈다'],
+      resultTexts: [
+        '숨기는 장면은 없어요.',
+        '두리는 뜯어진 할머니 옷을 정성스럽게 붙였어요.',
+        '버리는 장면은 없어요.',
+        '장규를 혼내는 건 진현이의 말과 관련이 있어요.',
+      ],
+      correctIndex: 1,
+      explanation: '두리는 할머니 옷을 정성스럽게 붙였어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '진현이가 한 행동으로 알맞은 것은 무엇인가요?',
+      options: ['할머니 옷을 찢었다', '스티커에서 웃는 눈코입을 골라 붙였다', '도서관에 먼저 갔다', '할머니를 교탁에 올려뒀다'],
+      resultTexts: [
+        '옷을 찢었다는 내용은 없어요.',
+        '진현이는 스티커에서 웃는 모양의 눈코입을 골라 붙였어요.',
+        '도서관에 가자고 한 건 장규예요.',
+        '교탁에 올려둔 건 선생님이에요.',
+      ],
+      correctIndex: 1,
+      explanation: '진현이는 스티커로 웃는 얼굴을 붙였어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '장규가 갑자기 “우리 할머니야!”라고 말한 뒤, 바로 일어난 일은 무엇인가요?',
+      options: ['두리가 할머니를 데리고 갔다', '장규가 숟가락 할머니를 데리고 가버렸다', '선생님이 파티를 열었다', '아이들이 모두 집에 갔다'],
+      resultTexts: [
+        '두리가 데리고 가는 장면이 아니에요.',
+        '장규는 곧장 숟가락 할머니를 데리고 가버렸어요.',
+        '파티는 이야기 내용이 아니에요.',
+        '모두 집에 가는 장면도 아니에요.',
+      ],
+      correctIndex: 1,
+      explanation: '장규가 할머니를 데리고 가면서 두리는 실망해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '두리가 장규를 쫓아가 한 말로 알맞은 것은 무엇인가요?',
+      options: ['“다신 보지 말자.”', '“할머니 또 잃어버리면 그땐 우리 할머니 해도 되지?”', '“선생님께 혼날 거야.”', '“도서관 가자.”'],
+      resultTexts: [
+        '그런 말은 나오지 않아요.',
+        '두리는 “또 잃어버리면 그땐 우리 할머니 해도 되지?”라고 말해요.',
+        '선생님께 혼난다는 말은 없어요.',
+        '도서관 가자고 한 말은 장규가 했어요.',
+      ],
+      correctIndex: 1,
+      explanation: '두리는 약속을 만들며 마음을 정리해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '점심시간에 아이들이 숟가락 가족을 데리고 모였을 때, 할머니가 한 말은 무엇인가요?',
+      options: ['“오냐, 착한 두리가 왔구나!”', '“난 집에 못 가.”', '“내가 화가 났다.”', '“교실이 싫다.”'],
+      resultTexts: [
+        '할머니는 “오냐, 착한 두리가 왔구나!”라고 말해요.',
+        '집에 못 간다는 말은 이 장면에 나오지 않아요.',
+        '화가 났다는 말은 없어요.',
+        '교실이 싫다는 말도 없어요.',
+      ],
+      correctIndex: 0,
+      explanation: '인사 장면에서 할머니가 두리를 반갑게 불러요.',
+    },
+  ],
+  'spoon-family-choice'
+);
+
+const SPOON_FAMILY: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: spoonFamilyOx,
+  multiple_choice: spoonFamilyMultiple,
+  ordering: spoonFamilyOrdering,
+  fill_blank: spoonFamilyFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: spoonFamilyMatchPairs,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: [],
+  choice_with_result: spoonFamilyChoiceWithResult,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
+// ---------- 아빠 언제 와요 (book-daddy-when) ----------
+const daddyWhenOx: Content[] = withIdsAndOrder(
+  [
+    { type: 'ox_quiz', question: '이야기는 새벽에 시작돼요.', correctAnswer: 'O', explanation: '첫 문장에 “새벽이었어요”라고 나와요.' },
+    { type: 'ox_quiz', question: '아빠가 우리를 깨우며 “옷 입어”라고 말했어요.', correctAnswer: 'O', explanation: '아빠가 “얘들아, 어서 일어나! 옷 입어.”라고 해요.' },
+    { type: 'ox_quiz', question: '사이렌 소리는 조용하게 울렸어요.', correctAnswer: 'X', explanation: '사이렌 소리가 “요란하게 울렸어요”라고 나와요.' },
+    { type: 'ox_quiz', question: '가족은 숨죽인 채 지하 대피소로 뛰었어요.', correctAnswer: 'O', explanation: '“숨죽인 채 지하 대피소로 뛰었어요.”라고 해요.' },
+    { type: 'ox_quiz', question: '벽이 흔들리고 귀가 먹을 듯 울렸어요.', correctAnswer: 'O', explanation: '슉- 펑, 콰쾅- 벽이 흔들리고 귀가 먹을 듯 울렸다고 해요.' },
+    { type: 'ox_quiz', question: '잠시 조용해진 뒤, 가족은 밖으로 나가지 않았어요.', correctAnswer: 'X', explanation: '조용해진 틈을 타 “조심조심 밖으로 나갔어요.”라고 나와요.' },
+    { type: 'ox_quiz', question: '밖에 나가 보니 우리 집이 부서졌고 내 방 창문이 산산이 깨졌어요.', correctAnswer: 'O', explanation: '우리 집이 부서지고 내 방 창문이 산산이 깨졌다고 해요.' },
+    { type: 'ox_quiz', question: '가족은 어디로 가는지 알고 정해진 기차를 탔어요.', correctAnswer: 'X', explanation: '어디로 가는지도 모른 채 “아무 기차에나” 올라탔다고 해요.' },
+    { type: 'ox_quiz', question: '기차에서 나는 아빠 손을 꽉 붙잡았어요.', correctAnswer: 'O', explanation: '힘을 빼면 놓칠까 봐 아빠 손을 꽉 붙잡았다고 해요.' },
+    { type: 'ox_quiz', question: '동생은 “아빠는 왜 안 가?”라고 물었어요.', correctAnswer: 'O', explanation: '동생이 “아빠는 왜 안 가?”라고 여러 번 물어요.' },
+    { type: 'ox_quiz', question: '아빠는 내 손에 젤리를 쥐여 주었어요.', correctAnswer: 'O', explanation: '아빠가 내 손에 젤리를 쥐어 줬다고 해요.' },
+    { type: 'ox_quiz', question: '엄마는 “아빠는 다음 기차로 따라올 거야”라고 말했고, 눈이 빨갰어요.', correctAnswer: 'O', explanation: '기차 안에서 엄마가 그렇게 말하고, 엄마 눈이 빨갰다고 해요.' },
+    { type: 'ox_quiz', question: '나는 낯선 곳에 도착한 뒤 아빠를 거의 생각하지 않았어요.', correctAnswer: 'X', explanation: '나는 “매일매일 아빠를 생각했어요.”라고 나와요.' },
+    { type: 'ox_quiz', question: '나는 보호소에 두고 온 우리 강아지도 생각했어요.', correctAnswer: 'O', explanation: '아빠와 함께 강아지도 생각했다고 해요.' },
+    { type: 'ox_quiz', question: '전화할 때마다 아빠는 울면서 말했다고 나와요.', correctAnswer: 'X', explanation: '전화할 때마다 아빠는 “껄껄 웃었어요.”라고 해요.' },
+    { type: 'ox_quiz', question: '엄마가 일하는 동안은 내가 동생의 엄마예요.', correctAnswer: 'O', explanation: '엄마가 일하는 동안은 내가 동생의 엄마라고 나와요.' },
+  ],
+  'daddy-when-ox'
+);
+
+const daddyWhenMultiple: Content[] = withIdsAndOrder(
+  [
+    { type: 'multiple_choice', question: '이야기가 시작된 시간은 언제인가요?', options: ['아침', '새벽', '점심', '저녁'], correctIndex: 1, explanation: '“새벽이었어요.”로 시작해요.' },
+    { type: 'multiple_choice', question: '가족이 급히 뛰어간 곳은 어디인가요?', options: ['학교', '지하 대피소', '시장', '도서관'], correctIndex: 1, explanation: '가족은 지하 대피소로 뛰었어요.' },
+    { type: 'multiple_choice', question: '밖으로 나갔을 때 주인공의 방 창문은 어떻게 되었나요?', options: ['깨끗했다', '산산이 깨졌다', '커튼이 달렸다', '잠겨 있었다'], correctIndex: 1, explanation: '내 방 창문이 산산이 깨졌다고 해요.' },
+    { type: 'multiple_choice', question: '가족이 기차를 탈 때의 상황으로 알맞은 것은 무엇인가요?', options: ['표를 미리 샀다', '어디로 가는지 알고 탔다', '어디로 가는지도 모른 채 아무 기차에나 탔다', '친구를 만나러 갔다'], correctIndex: 2, explanation: '어디로 가는지도 모른 채 아무 기차에나 올라탔다고 해요.' },
+    { type: 'multiple_choice', question: '기차 안에서 주인공이 아빠 손을 꽉 붙잡은 이유는 무엇인가요?', options: ['손이 시려서', '힘을 빼면 놓칠까 봐', '장난치려고', '잠이 와서'], correctIndex: 1, explanation: '힘을 빼면 놓칠까 봐 아빠 손을 꽉 붙잡았어요.' },
+    { type: 'multiple_choice', question: '동생이 계속 물은 질문은 무엇인가요?', options: ['“집은 어디야?”', '“아빠는 왜 안 가?”', '“기차는 언제 와?”', '“강아지는 어디 있어?”'], correctIndex: 1, explanation: '동생이 “아빠는 왜 안 가?”라고 반복해 물어요.' },
+    { type: 'multiple_choice', question: '아빠가 주인공 손에 쥐어 준 것은 무엇인가요?', options: ['초콜릿', '젤리', '장난감', '연필'], correctIndex: 1, explanation: '아빠가 내 손에 젤리를 쥐어 줬어요.' },
+    { type: 'multiple_choice', question: '엄마의 눈이 빨갰던 장면은 언제인가요?', options: ['대피소에서', '기차 안에서', '학교에서', '트리를 만들 때'], correctIndex: 1, explanation: '기차 안에서 엄마가 대답할 때 눈이 빨갰다고 해요.' },
+    { type: 'multiple_choice', question: '주인공이 낯선 곳에서 그리워한 것은 무엇인가요?', options: ['포근하고 따뜻한 침대', '새 장난감', '운동장', '케이크'], correctIndex: 0, explanation: '집에 가고 싶고 포근한 침대가 그리웠다고 해요.' },
+    { type: 'multiple_choice', question: '주인공이 아빠와 함께 생각했던 것은 무엇인가요?', options: ['보호소에 두고 온 강아지', '친구의 생일', '새 운동화', '선생님'], correctIndex: 0, explanation: '보호소에 두고 온 강아지도 생각했어요.' },
+    { type: 'multiple_choice', question: '전화할 때마다 아빠는 어떻게 했나요?', options: ['화를 냈다', '조용히 울었다', '껄껄 웃었다', '아무 말도 안 했다'], correctIndex: 2, explanation: '전화할 때마다 아빠는 껄껄 웃었어요.' },
+    { type: 'multiple_choice', question: '엄마가 일자리를 구한 뒤, 엄마가 일하는 동안 “나”는 어떤 역할을 했나요?', options: ['동생의 엄마', '동생의 선생님', '동생의 친구', '동생의 아기'], correctIndex: 0, explanation: '엄마가 일하는 동안은 내가 동생의 엄마예요.' },
+    { type: 'multiple_choice', question: '크리스마스가 다가오자 엄마가 구해 온 것은 무엇인가요?', options: ['큰 나무', '작은 트리', '케이크', '초대장'], correctIndex: 1, explanation: '엄마가 작은 트리를 구해 왔다고 해요.' },
+    { type: 'multiple_choice', question: '주인공이 산타 할아버지에게 편지로 바란 선물은 무엇인가요?', options: ['새 침대', '강아지', '아빠를 만나게 해 달라는 것', '새 옷'], correctIndex: 2, explanation: '“이번 크리스마스 선물은 아빠, 아빠를 만나게 해 주세요.”라고 썼어요.' },
+  ],
+  'daddy-when-mc'
+);
+
+const daddyWhenOrdering: Content[] = withIdsAndOrder(
+  [
+    { type: 'ordering', question: '이야기의 큰 흐름을 순서대로 배열해 보세요.', items: ['사이렌 소리가 울린다', '가족이 지하 대피소로 뛰어간다', '밖으로 나가 집이 부서진 것을 본다', '마을을 떠나 아무 기차에나 올라탄다', '낯선 곳에 도착해 아빠를 그리워한다'], explanation: '위험 → 대피 → 피해 확인 → 떠남 → 낯선 곳 생활 흐름이에요.' },
+    { type: 'ordering', question: '기차에서 벌어진 일을 순서대로 배열해 보세요.', items: ['동생이 “아빠는 왜 안 가?”라고 묻는다', '아빠가 우리를 꼭 껴안는다', '아빠가 “곧 따라갈 거야”라고 말한다', '아빠가 내 손에 젤리를 쥐어 준다', '엄마가 “다음 기차로 따라올 거야”라고 말한다'], explanation: '동생의 질문 → 아빠의 포옹/약속 → 젤리 → 엄마의 대답 순서예요.' },
+    { type: 'ordering', question: '낯선 곳에 도착한 뒤 주인공의 생각을 순서대로 배열해 보세요.', items: ['집에 가고 싶다', '포근한 침대가 그립다', '매일 아빠를 생각한다', '보호소에 둔 강아지도 생각한다', '무서운 소리가 아빠에게 닿지 않기를 기도한다'], explanation: '그리움 → 생각 → 기도로 이어져요.' },
+    { type: 'ordering', question: '자꾸 옮겨 다니게 된 이유의 흐름을 배열해 보세요.', items: ['한 곳에 오래 머무를 수 없다', '가는 곳마다 집을 떠나온 사람들이 밀려든다', '몇 번을 옮겨 다닌다', '따스하게 받아 줄 가족을 만날 때까지 여행이 이어진다'], explanation: '사람들이 계속 밀려드는 상황 때문에 이동이 반복돼요.' },
+    { type: 'ordering', question: '엄마가 일자리를 구한 뒤의 일들을 순서대로 배열해 보세요.', items: ['엄마가 일자리를 구한다', '엄마가 일하는 동안 내가 동생의 엄마가 된다', '나는 동생과 열심히 놀아 준다', '동생은 하루 종일 엄마 아빠만 찾는다', '나는 참을 수 있다고 말한다'], explanation: '새 생활의 역할이 생기고 감정을 다잡는 흐름이에요.' },
+    { type: 'ordering', question: '크리스마스 준비 장면의 흐름을 순서대로 배열해 보세요.', items: ['크리스마스가 다가온다', '엄마가 작은 트리를 구해 온다', '나는 산타에게 편지를 쓴다', '편지에는 아빠를 만나게 해 달라고 적는다', '그날 밤 함께 트리를 만든다'], explanation: '다가옴 → 트리 → 편지 → 소원 → 함께 만들기 흐름이에요.' },
+    { type: 'ordering', question: '지난 크리스마스를 떠올리는 꿈 장면을 순서대로 배열해 보세요.', items: ['낮은 목소리가 나를 흔든다', '“아빠 만나러 가야지”라는 말을 듣는다', '우리 마을을 본다', '집도 학교도 아빠도 보이지 않는다', '아빠가 운전하는 차를 알아본다'], explanation: '꿈 속에서 불안과 희망이 함께 나타나는 장면이에요.' },
+    { type: 'ordering', question: '큰 소리에 놀라는 장면의 흐름을 순서대로 배열해 보세요.', items: ['갑자기 큰 소리가 난다', '우린 깜짝깜짝 놀란다', '바람이 세게 부는 날 쉭-쉭- 소리가 들린다', '뒤이어 꽝- 소리가 날 것만 같다', '쿵쿵 심장 소리가 귓속에 울린다'], explanation: '소리 → 놀람 → 연상 → 심장 소리로 이어져요.' },
+    { type: 'ordering', question: '새해 장면의 흐름을 순서대로 배열해 보세요.', items: ['펑! 펑! 불꽃놀이가 터진다', '동생이 “아빠는 언제 와요?”라고 묻는다', '나는 “곧 오실 거야”라고 말해 준다', '불꽃이 찬란하게 빛나는 밤이다'], explanation: '불꽃놀이 → 질문 → 대답 → 밤의 묘사로 끝나요.' },
+    { type: 'ordering', question: '초반 긴급 상황의 흐름을 순서대로 배열해 보세요.', items: ['아빠가 우리를 깨운다', '사이렌 소리가 울린다', '지하 대피소로 뛴다', '콰쾅 소리에 벽이 흔들린다', '귀가 먹을 듯 울리고 이가 딱딱 부딪힌다'], explanation: '깨우기 → 사이렌 → 대피 → 충격 → 몸의 반응 순서예요.' },
+  ],
+  'daddy-when-ord'
+);
+
+const daddyWhenFillBlank: Content[] = withIdsAndOrder(
+  [
+    { type: 'fill_blank', sentence: '이야기는 (  )에 시작돼요.', options: ['새벽', '점심', '저녁', '한낮'], correctIndex: 0, explanation: '“새벽이었어요.”라고 나와요.' },
+    { type: 'fill_blank', sentence: '사이렌 소리가 (  )하게 울렸어요.', options: ['요란', '조용', '약', '느릿'], correctIndex: 0, explanation: '사이렌 소리가 요란하게 울렸어요.' },
+    { type: 'fill_blank', sentence: '가족은 지하 (  )소로 뛰었어요.', options: ['대피', '놀이', '도서', '급식'], correctIndex: 0, explanation: '지하 대피소로 뛰었어요.' },
+    { type: 'fill_blank', sentence: '밖으로 나갔을 때 우리 (  )이/가 부서졌어요.', options: ['집', '차', '가게', '학교'], correctIndex: 0, explanation: '우리 집이 부서졌다고 해요.' },
+    { type: 'fill_blank', sentence: '우리는 어디로 가는지도 모른 채 아무 (  )에나 올라탔어요.', options: ['기차', '버스', '비행기', '배'], correctIndex: 0, explanation: '아무 기차에나 올라탔다고 해요.' },
+    { type: 'fill_blank', sentence: '나는 아빠 (  )을/를 꽉 붙잡았어요.', options: ['손', '모자', '가방', '옷'], correctIndex: 0, explanation: '아빠 손을 꽉 붙잡았다고 해요.' },
+    { type: 'fill_blank', sentence: '아빠는 내 손에 (  )를 쥐어 주었어요.', options: ['젤리', '빵', '연필', '책'], correctIndex: 0, explanation: '젤리를 쥐어 주었어요.' },
+    { type: 'fill_blank', sentence: '엄마는 “아빠는 다음 (  )로 따라올 거야”라고 말했어요.', options: ['기차', '버스', '배', '택시'], correctIndex: 0, explanation: '엄마는 다음 기차로 따라올 거라고 말해요.' },
+    { type: 'fill_blank', sentence: '나는 매일매일 (  )를 생각했어요.', options: ['아빠', '선생님', '과자', '게임'], correctIndex: 0, explanation: '매일매일 아빠를 생각했어요.' },
+    { type: 'fill_blank', sentence: '엄마가 일하는 동안은 내가 동생의 (  )예요.', options: ['엄마', '친구', '선생님', '아기'], correctIndex: 0, explanation: '내가 동생의 엄마예요.' },
+    { type: 'fill_blank', sentence: '엄마는 작은 (  )를 구해 왔어요.', options: ['트리', '풍선', '케이크', '상자'], correctIndex: 0, explanation: '크리스마스가 다가오자 작은 트리를 구해 왔어요.' },
+    { type: 'fill_blank', sentence: '새해를 맞이하는 (  )놀이가 펑! 펑! 터졌어요.', options: ['불꽃', '물', '눈', '종이'], correctIndex: 0, explanation: '새해 불꽃놀이예요.' },
+  ],
+  'daddy-when-fill'
+);
+
+// 5) 감정 상황 연결하기 — match_pairs 사용
+const daddyWhenEmotionMatch: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '상황과 감정을 연결해 보세요.',
+      leftItems: ['사이렌 소리가 요란하게 울릴 때', '지하 대피소로 뛰어갈 때', '집이 부서진 것을 보았을 때', '아빠와 떨어져 이동할 때', '낯선 곳에 도착했을 때'],
+      rightItems: ['두려움', '긴장', '충격', '그리움', '불안'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '소리와 상황이 주는 감정 변화를 연결하는 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '상황과 가장 어울리는 마음을 연결해 보세요.',
+      leftItems: ['아빠가 “걱정하지 마”라고 말할 때', '아빠에게 무서운 소리가 닿지 않길 기도할 때', '포근한 침대가 그리울 때', '동생이 엄마 아빠만 찾을 때', '큰 소리가 날 것만 같을 때'],
+      rightItems: ['안심', '걱정', '그리움', '참아 냄', '불안'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '전화 속 말과 행동, 생각이 어떤 감정을 만들었는지 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '크리스마스·새해 장면의 상황과 감정을 연결해 보세요.',
+      leftItems: ['작은 트리를 구해 올 때', '산타에게 편지를 쓸 때', '“아빠를 만나게 해 주세요”라고 적을 때', '불꽃놀이가 터질 때', '“곧 오실 거야”라고 말해 줄 때'],
+      rightItems: ['기대', '바람', '간절함', '놀람', '용기'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '연말 장면은 “바람과 용기”가 강조돼요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '주인공의 생각과 감정을 연결해 보세요.',
+      leftItems: ['“친구들에게 우리 집이 없다는 걸 말하고 싶지 않았어요.”', '“여행은 자꾸만 길어졌어요.”', '“우리는 한 곳에 오래 머무를 수 없었어요.”', '“나는 참을 수 있어요.”', '“불꽃이 찬란하게 빛나는 밤이었어요.”'],
+      rightItems: ['부끄러움', '지침', '불안', '참아 냄', '희망'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '문장 속 마음을 정확히 짚어 연결하는 문제예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '소리/신체 반응과 감정을 연결해 보세요.',
+      leftItems: ['“귀가 먹을 듯 울리고”', '“이가 딱딱 부딪혔어요”', '“쿵, 쿵, 내 심장 소리”', '“깜짝깜짝 놀랐어요”', '“바람 소리 뒤로 꽝- 소리가 이어질 것만 같아요”'],
+      rightItems: ['공포', '긴장', '불안', '놀람', '불안'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '큰 소리와 몸의 반응이 어떤 감정과 연결되는지 보는 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '인물의 말과 감정을 연결해 보세요.',
+      leftItems: ['아빠: “걱정하지 마.”', '엄마: “다음 기차로 따라올 거야.”', '동생: “아빠는 언제 와요?”', '나: “곧 오실 거야.”', '나: “아빠를 만나게 해 주세요.”'],
+      rightItems: ['안심시키기', '슬픔', '그리움', '용기', '간절함'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '같은 상황에서도 말이 감정을 어떻게 보여 주는지 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '장면과 가장 알맞은 감정을 연결해 보세요.',
+      leftItems: ['“우리 집이 부서졌어요.”', '“낯선 곳에 도착했어요.”', '“아빠는 껄껄 웃었어요.”', '“엄마 눈이 빨갰어요.”', '“우린 따스하게 받아 줄 가족을 만날 때까지”'],
+      rightItems: ['충격', '불안', '안심', '슬픔', '기대'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '텍스트에 직접 나온 표현들을 감정으로 바꾸어 보는 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '그리움이 드러난 대상과 이유를 연결해 보세요.',
+      leftItems: ['아빠', '우리 집', '따뜻한 침대', '보호소에 둔 강아지', '지난 크리스마스'],
+      rightItems: ['떨어져 있어서', '부서져서', '포근해서', '두고 와서', '기억이 떠올라서'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '무엇을 왜 그리워하는지 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '상황과 “주인공의 목표/바람”을 연결해 보세요.',
+      leftItems: ['산타에게 편지를 씀', '전화로 아빠 목소리를 듣음', '여행이 길어짐', '학교에 다닐지도 모름', '새해 불꽃놀이 밤'],
+      rightItems: ['아빠를 만나기', '아빠가 무사하길', '따스한 가족 만나기', '비밀로 하고 싶음', '희망을 말하기'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '상황 속에서 “무엇을 바라며 버티는지”를 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '상황과 감정을 연결해 보세요. (확장)',
+      leftItems: ['아빠가 우리를 아프도록 꼭 껴안았을 때', '기차 안에서 몸이 이리저리 밀릴 때', '힘을 빼면 놓칠까 걱정될 때', '하루 종일 동생과 놀아 줄 때', '동생이 하루 종일 엄마 아빠만 찾을 때'],
+      rightItems: ['불안', '혼란', '불안', '책임감', '속상함'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '세밀한 장면을 감정으로 바꿔 보는 확장 매칭이에요.',
+    },
+  ],
+  'daddy-when-emotion'
+);
+
+// 6) 선택 행동 결과 찾기 — choice_with_result 사용
+const daddyWhenChoiceWithResult: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'choice_with_result',
+      situation: '사이렌이 울리자 가족이 한 행동은 무엇인가요?',
+      options: ['학교로 갔다', '지하 대피소로 뛰었다', '친구 집으로 갔다', '여행을 준비했다'],
+      resultTexts: ['이야기에는 학교로 가는 장면이 아니에요.', '가족은 숨죽인 채 지하 대피소로 뛰었어요.', '친구 집으로 가는 장면은 없어요.', '여행 준비가 아니라 위험한 상황이었어요.'],
+      correctIndex: 1,
+      explanation: '사이렌 소리 뒤에 지하 대피소로 뛰어가요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '조용해진 틈을 타 밖으로 나갔을 때, 가족이 확인한 것은 무엇인가요?',
+      options: ['축제가 열렸다', '우리 집이 부서졌다', '새 집을 받았다', '학교가 문을 닫았다'],
+      resultTexts: ['축제 장면은 없어요.', '밖으로 나가 보니 우리 집이 부서졌고 창문이 깨졌어요.', '새 집을 받는 내용은 없어요.', '학교 문을 닫았다는 내용은 없어요.'],
+      correctIndex: 1,
+      explanation: '집이 부서지고 창문이 깨진 것을 보게 돼요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '마을을 떠날 때 사람들이 어떤 기차를 탔나요?',
+      options: ['예약한 기차', '아무 기차', '관광 기차', '학교 기차'],
+      resultTexts: ['예약했다는 내용이 없어요.', '어디로 가는지도 모른 채 아무 기차에나 올라탔다고 해요.', '관광 기차가 아니에요.', '학교 기차는 없어요.'],
+      correctIndex: 1,
+      explanation: '절박해서 “아무 기차”에나 탔다고 나와요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '동생이 “아빠는 왜 안 가?”라고 물었을 때, 아빠가 한 말은 무엇인가요?',
+      options: ['“아빠는 안 갈 거야.”', '“아빠도 곧 따라갈 거야.”', '“엄마한테 물어.”', '“기차가 싫어.”'],
+      resultTexts: ['그런 말은 없어요.', '아빠는 “아빠도 곧 따라갈 거야.”라고 말해요.', '엄마에게 떠넘기는 말은 없어요.', '기차가 싫다는 말도 없어요.'],
+      correctIndex: 1,
+      explanation: '아빠는 곧 따라가겠다고 약속해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '아빠가 내 손에 젤리를 쥐어 준 뒤, 기차에서 엄마가 한 말은 무엇인가요?',
+      options: ['“아빠는 여기 있어.”', '“아빠는 다음 기차로 따라올 거야.”', '“집에 돌아가자.”', '“이제 끝이야.”'],
+      resultTexts: ['그런 말은 없어요.', '엄마는 “아빠는 다음 기차로 따라올 거야.”라고 말해요.', '바로 집에 돌아간다는 내용은 없어요.', '끝이라는 말도 없어요.'],
+      correctIndex: 1,
+      explanation: '엄마는 다음 기차로 따라온다고 말해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '낯선 곳에서 주인공이 매일매일 생각한 것은 무엇인가요?',
+      options: ['새 친구', '아빠', '숙제', '게임'],
+      resultTexts: ['새 친구 이야기는 없어요.', '주인공은 매일매일 아빠를 생각했어요.', '숙제는 나오지 않아요.', '게임을 생각했다는 내용은 없어요.'],
+      correctIndex: 1,
+      explanation: '아빠를 계속 그리워해요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '우리가 한 곳에 오래 머무를 수 없었던 이유는 무엇인가요?',
+      options: ['관광을 하려고', '집을 떠나온 사람들이 계속 밀려들어서', '바다가 보고 싶어서', '학교가 가까워서'],
+      resultTexts: ['관광이 아니에요.', '가는 곳마다 우리처럼 떠나온 이들이 계속 밀려들었기 때문이에요.', '바다 이야기는 없어요.', '학교가 가까워서가 아니에요.'],
+      correctIndex: 1,
+      explanation: '피난민이 계속 몰려드는 상황 때문에 이동이 반복돼요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '엄마가 일하는 동안, “나”가 한 역할은 무엇인가요?',
+      options: ['동생의 엄마', '동생의 선생님', '동생의 아기', '동생의 사장'],
+      resultTexts: ['맞아요. 내가 동생의 엄마예요.', '선생님이라는 말은 없어요.', '아기라는 말은 아니에요.', '사장도 아니에요.'],
+      correctIndex: 0,
+      explanation: '돌봄의 역할을 맡아요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '주인공이 산타에게 편지로 부탁한 것은 무엇인가요?',
+      options: ['새 집', '아빠를 만나게 해 달라는 것', '새 게임기', '큰 케이크'],
+      resultTexts: ['새 집을 달라고 쓰지 않았어요.', '“아빠를 만나게 해 주세요”라고 썼어요.', '게임기는 나오지 않아요.', '케이크도 아니에요.'],
+      correctIndex: 1,
+      explanation: '크리스마스 소원은 “아빠를 만나기”예요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '새해 불꽃놀이가 터질 때 동생이 “아빠는 언제 와요?”라고 묻자, “나”는 어떻게 했나요?',
+      options: ['아무 말도 안 했다', '큰 소리로 “곧 오실 거야”라고 말했다', '울었다', '도망갔다'],
+      resultTexts: ['아무 말도 안 하지 않았어요.', '“걱정하지 마. 곧 오실 거야.”라고 큰 소리로 말해 줬어요.', '울었다는 내용은 없어요.', '도망갔다는 내용도 없어요.'],
+      correctIndex: 1,
+      explanation: '동생을 안심시키려고 큰 소리로 말해요.',
+    },
+  ],
+  'daddy-when-choice'
+);
+
+const DADDY_WHEN: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: daddyWhenOx,
+  multiple_choice: daddyWhenMultiple,
+  ordering: daddyWhenOrdering,
+  fill_blank: daddyWhenFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: daddyWhenEmotionMatch,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: [],
+  choice_with_result: daddyWhenChoiceWithResult,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
+// ---------- 조금 다른 아이, 문 (book-moon) ----------
+const moonOx: Content[] = withIdsAndOrder(
+  [
+    { type: 'ox_quiz', question: '문에게는 군데군데 매듭이 진 끈이 길게 이어져 있어요.', correctAnswer: 'O', explanation: '문에게는 매듭이 진 끈이 길게 이어져 있다고 해요.' },
+    { type: 'ox_quiz', question: '문은 끈이 길어서 걷는 데 방해가 되기도 해요.', correctAnswer: 'O', explanation: '끈이 치렁치렁 늘어져 걷는 데 방해가 된다고 나와요.' },
+    { type: 'ox_quiz', question: '문은 그래서 항상 빠르게 걸어요.', correctAnswer: 'X', explanation: '문은 “항상 느릿느릿하게 걸어요.”라고 해요.' },
+    { type: 'ox_quiz', question: '엄마와 아빠는 문을 있는 그대로 사랑해 줘요.', correctAnswer: 'O', explanation: '부모님은 문을 있는 그대로 사랑해 준다고 나와요.' },
+    { type: 'ox_quiz', question: '문은 학교에서 늘 친구들과 함께 앉아 있어요.', correctAnswer: 'X', explanation: '문은 학교에서 늘 혼자 앉아 있다고 해요.' },
+    { type: 'ox_quiz', question: '문은 축구를 할 수 없어요. 축구공에 끈이 자꾸 엉키기 때문이에요.', correctAnswer: 'O', explanation: '축구공에 끈이 자꾸 엉켜서 축구를 할 수 없다고 해요.' },
+    { type: 'ox_quiz', question: '문이 친구들의 뺨을 만지면 친구들은 싫어하며 화를 내요.', correctAnswer: 'O', explanation: '친구들은 발칵 성을 내면서 질색한다고 해요.' },
+    { type: 'ox_quiz', question: '문은 의자에 앉아 앞뒤로 까딱까딱하며 손으로 나비 모양을 만들곤 해요.', correctAnswer: 'O', explanation: '문은 까딱까딱하면서 손으로 나비 모양을 만들어요.' },
+    { type: 'ox_quiz', question: '숲길을 걸을 때 숲속에 아무도 없어서 문은 마음이 편했어요.', correctAnswer: 'O', explanation: '숲속에 아무도 없어서 마음이 아주 편했다고 해요.' },
+    { type: 'ox_quiz', question: '새는 문을 지렁이 더미로 착각하고 콕콕 쪼아댔어요.', correctAnswer: 'O', explanation: '새가 “지렁이 더미”라고 하며 콕콕 쪼아대요.' },
+    { type: 'ox_quiz', question: '새는 문이 지렁이가 아니라는 걸 알고 사과했어요.', correctAnswer: 'X', explanation: '새는 깜짝 놀라 부리를 닦는 장면이 나오지만 사과했다는 내용은 없어요.' },
+    { type: 'ox_quiz', question: '새끼 고양이는 문을 실뭉치로 착각하고 발톱으로 할퀴었어요.', correctAnswer: 'O', explanation: '고양이가 “실뭉치”라고 하며 할퀴기 시작해요.' },
+    { type: 'ox_quiz', question: '문은 냇물에 빠진 여자아이를 구해 주었어요.', correctAnswer: 'O', explanation: '문이 팔을 뻗어 여자아이를 물가로 나오게 도와줘요.' },
+    { type: 'ox_quiz', question: '여자아이는 문이 뺨을 쓰다듬자 다른 친구들처럼 도망갔어요.', correctAnswer: 'X', explanation: '여자아이는 도망가지 않았다고 나와요.' },
+    { type: 'ox_quiz', question: '문은 자신의 웃음소리를 난생처음 들었어요.', correctAnswer: 'O', explanation: '문이 꺄르르 웃고, 그 웃음소리를 난생처음 들었다고 해요.' },
+    { type: 'ox_quiz', question: '문과 여자아이는 천천히 뛰어 학교에 도착했어요.', correctAnswer: 'O', explanation: '둘은 천천히 뛰어서 학교에 도착해요.' },
+    { type: 'ox_quiz', question: '“늦게 도착하는 사람이 이기는 거다!”라고 말한 사람은 여자아이예요.', correctAnswer: 'X', explanation: '그 말을 한 건 문이에요.' },
+    { type: 'ox_quiz', question: '문이 더 늦게 도착해서 여자아이에게 졌어요.', correctAnswer: 'X', explanation: '문이 더 늦게 도착했고, “그래서 여자아이를 이겼지요!”라고 해요.' },
+    { type: 'ox_quiz', question: '문이 뿌듯해서 폴짝 뛰어올랐더니 매듭이 스스로 풀어졌어요.', correctAnswer: 'O', explanation: '폴짝 뛰어올랐더니 매듭이 스스로 풀어졌다고 해요.' },
+    { type: 'ox_quiz', question: '그날부터 친구들이 문과 노는 걸 좋아하기 시작했어요.', correctAnswer: 'O', explanation: '그날부터 모든 것이 달라져 친구들이 문과 노는 걸 좋아하기 시작해요.' },
+  ],
+  'moon-ox'
+);
+
+const moonMultiple: Content[] = withIdsAndOrder(
+  [
+    { type: 'multiple_choice', question: '문이 느릿느릿하게 걷는 이유는 무엇인가요?', options: ['다리가 아파서', '긴 끈이 치렁치렁 늘어져 방해가 되어서', '신발이 작아서', '길을 잃어서'], correctIndex: 1, explanation: '끈이 길게 늘어져 걷는 데 방해가 된다고 해요.' },
+    { type: 'multiple_choice', question: '문이 축구를 하지 못하는 이유는 무엇인가요?', options: ['공이 없어서', '축구를 싫어해서', '축구공에 끈이 자꾸 엉켜서', '비가 와서'], correctIndex: 2, explanation: '축구공에 끈이 자꾸 엉켜서 축구를 할 수 없어요.' },
+    { type: 'multiple_choice', question: '문이 좋아하는 행동은 무엇인가요?', options: ['친구의 뺨을 어루만지기', '큰 소리로 노래하기', '빠르게 달리기', '축구 골 넣기'], correctIndex: 0, explanation: '문은 친구들의 뺨을 어루만지는 걸 좋아해요.' },
+    { type: 'multiple_choice', question: '문이 뺨을 만지면 친구들은 어떻게 반응하나요?', options: ['웃는다', '감사하다고 한다', '발칵 성을 내며 질색한다', '문을 안아 준다'], correctIndex: 2, explanation: '친구들은 발칵 성을 내면서 질색한다고 해요.' },
+    { type: 'multiple_choice', question: '문이 의자에 앉아 손으로 만들곤 하는 모양은 무엇인가요?', options: ['하트', '나비', '별', '동그라미'], correctIndex: 1, explanation: '문은 손으로 나비 모양을 만들곤 해요.' },
+    { type: 'multiple_choice', question: '문이 숲길을 걸을 때 마음이 편했던 이유는 무엇인가요?', options: ['친구가 많아서', '숲속에 아무도 없어서', '비가 내려서', '집이 가까워서'], correctIndex: 1, explanation: '숲속에 아무도 없어서 마음이 편했다고 해요.' },
+    { type: 'multiple_choice', question: '새는 문을 무엇으로 착각했나요?', options: ['지렁이 더미', '실뭉치', '나뭇가지', '축구공'], correctIndex: 0, explanation: '새가 “지렁이 더미다!”라고 말해요.' },
+    { type: 'multiple_choice', question: '고양이는 문을 무엇으로 착각했나요?', options: ['지렁이', '실뭉치', '나비', '공'], correctIndex: 1, explanation: '고양이가 “실뭉치다!”라고 해요.' },
+    { type: 'multiple_choice', question: '문이 들은 비명 소리의 상황은 무엇이었나요?', options: ['여자아이가 냇물에 빠져 버둥댄다', '친구가 축구공을 잃어버린다', '새가 길을 잃는다', '고양이가 나무에 오른다'], correctIndex: 0, explanation: '여자아이가 냇물에 빠져 버둥대고 있었어요.' },
+    { type: 'multiple_choice', question: '문은 여자아이를 어떻게 구해 주었나요?', options: ['밧줄을 던졌다', '나뭇가지에 올라가 팔을 뻗었다', '수영해서 들어갔다', '선생님을 불렀다'], correctIndex: 1, explanation: '문은 나뭇가지에 올라가 팔을 쭉 뻗어 “이걸 잡아!”라고 했어요.' },
+    { type: 'multiple_choice', question: '여자아이는 문이 뺨을 쓰다듬어도 어떻게 했나요?', options: ['도망가지 않았다', '화를 냈다', '소리를 질렀다', '문을 밀쳤다'], correctIndex: 0, explanation: '여자아이는 도망가지 않았어요.' },
+    { type: 'multiple_choice', question: '문이 “늦게 도착하는 사람이 이기는 거다!”라고 말한 활동은 무엇인가요?', options: ['숨바꼭질', '달리기', '축구', '줄넘기'], correctIndex: 1, explanation: '문이 달리기하자고 해요.' },
+    { type: 'multiple_choice', question: '문과 여자아이가 학교에 도착한 순간 어떤 일이 일어났나요?', options: ['비가 왔다', '딱 맞춰 종이 울렸다', '선생님이 화냈다', '교문이 닫혔다'], correctIndex: 1, explanation: '교문에 들어서는 순간 딱 맞춰 종이 울려요.' },
+    { type: 'multiple_choice', question: '문이 공중으로 폴짝 뛰어올랐을 때 생긴 변화는 무엇인가요?', options: ['끈이 더 엉켰다', '매듭이 스스로 풀렸다', '친구들이 도망갔다', '새가 다시 왔다'], correctIndex: 1, explanation: '매듭이 스스로 풀어졌다고 해요.' },
+    { type: 'multiple_choice', question: '그날부터 달라진 가장 큰 변화는 무엇인가요?', options: ['문이 축구 선수가 됐다', '친구들이 문과 노는 걸 좋아하게 됐다', '문이 숲에 살게 됐다', '문이 끈을 버렸다'], correctIndex: 1, explanation: '친구들이 문과 노는 걸 좋아하기 시작했어요.' },
+  ],
+  'moon-mc'
+);
+
+const moonOrdering: Content[] = withIdsAndOrder(
+  [
+    { type: 'ordering', question: '이야기의 큰 흐름을 순서대로 배열해 보세요.', items: ['문은 학교에서 늘 혼자 앉아 있다', '문은 혼자 숲길을 걷는다', '새가 문을 지렁이 더미로 착각해 공격한다', '고양이가 문을 실뭉치로 착각해 할퀸다', '여자아이가 냇물에 빠져 도움을 청한다', '문이 팔을 뻗어 여자아이를 구한다', '문과 여자아이가 천천히 뛰어 학교에 도착한다', '문이 폴짝 뛰어올라 매듭이 풀린다', '친구들이 문과 노는 걸 좋아하게 된다'], explanation: '혼자였던 문이 숲에서 사건을 겪고, 도움을 주며 관계가 바뀌는 흐름이에요.' },
+    { type: 'ordering', question: '숲에서 문이 만난 존재들을 순서대로 배열해 보세요.', items: ['새', '새끼 고양이', '냇물에 빠진 여자아이'], explanation: '문은 새를 만난 뒤 고양이를 만나고, затем 여자아이를 만나요.' },
+    { type: 'ordering', question: '새가 공격한 과정의 흐름을 순서대로 배열해 보세요.', items: ['새가 문 어깨에 내려앉는다', '“지렁이 더미다!”라고 말한다', '문에게 달려들어 매듭을 콕콕 쪼아댄다', '문이 “아야!” 하고 소리친다', '새가 “지렁이 더미가 아니잖아!”라고 말한다'], explanation: '새는 착각하고 공격한 뒤에야 아니란 걸 알아차려요.' },
+    { type: 'ordering', question: '고양이가 공격한 과정의 흐름을 순서대로 배열해 보세요.', items: ['문이 새끼 고양이를 만난다', '“실뭉치다!”라고 말한다', '달려들어 발톱으로 할퀴기 시작한다', '문이 “아야!” 하고 소리친다', '문이 “당연히 아니지!”라고 말하고 길을 간다'], explanation: '고양이도 착각하고 공격해요.' },
+    { type: 'ordering', question: '여자아이를 구하는 장면의 흐름을 순서대로 배열해 보세요.', items: ['비명 소리가 들린다', '여자아이가 냇물에 빠져 버둥댄다', '문이 나뭇가지에 올라간다', '팔을 아래로 쭉 뻗고 “이걸 잡아!”라고 외친다', '여자아이가 물가로 나온다', '여자아이가 고맙다고 말한다'], explanation: '문은 팔을 뻗어 도움을 주고, 여자아이는 고마워해요.' },
+    { type: 'ordering', question: '문이 웃음을 처음 듣게 되는 흐름을 순서대로 배열해 보세요.', items: ['문이 여자아이 뺨을 쓰다듬는다', '여자아이가 도망가지 않는다', '문이 꺄르르 웃음을 터뜨린다', '문이 자기 웃음소리를 난생처음 듣는다'], explanation: '도망가지 않은 반응이 문에게 기쁨을 줘요.' },
+    { type: 'ordering', question: '달리기 규칙과 결과를 순서대로 배열해 보세요.', items: ['문이 “늦게 도착하는 사람이 이긴다”고 말한다', '문과 여자아이가 천천히 뛴다', '학교에 도착한다', '문이 더 늦게 도착한다', '문이 여자아이를 이긴다'], explanation: '늦게 도착하는 사람이 이기는 규칙 때문에 문이 이겨요.' },
+    { type: 'ordering', question: '매듭이 풀리는 장면의 흐름을 순서대로 배열해 보세요.', items: ['문이 뿌듯한 마음이 든다', '문이 공중으로 폴짝 뛰어오른다', '매듭이 스스로 풀어진다', '친구들이 멍하니 바라본다'], explanation: '뿌듯함 → 폴짝 → 풀림 → 친구들 반응이에요.' },
+    { type: 'ordering', question: '그날 이후 변화의 흐름을 순서대로 배열해 보세요.', items: ['모든 것이 달라진다', '친구들이 문과 노는 걸 좋아하기 시작한다', '하하호호 웃을 때마다 문의 마음이 활짝 열린다', '매듭들이 예전처럼 빡빡하지 않다', '문에게 친구가 아주아주 많아진다'], explanation: '관계 변화가 문 마음과 몸(매듭)에도 영향을 줘요.' },
+    { type: 'ordering', question: '문이 학교에서 겪던 일들을 순서대로 배열해 보세요.', items: ['혼자 앉아 있다', '축구를 못 한다(끈이 엉킴)', '친구 뺨을 만져 성을 낸다', '나비 모양을 만든다', '친구들이 이해하지 못한다'], explanation: '학교에서의 어려움이 먼저 제시돼요.' },
+  ],
+  'moon-ord'
+);
+
+const moonFillBlank: Content[] = withIdsAndOrder(
+  [
+    { type: 'fill_blank', sentence: '문은 끈이 길게 늘어져서 항상 (  )하게 걸어요.', options: ['느릿느릿', '빠릿빠릿', '성큼성큼', '폴짝폴짝'], correctIndex: 0, explanation: '문은 항상 느릿느릿하게 걸어요.' },
+    { type: 'fill_blank', sentence: '문은 축구공에 끈이 자꾸 (  ) 버려서 축구를 할 수 없어요.', options: ['엉켜', '붙어', '끊어', '숨겨'], correctIndex: 0, explanation: '축구공에 끈이 자꾸 엉켜 버려서요.' },
+    { type: 'fill_blank', sentence: '문은 학교에서 늘 (  ) 앉아 있어요.', options: ['혼자', '둘이', '여럿이', '앞줄에'], correctIndex: 0, explanation: '문은 학교에서 늘 혼자 앉아 있어요.' },
+    { type: 'fill_blank', sentence: '문은 친구들의 (  )을/를 어루만지는 걸 좋아해요.', options: ['뺨', '머리카락', '손', '어깨'], correctIndex: 0, explanation: '문은 친구들의 뺨을 어루만지는 걸 좋아해요.' },
+    { type: 'fill_blank', sentence: '문은 손으로 (  ) 모양을 만들곤 해요.', options: ['나비', '별', '하트', '자동차'], correctIndex: 0, explanation: '문은 손으로 나비 모양을 만들곤 해요.' },
+    { type: 'fill_blank', sentence: '숲속에 아무도 없어서 문은 마음이 아주 (  )했어요.', options: ['편', '화', '무겁', '답답'], correctIndex: 0, explanation: '마음이 아주 편했다고 해요.' },
+    { type: 'fill_blank', sentence: '새는 문을 (  ) 더미로 착각했어요.', options: ['지렁이', '실뭉치', '나뭇가지', '공'], correctIndex: 0, explanation: '새는 “지렁이 더미”라고 해요.' },
+    { type: 'fill_blank', sentence: '고양이는 문을 (  )라고 착각했어요.', options: ['실뭉치', '지렁이', '나비', '돌'], correctIndex: 0, explanation: '고양이는 “실뭉치다!”라고 해요.' },
+    { type: 'fill_blank', sentence: '문은 냇물에 빠진 여자아이를 (  ) 주었어요.', options: ['구해', '밀어', '속여', '피해'], correctIndex: 0, explanation: '문이 여자아이를 구해 줘요.' },
+    { type: 'fill_blank', sentence: '문은 “늦게 도착하는 사람이 (  ) 거다!”라고 말했어요.', options: ['이기는', '지는', '혼나는', '우는'], correctIndex: 0, explanation: '늦게 도착하는 사람이 이기는 규칙이에요.' },
+    { type: 'fill_blank', sentence: '문이 폴짝 뛰어오르자 매듭이 스스로 (  )어요.', options: ['풀어졌', '엉켰', '끊어졌', '사라졌'], correctIndex: 0, explanation: '매듭이 스스로 풀어졌다고 해요.' },
+    { type: 'fill_blank', sentence: '그날부터 친구들이 문과 노는 걸 (  )하기 시작했어요.', options: ['좋아', '싫어', '피해', '모른 척해'], correctIndex: 0, explanation: '친구들이 문과 노는 걸 좋아하기 시작했어요.' },
+  ],
+  'moon-fill'
+);
+
+// 5) 행동-반응 연결하기 — match_pairs 사용
+const moonActionReaction: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'match_pairs',
+      question: '문이 한 행동과 주변의 반응을 연결해 보세요.',
+      leftItems: ['친구들의 뺨을 만짐', '숲길을 혼자 걸음', '여자아이를 구해 줌', '꺄르르 웃음', '친구들과 놀기 시작함'],
+      rightItems: ['친구들이 질색함', '마음이 편해짐', '고마워함', '기쁨을 느낌', '관계가 달라짐'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '문이 한 행동과 반응을 연결하면 이야기의 핵심 변화가 보입니다.',
+    },
+    {
+      type: 'match_pairs',
+      question: '문이 만난 존재와 그 반응을 연결해 보세요.',
+      leftItems: ['새', '새끼 고양이', '여자아이', '친구들(처음)', '친구들(그날 이후)'],
+      rightItems: ['콕콕 쪼아댐', '발톱으로 할퀴기', '도망가지 않음', '뺨 만지면 화냄', '문과 노는 걸 좋아함'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '각 장면의 핵심 반응을 정확히 기억하는 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '문이 했던 말과 상대의 상황을 연결해 보세요.',
+      leftItems: ['“당연히 아니지!”', '“이걸 잡아!”', '“나하고 달리기할래?”', '“늦게 도착하는 사람이 이기는 거다!”', '“아야, 아야, 아야!”'],
+      rightItems: ['착각하고 공격받은 뒤', '냇물에 빠진 아이에게', '여자아이에게 제안', '달리기 규칙 설명', '쪼이거나 할퀴일 때'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '말이 어떤 상황에서 나왔는지 연결해요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '문이 학교에서 하던 행동과 친구들의 반응을 연결해 보세요.',
+      leftItems: ['혼자 앉아 있음', '축구를 못 함', '뺨을 만짐', '나비 모양을 만듦', '왜 그러는지 이해 못 함'],
+      rightItems: ['늘 혼자임', '공에 끈이 엉킴', '질색하며 화냄', '쉽게 할 수 있음', '도무지 이해 못 함'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '초반 학교 장면의 관계를 정리하는 매칭이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '문이 느낀 마음과 원인을 연결해 보세요.',
+      leftItems: ['마음이 편함', '아픔', '기쁨', '뿌듯함', '마음이 활짝 열림'],
+      rightItems: ['숲속에 아무도 없어서', '쪼이고 할퀴여서', '도망가지 않는 친구를 만나서', '달리기에서 이겨서', '친구들이 웃어 줘서'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '감정이 생긴 이유를 함께 잡아주는 연결 활동이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '사건과 결과를 연결해 보세요.',
+      leftItems: ['문이 여자아이를 구해 줌', '여자아이가 도망가지 않음', '문이 웃음소리를 처음 들음', '문이 폴짝 뛰어오름', '친구들이 문과 놀기 시작함'],
+      rightItems: ['고마워함', '문이 웃음을 터뜨림', '난생처음 경험', '매듭이 풀림', '매듭이 덜 빡빡해짐'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '이야기에서 “도움 → 관계 변화 → 몸의 변화”로 이어져요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '착각한 대상과 이유(특징)를 연결해 보세요.',
+      leftItems: ['새가 착각한 것', '고양이가 착각한 것', '친구들이 이해 못 한 행동', '문이 쉽게 하는 행동', '문이 못 하는 활동'],
+      rightItems: ['지렁이 더미', '실뭉치', '나비 만들기/까딱까딱', '긴 끈 덕분', '축구'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '문을 “겉모습으로만” 판단한 장면들을 묶어 봐요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '문이 한 행동과 그때의 주변 반응을 연결해 보세요. (확장)',
+      leftItems: ['문이 “당연히 아니지!”라고 말함', '새가 부리를 닦음', '문이 길을 계속 감', '교문에 들어섬', '친구들이 멍하니 바라봄'],
+      rightItems: ['착각을 부정함', '깜짝 놀람', '다시 걸어감', '딱 맞춰 종이 울림', '매듭이 풀리는 광경을 봄'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '세부 장면도 정확히 연결해 보는 확장 문제예요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '문과 여자아이의 행동을 연결해 보세요.',
+      leftItems: ['문', '여자아이', '문', '여자아이', '문'],
+      rightItems: ['“이걸 잡아!”라고 외침', '“고마워”라고 말함', '달리기 규칙을 제안함', '도망가지 않음', '폴짝 뛰어오름'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '누가 어떤 행동을 했는지 구분하는 매칭이에요.',
+    },
+    {
+      type: 'match_pairs',
+      question: '변화 전/후를 연결해 보세요.',
+      leftItems: ['변화 전', '변화 후', '변화 전', '변화 후', '변화 후'],
+      rightItems: ['혼자 앉아 있음', '친구가 아주아주 많음', '친구들이 질색함', '친구들이 좋아함', '매듭이 덜 빡빡함'],
+      correctPairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4],
+      ],
+      explanation: '관계가 바뀌며 문도 달라진다는 결말을 정리해요.',
+    },
+  ],
+  'moon-match'
+);
+
+// 6) 변화 이유 선택형 — choice_with_result 사용
+const moonChangeReason: Content[] = withIdsAndOrder(
+  [
+    {
+      type: 'choice_with_result',
+      situation: '문이 학교에서 축구를 하지 못한 이유는 무엇인가요?',
+      options: ['축구를 싫어해서', '축구공에 끈이 엉켜서', '공이 없어서', '비가 와서'],
+      resultTexts: ['싫어해서가 아니라, 할 수 없는 이유가 있어요.', '축구공에 끈이 자꾸 엉켜 버려서 축구를 할 수 없어요.', '공이 없는 내용은 없어요.', '비 때문에 못 했다는 내용은 없어요.'],
+      correctIndex: 1,
+      explanation: '끈이 공에 엉켜 축구가 어려웠어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '친구들이 문이 뺨을 만지면 싫어한 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['문이 일부러 괴롭혀서', '친구들이 이해하지 못해서', '문이 더러워서', '문이 소리를 질러서'],
+      resultTexts: ['문이 일부러 괴롭힌다는 내용은 없어요.', '친구들은 문이 왜 그러는지 도무지 이해하지 못했다고 해요.', '더럽다는 내용은 없어요.', '뺨을 만지는 장면에서 소리를 질렀다는 내용은 없어요.'],
+      correctIndex: 1,
+      explanation: '이해하지 못해 거부감이 생겼어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '새가 문을 공격한 이유는 무엇인가요?',
+      options: ['문이 새를 쫓아내서', '문을 지렁이 더미로 착각해서', '문이 도망가서', '문이 축구를 해서'],
+      resultTexts: ['문이 새를 쫓아낸 내용은 없어요.', '새는 “지렁이 더미다!”라고 착각하고 콕콕 쪼아댔어요.', '문이 도망가서가 아니에요.', '축구 장면이 아니에요.'],
+      correctIndex: 1,
+      explanation: '겉모습을 보고 착각해 공격했어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '고양이가 문에게 달려든 이유는 무엇인가요?',
+      options: ['문을 실뭉치로 착각해서', '문이 고양이를 괴롭혀서', '문이 먹이를 줘서', '문이 노래해서'],
+      resultTexts: ['맞아요. 고양이는 “실뭉치다!”라고 착각해요.', '괴롭혔다는 내용은 없어요.', '먹이를 준 내용은 없어요.', '노래한 내용은 없어요.'],
+      correctIndex: 0,
+      explanation: '실뭉치로 착각해 가지고 놀려 했어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '여자아이가 문이 뺨을 쓰다듬어도 도망가지 않은 결과로 생긴 변화는 무엇인가요?',
+      options: ['문이 울었다', '문이 웃음을 터뜨렸다', '새가 돌아왔다', '축구를 하게 됐다'],
+      resultTexts: ['문이 울었다고 하진 않아요.', '문은 자기도 모르게 꺄르르 웃음을 터뜨렸어요.', '새가 돌아오는 내용은 없어요.', '바로 축구를 하게 됐다는 내용은 없어요.'],
+      correctIndex: 1,
+      explanation: '문이 기쁨을 느끼고 처음으로 웃음소리를 들어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '문이 달리기에서 이길 수 있었던 이유는 무엇인가요?',
+      options: ['빠르게 달려서', '늦게 도착하는 사람이 이기는 규칙이어서', '여자아이가 넘어져서', '선생님이 도와줘서'],
+      resultTexts: ['문은 빠르게 달린 게 아니에요.', '문이 “늦게 도착하는 사람이 이기는 거다!”라고 했어요.', '넘어졌다는 내용은 없어요.', '선생님이 도와준 장면은 없어요.'],
+      correctIndex: 1,
+      explanation: '규칙 때문에 문이 더 늦게 도착해 이겨요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '문이 폴짝 뛰어올랐을 때 매듭이 풀린 이유로 가장 알맞은 것은 무엇인가요?',
+      options: ['누군가가 직접 풀어 줘서', '문이 뿌듯한 마음이 들어서', '비가 내려서', '가위로 잘라서'],
+      resultTexts: ['직접 풀어 준 사람은 없어요.', '문이 뿌듯해서 폴짝 뛰어올랐더니 매듭이 스스로 풀어졌다고 해요.', '비 이야기는 없어요.', '잘랐다는 내용은 없어요.'],
+      correctIndex: 1,
+      explanation: '뿌듯함과 변화가 연결되는 상징적인 장면이에요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '그날부터 친구들이 문과 노는 걸 좋아하게 된 가장 큰 이유로 알맞은 것은 무엇인가요?',
+      options: ['문이 숙제를 잘해서', '문이 다른 사람을 도와서', '문이 축구를 잘해서', '문이 소리를 질러서'],
+      resultTexts: ['숙제 이야기는 없어요.', '문이 여자아이를 구해 준 사건이 관계 변화를 만들어요.', '축구를 잘한다는 내용은 없어요.', '소리를 질러서 좋아한 게 아니에요.'],
+      correctIndex: 1,
+      explanation: '도움과 만남이 관계를 바꿨어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '문이 숲속에서 마음이 아주 편했던 이유는 무엇인가요?',
+      options: ['아무도 없어서', '친구들이 많아서', '축구를 해서', '집이 가까워서'],
+      resultTexts: ['숲속에 아무도 없어서 마음이 편했다고 해요.', '친구들이 많아서가 아니라, 혼자라서 편했어요.', '축구 장면이 아니에요.', '집이 가까워서라는 내용은 없어요.'],
+      correctIndex: 0,
+      explanation: '조용한 숲에서 문은 편안함을 느꼈어요.',
+    },
+    {
+      type: 'choice_with_result',
+      situation: '마지막에 문에게 생긴 변화로 가장 알맞은 것은 무엇인가요?',
+      options: ['친구가 아주아주 많아졌다', '학교에 가지 않게 됐다', '끈이 완전히 사라졌다', '새와 고양이가 친구가 됐다'],
+      resultTexts: ['맞아요. 문에게는 친구가 아주아주 많아졌다고 해요.', '학교에 가지 않는다는 내용은 없어요.', '끈이 사라졌다고 하진 않아요. 매듭이 덜 빡빡해졌어요.', '새와 고양이가 친구가 된 내용은 없어요.'],
+      correctIndex: 0,
+      explanation: '관계가 달라지고 문에게 친구가 많아졌어요.',
+    },
+  ],
+  'moon-choice'
+);
+
+const MOON: Record<ContentTypeKey, Content[]> = {
+  ox_quiz: moonOx,
+  multiple_choice: moonMultiple,
+  ordering: moonOrdering,
+  fill_blank: moonFillBlank,
+  emotion_stair: [],
+  elimination_reasons: [],
+  categorize: [],
+  match_pairs: moonActionReaction,
+  match_pairs_sense: [],
+  match_pairs_cause_effect: [],
+  choice_with_result: moonChangeReason,
+  crisis_resolution: [],
+  together_outcome: [],
+  listening_three_step: [],
+};
+
 // ---------- 미라의 처음 학교 가는 날 (book-mira-first-school-day) ----------
 const miraFirstSchoolOx: Content[] = withIdsAndOrder(
   [
@@ -3201,6 +4853,10 @@ const PREDEFINED: Record<string, Record<ContentTypeKey, Content[]>> = {
   'book-willy': WILLY,
   'book-why-school': WHY_SCHOOL,
   'book-invitation-missing': INVITATION_MISSING,
+  'book-elliots-boots': ELLIOTS_BOOTS,
+  'book-spoon-family': SPOON_FAMILY,
+  'book-daddy-when': DADDY_WHEN,
+  'book-moon': MOON,
   'book-mira-first-school-day': MIRA_FIRST_SCHOOL_DAY,
 };
 /** explanation에 "정답인 이유:"와 "틀린 이유:"가 있으면 나누어 explanationCorrect, explanationWrong으로 설정 */
